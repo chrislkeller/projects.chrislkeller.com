@@ -1,0 +1,32 @@
+/*STRUCTURE*/
+#map-container {width: 940px; height: auto; padding: 5px;}
+#map-explainer {position: absolute; top:50px; left:18px; width:205px; background-color:#ffffff; padding:10px; font-family: Arial, sans-serif; font-size:12px; line-height: 16px; border: 2px solid #232020; line-height: 16px;}
+#map-action-bar {width: 100%; height: 35px; text-align: center;}
+
+/*STYLES*/
+#map-explainer h1 {font-size:24px; line-height: 28px; margin:0 0 10px 0;}
+#map-explainer h2 {font-size:20px; line-height: 24px; margin:0 0 5px 0;}
+#map-explainer h3 {font-size:16px; line-height: 20px; margin:0 0 5px 0;}
+#map-explainer #map-legend {float:left; line-height:20px; width:200px; margin: 10px 0;}
+#map-explainer #map-legend span {height:20px; width:20px; margin-right:10px; display:block; float:left; clear:left; opacity: .80;}
+#map-explainer .lowest {background-color: #361000;}
+#map-explainer .second-lowest {background-color: #C23900;}
+#map-explainer .median {background-color: #e8e8e8;}
+#map-explainer .second-highest {background-color: #41C204;}
+#map-explainer .highest {background-color: #123601;}
+#map-explainer p {clear:both; margin:5px 0 0 0;}
+#map-explainer #smalltype {font-size:10px; line-height:14px;}
+.small {font-size: 10px; line-height: 10px;}
+.submit-button {margin: 7px 0 7px 0;}
+
+/*INFO WINDOW STYLES*/
+table,th,tr,td {border-width: 1px; border-style: solid; border-color: gray; border-collapse: collapse; background-color: white;}
+table {font-size: 12px; width: 310px;}
+th {color: #fff; background-color: #aaa; padding: 5px 5px; border-top: 4px solid #555; font-weight: bold}
+th a {color: #fff;}
+td {padding: 3px; text-align: center;}
+
+/*BUTTONS*/
+.mapActionButton {background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) ); background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% ); filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf'); background-color:#ededed; -moz-border-radius:2px; -webkit-border-radius:2px; border-radius:2px; border:1px solid #232020; display:inline-block; color:#000000; font-family:arial; font-size:10px; font-weight:bold; padding:6px 24px; text-decoration:none;}
+.mapActionButton:hover {background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) ); background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% ); filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed'); background-color:#dfdfdf;}
+.mapActionButton:active {position:relative; top:1px;}
