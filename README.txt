@@ -1,5 +1,11 @@
 This map of Knight Mozilla News Lab participants uses Fusion Tables as a backend database and the Google Maps js API.
 
-I added loco (geo-location) scripts for the browser and smart phone, as well as ios meta declarations so that this could become a web app without much work at all. It got too late in the night for me to figure out how the map might fit into things... Now that I think of it, might be slick to just have a random mojonewslab profile pop up?
+It is an iteration from a couple maps out there, adding the ability to search across a participants interests if they have added any to their profiles.
+
+Then my appetite got the best of me for a bit before I pushed away from the table. 
+
+So you will find js functions -- mimicked and crude as they may be -- for detecting whether the browser is a smartphone, the W3C loco (geolocation) API, and meta tags for an ios startup screen, home screen icon and full-screen mobile web app.    
+
+Have fun creating, and any feedback on how to do things more efficiently in js is always welcome. And one day, I will learn jQuery. 
 
 Chris K.
