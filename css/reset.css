@@ -1,0 +1,52 @@
+body
+{margin: 0; padding: 0 20px; font: 14px "Trebuchet MS", verdana, arial, sans-serif; background: #e8e8e8;}
+
+div, ul, li
+{zoom: 1;}
+
+ul ul, ul ul li
+{zoom: 0;}
+
+#wrapper
+{width: 960px; margin: 60px auto 0 auto; background: #000000; color: #ffffff; -moz-border-radius: 25px; border-radius: 25px; -webkit-border-radius: 25px;}
+
+#timeline
+{width: 960px; height: auto; margin-top: 10px; padding: 20px; overflow: hidden;}
+
+.tl-events
+{width: 960px; list-style: none; padding: 0; margin: 0;}
+
+.tl-events li
+{float: left; width: 300px; margin-right: 10px;}
+
+.tl-events ul
+{list-style: none; margin: 0; padding: 0;}
+
+.tl-events ul li a
+{height: auto; text-decoration: none; color: #000000; display: block; margin: 5px 2px; padding: 2px;}
+
+.tl-events ul li a:hover, .tl-events ul li a:focus
+{}
+
+.doodle
+{display: none;}
+
+.welcome h1 a
+{color: #ffffff; font-size: 30; margin: 8px 0; text-decoration: none;}
+
+.welcome h1 a:hover
+{text-decoration: underline;}
+
+.welcome p a
+{color: #99cc66; text-decoration: none;}
+
+.welcome p a:hover
+{text-decoration:underline;}
+
+
+
+h2
+{font-size: 24; margin: 8px 0;}
+
+.cell p
+{font-size: 16px;}
