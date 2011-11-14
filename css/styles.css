@@ -1,55 +1,48 @@
+body {font-family: "Trebuchet MS", sans-serif}
+
 /*STRUCTURE*/
-body {font-family: Arial, sans-serif;}
-
-#map-container {width: 940px; height: auto; padding: 5px;}
-
-#map-action-bar {font-family: Arial, sans-serif; width: 100%; height: 55px; text-align: center; background: black; color: #ccc; padding: 10px 0 10px 0;}
-
-#map-explainer {position: absolute; top:105px; left:18px; width:205px; background-color:#ffffff; padding:10px; font-family: Arial, sans-serif; font-size:12px; line-height: 16px; border: 2px solid #232020; line-height: 16px;}
-
-#map_canvas {width:940px; height:700px;}
-
-/*FORM*/
-#map-action-bar .required
-{display:inline; width: 550px; height: auto; font-size: 18px; line-height: 22px; margin:5px 45px 0 5px; padding:5px; background: #ffffff; border: 5px solid #ffffff; border-radius: 5px; -moz-border-radius: 2px; -webkit-border-radius: 5px;}
-
-#map-action-bar .form-submit-button
-{width: 100px; height: auto; display: inline; font-size: 18px; text-align: center; padding: 5px 10px 5px 10px; cursor: pointer; border:1px solid #000000; background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) ); background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% ); filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
-background-color:#ededed; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;}
-
-#map-action-bar .form-submit-button:hover
-{background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) ); background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% ); filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed'); background-color:#dfdfdf;}
-
-#map-action-bar .form-submit-button:active {position:relative; top:1px;}
+#map-container {width: 940px; height: 700px; padding: 5px; }
+#map-action-bar {width: 100%; height: auto; text-align: center;}
+#map_canvas {display: block; width: 600px; height:500px; float: left;}
+#map-explainer {display: block; width: 300px; height: auto; float: right; padding: 10px; background: #ccc;}
 
 /*STYLES*/
 #facebook-like {margin: 10px auto 10px auto;}
+#map-explainer h1 {font-size:26px; line-height: 28px; margin:0 0 10px 0;}
+#map-explainer h2 {font-size:22px; line-height: 24px; margin:0 0 5px 0;}
+#map-container h3 {font-size:18px; line-height: 20px; margin:0 0 5px 0; text-align: center;}
+#map-explainer .body {font-size:14px; line-height: 18px; text-indent:10px; clear:both; margin:0px 0 0 0; padding-bottom: 5px;}
+.small {font-size: 10px; line-height: 14px; clear:both; margin:0 0 0 0; padding-bottom: 5px;}
+.small a {text-decoration: none;}
 
-#map-explainer h1 {font-size:24px; line-height: 28px; margin:0 0 10px 0;}
+/*STRUCTURE*/
+#map-container {width: 940px; height: 700px; margin: 0 auto 0 auto; padding: 5px;}
+#map-action-bar {width: 100%; height: auto; text-align: center;}
+#map_canvas {display: block; width: 600px; height:650px; float: left;}
+#map-explainer {display: block; width: 320px; height: auto; float: right; background-color:#ffffff; padding: 10px;}
 
-#map-explainer h2 {font-size:20px; line-height: 24px; margin:0 0 5px 0;}
+/*STYLES*/
+#facebook-like {margin: 10px auto 10px auto;}
+#map-explainer h1 {font-size:26px; line-height: 28px; margin:0 0 10px 0;}
+#map-explainer h2 {font-size:22px; line-height: 24px; margin:0 0 5px 0;}
+#map-container h3 {font-size:18px; line-height: 20px; margin:0 0 5px 0; text-align: center;}
+#map-explainer .body {font-size:14px; line-height: 18px; text-indent:10px; clear:both; margin:0px 0 0 0; padding-bottom: 5px;}
+#map-explainer .table {font-size:14px; line-height: 18px; text-align: center; clear:both; margin:5px 0 15px 0; padding-bottom: 5px;}
+#map-explainer .small {font-size: 10px; line-height: 14px; clear:both; margin:0px 0 0 0; padding-bottom: 5px;}
+#map-explainer .small a {text-decoration: none;}
 
-#map-explainer h3 {font-size:16px; line-height: 20px; margin:0 0 5px 0;}
+table {width: 300px;}
+table,th,tr,td {border-width: 0px; border-style: solid; border-color: gray; border-collapse: collapse; background-color: white;}
+table img {border-width: 1px; border-style: solid;}
+th {color: #fff; background-color: #aaa; padding: 5px 5px; border-top: 4px solid #555; font-weight: bold}
+th a {color: #fff;}
+td {text-align: center;}
 
-#map-explainer #map-legend {float:left; line-height:20px; width:200px; margin: 10px 0;}
+/*FORM*/
+#map-explainer .pg-input {display:block; width:100%; height: 30px; background-color:#f8f8f9; border:1px solid #e6e6e6; font-size:14px; font-weight:normal; color:#333; margin:5px 0 15px 0; padding:2px; border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px;}
 
-#map-explainer #map-legend span {height:20px; width:20px; margin-right:10px; display:block; float:left; clear:left; opacity: .80;}
+#map-explainer .pg-input:focus {background-color:#fff;border:1px solid #cdcfd0;}
 
-#map-explainer p {text-indent:10px; font-size: 14px;}
+#map-explainer #searchsubmit {display:block; width:288px; height: 30px; background-color:#333; border:0; font-size:14px; text-align:center; color:#efefef; margin: 0 auto 10px auto; border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px; cursor: pointer;}
 
-#map-explainer p.small {font-size: 10px; line-height: 12px;}
-
-.bolder {font-weight: 700;}
-
-/*INFO WINDOW STYLES*/
-#city-council table {font-size: 12px; font-weight: bold; width: 150px; margin-bottom: 5px; border: 0px solid #fff; text-align: center;}
-
-#city-council table tr {color: #000000; background-color: #ffffff; padding: 0 0 0 0; font-weight: bold; border: 0px solid #fff;}
-
-#city-council table th {color: #000000; background-color: #ccc; padding: 5px 0 5px 0; font-weight: bold; font-size: 16px; border: 0px solid #fff; text-align: center;}
-
-#city-council table td {color: #000000; background-color: #ffffff; padding: 5px 0 5px 0; font-weight: normal; font-size: 14px; border: 0px solid #fff; text-align: center;}
-
-#city-council table td a {text-decoration: none;}
-
-#city-council table td a:hover {text-decoration: underline;}
+#map-explainer #searchsubmit:hover {background-color:#7c1920; color:#efefef;}
