@@ -1,21 +1,19 @@
 /*STRUCTURE*/
 #map-container {width: 600px; height: auto; padding: 5px; background: #ffffff; margin: 0 auto 0 auto;}
+
 #map-action-bar {display: block; width: 100%; height: auto; background:#ffffff; text-align: center; margin: 25px auto 0 auto;}
+
 #map_canvas {display: block; width: 600px; height: 350px; margin: 0 auto 0 auto;}
+
 #map-explainer {margin: 25px 0 15px 0;}
 
 #ft-ouput {display: block; float: left; width: 295px; height:300px; margin: 10px auto 0 auto;}
+
 #hc-ouput {display: block; float: right; width: 295px; height:300px; margin: 10px auto 0 auto;}
 
 /*STYLES*/
-#map-explainer h1 {font-size:26px; line-height: 28px; margin:0 0 10px 0; text-align: center;}
-#map-explainer h2 {font-size:22px; line-height: 24px; margin:0 0 5px 0; text-align: center;}
-#map-explainer h3 {font-size:18px; line-height: 20px; margin:0 0 5px 0; text-align: center;}
-#map-explainer .body {font-size:14px; line-height: 18px; text-indent:10px; clear:both; margin:0px 0 0 0; padding-bottom: 5px;}
-#map-explainer .small {font-size: 10px; line-height: 14px; text-indent: 5px; clear:both; margin:0px 0 0 0; padding-bottom: 5px;}
-#map-explainer .small a {text-decoration: none;}
-
-.bolder {font-weight: 700;}
+.small {font-size: 10px; line-height: 14px; clear: both;}
+.small a {text-decoration: none;}
 
 /*LEGEND*/
 #map-action-bar .gop-highest  {background-color:#123601;}
