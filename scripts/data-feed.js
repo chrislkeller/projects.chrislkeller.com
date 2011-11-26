@@ -124,21 +124,6 @@ $(document).ready(function(){
 	
 	//click listener
 	google.maps.event.addListener(layer, 'click', function(q) {
-
-			//assign data to chart variables
-			var ward = q.row['Ward_name'].value
-			var votesSoglin = q.row['Votes_Paul_Soglin'].value
-			var votesCieslewicz = q.row['Votes_Dave_Cieslewicz'].value
-			var votesTotal = q.row['Total_ward_votes'].value
-
-			//write chart series
-			var series = {
-				data: [
-					['Ward ' + ward, votesTotal],	
-					['Ward ' + ward, votesSoglin],
-					['Ward ' + ward, votesCieslewicz],
-				]
-			};
 	
 		//write data into divs
 		$('#map-explainer').hide();
@@ -161,6 +146,21 @@ $(document).ready(function(){
 		'</tr>' +
 		'</tbody>' +
 		'</table>');
+		
+			//assign data to chart variables
+			var ward = q.row['Ward_name'].value
+			var votesSoglin = q.row['Votes_Paul_Soglin'].value
+			var votesCieslewicz = q.row['Votes_Dave_Cieslewicz'].value
+			var votesTotal = q.row['Total_ward_votes'].value
+
+			//write chart series
+			var series = {
+				data: [
+					['Ward ' + ward, votesTotal],	
+					['Ward ' + ward, votesSoglin],
+					['Ward ' + ward, votesCieslewicz],
+				]
+			};
 
 			//push the chart series to the chart options
 			optionsChart.series.push(series);
