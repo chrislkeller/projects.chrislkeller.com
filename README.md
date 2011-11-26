@@ -1,4 +1,4 @@
-In a riff off of my [2011 Madison Mayoral Voting map](https://github.com/chrislkeller/2011-Madison-Mayoral-Voting), I combined the use of [Google Fusion Tables](http://www.google.com/fusiontables/) as a data backend to display data on map that uses the [Google Maps javascript AP](http://code.google.com/apis/maps/documentation/javascript/)I with a column chart that uses the [Highcharts.js](http://www.highcharts.com/) library.
+In a riff off of my [2011 Madison Mayoral Voting map](https://github.com/chrislkeller/2011-Madison-Mayoral-Voting), I used [Google Fusion Tables](http://www.google.com/fusiontables/) as a data backend to display information on map that uses the [Google Maps javascript AP](http://code.google.com/apis/maps/documentation/javascript/)I with a column chart that uses the [Highcharts.js](http://www.highcharts.com/) library.
 
 A demo is [here](http://www.projects.chrislkeller.com/ft-highcharts/).
 
