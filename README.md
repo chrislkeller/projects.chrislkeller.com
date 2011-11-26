@@ -6,4 +6,6 @@ In a riff off of my [2011 Madison Mayoral Voting map](https://github.com/chrislk
 <a href="https://www.google.com/fusiontables/DataSource?docid=1nsgSp3jNmPIdcy602joFVQMTtuZHfHIeDvaHnQ&hl=en_US">Download the data</a>.<br />
 Vote tally courtesy of the <a href="http://www.countyofdane.com/clerk/elect2011b.html#race14">Dane County Clerk</a>.</p>
 
+Issue I'm working on: Currently, with each click event, a new column is written to the chart. I am learning how to reset the data series with each click. If you have ideas -- or how my code can be cleaner of more efficient, please let me know.
+
 Chris K.
