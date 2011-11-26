@@ -1,0 +1,30 @@
+/*STRUCTURE*/
+#map-container {width: 600px; height: auto; padding: 5px; background: #ffffff; margin: 0 auto 0 auto;}
+#map-action-bar {display: block; width: 100%; height: auto; background:#ffffff; text-align: center; margin: 25px auto 0 auto;}
+#map_canvas {display: block; width: 600px; height: 350px; margin: 0 auto 0 auto;}
+#map-explainer {margin: 25px 0 15px 0;}
+
+#ft-ouput {display: block; float: left; width: 295px; height:300px; margin: 10px auto 0 auto;}
+#hc-ouput {display: block; float: right; width: 295px; height:300px; margin: 10px auto 0 auto;}
+
+/*STYLES*/
+#map-explainer h1 {font-size:26px; line-height: 28px; margin:0 0 10px 0; text-align: center;}
+#map-explainer h2 {font-size:22px; line-height: 24px; margin:0 0 5px 0; text-align: center;}
+#map-explainer h3 {font-size:18px; line-height: 20px; margin:0 0 5px 0; text-align: center;}
+#map-explainer .body {font-size:14px; line-height: 18px; text-indent:10px; clear:both; margin:0px 0 0 0; padding-bottom: 5px;}
+#map-explainer .small {font-size: 10px; line-height: 14px; text-indent: 5px; clear:both; margin:0px 0 0 0; padding-bottom: 5px;}
+#map-explainer .small a {text-decoration: none;}
+
+.bolder {font-weight: 700;}
+
+/*LEGEND*/
+#map-action-bar .gop-highest  {background-color:#123601;}
+#map-action-bar .gop-second-highest {background-color: #41C204;}
+#map-action-bar .gop-median {background-color: #E8E8E8;}
+#map-action-bar .gop-second-lowest {background-color: #C23900;}
+#map-action-bar .gop-lowest {background-color: #361000;}
+
+table {width: 290px;}
+table,th,tr,td {border-width: 0px; border-style: solid; border-color: gray; border-collapse: collapse; background-color: white;}
+th {color: #fff; background-color: #aaa; padding: 5px 5px; border-top: 4px solid #555; font-weight: bold}
+td {text-align: center;}

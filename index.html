@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<!-- BEGIN HEAD -->
+<head>
+
+<!-- BEGIN META -->
+<!-- END META -->
+
+<!-- BEGIN CSS -->
+<link rel="stylesheet" type="text/css" href="css/styles.css" media="screen" />
+<!-- END CSS -->
+
+<!-- BEGIN SCRIPTS -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://host.madison.com/app/interactive/highcharts/js/highcharts.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&amp;region=US"></script>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript" src="scripts/data-feed.js"></script>
+
+<!-- END SCRIPTS -->
+
+</head>
+<!-- END HEADER -->
+
+<!-- BEGIN BODY -->
+<body>
+
+<!-- BEGIN MAP CONTAINER -->
+<div id="map-container">
+
+<!-- BEGIN MAP -->
+<div id="map_canvas"></div>
+<!-- END MAP -->
+
+<!-- BEGIN ACTION BAR -->
+<div id ="map-action-bar">
+
+<!-- THANKS JOHN KEEFE FOR THE LEGEND(ARY) INSPIRATION -->
+<table border="0" cellspacing="0" cellpadding="1" style="width:100%;">
+<tbody>
+<tr>
+<td style="width: 20%; height: 15px; font-size: 14px;" class="gop-lowest"></td>
+<td style="width: 20%; height: 15px; font-size: 14px;" class="gop-second-lowest"></td>
+<td style="width: 20%; height: 15px; font-size: 14px;" class="gop-median"></td>
+<td style="width: 20%; height: 15px; font-size: 14px;" class="gop-second-highest"></td>
+<td style="width: 20%; height: 15px; font-size: 14px;" class="gop-highest"></td>
+</tr>
+
+<tr>
+<td style="width: 20%; font-size: 14px;"><strong>Strong Cieslewicz</strong></td>
+<td style="width: 20%; font-size: 14px;"><strong>Close Cieslewicz</strong></td>
+<td style="width: 20%; font-size: 14px;"><strong>Even margin</strong></td>
+<td style="width: 20%; font-size: 14px;"><strong>Close Soglin</strong></td>
+<td style="width: 20%; font-size: 14px;"><strong>Strong Soglin</strong></td>
+</tr>
+</tbody>
+</table>		
+<!-- END TABLE -->
+
+</div>
+<!-- END ACTION BAR -->
+
+<!-- BEGIN MAP -->
+<div id="map-explainer">
+<h3>Javascript Maps &amp; Charts</h3>
+<p>On April 5, 2011, Madison voters choose former Mayor Paul Soglin over two-term incumbent Mayor Dave Cieslewicz, 9.77 percent to 48.97 percent. Click on the map to find voting totals for each Madison ward. About 1,133 write-in votes are not reflected on this map.</p>
+</div>
+<!-- END MAP -->
+
+<!-- BEGIN TABLE-->
+<div id="ft-ouput" style="width: 267px; height: 350px; margin: 0 auto">
+</div>
+<!-- END JSONP-->
+
+<!-- BEGIN CHART -->
+<div id="hc-ouput" style="width: 267px; height: 350px; margin: 0 auto">
+</div>
+<!-- END CHART -->
+
+</div>
+<!-- END MAP CONTAINER -->
+
+</body>
+<!-- END BODY -->
+
+</html>
+<!-- END DOCUMENT -->
