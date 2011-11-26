@@ -120,7 +120,7 @@ $(document).ready(function(){
 	
 	//fusion layer
 	layer = new google.maps.FusionTablesLayer(835224, {suppressInfoWindows: true});
-	layer.setMap(map);
+	layer.setMap(map);	
 	
 	//click listener
 	google.maps.event.addListener(layer, 'click', function(q) {
@@ -129,44 +129,49 @@ $(document).ready(function(){
 		$('#map-explainer').hide();
 
 		$("#ft-ouput").html( 
-		'<table>' +
-		'<h4>Ward ' + q.row['Ward_name'].value + ' (Aldermanic District ' + q.row['ald'].value + ')</h4>' +
-		'<tbody>' +
-		'<tr>' +
-		'<th>Candidate</th>' +
-		'<th>Percent</th>' +
-		'</tr>' +
-		'<tr>' +
-		'<td>Soglin</td>' +
-		'<td>' + q.row['Percent_Paul_Soglin'].value + '</td>' +
-		'</tr>' +
-		'<tr>' +
-		'<td>Cieslewicz</td>' +
-		'<td>' + q.row['Percent_Dave_Cieslewicz'].value + '</td>' +
-		'</tr>' +
-		'</tbody>' +
-		'</table>');
-		
-			//assign data to chart variables
-			var ward = q.row['Ward_name'].value
-			var votesSoglin = q.row['Votes_Paul_Soglin'].value
-			var votesCieslewicz = q.row['Votes_Dave_Cieslewicz'].value
-			var votesTotal = q.row['Total_ward_votes'].value
+			'<table>' +
+			'<h4>Ward ' + q.row['Ward_name'].value + ' (Aldermanic District ' + q.row['ald'].value + ')</h4>' +
+			'<tbody>' +
+			'<tr>' +
+			'<th>Candidate</th>' +
+			'<th>Percent</th>' +
+			'</tr>' +
+			'<tr>' +
+			'<td>Soglin</td>' +
+			'<td>' + q.row['Percent_Paul_Soglin'].value + '</td>' +
+			'</tr>' +
+			'<tr>' +
+			'<td>Cieslewicz</td>' +
+			'<td>' + q.row['Percent_Dave_Cieslewicz'].value + '</td>' +
+			'</tr>' +
+			'</tbody>' +
+			'</table>');
 
-			//write chart series
-			var series = {
-				data: [
-					['Ward ' + ward, votesTotal],	
-					['Ward ' + ward, votesSoglin],
-					['Ward ' + ward, votesCieslewicz],
-				]
-			};
-
-			//push the chart series to the chart options
-			optionsChart.series.push(series);
+				function updateChart(){
 	
-			//write the chart
-			var chart = new Highcharts.Chart(optionsChart);
+					//assign data to chart variables
+					var ward = q.row['Ward_name'].value
+					var votesSoglin = q.row['Votes_Paul_Soglin'].value
+					var votesCieslewicz = q.row['Votes_Dave_Cieslewicz'].value
+					var votesTotal = q.row['Total_ward_votes'].value
+
+					//write chart series
+					var series = {
+						data: [
+							['Ward ' + ward, votesTotal],	
+							['Ward ' + ward, votesSoglin],
+							['Ward ' + ward, votesCieslewicz],
+						]
+					};
+
+					//push the chart series to the chart options
+					optionsChart.series.push(series);
+	
+					//write the chart
+					var chart = new Highcharts.Chart(optionsChart);
+	 			}
+
+	updateChart();
 
 	});
 
