@@ -16,11 +16,11 @@
 .small a {text-decoration: none;}
 
 /*LEGEND*/
-#map-action-bar .gop-highest  {background-color:#123601;}
-#map-action-bar .gop-second-highest {background-color: #41C204;}
-#map-action-bar .gop-median {background-color: #E8E8E8;}
-#map-action-bar .gop-second-lowest {background-color: #C23900;}
-#map-action-bar .gop-lowest {background-color: #361000;}
+#map-action-bar .highest  {background-color:#123601;}
+#map-action-bar .second-highest {background-color: #41C204;}
+#map-action-bar .median {background-color: #E8E8E8;}
+#map-action-bar .second-lowest {background-color: #C23900;}
+#map-action-bar .lowest {background-color: #361000;}
 
 table {width: 290px;}
 table,th,tr,td {border-width: 0px; border-style: solid; border-color: gray; border-collapse: collapse; background-color: white;}
