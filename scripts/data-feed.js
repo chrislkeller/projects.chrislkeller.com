@@ -8,12 +8,13 @@ var ward;
 var votesSoglin;
 var votesCieslewicz;
 var votesTotal;
+var optionsChart;
 
 //begin function
 $(document).ready(function(){
 
 	//chart options
-	var optionsChart = {
+	optionsChart = {
 
 		chart: {
 			renderTo: 'hc-ouput',
@@ -147,32 +148,35 @@ $(document).ready(function(){
 			'</tbody>' +
 			'</table>');
 
-				function updateChart(){
-	
-					//assign data to chart variables
-					var ward = q.row['Ward_name'].value
-					var votesSoglin = q.row['Votes_Paul_Soglin'].value
-					var votesCieslewicz = q.row['Votes_Dave_Cieslewicz'].value
-					var votesTotal = q.row['Total_ward_votes'].value
-
-					//write chart series
-					var series = {
-						data: [
-							['Ward ' + ward, votesTotal],	
-							['Ward ' + ward, votesSoglin],
-							['Ward ' + ward, votesCieslewicz],
-						]
-					};
-
-					//push the chart series to the chart options
-					optionsChart.series.push(series);
-	
-					//write the chart
-					var chart = new Highcharts.Chart(optionsChart);
-	 			}
-
-	updateChart();
+	updateChart(q);
 
 	});
 
 });
+
+function updateChart(q){
+    
+    //assign data to chart variables
+	var ward = q.row['Ward_name'].value
+	var votesSoglin = q.row['Votes_Paul_Soglin'].value
+	var votesCieslewicz = q.row['Votes_Dave_Cieslewicz'].value
+	var votesTotal = q.row['Total_ward_votes'].value
+
+	//write chart series
+	var series = {
+		data: [
+			['Ward ' + ward, votesTotal],	
+			['Ward ' + ward, votesSoglin],
+			['Ward ' + ward, votesCieslewicz],
+		]
+	};
+	
+	// Pop the old data out of the chart
+	optionsChart.series.pop();
+
+	//push the chart series to the chart options
+	optionsChart.series.push(series);
+	
+	//write the chart
+	var chart = new Highcharts.Chart(optionsChart);
+}
