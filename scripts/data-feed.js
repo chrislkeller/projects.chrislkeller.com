@@ -2,13 +2,13 @@
 var chart;
 var map;
 var series;
+var optionsChart;
 var minChart = 0;
 var maxChart = 2100;
 var ward;
 var votesSoglin;
 var votesCieslewicz;
 var votesTotal;
-var optionsChart;
 
 //begin function
 $(document).ready(function(){
@@ -148,12 +148,15 @@ $(document).ready(function(){
 			'</tbody>' +
 			'</table>');
 
-	updateChart(q);
+		//writes chart
+		updateChart(q);
 
 	});
 
 });
 
+
+//writes chart
 function updateChart(q){
     
     //assign data to chart variables
