@@ -95,7 +95,9 @@ $(document).ready(function(){
 			}
 		},
 
-		series: []
+		series: [{
+		  data: []
+		}]
 
 	};
 
@@ -166,20 +168,16 @@ function updateChart(q){
 	var votesTotal = q.row['Total_ward_votes'].value
 
 	//write chart series
-	var series = {
-		data: [
-			['Ward ' + ward, votesTotal],	
-			['Ward ' + ward, votesSoglin],
-			['Ward ' + ward, votesCieslewicz],
-		]
-	};
+	var data = [
+		['Ward ' + ward, votesTotal],	
+		['Ward ' + ward, votesSoglin],
+		['Ward ' + ward, votesCieslewicz],
+	];
 	
-	// Pop the old data out of the chart
-	optionsChart.series.pop();
-
-	//push the chart series to the chart options
-	optionsChart.series.push(series);
+	// Create the chart if it doesn't exist
+	if(!chart)
+	  chart = new Highcharts.Chart(optionsChart);
 	
-	//write the chart
-	var chart = new Highcharts.Chart(optionsChart);
+	// Set new data to the chart
+	chart.series[0].setData(data)
 }
