@@ -27,7 +27,7 @@ $(document).ready(function(){
 
 	//map tips
 	layer.enableMapTips({
-                select: "'County_Name', 'Dem Name', 'Gop Name', 'Victory Margin'", // list of columns to query, typially need only one column.
+                select: "'County_Name', 'Dem Name', 'Gop Name', 'Victory Margin', 'Dem County Votes', 'Gop County Votes'", // list of columns to query, typially need only one column.
                 from: tableid, // fusion table name
                 geometryColumn: 'geometry', // geometry column name
                 suppressMapTips: true, // optional, whether to show map tips. default false
@@ -40,8 +40,8 @@ $(document).ready(function(){
     var row = fEvent.row;
     $('#info').html(
       '<h3>' + row['County_Name'].value + '</h3>' +
-      '<p>' + row['Dem Name'].value + '</p>' +
-      '<p>' + row['Gop Name'].value + '</p>');
+      '<p>Votes for ' + row['Dem Name'].value + ': ' + row['Dem County Votes'].value + '</p>' +
+      '<p> Votes for' + row['Gop Name'].value + ': ' + row['Gop County Votes'].value + '</p>');
 	});
 
 	//mouseout
