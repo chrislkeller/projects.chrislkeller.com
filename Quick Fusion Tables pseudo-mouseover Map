@@ -1,0 +1,63 @@
+<style>
+#map_canvas { width: 600px; height: 600px; }
+</style>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+
+<!-- INCLUDE THIS SCRIPT REFERENCE FOR MOUSEOVER -->
+<script type="text/javascript" src="http://gmaps-utility-gis.googlecode.com/svn/trunk/fusiontips/src/fusiontips_compiled.js"></script>
+
+<script type="text/javascript">
+var map;
+var layer;
+var tableid = 2287502;
+
+$(document).ready(function(){
+	map = new google.maps.Map(document.getElementById('map_canvas'), {
+		center: new google.maps.LatLng(44.81691551782855, -89.912109375),
+		zoom: 7,
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+	});
+
+	layer = new google.maps.FusionTablesLayer(tableid, {suppressInfoWindows: true});
+	layer.setQuery("SELECT 'geometry' FROM " + tableid);
+	layer.setMap(map);
+
+	//map tips
+	layer.enableMapTips({
+                select: "'County_Name', 'Dem Name', 'Gop Name', 'Victory Margin'", // list of columns to query, typially need only one column.
+                from: tableid, // fusion table name
+                geometryColumn: 'geometry', // geometry column name
+                suppressMapTips: true, // optional, whether to show map tips. default false
+                delay: 100, // milliseconds mouse pause before send a server query. default 300.
+                tolerance: 8 // tolerance in pixel around mouse. default is 6.
+              });
+
+	//here's the pseudo-hover
+	google.maps.event.addListener(layer, 'mouseover', function(fEvent) {
+		var row = fEvent.row;
+		myHtml = '<h2>Mouseover</h2>';
+				for (var x in row) {
+					if (row.hasOwnProperty(x)) {
+						myHtml += '<strong>' + x + "</strong>:" + row[x].value + "<br/>";
+					}
+				}
+
+		//writes output
+		$("#info").html(myHtml);
+		
+	});
+
+	//mouseout
+	google.maps.event.addListener(layer, 'mouseout', function(fevt) {
+		$("#info").html('<h2>Mouseout</h2>');
+	});
+
+});
+</script>
+
+<div id="map_canvas"></div>
+
+<div id="info"><h2>Content</h2></div>
