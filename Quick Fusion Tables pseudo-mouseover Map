@@ -37,17 +37,11 @@ $(document).ready(function(){
 
 	//here's the pseudo-hover
 	google.maps.event.addListener(layer, 'mouseover', function(fEvent) {
-		var row = fEvent.row;
-		myHtml = '<h2>Mouseover</h2>';
-				for (var x in row) {
-					if (row.hasOwnProperty(x)) {
-						myHtml += '<strong>' + x + "</strong>:" + row[x].value + "<br/>";
-					}
-				}
-
-		//writes output
-		$("#info").html(myHtml);
-		
+    var row = fEvent.row;
+    $('#info').html(
+      '<h3>' + row['County_Name'].value + '</h3>' +
+      '<p>' + row['Dem Name'].value + '</p>' +
+      '<p>' + row['Gop Name'].value + '</p>');
 	});
 
 	//mouseout
