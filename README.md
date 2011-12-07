@@ -11,3 +11,7 @@ If you have ideas -- or how my code can be cleaner of more efficient, please let
 Chris K.
 
 <p style="font-size: 10px;">Map concept by <a href="https://twitter.com/#!/ChrisLKeller" target="blank">Chris Keller</a> with assistance over many months from <a href="https://twitter.com/#!/kevinschaul" target="_blank">Kevin Schaul</a>, <a href="http://twitter.com/#!/jondavenport1" target="blank">Jon Davenport</a>, <a href="http://twitter.com/jfkeefe" target="blank">John Keefe</a>, <a href="http://twitter.com/#!/brianboyer" target="blank">Brian Boyer</a> &amp; <a href="http://twitter.com/#!/onyxfish" target="blank">Christopher Groskopf</a>.</p>
+
+<hr />
+
+License: The MIT License
