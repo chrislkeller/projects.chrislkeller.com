@@ -1,5 +1,6 @@
 //global variables
 var chart;
+var chartType = 'column';
 var optionsChart;
 var minChart = 0;
 var maxChart = 90000;
@@ -7,6 +8,7 @@ var votesTotal;
 var candidateSoglin;
 var candidateCieslewicz;
 var dataSource = 2409321;
+
 
 //begin function
 $(document).ready(function(){
@@ -16,7 +18,7 @@ $(document).ready(function(){
 
 		chart: {
 			renderTo: 'hc-ouput',
-			defaultSeriesType: 'column',
+			defaultSeriesType: chartType,
 			marginBottom: 35,
 		},
 
@@ -113,10 +115,16 @@ $(document).ready(function(){
 			// Create the chart if it doesn't exist
 			if(!chart)
 				chart = new Highcharts.Chart(optionsChart);
-	
+		
 			// Set new data to the chart
-			chart.series[0].setData(data)
+			chart.series[0].setData(data, chartType)
 
 		});
+
+	//working on change chart type via select menu
+	/*$('#chartType').change(function() {
+		var chartType = $('#chartType').val();
+		alert(chartType);
+	});*/
 
 });
