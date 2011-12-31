@@ -2,7 +2,7 @@ import itertools
 import requests
 import lxml
 from lxml import html
-from django.utils.encoding import smart_str, smart_unicode
+#from django.utils.encoding import smart_str, smart_unicode
 
 #opens text file for output, names it output
 #file = open('output.txt', 'w')
