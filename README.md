@@ -2,7 +2,7 @@
 
 I'm happy to say not only is it possible, but it came together rather quickly, especially [thanks to a previous walkthrough](http://johnkeefe.net/making-ap-election-data-easy-with-fusion-tabl) from [John Keefe](http://twitter.com/jkeefe).
 
-Now, no doubt are there are more efficient ways to make this map happen, and even avoid Python all together. But at this stage of my abilities -- pretty solid on basic Google Maps and Fusion Tables javascript API, and beginner Python -- I'm a bit of a "I wonder if I can pull this off guy," and I think this works well. It can definately be within the wheelhouse of "intermediate to advanced beginners" and help you level up.
+Now, no doubt are there are more efficient ways to make this map happen, and even avoid Python all together. But at this stage of my abilities -- pretty solid on basic Google Maps and Fusion Tables javascript API, and beginner Python -- I'm a bit of a "I wonder if I can pull this off guy," and I think this works well. It can definitely be within the wheelhouse of "intermediate to advanced beginners" and help you level up.
 
 ###What We'll Do
 
@@ -50,7 +50,7 @@ If you grabbed the GitHub repo I created, you'll find that the sunlight-ft-pytho
 - **data_search.py:** This searches Sunlight's Open States api and write the data to legi.csv
 - **data_import.py:** This uses authentication to sync the data in legi.csv file to the Fusion Table you created.
 
-In the first part of data_search.py, we're importing the sunlight library and Python's csv writer. We're then setting our search varibles -- wisconsin and upper chamber in this case -- but we could have easily just adding them in the next section. I pulled them out just to make them more obvious. 
+In the first part of data_search.py, we're importing the sunlight library and Python's csv writer. We're then setting our search variables -- wisconsin and upper chamber in this case -- but we could have easily just adding them in the next section. I pulled them out just to make them more obvious. 
 
 	#import libraries
 	import sunlight
@@ -139,7 +139,7 @@ Once that's adjusted, head back to the command line and you will use the followi
 
 	python data_import.py [google account username] [csv file] [fusion table id]
 
-If all goes well, you will be asked for your Google account password and you will see each column being written. The script is set to update the table every two minutes, and since we don't really need that, you can press CTL + C is everthing is successful. You'll know because your Fusion Table will be populated with brand new data.
+If all goes well, you will be asked for your Google account password and you will see each column being written. The script is set to update the table every two minutes, and since we don't really need that, you can press CTL + C once everything is successful. You'll know because your Fusion Table will be populated with brand new data.
 
 ###Step 4 (Merging with your shapefile and making your map)
 
