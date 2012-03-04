@@ -1,6 +1,6 @@
 [Nearly three weeks ago I talked about](http://www.chrislkeller.com/how-a-beginner-used-python-to-interact-with-t) feeding data from Sunlight's Open States API to [Google's Fusion Tables](http://www.google.com/fusiontables/) to make a legi mashup map if only because it's possible.
 
-I'm happy to say not only is it possible, but it came together rather quickly, especially [thanks to a previous walkthrough](http://johnkeefe.net/making-ap-election-data-easy-with-fusion-tabl) from [John Keefe](http://twitter.com/jkeefe).
+I'm happy to say not only is it possible, but it came together rather quickly, especially [thanks to a previous walkthrough](http://johnkeefe.net/making-ap-election-data-easy-with-fusion-tabl) from [John Keefe](http://twitter.com/jkeefe) and a Fusion Tables Python library written by FT team member Kathryn Hurley.
 
 Now, no doubt are there are more efficient ways to make this map happen, and even avoid Python all together. But at this stage of my abilities -- pretty solid on basic Google Maps and Fusion Tables javascript API, and beginner Python -- I'm a bit of a "I wonder if I can pull this off guy," and I think this works well. It can definitely be within the wheelhouse of "intermediate to advanced beginners" and help you level up.
 
@@ -10,8 +10,7 @@ We will query Sunlight Labs Open States API for Wisconsin State Senator informat
 
 We will then upload & sync the csv to Fusion Tables using a Python script. We will merge that Fusion Table with Wisconsin State Senate district shapes and create a map that allows a user to enter their address and find their state senator.
 
-You can see the end result [here](http://www.projects.chrislkeller.com/wis-senate-lookup).
-The GitHub repo is [here](https://github.com/chrislkeller/sunlight-ft-map).
+You can see the end result [here](http://www.projects.chrislkeller.com/wis-senate-lookup). The GitHub repo is [here](https://github.com/chrislkeller/sunlight-ft-map).
 
 ###Starting out
 
