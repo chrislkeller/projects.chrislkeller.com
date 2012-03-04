@@ -29,7 +29,13 @@ Fire up your terminal and enter the following:
 
 	echo "YOUR API KEY BETWEEN THE QUOTES" > ~/.sunlight.key
 	
-Then using the python package installer pip -- which you can install with easy_install if you don't have it -- to bring the sunlight Python library to your system.
+Then using the python package installer pip you can install the Sunlight library.
+
+	pip install sunlight
+
+However, [pip doesn't come with a default Python installation](https://groups.google.com/d/topic/pythonjournos/ADJfqd_qrIY/discussion), so if you receive an error when you type in the command above, you'll need to first install [setup tools](http://pypi.python.org/pypi/setuptools), which will give you access to the easy_install package manager.
+
+Then it's a matter of using easy_install to grab pip, and pip to install sunlight.
 
 	easy_install pip
 	pip install sunlight
