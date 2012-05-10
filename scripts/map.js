@@ -65,8 +65,8 @@ $(document).ready(function(){
 			'<a href="' + e.row['Website'].value + '" target="_blank">Website</a></td>' +
 			'</tr>' +
 			'</tbody>' +
-			'</table>' +
-			'<p>About Ward ' + e.row['Ward'].value + '</p>' + 
+			'</table>'
+			/*'<p>About Ward ' + e.row['Ward'].value + '</p>' + 
 			'<table>' +
 			'<tbody>' +
 			'<tr>' +
@@ -80,7 +80,8 @@ $(document).ready(function(){
 			'<td>' + e.row['2010_Total_Madison_Population_Change_From_2000'].value + '</td>' +
 			'</tr>' +	
 			'</tbody>' +
-			'</table>');
+			'</table>'*/
+			);
 
         marker.setMap();
 

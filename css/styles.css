@@ -28,7 +28,7 @@ body {font-family: "Trebuchet MS", sans-serif}
 #map-container h3 {font-size:18px; line-height: 20px; margin:0 0 5px 0; text-align: center;}
 #map-explainer .body {font-size:14px; line-height: 18px; text-indent:10px; clear:both; margin:0px 0 0 0; padding-bottom: 5px;}
 #map-explainer .table {font-size:14px; line-height: 18px; text-align: center; clear:both; margin:5px 0 15px 0; padding-bottom: 5px;}
-#map-explainer .small {font-size: 10px; line-height: 14px; clear:both; margin:0px 0 0 0; padding-bottom: 5px;}
+#map-explainer .small {font-size: 12px; line-height: 14px; clear:both; margin:0px 0 0 0; padding-bottom: 5px;}
 #map-explainer .small a {text-decoration: none;}
 
 table {width: 300px;}

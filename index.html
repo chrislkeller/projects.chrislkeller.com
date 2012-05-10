@@ -5,7 +5,7 @@
 
 <meta charset="utf-8">
 
-<!-- BEGIN META -->
+<!-- begin meta -->
 <title>Madison City Council Map</title>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 <meta content="yes" name="apple-mobile-web-app-capable" />
@@ -13,10 +13,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <meta name="keywords" content="Madison, Wisconsin, Madison City Council" />
 <meta name="description" content="Enter your address to find contact information for your Madison alderman." />
-<!-- <link rel="shortcut icon" href="#">
-<link rel="apple-touch-icon" href="#">
-<link rel="apple-touch-startup-image" href="#" /> -->
-<!-- END META -->
+<!-- end meta -->
 
 <!-- BEGIN CSS -->
 <link rel="stylesheet" type="text/css" href="css/styles.css" media="screen" />
@@ -26,9 +23,9 @@
 #map-action-bar .form-submit-button {background-color:#ededed; border:1px solid #232020; display:inline-block; color:#000000; font-family:arial; font-size:10px; font-weight:bold; padding:6px 12px; text-decoration:none;}
 </style>
 <![endif]-->
-<!-- END CSS -->
+<!-- end css -->
 
-<!-- BEGIN SCRIPTS -->
+<!-- begin scripts -->
 <script type="text/javascript">
 	function clickclear(thisfield, defaulttext) {
 		if (thisfield.value == defaulttext) {
@@ -46,52 +43,51 @@
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3.2&sensor=false&region=US"></script>
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <script type="text/javascript" src="scripts/map.js"></script>
-<!-- END SCRIPTS -->
+<!-- end scripts -->
 
 </head>
-<!-- END HEADER -->
+<!-- end header -->
 
-<!-- BEGIN BODY -->
+<!-- begin body -->
 <body>
 
-<!-- BEGIN MAP CONTAINER -->
+<!-- begin map container -->
 <div id="map-container">
 
-<!-- BEGIN MAP -->
+<!-- begin map -->
 <div id="map_canvas"></div>
-<!-- END MAP -->
+<!-- end map -->
 
-<!--BEGIN MAP EXPLAINER -->
+<!--begin map explainer -->
 <div id="map-explainer">
 <h1>Who's your Alderman?</h1>
 
 <p class="body">Enter your address below to learn about your alderman, where you vote and the more about the ward you live in.</p>
 
-<!-- BEGIN EXPLAINER -->
-<input type="text" class="pg-input" value="Example: 1901 Fish Hatchery Rd, Madison, Wis" id="address" onclick="clickclear(this, 'Example: 1901 Fish Hatchery Rd, Madison, Wis')" onblur="clickrecall(this,'Example: 1901 Fish Hatchery Rd, Madison, Wis')" />
-<input type="button" id="searchsubmit" class="form-submit-button" value="Search" onclick="zoomtoaddress()"/>
-<!-- END EXPLAINER -->
+<p class="small">Example: 1901 Fish Hatchery Rd, Madison, Wis.</p>
 
-<!-- BEGIN CREDITS -->
+<!-- begin explainer -->
+<input type="text" class="pg-input" id="address" onclick="clickclear(this, 'Example: 1901 Fish Hatchery Rd, Madison, Wis')" onblur="clickrecall(this,'Example: 1901 Fish Hatchery Rd, Madison, Wis')" />
+<input type="button" id="searchsubmit" class="form-submit-button" value="search" onclick="zoomtoaddress()"/>
+<!-- end explainer -->
+
+<!-- begin credits -->
 <p class="small"><em>Map by <a href="http://twitter.com/#!/ChrisLKeller" target="_blank">Chris Keller.</a></em></p>
-<!-- END CREDITS -->
+<!-- end credits -->
 
-<!-- BEGIN DATA DISPLAY -->
-<!-- <div id="facebook-like">
-<iframe src="http://www.facebook.com/plugins/like.php?app_id=210862605629272&amp;href=http%3A%2F%2Fbit.ly%2FpJCyMm&amp;send=false&amp;layout=button_count&amp;width=100&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=trebuchet+ms&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
-</div> -->
+<!-- begin data display -->
 <div id="display-blox">
 </div>
-<!-- END DATA DISPLAY -->
+<!-- end data display -->
 
 </div>
-<!-- END MAP EXPLAINER -->
+<!-- end map explainer -->
 
 </div>
-<!-- END MAP CONTAINER -->
+<!-- end map container -->
 
 </body>
-<!-- END BODY -->
+<!-- end body -->
 
 </html>
-<!-- END DOCUMENT -->
+<!-- end document -->
