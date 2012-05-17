@@ -1,4 +1,12 @@
-//select menu - out-thought myself with this one and don't know why it' still here
+//write the map on page load
+$(document).ready(function() {
+
+	createMap();
+
+});
+
+
+//select menu - out-thought myself with this one and couldn't create dynamically
 var searchVariables = '<select id="newState">' +
 '<option value="">All States</option>' +
 '<option value="Alaska">Alaska</option>' +
@@ -55,6 +63,7 @@ var searchVariables = '<select id="newState">' +
 '</select>' +
 '<select id="newYear">' +
 '<option value="">All Years</option>' +
+'<option value="2012">2012</option>' +
 '<option value="2011">2011</option>' +
 '<option value="2010">2010</option>' +
 '<option value="2009">2009</option>' +
@@ -71,14 +80,16 @@ var searchVariables = '<select id="newState">' +
 '<input type="button" class="mapActionButton" value="Search" id="searchBanks" onclick="changeSearch()"/>' +
 '<input type="button" class="mapActionButton" value="Reset Map" onClick="window.location.href=window.location.href" />';
 
-//FT layer
+//ft layer
 var layer; 
 
-//FT table
+//ft table
 var tableid = 926367;
 
+//map
 var map;
 
+//geocoder instance
 var geocoder = new google.maps.Geocoder();
 
 //gviz
@@ -98,7 +109,7 @@ var zoom = 4;
 
 google.load('visualization', '1', {'packages':['table']});
 
-function initialize() {
+function createMap() {
 		
 		//map options
 		map = new google.maps.Map(document.getElementById('map_canvas'), {
@@ -151,6 +162,7 @@ function initialize() {
 		query.send(getData);
 }
 
+
 		//write FT data to table
 		function getData(response) {
 			table = new google.visualization.Table(document.getElementById('visualization'));
@@ -161,6 +173,7 @@ function initialize() {
 			google.visualization.events.addListener(table, 'select', selectHandler);
 		}
 		//end function
+
 
 		//match table data to map data
 		function selectHandler() {
@@ -185,26 +198,28 @@ function initialize() {
 		}
 		//end function
 
-		//write info window at geocoded location
-		function generateInfoWindow(results, status) {
-			if (status == google.maps.GeocoderStatus.OK) {
-				coordinate = results[0].geometry.location;
-    
-			//display the info window at the geocoded location
-			if(infowindow) { infowindow.close(); }
-			else infowindow = new google.maps.InfoWindow();
-			infowindow.setContent(infoWindowContent);
-			infowindow.setPosition(coordinate);
-			map.setCenter(coordinate);
-			infowindow.open(map);
+        //write info window at geocoded location
+        function generateInfoWindow(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                coordinate = results[0].geometry.location;
+                
+            //display the info window at the geocoded location
+                if(infowindow) { infowindow.close(); }
+                    else infowindow = new google.maps.InfoWindow();
+                    
+                infowindow.setContent(infoWindowContent);
+                infowindow.setPosition(coordinate);
+                map.setCenter(coordinate);
+                infowindow.open(map);
 
-		} else {
-		alert('Sorry, The bank location can\'t be found.');
-		}
+        		} else {
+        		  alert('Sorry, The bank location can\'t be found.');
+                }
 
-	}
-	//end function
+        }
+        //end function
 	
+
 		/* search function based on user's selection
 		that I wrote longhand, though there must 
 		be some kind of shortcut because I'm basically
@@ -226,29 +241,28 @@ function initialize() {
 			//and sets the map
 			layer.setMap(map);
 
-			/* here we build the table again
-			but based on the variables from
-			the menu values */
+			/* here we build the table again but based on the variables from the menu values */
 			var queryText = encodeURIComponent("SELECT Name, Year, Location, Purchaser, Info FROM " + tableid + " WHERE Bank_State CONTAINS '" + stater + "' AND Year CONTAINS '" + yearer + "' ORDER BY 'Year' DESC");
 			var query = new google.visualization.Query('http://www.google.com/fusiontables/gvizdata?tq='  + queryText);
 			query.send(getData);
 
 			//adds a click listener on search layer
 			google.maps.event.addListener(layer, 'click', function(e) {
-			if(infowindow) infowindow.close();
-			else infowindow = new google.maps.InfoWindow();
+			 if(infowindow) infowindow.close();
+			 else infowindow = new google.maps.InfoWindow();
 
-			//writes the info window on search layer
-			infowindow.setContent(
-				'<p><strong>Bank Name: </strong>' + e.row['Name'].value + '</p>' +
-				'<p><strong>Closing Date: </strong>' + e.row['Year'].value + '</p>' +
-				'<p><strong>Location: </strong>' + e.row['Location'].value + '</p>' +
-				'<p><strong>Purchased By: </strong>' + e.row['Purchaser'].value + '</p>' +
-				'<p><a href="' + e.row['Info'].value + '" target="_blank">Information</a></p>');			
-
-			infowindow.setPosition(e.latLng);
-			map.setCenter(e.latLng);
-			infowindow.open(map);		
-			});
-		}
-		//end function
+                //writes the info window on search layer
+                infowindow.setContent(
+                    '<p><strong>Bank Name: </strong>' + e.row['Name'].value + '</p>' +
+                    '<p><strong>Closing Date: </strong>' + e.row['Year'].value + '</p>' +
+                    '<p><strong>Location: </strong>' + e.row['Location'].value + '</p>' +
+                    '<p><strong>Purchased By: </strong>' + e.row['Purchaser'].value + '</p>' +
+                    '<p><a href="' + e.row['Info'].value + '" target="_blank">Information</a></p>');
+				
+                infowindow.setPosition(e.latLng);
+                map.setCenter(e.latLng);
+                infowindow.open(map);
+            });
+    		
+        }
+        //end function
