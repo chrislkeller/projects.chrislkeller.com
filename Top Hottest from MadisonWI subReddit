@@ -20,7 +20,8 @@ function queryReddit(){
 	$.getJSON("http://www.reddit.com/r/madisonwi.json?jsonp=?", function(data) {
 		$.each(data.data.children.slice(0, 10),function(i, post) {
 			$('#reddit-data').append(
-				'<p class="rdt-score">(' + post.data.score + ') ' + '<a href=\"http://www.reddit.com' + post.data.permalink +
+				'<p class="rdt-score">(' + post.data.score + ') ' +
+				'<a href=\"http://www.reddit.com' + post.data.permalink +
 				'\" target=\"blank\">' + post.data.title +'</a></p>');
         });
 	});
