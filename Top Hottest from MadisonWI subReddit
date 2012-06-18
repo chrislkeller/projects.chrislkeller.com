@@ -1,6 +1,5 @@
 <style type="text/css">
 #reddit-display {width: 300px; height: 400px; font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;}
-#reddit-title.h2 {font-size:24px; line-height: 28px; margin-bottom: 10px;}
 #reddit-title .small {font-size:12px; line-height: 14px; }
 #reddit-data {font-size:12px; line-height: 14px; margin-bottom: 5px;}
 #reddit-data p.rdt-score {color: #007AC3; font-weight: bold;}
@@ -31,7 +30,7 @@ function queryReddit(){
 
 <div id="reddit-display">
 	<div id="reddit-title">
-		<h2>What Hot for <br /> MadisonWI on Reddit</h2>
+		<h3>What's Hot on Reddit: MadisonWI</h3>
 		<p class="small">Upvotes in parentheses</p>
 	</div>
 	<div id="reddit-data">
