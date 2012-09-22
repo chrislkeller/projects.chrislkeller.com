@@ -9,7 +9,7 @@ Based on shell scripts authored by Jeff Severns Guntzel to help data journalists
 
 This scripts is based on Jeff's file structure, and assumes the save:
 
-	BASEDIR
+	data_files
 		/DataInbox
 			/NewData
 		/DataFarm
@@ -18,7 +18,7 @@ This scripts is based on Jeff's file structure, and assumes the save:
 
 * Drop a csv file into BASEDIR/DataInbox/NewData and use the terminal to change to that directory.
 
-		cd BASEDIR/DataInbox/NewData
+		cd data_files/DataInbox/NewData
 
 * Run the script using the <your_csv>.csv as a parameter.
 
