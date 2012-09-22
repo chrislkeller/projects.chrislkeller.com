@@ -28,7 +28,7 @@ This scripts is based on Jeff's file structure, and assumes the save:
 
 ----
 
-Jeff's scripts are here:
+Jeff's walkthroughs on his orginal scripts are here:
 
 http://www.jsguntzel.com/skinnynotebook/2011/11/14/protecting-your-data-before-you-mess-with-it-another-shell-script-for-data-journalists/
 
