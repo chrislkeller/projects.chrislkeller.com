@@ -10,6 +10,7 @@ Jeff's [second script](http://www.jsguntzel.com/skinnynotebook/2011/11/14/protec
 
 - [Install csvkit](https://csvkit.readthedocs.org/en/latest/#installation) using the Terminal on Linux or MacOS
 
+		easy_install pip
 		pip install csvkit
 
 - [Download](https://github.com/chrislkeller/csv_audit_and_backup) the csv_audit_and_backup shell script repo to your desktop
