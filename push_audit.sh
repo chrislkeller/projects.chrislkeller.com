@@ -32,7 +32,7 @@ usage () { echo "${0##*/} inputfile"; exit 1; }
 INPUTFILE="$1"
 OUTPUTFILE="${1%.*}_abstract.txt"
 NEWDIRECTORY="${1%.*}"
-BASEDIR="$HOME/data_files/DataFarm/$NEWDIRECTORY"
+BASEDIR="$HOME/Documents/csv_audit/data_files/DataFarm/$NEWDIRECTORY"
 
 # begin use csv kit to <audit_input> and create <audit_output_file>
 cat <<EOF >$OUTPUTFILE
