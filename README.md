@@ -1,4 +1,4 @@
-[Nearly three weeks ago I talked about](http://www.chrislkeller.com/how-a-beginner-used-python-to-interact-with-t) feeding data from Sunlight's Open States API to [Google's Fusion Tables](http://www.google.com/fusiontables/) to make a legi mashup map if only because it's possible.
+[Nearly three weeks ago I talked about](http://www.chrislkeller.com/post/32760125010/how-a-beginner-used-python-to-interact-with-t) feeding data from Sunlight's Open States API to [Google's Fusion Tables](http://www.google.com/fusiontables/) to make a legi mashup map if only because it's possible.
 
 I'm happy to say not only is it possible, but it came together rather quickly, especially [thanks to a previous walkthrough](http://johnkeefe.net/making-ap-election-data-easy-with-fusion-tabl) from [John Keefe](http://twitter.com/jkeefe) and a Fusion Tables Python library written by FT team member Kathryn Hurley.
 
