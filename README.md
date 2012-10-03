@@ -2,7 +2,7 @@ In a riff off of my [2011 Madison Mayoral Voting map](https://github.com/chrislk
 
 <p class="small"><a href="http://www.projects.chrislkeller.com/ft-highcharts/">View the demo</a>.<br />
 <a href="https://github.com/chrislkeller/Fusion-Tables-To-Highcharts">Fork the repo</a>.<br />
-<a href="http://www.chrislkeller.com/walkthrough-using-fusiontables-to-power-highc">Read the walkthrough</a>.<br />
+<a href="http://www.chrislkeller.com/post/32760141381/walkthrough-using-fusiontables-to-power-highc">Read the walkthrough</a>.<br />
 <a href="https://www.google.com/fusiontables/DataSource?docid=1nsgSp3jNmPIdcy602joFVQMTtuZHfHIeDvaHnQ&hl=en_US">Download the data</a>.<br />
 Vote tally courtesy of the <a href="http://www.countyofdane.com/clerk/elect2011b.html#race14">Dane County Clerk</a>.</p>
 
