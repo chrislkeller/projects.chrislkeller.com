@@ -18,8 +18,8 @@
 
         // Election ID for which to fetch voter info.
         // @type {number}
-        // 4000 is the ID for Nov. 6, 2012 election
-        var electionId = 4000;
+        // 4000 is the ID for Nov. 6, 2012 election but doesn't return data
+        var electionId = 2000;
 
         // makes request to api for an object matching given parameters.
         var req = gapi.client.request({
