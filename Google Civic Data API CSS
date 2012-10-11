@@ -1,0 +1,5 @@
+body {background: #9e9e9e;}
+.container-fluid {background: #ffffff; padding: 10px; margin: 45px auto 0 auto;}
+#data_display {width: 100%; margin: 15px auto 15px auto;}
+#map_canvas {width: 100%; height: 400px; margin: 15px auto 30px auto;}
+#directions_display {width: 100%; height: 100%; margin: 15px auto 30px auto;}
