@@ -5,3 +5,5 @@
 Right now location is hard-coded to the Los Angeles area.
 
 Will add more of a description soon.
+
+Quick example [here](http://projects.chrislkeller.com/social-photo-fishing/).
