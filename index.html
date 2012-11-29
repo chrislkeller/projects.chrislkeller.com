@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<!-- begin doc -->
+<html lang="en">
+
+<!-- begin meta -->
+<meta charset="utf-8">
+<title></title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="robots" content="" />
+<meta name="author" content="#, &#169; 2011">
+<meta name="google-site-verification" content="#" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta name="viewport" content="initial-scale = 0.4, width=device-width, maximum-scale=0.6667, user-scalable=yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<!-- end meta -->
+
+<!-- begin css -->
+<link rel="stylesheet" href="http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap.css" />
+<link rel="stylesheet" href="http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap-responsive.css" />
+
+<!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" href="static/css/styles.css">
+<!-- end css -->
+
+<!-- begin scripts -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<!-- <script src="http://code.jquery.com/jquery.min.js"></script> -->
+<!-- end scripts -->
+
+</head>
+<!-- end header -->
+
+<!-- begin body -->
+<body OnLoad="document.searchform.searchfield.focus();">
+
+<!-- begin container -->
+<div class="container">
+
+<div id="application_header"></div>
+
+<div id="application_search_form">
+<form name="searchform" class="form-inline">
+<input type="text" name="searchfield" class="input-xlarge focused" id="search-string" placeholder="Search Hashtag">
+<button type="button" class="btn btn-primary" onclick="renderTweetContent(this.value);">Search</button>
+
+<!-- <div id="application_search_form_reload">
+<button type="button" class="btn btn-primary" onclick="window.location.reload();">New Search</a></p>
+</div> -->
+
+</form>
+</div>
+
+<div id="application_map_canvas"></div>
+
+<div id="application_content"></div>
+
+</div>
+<!-- end container -->
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBJj_v-VYk6V7vzOIlIj88DiteiuMfpdN4&sensor=false&region=us"></script>
+<script src="static/scripts/handlebars.js"></script>
+<script src="static/scripts/data-script.js"></script>
+<script src="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap.js"></script>
+<script src="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-tooltip.js"></script>
+<script src="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-popover.js"></script>
+<script src="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-transition.js"></script>
+<script src="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-alert.js"></script>
+<script src="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-modal.js"></script>
+<script src="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-dropdown.js"></script>
+<script src="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-alert.js"></script>
+
+<!-- begin google analytics code -->
+<script type="text/javascript">
+
+</script>
+<!-- end google analytics code -->
+
+</body>
+<!-- end body -->
+
+</html>
+<!-- end doc -->

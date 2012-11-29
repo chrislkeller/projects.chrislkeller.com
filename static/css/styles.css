@@ -1,0 +1,27 @@
+body {background: #9e9e9e;}
+
+.container {width: 620px; height: auto; background: #ffffff; padding: 10px; margin: 45px auto 0 auto;}
+
+#application_header {width: 400px; height: auto; margin: 35px auto 0 auto;}
+
+#application_search_form {width: 400px; height: auto; margin: 35px auto 0 auto;}
+
+#application_map_canvas{}
+
+#application_content {width: 540px; height: auto; margin: 15px auto 0 auto;}
+
+#user_container {width: 90%; height: auto; background: #ccc; padding: 15px 0 15px 0; margin: 15px auto 15px auto;
+
+/* Safari 3-4, iOS 1-3.2, Android 1.6- */
+-webkit-border-radius: 40px;
+
+/* Firefox 1-3.6 */
+-moz-border-radius: 40px;
+
+/* Opera 10.5, IE 9, Safari 5, Chrome, Firefox 4, iOS 4, Android 2.1+ */
+border-radius: 40px;
+}
+
+#user_content {width: 400px; height: auto; margin: 15px auto 15px auto;}
+
+#user_tweet_image {width: 400px; height: auto; margin: 15px auto 15px auto;}
