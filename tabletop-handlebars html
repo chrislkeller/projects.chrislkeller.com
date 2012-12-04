@@ -1,0 +1,22 @@
+<h1>Tabletop/Handlebars example</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Store</th>
+      <th>Black Friday Opening</th>
+    </tr>
+  </thead>
+  <tbody id="content"></tbody>
+</table>
+
+<script id="cat-template" type="text/x-handlebars-template">
+    <tr>
+      <td>{{store}}</td>
+      <td>{{opening}}</td>
+    </tr>
+</script>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="path-to-handlebars-1.0.rc.1.js"></script>
+<script type="text/javascript" src="path-to-tabletop.js"></script>
+<script type="text/javascript" src="path-to-tabletop-handlebars.js"></script>
