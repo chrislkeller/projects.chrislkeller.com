@@ -1,0 +1,42 @@
+body {font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;}
+#data-container {width: 100%; height: auto;}
+#data-header {width: 80%; height: auto; margin: 10px 10% 10px 10%;}
+#map_data {width: 80%; height: 50px; margin: 0 10% 0 10%;}
+#data-chart {width: 80%; height: 50px; margin: 0 10% 0 10%;}
+#data-table {width: 80%; height: 50px; margin: 0 10% 0 10%;}
+#data-footer {width: 80%; height: auto; margin: 10px 10% 10px 10%;}
+
+/* footer */
+#footer {width: 90%; height: 45px; background-color: #000000; margin: 20px 5% 30px 5%; color: #ffffff;}
+#footer-buttons {width: 90%; height: 35px; margin: 5px 5% 30px 5%;}
+#footer-buttons ul {list-style-type: none; text-align: center;}
+#footer-buttons ul li {display: inline;}
+#footer-buttons ul li a {height: auto; text-decoration: none; color: #ffffff;}
+#footer-buttons ul li a:hover {color:#555555;}
+
+/* typography */
+.lowercase {text-transform: lowercase;}
+.medium {font-size: 12px;}
+.sources, .credits, .open-source {font-size: 10px;}
+.table {font-size: 10px;}
+.story-headline {font-family: "proxima-nova-condensed", "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 700; margin-bottom: 0}
+.data-instructions {font-size: 11px; margin: 10px 25px 15px 25px;}
+
+/* popup window */
+.modal {width: 300px; max-width: 300px;}
+.modal-header {background: #000000;}
+.modal-header h3 a {color: #ffffff;}
+
+/* sortable tables */
+table.sortable thead {background-color:#000000; color:#ffffff; font-weight: bold; cursor: default;}
+table.sortable th.sorted {cursor: pointer;}
+
+
+/* media queries */
+@media screen and (min-width: 0px) and (max-width: 500px) {
+    #map_canvas {width: 80%; height: 150px; margin: 20px 10% 20px 10%;}
+}
+
+@media screen and (min-width: 501px) and (max-width: 6000px) {
+    #map_canvas {width: 80%; height: 350px; margin: 20px 10% 20px 10%;}
+}
