@@ -1,4 +1,3 @@
-
     var jqueryNoConflict = jQuery;
 
     /* url for 2012 congressional json:
