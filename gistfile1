@@ -1,0 +1,39 @@
+var jqueryNoConflict = jQuery;
+
+// begin main function
+jqueryNoConflict(document).ready(function() {
+
+    getFusionTableData();
+
+});
+// end
+
+// retrive json
+function getFusionTableData() {
+    var tableID = '113boV0mDDfay8ngXn8REwwIplC_uEWogLf6aepw';
+    var query = 'SELECT * FROM ' + tableID;
+    var encodedQuery = encodeURIComponent(query);
+    var urlPrefix = 'https://www.googleapis.com/fusiontables/v1/query?key=';
+    var apiKey = 'AIzaSyAtS1OYyuRY0inb23BK0nuGId3FiOC6Rb8';
+    var urlSuffix = '&sql=' + encodedQuery + '&callback=?';
+    var url = urlPrefix + apiKey + urlSuffix
+    jqueryNoConflict.getJSON(url, createArrayFrom);
+};
+// end
+
+
+// organize json data
+function createArrayFrom(data){
+
+    // begin loop
+    for (var i = 0; i < data.rows.length; i++) {
+
+        var row = data.rows[i];
+
+        console.log(row);
+
+    };
+    // end loop
+
+};
+// end
