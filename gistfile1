@@ -8,7 +8,7 @@ jqueryNoConflict(document).ready(function() {
 });
 // end
 
-// retrive json
+// retrive json from Fusion Table
 function getFusionTableData() {
     var tableID = '113boV0mDDfay8ngXn8REwwIplC_uEWogLf6aepw';
     var query = 'SELECT * FROM ' + tableID;
