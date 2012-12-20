@@ -21,7 +21,6 @@ function getFusionTableData() {
 };
 // end
 
-
 // organize json data
 function createArrayFrom(data){
 
