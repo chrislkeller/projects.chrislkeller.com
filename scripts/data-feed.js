@@ -117,21 +117,21 @@ $(document).ready(function(){
 			position: google.maps.ControlPosition.RIGHT_TOP
 		}
 	};
-	
+
 	//write the map
 	var map = new google.maps.Map(document.getElementById('map_canvas'), optionsMap);
-	
+
 	//fusion layer
 	layer = new google.maps.FusionTablesLayer(835224, {suppressInfoWindows: true});
-	layer.setMap(map);	
-	
+	layer.setMap(map);
+
 	//click listener
 	google.maps.event.addListener(layer, 'click', function(q) {
-	
+
 		//write data into divs
 		$('#map-explainer').hide();
 
-		$("#ft-ouput").html( 
+		$("#ft-ouput").html(
 			'<table>' +
 			'<h4>Ward ' + q.row['Ward_name'].value + ' (Aldermanic District ' + q.row['ald'].value + ')</h4>' +
 			'<tbody>' +
@@ -160,7 +160,7 @@ $(document).ready(function(){
 
 //writes chart
 function updateChart(q){
-    
+
     //assign data to chart variables
 	var ward = q.row['Ward_name'].value
 	var votesSoglin = q.row['Votes_Paul_Soglin'].value
@@ -169,15 +169,15 @@ function updateChart(q){
 
 	//write chart series
 	var data = [
-		['Ward ' + ward, votesTotal],	
+		['Ward ' + ward, votesTotal],
 		['Ward ' + ward, votesSoglin],
 		['Ward ' + ward, votesCieslewicz],
 	];
-	
+
 	// Create the chart if it doesn't exist
 	if(!chart)
 	  chart = new Highcharts.Chart(optionsChart);
-	
+
 	// Set new data to the chart
 	chart.series[0].setData(data)
 }
