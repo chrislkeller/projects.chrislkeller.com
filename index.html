@@ -1,0 +1,59 @@
+<!-- begin css  -->
+<style type="text/css">
+#map_canvas {width: 620px; height: 600px;}
+</style>
+<!-- end css  -->
+
+<!-- begin scripts -->
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&region=us"></script>
+<script type="text/javascript">
+
+    var jqueryNoConflict = jQuery;
+
+    //begin main function
+    jqueryNoConflict(document).ready(function(){
+        createMap();
+    });
+
+    // begin function
+    function createMap() {
+
+        // encrypted table id
+        var locationColumn =  'geometry';
+        var tableOne = '1nsgSp3jNmPIdcy602joFVQMTtuZHfHIeDvaHnQ';
+        var layerOne;
+
+        var map = new google.maps.Map(document.getElementById('map_canvas'), {
+            center: new google.maps.LatLng(43.09605690123904, -89.39695358276367),
+            zoom: 12,
+            scrollwheel: false,
+            draggable: true,
+            mapTypeControl: false,
+            navigationControl: true,
+            streetViewControl: false,
+            panControl: false,
+            scaleControl: false,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            navigationControlOptions: {
+                style: google.maps.NavigationControlStyle.SMALL,
+                position: google.maps.ControlPosition.RIGHT_TOP}
+        });
+
+        // Initialize ft layer
+        var layerOne = new google.maps.FusionTablesLayer({
+            query: {
+                select: locationColumn,
+                from: tableOne
+            },
+            map: map,
+            suppressInfoWindows: false
+        });
+
+    }
+// end function
+
+</script>
+
+<div id="my_map_data_div"></div>
+<div id="map_canvas"></div>
