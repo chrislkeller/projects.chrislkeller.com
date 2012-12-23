@@ -1,10 +1,15 @@
 <!-- begin css  -->
+<link rel="stylesheet" href="http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap.css" type="text/css" />
+
 <style type="text/css">
-#map_canvas {width: 620px; height: 600px;}
+#map_container {width: 620px; height: 800px; margin: 25px auto;}
+#map_data {width: 620px; height: 10px; margin: 25px auto;}
+#map_canvas {width: 620px; height: 600px; margin: 25px auto;}
 </style>
 <!-- end css  -->
 
-<!-- begin scripts -->
+<link rel="stylesheet" href="http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap-responsive.css" type="text/css" />
+
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&region=us"></script>
 <script type="text/javascript">
@@ -18,15 +23,11 @@
 
     // begin function
     function createMap() {
-
-        // encrypted table id
         var locationColumn =  'geometry';
-        var tableOne = '1nsgSp3jNmPIdcy602joFVQMTtuZHfHIeDvaHnQ';
-        var layerOne;
-
+        var tableID = '1nsgSp3jNmPIdcy602joFVQMTtuZHfHIeDvaHnQ';
         var map = new google.maps.Map(document.getElementById('map_canvas'), {
             center: new google.maps.LatLng(43.09605690123904, -89.39695358276367),
-            zoom: 12,
+            zoom: 11,
             scrollwheel: false,
             draggable: true,
             mapTypeControl: false,
@@ -41,19 +42,25 @@
         });
 
         // Initialize ft layer
-        var layerOne = new google.maps.FusionTablesLayer({
+        var shapeLayer = new google.maps.FusionTablesLayer({
             query: {
                 select: locationColumn,
-                from: tableOne
+                from: tableID
             },
             map: map,
             suppressInfoWindows: false
         });
 
-    }
-// end function
-
+        //click listener on fusion layer
+        google.maps.event.addListener(shapeLayer, 'click', function(e) {
+            $("#map_data").html(
+                '<p>Add data from your table here like this: ' + e.row['Proper_ward_name'].value + '</p>');
+        });
+    };
+    // end function
 </script>
 
-<div id="my_map_data_div"></div>
-<div id="map_canvas"></div>
+<div id="map_container">
+    <div id="map_data"><p>To keep info window from appearing, and write data here, set suppressInfoWindows to true.<p></div>
+    <div id="map_canvas"></div>
+</div>
