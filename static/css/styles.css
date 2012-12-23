@@ -1,0 +1,50 @@
+body {background: #9e9e9e;}
+.container {background: #ffffff; padding: 15px 0 15px 0; margin: 45px auto 0 auto;}
+
+/* map */
+#map-display {width: 100%; margin: 20px auto 15px auto;}
+#map_canvas {width: 700px; height: 400px; margin: 0 auto 0 auto;}
+
+/* content */
+.main-content {width: 55%; margin: 0 auto 0 auto;}
+.modal {width: 300px; max-width: 300px; margin-top: -150px; margin-left: -500px; position: absolute;}
+
+/* overline nav */
+#main-navigation {width: 100%; height: 35px; margin: 5px auto 30px auto;}
+#main-navigation ul {list-style-type: none; text-align: center;}
+#main-navigation ul li {display: inline;}
+#main-navigation ul li a {height: auto; text-decoration: none; color: #ffffff;}
+#main-navigation ul li a:hover {color:#555555;}
+
+/* project buttons */
+.project-nav {width: 100%; height: 35px; margin: 25px auto 25px auto;}
+.project-nav ul {list-style-type: none; text-align: center;}
+.project-nav ul li {display: inline;}
+.project-nav ul li a {height: auto; padding: .2em 1em; text-decoration: none; color: #ffffff;}
+.project-nav ul li a:hover {color:#555555;}
+
+/* footer */
+#footer {height: 45px; width: 85%; background-color: #000000; margin: 20px auto 30px auto; color: #ffffff;}
+#footer-buttons {width: 100%; height: 35px; margin: 5px auto 30px auto;}
+#footer-buttons ul {list-style-type: none; text-align: center;}
+#footer-buttons ul li {display: inline;}
+#footer-buttons ul li a {height: auto; text-decoration: none; color: #ffffff;}
+#footer-buttons ul li a:hover {color:#555555;}
+
+/* typography */
+.page-headers h1 {width: 85%; text-align: center; margin: 30px auto 10px auto;}
+.page-headers h3 {text-align: center;}
+.page-headers h4 {text-align: center;}
+.lowercase {text-transform: lowercase;}
+.medium {font-size: 13px; }
+
+.modal-header {background: #000000;}
+.modal-header h3 a {color: #ffffff;}
+
+/* Sortable tables */
+table.sortable thead {background-color:#000000; color:#ffffff; font-weight: bold; cursor: default;}
+table.sortable th.sorted {cursor: pointer;}
+
+/* images */
+.big-image
+{width: 85%; margin: 5px auto 5px auto;}
