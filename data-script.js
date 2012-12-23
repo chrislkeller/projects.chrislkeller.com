@@ -24,13 +24,27 @@ function getFusionTableData() {
 // organize json data
 function createArrayFrom(data){
 
+    console.log(data);
+
     // begin loop
     for (var i = 0; i < data.rows.length; i++) {
 
+        // set each item of loop to variable
         var row = data.rows[i];
 
-        console.log(row);
+        // set each item of object to variable
+        var rank = row[0];
+        var address = row[1];
+        var integerOne = row[2];
+        var integerTwo = row[3];
+        var location = row[4];
+        var latitude = row[5];
+        var longitude = row[6];
+        var emptyStringVariable = row[7];
 
+        // write data to div
+        jqueryNoConflict('#data-container').append(
+            '<p>Location: ' + location + '</p>');
     };
     // end loop
 
