@@ -1,9 +1,3 @@
-## this could be made better in a number of ways.
-## two that come to mind:
-## lake that the beach is on
-## if else for when beach is monitored by another agency
-## and no status is available
-
 #import libraries
 from BeautifulSoup import BeautifulSoup
 import re
