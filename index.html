@@ -1,45 +1,53 @@
 <!DOCTYPE html>
-
-<!-- begin doc -->
 <html lang="en">
+    <head>
+        <link rel="stylesheet" href="http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap.css" type="text/css" />
+        <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.rc.1/handlebars.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div id="main-content"></div>
+        </div>
 
-<!-- begin header -->
-<head>
+        <script type="text/javascript">
+        var jqueryNoConflict = jQuery;
 
-<!-- begin css  -->
-<link rel="stylesheet" href="http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap.css" type="text/css" />
-<link rel="stylesheet" href="./static/css/styles.css">
-<!-- end css  -->
+        //begin main function
+        jqueryNoConflict(document).ready(function(){
+            renderYourTemplate();
+        });
+        //end
 
-<!-- begin scripts -->
-<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-<script type="text/javascript" src="./static/scripts/handlebars-1.0.rc.1.js"></script>
-<!-- end scripts -->
+        // render handlebars templates via ajax
+        function getTemplateAjax(path, callback) {
+            var source, template;
+            jqueryNoConflict.ajax({
+                url: path,
+                success: function (data) {
+                    source = data;
+                    template = Handlebars.compile(source);
+                    if (callback) callback(template);
+                }
+            });
+        }
+        //end
 
-<!-- begin body -->
-<body>
+        // create header template
+        function renderYourTemplate(){
+            var data = {
+                users: [
+                    {username: "alan", firstName: "Alan", lastName: "Johnson", age: "26", email: "alan@test.com" },
+                    {username: "allison", firstName: "Allison", lastName: "House", age: "35", email: "allison@test.com" },
+                    {username: "ryan", firstName: "Ryan", lastName: "Carson", age: "50", email: "ryan@test.com" }
+                ]
+            };
 
-<!-- begin container -->
-<div class="container">
-
-<div class="main-content">
-
-<!-- begin navigation -->
-<div id="header">
-</div>
-
-<div id="content">
-</div>
-
-</div>
-
-</div>
-<!-- end container -->
-
-<script type="text/javascript" src="./static/scripts/data-script.js"></script>
-
-</body>
-<!-- end body -->
-
+            getTemplateAjax('template.handlebars', function(template) {
+                jqueryNoConflict('#main-content').html(template(data));
+            })
+        };
+        // end
+        </script>
+    </body>
 </html>
-<!-- end doc -->
