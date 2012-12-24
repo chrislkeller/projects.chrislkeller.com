@@ -2,9 +2,9 @@
 
 Plots a marker on a map after a user inputs their address.
 
-- [Demo](http://projects.chrislkeller.com/demos/search-address-map-marker).
+- [Demo](http://projects.chrislkeller.com/demos/search-address-map-marker)
 
-- [Repo](#).
+- [Repo](https://gist.github.com/4370707)
 
 ----
 
