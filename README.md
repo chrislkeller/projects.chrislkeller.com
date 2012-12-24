@@ -1,16 +1,18 @@
+### sunlight-ft-map
+
 [Nearly three weeks ago I talked about](http://www.chrislkeller.com/post/32760125010/how-a-beginner-used-python-to-interact-with-t) feeding data from Sunlight's Open States API to [Google's Fusion Tables](http://www.google.com/fusiontables/) to make a legi mashup map if only because it's possible.
 
 I'm happy to say not only is it possible, but it came together rather quickly, especially [thanks to a previous walkthrough](http://johnkeefe.net/making-ap-election-data-easy-with-fusion-tabl) from [John Keefe](http://twitter.com/jkeefe) and a Fusion Tables Python library written by FT team member Kathryn Hurley.
 
 Now, no doubt are there are more efficient ways to make this map happen, and even avoid Python all together. But at this stage of my abilities -- pretty solid on basic Google Maps and Fusion Tables javascript API, and beginner Python -- I'm a bit of a "I wonder if I can pull this off guy," and I think this works well. It can definitely be within the wheelhouse of "intermediate to advanced beginners" and help you level up.
 
-###What We'll Do
+### What We'll Do
 
 We will query Sunlight Labs Open States API for Wisconsin State Senator information using a Python Library and write it to a csv.
 
 We will then upload & sync the csv to Fusion Tables using a Python script. We will merge that Fusion Table with Wisconsin State Senate district shapes and create a map that allows a user to enter their address and find their state senator.
 
-You can see the end result [here](http://www.projects.chrislkeller.com/wis-senate-lookup). The GitHub repo is [here](https://github.com/chrislkeller/sunlight-ft-map).
+You can see the end result [here](http://projects.chrislkeller.com/demos/sunlight-ft-map/). The GitHub repo is [here](https://github.com/chrislkeller/sunlight-ft-map).
 
 ###Starting out
 
@@ -28,7 +30,7 @@ Let's start with the setting the API key and installing the sunlight Python libr
 Fire up your terminal and enter the following:
 
 	echo "YOUR API KEY BETWEEN THE QUOTES" > ~/.sunlight.key
-	
+
 Then using the python package installer pip you can install the Sunlight library.
 
 	pip install sunlight
@@ -42,7 +44,7 @@ Then it's a matter of using easy_install to grab pip, and pip to install sunligh
 
 ###Step 2 (Create a Fusion Table)
 
-Now we're going to want to create our Fusion Table, because we'll need to know the column headings and we'll need the table ID. 
+Now we're going to want to create our Fusion Table, because we'll need to know the column headings and we'll need the table ID.
 
 I've found the easiest way to do this is to create a Google Spreadsheet and then import that to Fusion Tables. As for the column headings, I grabbed a [list of the available Open States data](http://openstates.org/api/legislators/#legislator-search) to use the basis, though I ran into some issues with some of the fields that I'll explain later on. I also added a GEOID column which I will use as the key column when it comes time to merge this with the shapefile. You can see my Fusion Table [here](https://www.google.com/fusiontables/DataSource?snapid=S4192646LFQ).
 
@@ -55,7 +57,7 @@ If you grabbed the GitHub repo I created, you'll find that the sunlight-ft-pytho
 - **data_search.py:** This searches Sunlight's Open States api and write the data to legi.csv
 - **data_import.py:** This uses authentication to sync the data in legi.csv file to the Fusion Table you created.
 
-In the first part of data_search.py, we're importing the sunlight library and Python's csv writer. We're then setting our search variables -- wisconsin and upper chamber in this case -- but we could have easily just adding them in the next section. I pulled them out just to make them more obvious. 
+In the first part of data_search.py, we're importing the sunlight library and Python's csv writer. We're then setting our search variables -- wisconsin and upper chamber in this case -- but we could have easily just adding them in the next section. I pulled them out just to make them more obvious.
 
 	#import libraries
 	import sunlight
@@ -84,10 +86,10 @@ The information contained within writer.writerows match column headers of my Fus
 	for legi in legis:
 
 	    geo_pre = legi['district']
-    
+
 	    if len(geo_pre) == 1:
     	    item = "5500"
-        
+
         	#write csv rows
 	        writer.writerows([
     	        (item + legi['district'],
@@ -101,7 +103,7 @@ The information contained within writer.writerows match column headers of my Fus
         		legi['party'],
             	legi['district'])
         	])
-    
+
 	    elif len(geo_pre) == 2:
     	    item = "550"
 
@@ -119,7 +121,7 @@ The information contained within writer.writerows match column headers of my Fus
             	legi['district'])
         	])
 
-To run this, fire up your terminal, cd into your directory and run 
+To run this, fire up your terminal, cd into your directory and run
 
 	python data_search.py
 
@@ -148,7 +150,7 @@ If all goes well, you will be asked for your Google account password and you wil
 
 ###Step 4 (Merging with your shapefile and making your map)
 
-I won't spend too much time here on this step because there are several walkthroughs available; I have a list of [some here](http://www.chrislkeller.com/mapping-data-wisconsin-state-senate-recall-ma). 
+I won't spend too much time here on this step because there are several walkthroughs available; I have a list of [some here](http://www.chrislkeller.com/mapping-data-wisconsin-state-senate-recall-ma).
 Anyway, from here we'll just [merge our two Fusion Tables together](http://support.google.com/fusiontables/bin/answer.py?hl=en&answer=171254) -- the table with the data and the table that contains the shapefile you uploaded.
 
 Save the resulting map, and use either the iframe embed method or [Fusion Tables Layer Builder](http://gmaps-samples.googlecode.com/svn/trunk/fusiontables/fusiontableslayer_builder.html) to add your map to a HTML page.
