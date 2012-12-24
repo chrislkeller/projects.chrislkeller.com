@@ -4,7 +4,7 @@ Further stripping down the [Fusion-Tables-To-Highcharts project](https://github.
 
 Unlike the previous project, this doesn't include a map, and therefore isn't relying on a click event to draw the chart.
 
-- [Demo](http://www.projects.chrislkeller.com/ft-as-highcharts-datasource).
+- [Demo](http://projects.chrislkeller.com/demos/ft-to-highcharts-chart/).
 
 - [Repo](https://github.com/chrislkeller/ft-as-highcharts-datasource).
 
