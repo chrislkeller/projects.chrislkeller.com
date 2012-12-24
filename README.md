@@ -1,7 +1,6 @@
-tabletop to datatables
-======================
+### tabletop to datatables
 
-Use [Tabletop.js](http://builtbybalance.com/Tabletop/) to pull json from Google Spreadsheet and feed it to the [DataTables](http://datatables.net/) jQuery plugin. View the [demo.](http://projects.chrislkeller.com/tabletop_to_datatables/)
+Use [Tabletop.js](http://builtbybalance.com/Tabletop/) to pull json from Google Spreadsheet and feed it to the [DataTables](http://datatables.net/) jQuery plugin. View the [demo.](http://projects.chrislkeller.com/demos/tabletop_to_datatables)
 
 
 **Step 1** - [Prepare Google Spreadsheet data](http://builtbybalance.com/Tabletop/#tabletop-instructions).
