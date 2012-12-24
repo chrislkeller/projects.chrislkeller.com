@@ -13,3 +13,7 @@ The click function runs seven or eight times based on each specific ID, but it's
 But all said, I identified a project that I could finish, and saw it through despite knowing I could make it better. That is a step for me and my rampant expectations of things.
 
 Now, onto Packers football. Payback time for 2003 at Lambeau and 4th and 26.
+
+----
+
+**License:** [The MIT License](http://opensource.org/licenses/MIT)
