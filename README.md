@@ -10,7 +10,7 @@ So there it is, in all its mediocre (being generous) glory. Fork away.
 
 And as unplausible as the story might be, the idea of someone looking for a connection in this world remains a constant, at least in my mind. So I think it has legs...
 
-- [Demo](http://www.projects.chrislkeller.com/ft-as-highcharts-datasource).
+- [Demo](http://www.projects.chrislkeller.com/projects/Everyone-Else-Was-Driving/).
 
 - [Repo](https://github.com/chrislkeller/Everyone-Else-Was-Driving).
 
