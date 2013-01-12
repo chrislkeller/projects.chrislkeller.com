@@ -168,3 +168,20 @@ Or say you want to quickly create a table to display some information. Using the
 		    </tbody>
 		</table>
 
+#### Wrapup
+
+As an intermediate beginner to the world of web development, and entering my fifth year of being an "online guy" in a newsroom, I've found Handlebars to be a lot of fun. To increase that fun, there are all kinds of add ons and helper functions that you can use. [swag.js](http://elving.github.com/swag/) might be the most fun thus far.
+
+See while Handlebars tried to keep logic out of the templates -- and I respect that -- there some things I'd like to be able to do, and swag.js allows for some of that. For instance, if in my table example I wanted the title to be in all-caps I can do this with swag:
+
+		{{uppercase Title}}
+
+Or if I want to evaluate the data in my flat JSON file, I can run comparisons on my Handlebars templates.  
+
+		{{#objects}}
+		    {{#is Source 'National Employment Law Project'}}
+		        <td>The Source is {{Source}}</td>
+		    {{else}}
+		        <td>No Source</td>
+		    {{/is}}
+		{{/objects}}
