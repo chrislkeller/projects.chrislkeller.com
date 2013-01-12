@@ -26,14 +26,14 @@ There are some good resources out there for those who want to start using the Ha
 - [NetTuts Handlebars Walkthrough](http://net.tutsplus.com/tutorials/javascript-ajax/introduction-to-handlebars/)
 - Three-part series on using Handlebars: [Part one](http://blog.teamtreehouse.com/getting-started-with-handlebars-js); [Part two](http://blog.teamtreehouse.com/code/handlebars-js-part-2-partials-and-helpers/); [Part three](http://blog.teamtreehouse.com/handlebars-js-part-3-tips-and-tricks)
 
-I'd like to demonstrate how I've used Handlebars templates in a newsroom environment to make deploying interactive projects fairly fast. This example will take data from a flat JSON file I created from a csv, display the data in a handlebars template stored in a separate file and render that template on a webpage.
+I'd like to demonstrate a bit of the script I've been using to display a flat data file on Handlebars templates render with AJAX, and give a couple practical applications for using Handlebars in a newsroom environment in order to deploy interactive projects fairly fast.
 
 - [Demo Page](http://projects.chrislkeller.com/snippets/ajax-handlebars/)
 - [Repo](https://gist.github.com/3230081)
 
 #### Walkthrough
 
-Coming across Handlebars.js after learning the basics of django templating, I really wanted a way to store handlebars templates in [reusable, decoupled files that could be shared across projects](https://github.com/wycats/handlebars.js/issues/82).  
+Coming across Handlebars.js after learning the basics of django templating, I really wanted a way to mimic some of that functionality and store handlebars templates in [reusable, decoupled files that could be shared across projects](https://github.com/wycats/handlebars.js/issues/82).  
 
 Thankfully this function based on [code from here](http://berzniz.com/post/24743062344/handling-handlebars-js-like-a-pro) helps me to do exactly that. 
 
@@ -57,12 +57,13 @@ I can then call it like this, where dataDetailsTemplate.handlebars is the name o
 		    getTemplateAjax('dataDetailsTemplate.handlebars', function(template) {
 		
 		        // adds debugging information to console
-		        handlebarsDebugHelper();
 		        jqueryNoConflict('#data-details').html(template(data));
 		    })
 		};
 
-Let's go through the full [data-script.js file](https://gist.github.com/raw/3230081/31abdbfb3f4746f8fb761d196dcfa81cdd38184d/data-script.js), because there's a lot in there that I've kind of picked up over the last several months. I don't really have an idea if it is "correct" to programmers out there, but I know that it works and doesn't throw me errors. 
+Let's go through the full [data-script.js file](https://gist.github.com/raw/3230081/31abdbfb3f4746f8fb761d196dcfa81cdd38184d/data-script.js), because there's a lot in there that I've kind of picked up over the last several months. 
+
+I don't really have an idea if it is "correct" to programmers out there, but I know that it works and doesn't throw me errors. 
 
 In learning to use jQuery in the context of my previous CMS -- which used several jQuery libraries -- I found it just made sense to use a no conflict variable and it's something I've just stuck with:
 
@@ -126,12 +127,45 @@ My HTML page isn't any special, other than have a div that will have all kinds o
 	
 	<div id="data-details"></div>
 
-I've found several practical applications of this demonstration, but your mileage might very. All it really takes though is some imagination and a need.
+#### Practical Applications?
 
-For instance, I came from shops that used the same CMS, where I could add html, css and JavaScript to a CMS "asset" which would then be wrapped up in the site header, rail and footer. Here at SCPR, I've been lucky enough to have mentors who wanted to and helped to create something similar.
+Your mileage might vary, but I've found several practical applications of Handlebars.js just by looking at my needs.
 
-For instance, [this project](http://projects.scpr.org/static/maps/pedestrian-safety/) is on a custom template that lies outside of the CMS. The header and footer are each handlebars templates, external files that are added to each project. Need to change a link in the footer? Change it in one place and it's changed on all project pages that use the template. Same goes for the header.
+For instance, I came from shops that used a CMS where I could add html, css and JavaScript to a CMS "asset" which was then wrapped by the site header, rail and footer. Here at [SCPR](http://www.scpr.org/), I've been lucky enough to have mentors who wanted to and helped to create something similar.
 
-#### License
+[This project](http://projects.scpr.org/static/maps/pedestrian-safety/) is on a custom structure that lies outside of the CMS. The header and footer are each handlebars templates, external files that I add to each new project. If I need to change a link in the footer I change it in one place and it's changed on all project pages using the template. Same goes for the header.
 
-[The MIT License](http://opensource.org/licenses/MIT)
+You could easily recreate something similar. Let's say your template structure is something like:
+
+		<body>
+		    <div id="data-header"></div>
+		        <div id="data-container">
+		            <div class="row-fluid">
+		                <div class="span4">
+		                    <div id="data-details"></div>
+		                </div>
+		                <div class="span8">
+		                    <div id="data-visuals"></div>
+		                </div>
+		            </div>
+		        </div>
+		    <div id="data-footer"></div>
+		</body>
+
+You can probably spot some candidates for possible Handlebars templates now; data-header, data-details, data-visuals and data footer all make sense, where data-header and data-footer could be used on all projects.
+
+Or say you want to quickly create a table to display some information. Using the data file from my earlier example, I can create a handlebars template to do just that:
+
+		<table class="table">
+		    <tbody>
+		        <tr>
+		            {{#objects}}
+		                <td>{{Title}}</td>
+		                <td>{{Data}}</td>
+		                <td>{{Source}}</td>
+		            {{/objects}}
+		        </tr>
+		    </tbody>
+		</table>
+
+ 
