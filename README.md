@@ -7,7 +7,7 @@
 
 ----
 
-#### Overview
+### Overview
 
 [Handlebars.js](http://handlebarsjs.com/) is a templating library -- much like mustache.js -- that "provides the power necessary to let you build semantic templates" based on data that is formatted as -- get this -- javascript objects. Using an example from the handlebar.js website, the library allows you to do things like this...
 
@@ -32,9 +32,10 @@ There are some really good resources out there for those who want to start using
 I'd like to demonstrate a bit of the script I've been using to display a flat data file on Handlebars templates render with AJAX, and give a couple practical applications for using Handlebars in a newsroom environment in order to deploy interactive projects fairly fast.
 
 >[Demo Page](http://projects.chrislkeller.com/snippets/ajax-handlebars/)
+>
 >[Repo](https://gist.github.com/3230081)
 
-#### Walkthrough
+### Walkthrough
 
 Coming across Handlebars.js after learning the basics of django templating, I really wanted a way to mimic some of that functionality and store Handlebars templates in [reusable, decoupled files that could be shared across projects](https://github.com/wycats/handlebars.js/issues/82).
 
@@ -130,7 +131,7 @@ My HTML page isn't any special, other than have a div that will have all kinds o
 
 	<div id="data-details"></div>
 
-#### Practical Applications?
+### Practical Applications?
 
 Your mileage might vary, but I've found several practical applications of Handlebars.js just by looking at my needs.
 
@@ -171,7 +172,7 @@ Or say you want to quickly create a table to display some information. Using the
 		    </tbody>
 		</table>
 
-#### Wrapup
+### Wrapup
 
 As an intermediate beginner to the world of web development, and entering my fifth year of being an "online guy" in a newsroom, I've found Handlebars to be a lot of fun. To increase that fun, there are all kinds of add ons and helper functions that you can use. [swag.js](http://elving.github.com/swag/) might be the most fun thus far.
 
