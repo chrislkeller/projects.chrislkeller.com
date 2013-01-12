@@ -1,19 +1,17 @@
-### Loading handlebars template with AJAX & displaying flat file data
-
-There are some good resources out there for those who want to start using the Handlebars JavaScript template library. Here are some links:
-
-- [Handlebars site](http://handlebarsjs.com/)
-- [Handlebars GitHubRepo](https://github.com/wycats/handlebars.js/)
-- [NetTuts Handlebars Walkthrough](http://net.tutsplus.com/tutorials/javascript-ajax/introduction-to-handlebars/)
-- Three-part series on using Handlebars:[Part one](http://blog.teamtreehouse.com/getting-started-with-handlebars-js); [Part two](http://blog.teamtreehouse.com/code/handlebars-js-part-2-partials-and-helpers/); [Part three](http://blog.teamtreehouse.com/handlebars-js-part-3-tips-and-tricks)
-
-I'd instead like to demonstrate how I've been able to use Handlebars templates in a newsroom environment to make deploying interactive projects fairly fast. This example will take a flat json file I created from a csv, display it in a handlebars template stored in a separate file and render that template on a webpage.
-
-- [Demo Page](http://projects.chrislkeller.com/snippets/ajax-handlebars/)
-
-- [Repo](https://gist.github.com/3230081)
-
 #### Overview
+
+[Handlebars.js](http://handlebarsjs.com/) is a templating library -- much like mustache.js -- that "provides the power necessary to let you build semantic templates" based on data that is formatted as -- get this -- javascript objects. Using an example from the handlebar.js website, the library allows you to do things like this...
+
+	<div class="entry">
+		<h1>{{title}}</h1>
+		<div class="body">
+			{{body}}
+		</div>
+	</div>
+
+… where {{title}} and {{body}} represents information stored in an object like this:
+
+	var context = {title: "My New Post", body: "This is my first post!"}
 
 The handlebars.js documentation describes adding templates to bottom of your index.html file like this:
 
@@ -21,7 +19,21 @@ The handlebars.js documentation describes adding templates to bottom of your ind
 	        {{template content}}
         </script>
 
-Coming across this after learning the basics of django templating, I really wanted a way to store handlebars templates in [reusable, decoupled files that could be shared across projects](https://github.com/wycats/handlebars.js/issues/82).  
+There are some good resources out there for those who want to start using the Handlebars JavaScript template library. Here are some links:
+
+- [Handlebars site](http://handlebarsjs.com/)
+- [Handlebars GitHubRepo](https://github.com/wycats/handlebars.js/)
+- [NetTuts Handlebars Walkthrough](http://net.tutsplus.com/tutorials/javascript-ajax/introduction-to-handlebars/)
+- Three-part series on using Handlebars: [Part one](http://blog.teamtreehouse.com/getting-started-with-handlebars-js); [Part two](http://blog.teamtreehouse.com/code/handlebars-js-part-2-partials-and-helpers/); [Part three](http://blog.teamtreehouse.com/handlebars-js-part-3-tips-and-tricks)
+
+I'd like to demonstrate how I've used Handlebars templates in a newsroom environment to make deploying interactive projects fairly fast. This example will take data from a flat JSON file I created from a csv, display the data in a handlebars template stored in a separate file and render that template on a webpage.
+
+- [Demo Page](http://projects.chrislkeller.com/snippets/ajax-handlebars/)
+- [Repo](https://gist.github.com/3230081)
+
+#### Walkthrough
+
+Coming across Handlebars.js after learning the basics of django templating, I really wanted a way to store handlebars templates in [reusable, decoupled files that could be shared across projects](https://github.com/wycats/handlebars.js/issues/82).  
 
 Thankfully this function based on [code from here](http://berzniz.com/post/24743062344/handling-handlebars-js-like-a-pro) helps me to do exactly that. 
 
@@ -49,8 +61,6 @@ I can then call it like this, where dataDetailsTemplate.handlebars is the name o
 		        jqueryNoConflict('#data-details').html(template(data));
 		    })
 		};
-
-#### Walkthrough
 
 Let's go through the full [data-script.js file](https://gist.github.com/raw/3230081/31abdbfb3f4746f8fb761d196dcfa81cdd38184d/data-script.js), because there's a lot in there that I've kind of picked up over the last several months. I don't really have an idea if it is "correct" to programmers out there, but I know that it works and doesn't throw me errors. 
 
