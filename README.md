@@ -1,24 +1,15 @@
 ### Loading handlebars template with AJAX & displaying flat file data
 
-There are some good resources out there for those who want to start using the handlebars JavaScript template library, so I don't want to start from scratch with it.
+There are some good resources out there for those who want to start using the Handlebars JavaScript template library. Here are some links:
 
+- [Handlebars site](http://handlebarsjs.com/)
+- [Handlebars GitHubRepo](https://github.com/wycats/handlebars.js/)
+- [NetTuts Handlebars Walkthrough](http://net.tutsplus.com/tutorials/javascript-ajax/introduction-to-handlebars/)
+- Three-part series on using Handlebars:[Part one](http://blog.teamtreehouse.com/getting-started-with-handlebars-js); [Part two](http://blog.teamtreehouse.com/code/handlebars-js-part-2-partials-and-helpers/); [Part three](http://blog.teamtreehouse.com/handlebars-js-part-3-tips-and-tricks)
 
-http://handlebarsjs.com/
+I'd instead like to demonstrate how I've been able to use Handlebars templates in a newsroom environment to make deploying interactive projects fairly fast. This example will take a flat json file I created from a csv, display it in a handlebars template stored in a separate file and render that template on a webpage.
 
-http://net.tutsplus.com/tutorials/javascript-ajax/introduction-to-handlebars/
-
-http://blog.teamtreehouse.com/getting-started-with-handlebars-js
-
-http://blog.teamtreehouse.com/code/handlebars-js-part-2-partials-and-helpers/
-
-http://blog.teamtreehouse.com/handlebars-js-part-3-tips-and-tricks
-
-
-But I would like to try to demonstrate how I've ramped up my use of handlebars templates over the past couple months in a newsroom environment, and how it's made deploying interactive projects fairly fast.
-
-This example will take a flat json file I created from a csv and display it in a handlebars template stored in a separate file and rendered on a web page.
-
-- [Demo](http://projects.chrislkeller.com/snippets/ajax-handlebars/)
+- [Demo Page](http://projects.chrislkeller.com/snippets/ajax-handlebars/)
 
 - [Repo](https://gist.github.com/3230081)
 
