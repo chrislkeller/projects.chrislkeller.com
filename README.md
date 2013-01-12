@@ -33,9 +33,9 @@ I'd like to demonstrate a bit of the script I've been using to display a flat da
 
 #### Walkthrough
 
-Coming across Handlebars.js after learning the basics of django templating, I really wanted a way to mimic some of that functionality and store handlebars templates in [reusable, decoupled files that could be shared across projects](https://github.com/wycats/handlebars.js/issues/82).  
+Coming across Handlebars.js after learning the basics of django templating, I really wanted a way to mimic some of that functionality and store handlebars templates in [reusable, decoupled files that could be shared across projects](https://github.com/wycats/handlebars.js/issues/82).
 
-Thankfully this function based on [code from here](http://berzniz.com/post/24743062344/handling-handlebars-js-like-a-pro) helps me to do exactly that. 
+Thankfully this function based on [code from here](http://berzniz.com/post/24743062344/handling-handlebars-js-like-a-pro) helps me to do exactly that.
 
 	// render handlebars templates via ajax
 	function getTemplateAjax(path, callback) {
@@ -55,21 +55,21 @@ I can then call it like this, where dataDetailsTemplate.handlebars is the name o
 		// create projects content template
 		function renderDataVisualsTemplate(data){
 		    getTemplateAjax('dataDetailsTemplate.handlebars', function(template) {
-		
+
 		        // adds debugging information to console
 		        jqueryNoConflict('#data-details').html(template(data));
 		    })
 		};
 
-Let's go through the full [data-script.js file](https://gist.github.com/raw/3230081/31abdbfb3f4746f8fb761d196dcfa81cdd38184d/data-script.js), because there's a lot in there that I've kind of picked up over the last several months. 
+Let's go through the full [data-script.js file](https://gist.github.com/raw/3230081/31abdbfb3f4746f8fb761d196dcfa81cdd38184d/data-script.js), because there's a lot in there that I've kind of picked up over the last several months.
 
-I don't really have an idea if it is "correct" to programmers out there, but I know that it works and doesn't throw me errors. 
+I don't really have an idea if it is "correct" to programmers out there, but I know that it works and doesn't throw me errors.
 
 In learning to use jQuery in the context of my previous CMS -- which used several jQuery libraries -- I found it just made sense to use a no conflict variable and it's something I've just stuck with:
 
 		var jqueryNoConflict = jQuery;
 
-When the DOM is ready I call the *retriveData()* function which kind of starts the whole ball rolling: 
+When the DOM is ready I call the *retriveData()* function which kind of starts the whole ball rolling:
 
 		//begin main function
 		jqueryNoConflict(document).ready(function(){
@@ -77,7 +77,7 @@ When the DOM is ready I call the *retriveData()* function which kind of starts t
 		});
 		//end main function
 
-*retriveData()* looks for my flat JSON file, which set to a variable. It then uses jQuery's getJSON method to pull the data and run it through a function called *renderDataVisualsTemplate()*. This is the function that will render my handlebars template to the page with data in it. 
+*retriveData()* looks for my flat JSON file, which set to a variable. It then uses jQuery's getJSON method to pull the data and run it through a function called *renderDataVisualsTemplate()*. This is the function that will render my handlebars template to the page with data in it.
 
 		// grab data
 		function retriveData() {
@@ -95,15 +95,15 @@ When the DOM is ready I call the *retriveData()* function which kind of starts t
 		    })
 		};
 
-After that, I have my function to pull my handlebars template from an external file and compile it. I've also included a handlebars debugger, a "helper" function shows information about the data I am trying to work with.   
+After that, I have my function to pull my handlebars template from an external file and compile it. I've also included a handlebars debugger, a "helper" function shows information about the data I am trying to work with.
 
 Let's take a look at the flat JSON file I am using to hold the data that will be rendered to the page. It's structured as it is in the handlebars walkthrough.
 
-		{"objects": [{"Source": "National Employment Law Project", "DataOrder": "1", "SourceLink": "http://www.nelp.org/", "Data": "12.29.2012", "Title": "The last day anyone will receive benefits from the Emergency Unemployment Compensation program unless Congress acts to renew it."}, {"Source": "Congressional Budget Office", "DataOrder": "2", "SourceLink": "", "Data": "$30,000,000,000", "Title": "Estimated cost to renew the Emergency Unemployment Compensation program through the end of 2013."}]} 
+		{"objects": [{"Source": "National Employment Law Project", "DataOrder": "1", "SourceLink": "http://www.nelp.org/", "Data": "12.29.2012", "Title": "The last day anyone will receive benefits from the Emergency Unemployment Compensation program unless Congress acts to renew it."}, {"Source": "Congressional Budget Office", "DataOrder": "2", "SourceLink": "", "Data": "$30,000,000,000", "Title": "Estimated cost to renew the Emergency Unemployment Compensation program through the end of 2013."}]}
 
 To render the data, the handlebars template is structured just as it would be if it was inline on the index.html page, save for wrapping it in a script tag.
 
-		<div>		 
+		<div>
 		    {{debug}}
 		    <h2>Flat file data displayed on a handlebars.js template loaded with ajax</h2>
 		    {{#objects}}
@@ -124,7 +124,7 @@ be rendered to the page and structured in a certain way.
         -- <a href="{{SourceLink}}" target="_blank"><em>{{Source}}</em></a></p>
 
 My HTML page isn't any special, other than have a div that will have all kinds of data injected into it thanks to handlebars.
-	
+
 	<div id="data-details"></div>
 
 #### Practical Applications?
@@ -168,4 +168,3 @@ Or say you want to quickly create a table to display some information. Using the
 		    </tbody>
 		</table>
 
- 
