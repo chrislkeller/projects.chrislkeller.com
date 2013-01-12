@@ -1,5 +1,12 @@
 ## Display data from a flat JSON file on a Handlebars.js template file rendered with AJAX
 
+**tl;dr**: The README on the repo below gives a bit of a walkthrough and demonstration of the script I've been using to display a flat data file on Handlebars templates rendered with AJAX, which has allowed me to learn to deploy interactive data projects fairly fast.
+
+- [Demo Page](http://projects.chrislkeller.com/snippets/ajax-handlebars/)
+- [Repo](https://gist.github.com/3230081)
+
+----
+
 #### Overview
 
 [Handlebars.js](http://handlebarsjs.com/) is a templating library -- much like mustache.js -- that "provides the power necessary to let you build semantic templates" based on data that is formatted as -- get this -- javascript objects. Using an example from the handlebar.js website, the library allows you to do things like this...
@@ -15,13 +22,7 @@
 
 	var context = {title: "My New Post", body: "This is my first post!"}
 
-The Handlebars.js documentation describes adding templates to bottom of your index.html file like this:
-
-        <script id="entry-template" type="text/x-handlebars-template">
-	        {{template content}}
-        </script>
-
-There are some good resources out there for those who want to start using the Handlebars JavaScript template library. Here are some links:
+There are some really good resources out there for those who want to start using the Handlebars JavaScript template library. Here are some links:
 
 - [Handlebars site](http://handlebarsjs.com/)
 - [Handlebars GitHubRepo](https://github.com/wycats/handlebars.js/)
@@ -30,8 +31,8 @@ There are some good resources out there for those who want to start using the Ha
 
 I'd like to demonstrate a bit of the script I've been using to display a flat data file on Handlebars templates render with AJAX, and give a couple practical applications for using Handlebars in a newsroom environment in order to deploy interactive projects fairly fast.
 
-- [Demo Page](http://projects.chrislkeller.com/snippets/ajax-handlebars/)
-- [Repo](https://gist.github.com/3230081)
+>[Demo Page](http://projects.chrislkeller.com/snippets/ajax-handlebars/)
+>[Repo](https://gist.github.com/3230081)
 
 #### Walkthrough
 
@@ -178,7 +179,7 @@ See while Handlebars tried to keep logic out of the templates -- and I respect t
 
 		{{uppercase Title}}
 
-Or if I want to evaluate the data in my flat JSON file, I can run comparisons on my Handlebars templates.  
+Or if I want to evaluate the data in my flat JSON file, I can run comparisons on my Handlebars templates.
 
 		{{#objects}}
 		    {{#is Source 'National Employment Law Project'}}
