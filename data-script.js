@@ -9,14 +9,16 @@ jqueryNoConflict(document).ready(function(){
 // grab data
 function retriveData() {
     var dataSource = 'working-data-file.json';
-    jqueryNoConflict.getJSON(dataSource, processDataFrom);
+    jqueryNoConflict.getJSON(dataSource, renderDataVisualsTemplate);
 };
 
-// display page template
-function processDataFrom(data){
-    renderDataVisualsTemplate(data);
+// create projects content template
+function renderDataVisualsTemplate(data){
+    getTemplateAjax('dataDetailsTemplate.handlebars', function(template) {
+        handlebarsDebugHelper();
+        jqueryNoConflict('#data-details').html(template(data));
+    })
 };
-// end
 
 // render handlebars templates via ajax
 function getTemplateAjax(path, callback) {
@@ -41,11 +43,3 @@ function handlebarsDebugHelper(){
     });
 };
 // end
-
-// create projects content template
-function renderDataVisualsTemplate(data){
-    getTemplateAjax('dataDetailsTemplate.handlebars', function(template) {
-        handlebarsDebugHelper();
-        jqueryNoConflict('#data-details').html(template(data));
-    })
-};
