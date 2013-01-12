@@ -59,20 +59,27 @@ Then when the DOM is ready I call the function that kind of starts the whole bal
 		});
 		//end main function
 
-retriveData() looks for my flat JSON file, which set to a variable. It then uses jQuery's getJSON method to pull the data and run it through another function called processDataFrom();
+retriveData() looks for my flat JSON file, which set to a variable. It then uses jQuery's getJSON method to pull the data and run it through a function called renderDataVisualsTemplate(). This is the function that will render my handlebars template to the page with data in it. 
 
 		// grab data
 		function retriveData() {
 		    var dataSource = 'working-data-file.json';
-		    jqueryNoConflict.getJSON(dataSource, processDataFrom);
+		    jqueryNoConflict.getJSON(dataSource, renderDataVisualsTemplate);
 		};
 
-processDataFrom() gets an argument that represents my the data from my flat JSON file, which is 
+renderDataVisualsTemplate() gets an argument that represents my the data from my flat JSON file. Again, dataDetailsTemplate.handlebars is the name of my template and #data-details is the css selector where I will inject my template that will be filled with data.
 
+		// create projects content template
+		function renderDataVisualsTemplate(data){
+		    getTemplateAjax('dataDetailsTemplate.handlebars', function(template) {
+		        handlebarsDebugHelper();
+		        jqueryNoConflict('#data-details').html(template(data));
+		    })
+		};
 
+After that, I have my function to pull my handlebars template from an external file and compile it. I've also included a handlebars debugger, a "helper" function that shows information about the data I am trying to work with.   
 
-
-I'm also using a separate file to hold the data that will be rendered to the page. It's structured as it is in the handlebars walkthrough.
+Let's take a look at the flat JSON file I am using to hold the data that will be rendered to the page. It's structured as it is in the handlebars walkthrough.
 
 		{"objects": [{"Source": "National Employment Law Project", "DataOrder": "1", "SourceLink": "http://www.nelp.org/", "Data": "12.29.2012", "Title": "The last day anyone will receive benefits from the Emergency Unemployment Compensation program unless Congress acts to renew it."}, {"Source": "Congressional Budget Office", "DataOrder": "2", "SourceLink": "", "Data": "$30,000,000,000", "Title": "Estimated cost to renew the Emergency Unemployment Compensation program through the end of 2013."}]} 
 
@@ -97,6 +104,10 @@ be rendered to the page and structured in a certain way.
 
         <p>{{Title}}: <strong>{{Data}}</strong><br />
         -- <a href="{{SourceLink}}" target="_blank"><em>{{Source}}</em></a></p>
+
+My HTML page isn't any special, other than have a div that will have all kinds of data injected into it thanks to handlebars.
+	
+	<div id="data-details"></div>
 
 #### More
 
