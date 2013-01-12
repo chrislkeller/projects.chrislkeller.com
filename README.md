@@ -1,3 +1,5 @@
+## Display data from a flat JSON file on a Handlebars.js template file rendered with AJAX
+
 #### Overview
 
 [Handlebars.js](http://handlebarsjs.com/) is a templating library -- much like mustache.js -- that "provides the power necessary to let you build semantic templates" based on data that is formatted as -- get this -- javascript objects. Using an example from the handlebar.js website, the library allows you to do things like this...
