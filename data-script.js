@@ -2,9 +2,21 @@ var jqueryNoConflict = jQuery;
 
 //begin main function
 jqueryNoConflict(document).ready(function(){
-    renderYourTemplate();
+    retriveData();
 });
-//end
+//end main function
+
+// grab data
+function retriveData() {
+    var dataSource = 'working-data-file.json';
+    jqueryNoConflict.getJSON(dataSource, processDataFrom);
+};
+
+// display page template
+function processDataFrom(data){
+    renderDataVisualsTemplate(data);
+};
+// end
 
 // render handlebars templates via ajax
 function getTemplateAjax(path, callback) {
@@ -20,18 +32,20 @@ function getTemplateAjax(path, callback) {
 }
 //end
 
-// create header template
-function renderYourTemplate(){
-    var data = {
-        users: [
-            {username: "alan", firstName: "Alan", lastName: "Johnson", age: "26", email: "alan@test.com" },
-            {username: "allison", firstName: "Allison", lastName: "House", age: "35", email: "allison@test.com" },
-            {username: "ryan", firstName: "Ryan", lastName: "Carson", age: "50", email: "ryan@test.com" }
-        ]
-    };
-
-    getTemplateAjax('template.handlebars', function(template) {
-        jqueryNoConflict('#main-content').html(template(data));
-    })
+// add handlebars debugger
+function handlebarsDebugHelper(){
+    Handlebars.registerHelper("debug", function(optionalValue) {
+        console.log("Current Context");
+        console.log("====================");
+        console.log(this);
+    });
 };
 // end
+
+// create projects content template
+function renderDataVisualsTemplate(data){
+    getTemplateAjax('dataDetailsTemplate.handlebars', function(template) {
+        handlebarsDebugHelper();
+        jqueryNoConflict('#data-details').html(template(data));
+    })
+};
