@@ -13,7 +13,7 @@
 
 	var context = {title: "My New Post", body: "This is my first post!"}
 
-The handlebars.js documentation describes adding templates to bottom of your index.html file like this:
+The Handlebars.js documentation describes adding templates to bottom of your index.html file like this:
 
         <script id="entry-template" type="text/x-handlebars-template">
 	        {{template content}}
@@ -33,7 +33,7 @@ I'd like to demonstrate a bit of the script I've been using to display a flat da
 
 #### Walkthrough
 
-Coming across Handlebars.js after learning the basics of django templating, I really wanted a way to mimic some of that functionality and store handlebars templates in [reusable, decoupled files that could be shared across projects](https://github.com/wycats/handlebars.js/issues/82).
+Coming across Handlebars.js after learning the basics of django templating, I really wanted a way to mimic some of that functionality and store Handlebars templates in [reusable, decoupled files that could be shared across projects](https://github.com/wycats/handlebars.js/issues/82).
 
 Thankfully this function based on [code from here](http://berzniz.com/post/24743062344/handling-handlebars-js-like-a-pro) helps me to do exactly that.
 
@@ -77,7 +77,7 @@ When the DOM is ready I call the *retriveData()* function which kind of starts t
 		});
 		//end main function
 
-*retriveData()* looks for my flat JSON file, which set to a variable. It then uses jQuery's getJSON method to pull the data and run it through a function called *renderDataVisualsTemplate()*. This is the function that will render my handlebars template to the page with data in it.
+*retriveData()* looks for my flat JSON file, which set to a variable. It then uses jQuery's getJSON method to pull the data and run it through a function called *renderDataVisualsTemplate()*. This is the function that will render my Handlebars template to the page with data in it.
 
 		// grab data
 		function retriveData() {
@@ -95,13 +95,13 @@ When the DOM is ready I call the *retriveData()* function which kind of starts t
 		    })
 		};
 
-After that, I have my function to pull my handlebars template from an external file and compile it. I've also included a handlebars debugger, a "helper" function shows information about the data I am trying to work with.
+After that, I have my function to pull my Handlebars template from an external file and compile it. I've also included a Handlebars debugger, a "helper" function shows information about the data I am trying to work with.
 
-Let's take a look at the flat JSON file I am using to hold the data that will be rendered to the page. It's structured as it is in the handlebars walkthrough.
+Let's take a look at the flat JSON file I am using to hold the data that will be rendered to the page. It's structured as it is in the Handlebars walkthrough.
 
 		{"objects": [{"Source": "National Employment Law Project", "DataOrder": "1", "SourceLink": "http://www.nelp.org/", "Data": "12.29.2012", "Title": "The last day anyone will receive benefits from the Emergency Unemployment Compensation program unless Congress acts to renew it."}, {"Source": "Congressional Budget Office", "DataOrder": "2", "SourceLink": "", "Data": "$30,000,000,000", "Title": "Estimated cost to renew the Emergency Unemployment Compensation program through the end of 2013."}]}
 
-To render the data, the handlebars template is structured just as it would be if it was inline on the index.html page, save for wrapping it in a script tag.
+To render the data, the Handlebars template is structured just as it would be if it was inline on the index.html page, save for wrapping it in a script tag.
 
 		<div>
 		    {{debug}}
@@ -123,7 +123,7 @@ be rendered to the page and structured in a certain way.
         <p>{{Title}}: <strong>{{Data}}</strong><br />
         -- <a href="{{SourceLink}}" target="_blank"><em>{{Source}}</em></a></p>
 
-My HTML page isn't any special, other than have a div that will have all kinds of data injected into it thanks to handlebars.
+My HTML page isn't any special, other than have a div that will have all kinds of data injected into it thanks to Handlebars.
 
 	<div id="data-details"></div>
 
@@ -133,7 +133,7 @@ Your mileage might vary, but I've found several practical applications of Handle
 
 For instance, I came from shops that used a CMS where I could add html, css and JavaScript to a CMS "asset" which was then wrapped by the site header, rail and footer. Here at [SCPR](http://www.scpr.org/), I've been lucky enough to have mentors who wanted to and helped to create something similar.
 
-[This project](http://projects.scpr.org/static/maps/pedestrian-safety/) is on a custom structure that lies outside of the CMS. The header and footer are each handlebars templates, external files that I add to each new project. If I need to change a link in the footer I change it in one place and it's changed on all project pages using the template. Same goes for the header.
+[This project](http://projects.scpr.org/static/maps/pedestrian-safety/) is on a custom structure that lies outside of the CMS. The header and footer are each Handlebars templates, external files that I add to each new project. If I need to change a link in the footer I change it in one place and it's changed on all project pages using the template. Same goes for the header.
 
 You could easily recreate something similar. Let's say your template structure is something like:
 
@@ -154,7 +154,7 @@ You could easily recreate something similar. Let's say your template structure i
 
 You can probably spot some candidates for possible Handlebars templates now; data-header, data-details, data-visuals and data footer all make sense, where data-header and data-footer could be used on all projects.
 
-Or say you want to quickly create a table to display some information. Using the data file from my earlier example, I can create a handlebars template to do just that:
+Or say you want to quickly create a table to display some information. Using the data file from my earlier example, I can create a Handlebars template to do just that:
 
 		<table class="table">
 		    <tbody>
