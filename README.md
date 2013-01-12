@@ -2,6 +2,18 @@
 
 There are some good resources out there for those who want to start using the handlebars JavaScript template library, so I don't want to start from scratch with it.
 
+
+http://handlebarsjs.com/
+
+http://net.tutsplus.com/tutorials/javascript-ajax/introduction-to-handlebars/
+
+http://blog.teamtreehouse.com/getting-started-with-handlebars-js
+
+http://blog.teamtreehouse.com/code/handlebars-js-part-2-partials-and-helpers/
+
+http://blog.teamtreehouse.com/handlebars-js-part-3-tips-and-tricks
+
+
 But I would like to try to demonstrate how I've ramped up my use of handlebars templates over the past couple months in a newsroom environment, and how it's made deploying interactive projects fairly fast.
 
 This example will take a flat json file I created from a csv and display it in a handlebars template stored in a separate file and rendered on a web page.
@@ -20,7 +32,7 @@ The handlebars.js documentation describes adding templates to bottom of your ind
 
 Coming across this after learning the basics of django templating, I really wanted a way to store handlebars templates in [reusable, decoupled files that could be shared across projects](https://github.com/wycats/handlebars.js/issues/82).  
 
-Thankfully this function helps me to do exactly that. 
+Thankfully this function based on [code from here](http://berzniz.com/post/24743062344/handling-handlebars-js-like-a-pro) helps me to do exactly that. 
 
 	// render handlebars templates via ajax
 	function getTemplateAjax(path, callback) {
