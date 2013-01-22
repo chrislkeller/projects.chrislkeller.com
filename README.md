@@ -56,13 +56,10 @@ Thankfully this function based on [code from here](http://berzniz.com/post/24743
 
 I can then call it like this, where dataDetailsTemplate.handlebars is the name of my template, and #data-details is the css selector I am targeting.
 
-		// create projects content template
+		// render compiled handlebars template
 		function renderDataVisualsTemplate(data){
-		    getTemplateAjax('dataDetailsTemplate.handlebars', function(template) {
-
-		        // adds debugging information to console
-		        jqueryNoConflict('#data-details').html(template(data));
-		    })
+		    handlebarsDebugHelper();
+		    renderHandlebarsTemplate('dataDetailsTemplate.handlebars', '#data-details', data);
 		};
 
 Let's go through the full [data-script.js file](https://gist.github.com/raw/3230081/31abdbfb3f4746f8fb761d196dcfa81cdd38184d/data-script.js), because there's a lot in there that I've kind of picked up over the last several months.
@@ -89,17 +86,24 @@ When the DOM is ready I call the *retriveData()* function which kind of starts t
 		    jqueryNoConflict.getJSON(dataSource, renderDataVisualsTemplate);
 		};
 
-*renderDataVisualsTemplate()* gets an argument that represents my the data from my flat JSON file. Again, dataDetailsTemplate.handlebars is the name of my template and #data-details is the css selector where I will inject my template that will be filled with data.
+*renderDataVisualsTemplate()* gets an argument that represents my the data from my flat JSON file. This function runs my base handlebars template function using the name of my template (dataDetailsTemplate.handlebars), the css selector where I will inject my template (#data-details) and the data I will fill it with (data).
 
-		// create projects content template
+		// render compiled handlebars template
 		function renderDataVisualsTemplate(data){
-		    getTemplateAjax('dataDetailsTemplate.handlebars', function(template) {
-		        handlebarsDebugHelper();
-		        jqueryNoConflict('#data-details').html(template(data));
-		    })
+		    handlebarsDebugHelper();
+		    renderHandlebarsTemplate('dataDetailsTemplate.handlebars', '#data-details', data);
 		};
 
 After that, I have my function to pull my Handlebars template from an external file and compile it. I've also included a Handlebars debugger, a "helper" function shows information about the data I am trying to work with.
+
+The base handlebars template function looks like this, and takes three parameters: the name of the template, the css selector and the data object:
+
+		// function to compile handlebars template
+		function renderHandlebarsTemplate(withTemplate,inElement,withData){
+		    getTemplateAjax(withTemplate, function(template) {
+		        jqueryNoConflict(inElement).html(template(withData));
+		    })
+		};
 
 Let's take a look at the flat JSON file I am using to hold the data that will be rendered to the page. It's structured as it is in the Handlebars walkthrough.
 
