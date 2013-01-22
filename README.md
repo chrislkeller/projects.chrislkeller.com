@@ -1,7 +1,6 @@
 ## Boostrap template using handlebars.js
 
-**tl;dr**:
+**tl;dr**: A quickstart project template using boostrap and handlebars.
 
-- [Demo Page](http://projects.chrislkeller.com/snippets/ajax-handlebars/)
-- [Blog Post](http://www.chrislkeller.com/display-data-from-a-flat-json-file-on-a-handl)
-- [Repo](https://gist.github.com/3230081)
+- [Demo Page](http://projects.chrislkeller.com/demos/bootstrap-template/)
+- [Repo](https://github.com/chrislkeller/bootstrap-template)

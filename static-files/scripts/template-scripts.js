@@ -31,7 +31,6 @@ function renderHandlebarsTemplate(withTemplate,inElement,withData){
 function renderStaticTemplates(){
     renderHandlebarsTemplate('static-files/templates/page-header.handlebars', '#page-responsive-header');
     renderHandlebarsTemplate('static-files/templates/data-details.handlebars', '#data-details');
-    renderHandlebarsTemplate('static-files/templates/data-visuals.handlebars', '#data-visuals');
     renderHandlebarsTemplate('static-files/templates/data-footer.handlebars', '#data-footer');
     renderHandlebarsTemplate('static-files/templates/page-footer.handlebars', '#page-responsive-footer');
 };
