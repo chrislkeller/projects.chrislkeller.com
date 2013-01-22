@@ -4,7 +4,11 @@ body {background: #979793; font-family: 'Varela Round', sans-serif;}
 #data-container {background: #ffffff; max-width: 960px; padding: 25px; margin: 0px auto 0px auto;}
 #data-details {margin: 25px 0 25px 0;}
 #data-visuals {margin: 25px 0 25px 0;}
-#data-visuals #map_canvas {width: 100%; height: 500px;}
+#content-article {width: 100%; height: auto; margin: 0 auto 25px auto;}
+#content-action-bar {width: 100%; height: auto; text-align: center; margin: 25px auto 25px auto;}
+#content-explainer {width: 100%; height: auto; margin: 25px auto 25px auto;}
+#content-display {width: 100%; height: auto; margin: 25px auto 25px auto;}
+#content-map-canvas {width: 100%; height: 700px; margin: 10px 0 10px 0;}
 #page-responsive-footer {width: 100%; height: 45px; background-color: #000000; color: #ffffff; margin: 0 0 0 0;}
 
 /* typography */

@@ -11,44 +11,27 @@ function getTemplateAjax(path, callback) {
     var source, template;
     jqueryNoConflict.ajax({
         url: path,
+
         success: function (data) {
             source = data;
             template = Handlebars.compile(source);
             if (callback) callback(template);
         }
     });
-}
-//end
+};
 
-// begin
+// function to compile handlebars template
+function renderHandlebarsTemplate(withTemplate,inElement,withData){
+    getTemplateAjax(withTemplate, function(template) {
+        jqueryNoConflict(inElement).html(template(withData));
+    })
+};
+
+// render all the templates
 function renderStaticTemplates(){
-    renderPageHeaderTemplate();
-    renderDataDetailsTemplate();
-    renderDataFooterTemplate();
-    renderPageFooterTemplate();
-};
-// end
-
-function renderPageHeaderTemplate(){
-    getTemplateAjax('static-files/templates/page-header.handlebars', function(template) {
-        jqueryNoConflict('#page-responsive-header').html(template());
-    })
-};
-
-function renderDataDetailsTemplate(){
-    getTemplateAjax('static-files/templates/data-details.handlebars', function(template) {
-        jqueryNoConflict('#data-details').html(template());
-    })
-};
-
-function renderDataFooterTemplate(){
-    getTemplateAjax('static-files/templates/data-footer.handlebars', function(template) {
-        jqueryNoConflict('#data-footer').html(template());
-    })
-};
-
-function renderPageFooterTemplate(){
-    getTemplateAjax('static-files/templates/page-footer.handlebars', function(template) {
-        jqueryNoConflict('#page-responsive-footer').html(template());
-    })
+    renderHandlebarsTemplate('static-files/templates/page-header.handlebars', '#page-responsive-header');
+    renderHandlebarsTemplate('static-files/templates/data-details.handlebars', '#data-details');
+    renderHandlebarsTemplate('static-files/templates/data-visuals.handlebars', '#data-visuals');
+    renderHandlebarsTemplate('static-files/templates/data-footer.handlebars', '#data-footer');
+    renderHandlebarsTemplate('static-files/templates/page-footer.handlebars', '#page-responsive-footer');
 };
