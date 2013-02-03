@@ -1,4 +1,4 @@
-# build flat json file for handlebars.js template.
+# Build a flat json file for handlebars.js template
 
 Both scripts create a flat json file from a given csv file that can be used in a handlebars.js template.
 
