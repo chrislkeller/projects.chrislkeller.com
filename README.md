@@ -1,4 +1,4 @@
-### mad-beach-status
+# mad-beach-status
 
 Hacked-together attempt at a Python scraper of Madison, Wis. beach status using Beautiful Soup and Requests. It pulls similar data from the Madison and Dane County Public Health website.
 
