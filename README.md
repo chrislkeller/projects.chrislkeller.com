@@ -1,4 +1,4 @@
-### Fusion Tables Map starter
+# Fusion Tables Map starter
 
 Super quick Map using Google's maps API and a Fusion Tables layer.
 
