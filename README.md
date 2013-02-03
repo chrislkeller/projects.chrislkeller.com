@@ -1,4 +1,4 @@
-### Pull json from Fusion Tables
+# Pull json from Fusion Tables
 
 Based off [this](https://developers.google.com/fusiontables/docs/samples/basic_jsonp_request) walkthrough, this snippet queries a Fusion Table for a given search string and returns the data as json. We then loop through the json and append it to a container div.
 
