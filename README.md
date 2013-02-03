@@ -60,8 +60,9 @@ I can then call it like this, where dataDetailsTemplate.handlebars is the name o
 
 ## Links & Resources
 
-- [Blog Post](http://www.chrislkeller.com/some-thoughts-after-a-couple-months-with-tabl)
-- [Repo](https://gist.github.com/4700210)
+- [Blog Post](http://www.chrislkeller.com/display-data-from-a-flat-json-file-on-a-handl)
+- [Demo Page](http://projects.chrislkeller.com/snippets/ajax-handlebars/)
+- [Repo](https://gist.github.com/3230081)
 
 ----
 
