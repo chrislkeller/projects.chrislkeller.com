@@ -34,7 +34,7 @@ and
 
 Another thing I've noticed is the python script that converts the csv to json renders everything as a string, which has caused some issues when using something like highcharts, which requires is data objects to be integers.
 
-## Additional Details
+## Links & Resources
 
 - [Some thoughts after a couple months with tabletop and handlebars](http://www.chrislkeller.com/some-thoughts-after-a-couple-months-with-tabl)
 - [Repo](https://gist.github.com/4700210)
