@@ -1,4 +1,4 @@
-### The Raw Man
+# The Raw Man
 
 So of my [goals](http://www.chrislkeller.com/a-handful-of-modest-achievable-goals-for-2011) for 2011, I managed to work on two of them this weekend as part of the same project: Doing something with all the old writing I have laying around -- an annual goal, believe me -- and learning to do more with javascript besides make an alert box pop up saying you clicked something.
 
