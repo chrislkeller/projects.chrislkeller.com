@@ -32,10 +32,6 @@ There are some really good resources out there for those who want to start using
 
 I'd like to demonstrate a bit of the script I've been using to display a flat data file on Handlebars templates render with AJAX, and give a couple practical applications for using Handlebars in a newsroom environment in order to deploy interactive projects fairly fast.
 
->[Demo Page](http://projects.chrislkeller.com/snippets/ajax-handlebars/)
->
->[Repo](https://gist.github.com/3230081)
-
 ### Walkthrough
 
 Coming across Handlebars.js after learning the basics of django templating, I really wanted a way to mimic some of that functionality and store Handlebars templates in [reusable, decoupled files that could be shared across projects](https://github.com/wycats/handlebars.js/issues/82).
