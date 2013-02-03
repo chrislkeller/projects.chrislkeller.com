@@ -2,9 +2,8 @@
 
 **tl;dr** - Seeing how I can use tabletop.js & handlebars.js together has opened up some really cool custom mini-CMS possibilities and ways to manage data projects. But as I have learned thanks to the [experiments of others](https://twitter.com/brianboyer/status/233201509842710528), flat json files can be much better in production, and especially for small one-off projects. In lieu of learning how to take the tabletop object and write it to a flat file, I made some adjustments to some python code so I can take a csv, create a flat json file from it and drop that file into a [handlebars function](https://gist.github.com/3230081). While it works for me, I'd like to know if it works for others…
 
-- [Demo Page](http://projects.chrislkeller.com/snippets/ajax-handlebars/)
-- [Blog Post](http://www.chrislkeller.com/display-data-from-a-flat-json-file-on-a-handl)
-- [Repo](https://gist.github.com/3230081)
+- [Blog Post](http://www.chrislkeller.com/some-thoughts-after-a-couple-months-with-tabl)
+- [Repo](https://gist.github.com/4700210)
 
 ----
 
