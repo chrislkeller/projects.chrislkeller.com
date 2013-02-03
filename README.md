@@ -1,4 +1,4 @@
-### search-address-map-marker
+# search-address-map-marker
 
 Plots a marker on a map after a user inputs their address.
 
