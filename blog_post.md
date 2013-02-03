@@ -11,7 +11,7 @@ I'm happy to say that I still have access to some gray days since moving to Sout
 
 I'm only now getting back to the write up and posting code.
 
-### Overview
+## Overview
 
 tabletop.js allows you to use a Google spreadsheet as a data backend. By simply publishing the spreadsheet and adding its key to a tabletop javascript function you can retrieve an an array of objects to be used on a webpage or in a web application. The library was released back in February -- right around the time of NICAR -- thanks to work by [WNYC](http://datanews.tumblr.com/) and [Balance Media](http://www.builtbybalance.com/).
 
@@ -28,7 +28,7 @@ handlebars.js is a templating library -- much like mustache.js -- that "provides
 
 	var context = {title: "My New Post", body: "This is my first post!"}
 
-### Walkthrough
+## Practical Applications
 
 Learning how these libraries can work with each other has been a lot of fun, especially in the context of a newly-created position at a new-to-me news organization where I have had a role to play in building a foundation for the presentation of data projects.
 
@@ -56,7 +56,7 @@ A flat file [very much](https://docs.google.com/presentation/embed?id=1IybYcc0eV
 
 And so I went about finding a way to create a flat json file from a Google spreadsheet that I could use in a handlebars.js template.
 
-### My Workaround
+## My Workaround
 
 I already had [Andy Boyle's](https://twitter.com/andymboyle) python [script](http://www.andymboyle.com/2011/11/02/quick-csv-to-json-parser-in-python/) from a year ago that creates json from a csv. And I noticed in the comments section on Andy's post that [Christopher Groskopf's](https://twitter.com/onyxfish) [csvkit](http://csvkit.readthedocs.org/en/latest/) has a [csvjson utility](http://csvkit.readthedocs.org/en/latest/scripts/csvjson.html) that can also convert a csv to a json file.
 
@@ -66,7 +66,7 @@ After flirting with the idea of adding a custom argument to the csvjson utility 
 
 … which is something that allows me to plug my new file name into a variable in [this script](https://gist.github.com/raw/3230081/31abdbfb3f4746f8fb761d196dcfa81cdd38184d/data-script.js) and fly.
 
-### Potential Snags
+## Snags
 
 Now, admittedly it works because most of my handlebars work thus far has used simple data structures -- largely an object that contains an array of objects -- but my workflow might fall apart quickly should I need to access multiple data streams, etc. (UPDATE: This has already happened!)
 
