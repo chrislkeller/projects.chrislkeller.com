@@ -1,4 +1,4 @@
-## Boostrap template using handlebars.js
+# Boostrap template using handlebars.js
 
 **tl;dr**: A quickstart project template using boostrap and handlebars.
 
