@@ -55,13 +55,19 @@ Thankfully this function based on [code from here](http://berzniz.com/post/24743
 	    });
 	}
 
-I can then call it like this, where dataDetailsTemplate.handlebars is the name of my template, and #data-details is the css selector I am targeting.
 
-		// render compiled handlebars template
-		function renderDataVisualsTemplate(data){
-		    handlebarsDebugHelper();
-		    renderHandlebarsTemplate('dataDetailsTemplate.handlebars', '#data-details', data);
-		};
+I then abstract out a function to display the compiled template, passing in the name of the template, the css selector I am targeting and the data I want to display.
+
+        // function to compile handlebars template
+        function renderHandlebarsTemplate(withTemplate,inElement,withData){
+            getTemplateAjax(withTemplate, function(template) {
+                jqueryNoConflict(inElement).html(template(withData));
+            })
+        };
+
+I can then call it like this, where dataDetailsTemplate.handlebars is the name of my template, and #data-details is the css selector I am targeting, and data is what I want to display.
+
+        renderHandlebarsTemplate('dataDetailsTemplate.handlebars', '#data-details', data);
 
 Let's go through the full [data-script.js file](https://gist.github.com/raw/3230081/31abdbfb3f4746f8fb761d196dcfa81cdd38184d/data-script.js), because there's a lot in there that I've kind of picked up over the last several months.
 
