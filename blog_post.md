@@ -1,9 +1,15 @@
 # Some thoughts after a couple months with tabletop and handlebars
 
-**tl;dr** - Seeing how I can use tabletop.js & handlebars.js together has opened up some really cool custom mini-CMS possibilities and ways to manage data projects. But as I have learned thanks to the [experiments of others](https://twitter.com/brianboyer/status/233201509842710528), flat json files can be much better in production, and especially for small one-off projects. In lieu of learning how to take the tabletop object and write it to a flat file, I made some adjustments to some python code so I can take a csv, create a flat json file from it and drop that file into a [handlebars function](https://gist.github.com/3230081). While it works for me, I'd like to know if it works for others…
-
-- [Blog Post](http://www.chrislkeller.com/some-thoughts-after-a-couple-months-with-tabl)
-- [Repo](https://gist.github.com/4700210)
+>**tl;dr** - Learning how I can use tabletop.js & handlebars.js together has opened up some really cool custom mini-CMS possibilities and ways to manage data projects. 
+>
+>But thanks to the [experiments of others](https://twitter.com/brianboyer/status/233201509842710528), I have learned that flat json files can be better to use in production, especially for small one-off projects.
+>
+>While I'd like to eventually write a script to take the tabletop object and write it to a flat file, I made some adjustments to some python code so I can take a csv, create a flat json file from it and drop that file into a [handlebars function](https://gist.github.com/3230081) with minimal effort.
+>
+>While it works for me, I'm curious to know if it works for others…
+>
+>- [Blog Post](http://www.chrislkeller.com/some-thoughts-after-a-couple-months-with-tabl)
+>- [Repo](https://gist.github.com/4700210)
 
 ----
 
@@ -30,7 +36,7 @@ handlebars.js is a templating library -- much like mustache.js -- that "provides
 
 ## Practical Applications
 
-Learning how these libraries can work with each other has been a lot of fun, especially in the context of a newly-created position at a new-to-me news organization where I have had a role to play in building a foundation for the presentation of data projects.
+Learning how these libraries can work with each other has been a lot of fun, especially in the context of a [newly-created position](http://www.scpr.org/about/people/staff/chris-keller) at a [new-to-me news organization](http://www.scpr.org/) where I have had a role to play in building a foundation for the presentation of data projects.
 
 For instance, using handlebars.js ability to load precompiled handlebars templates from file we've been able to construct a basic project wrapper that can live outside CMS, minimizes the amount of code that needs to be changed at any given time and allows us to manage a single header and one footer file. DRY FTW.
 
@@ -40,7 +46,7 @@ For instance, one of my first collaborations was with our business and economy r
 
 This project combines tabletop.js with handlebars.js -- and some [highcharts.js](http://www.highcharts.com/) for good measure -- to show the differences between "Initial," "Revised," and Final monthly jobs numbers released by the U.S. Bureau of Labor Statistics.
 
-For my money, the magic is in the fact that Matt can update this presentation for our audience by opening a Google spreadsheet and adding the new numbers. Lightweight, custom mini-CMS!
+While my "design" judgement and sensibilities continue to evolve, for my money, the magic is in the fact that Matt can update this presentation for our audience by opening a Google spreadsheet and adding the new numbers. Lightweight, custom mini-CMS!
 
 [Tasneem Raja](https://twitter.com/tasneemraja), the Interactive Editor at Mother Jones, has written a [solid explainer](http://www.ire.org/blog/on-the-road/2012/09/21/behind-story-mother-jones-and-47-percent/) on how the magazine has leveraged tabletop.js and a [Google spreadhseet](https://docs.google.com/spreadsheet/ccc?key=0AiK02J6OppqxdFVxTEJBLXpqcWZKNVJsRFFZdkNESGc#gid=0) for collaborative projects such as their [You Might Be the 47 Percent If…](http://www.motherjones.com/politics/2012/09/charts-47-percent-romney-tax-data) scoop.
 
@@ -48,7 +54,7 @@ Some of the projects I've worked on over the past couple months that use tableto
 
 But a [post on NewsBeast Labs](http://newsbeastlabs.tumblr.com/post/37641296435/google-docs-miso-powered-apps-a-note-on) I found while writing this pointing to a post from Jeremy Singer-Vine  -- appropriately titled ["Why I love Tabletop.js but don't use it in production"](https://gist.github.com/3295633) -- and some words from [Mark Boas](https://twitter.com/maboa) on an [Open News](http://www.mozillaopennews.org/) call a couple weeks ago reminded me of potential obstacles and issues with relying too much on tabletop.js for projects.
 
-And a [tweet this week](https://twitter.com/aboutaaron/status/289469005008338945) from [Aaron Williams](https://twitter.com/aboutaaron) reminded me I have to finish this post you are reading.
+And a tweet <del>this week</del> [a few weeks back](https://twitter.com/aboutaaron/status/289469005008338945) from [Aaron Williams](https://twitter.com/aboutaaron), and [one today](https://twitter.com/mattwaite/status/297870209807704064) from [Matt Waite](https://twitter.com/mattwaite), reminded me I have to finish this post you are reading.
 
 All of the issues that Jeremy listed are real, and Aaron's experience is real. Thinking about the projects I listed above, none of them really require the kind of dynamic data display that tabletop.js can pull off. It's a nice feature to have available on the monthly jobs report, but it isn't crucial, and certainly isn't required on the others.
 
@@ -70,14 +76,14 @@ After flirting with the idea of adding a custom argument to the csvjson utility 
 
 Now, admittedly it works because most of my handlebars work thus far has used simple data structures -- largely an object that contains an array of objects -- but my workflow might fall apart quickly should I need to access multiple data streams, etc. (UPDATE: This has already happened!)
 
-I also took the opportunity to make a version of the script that takes a file name as an argument, runs csvjson, wraps its output in an object and pipes it all to a file.
-
 One thing I have noticed through this experiment is tabletop.js strips uppercase letters and underscores from object keys, while the csv to json version doesn't. So that's a thing as it's the difference between a handlebars.js template that uses…
 
+	//what tabletop brings
 	{{projecttitle}}
 
 and
 
+	// created from a csv to json method
 	{{Project_Title}}
 
-Another thing I've noticed is the python script that converts the csv to json renders everything as a string, which has caused some issues when using something like highcharts, which requires is data objects to be integers.
+Another thing I've noticed is the python script that converts the csv to json renders everything as a string, which has caused some issues when using something like highcharts, which requires is data objects to be integers. So I continue to explore a way to fix this.
