@@ -1,4 +1,4 @@
-### madison-mayoral-voting
+# madison-mayoral-voting
 
 This data map was one of my first published using Google Fusion Tables and the Google Maps js API.
 
