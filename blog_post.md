@@ -3,8 +3,8 @@
 >**tl;dr**: The README on the repo below gives a bit of a walkthrough and demonstration of the script I've been using to display a flat data file on Handlebars templates rendered with AJAX, which has allowed me to learn to deploy interactive data projects fairly fast.
 >
 >- [Demo Page](http://projects.chrislkeller.com/snippets/ajax-handlebars/)
->- [Blog Post](http://www.chrislkeller.com/display-data-from-a-flat-json-file-on-a-handl)
 >- [Repo](https://gist.github.com/3230081)
+
 ----
 
 ## Overview
