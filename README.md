@@ -1,4 +1,4 @@
-### sunlight-ft-map
+# sunlight-ft-map
 
 [Nearly three weeks ago I talked about](http://www.chrislkeller.com/post/32760125010/how-a-beginner-used-python-to-interact-with-t) feeding data from Sunlight's Open States API to [Google's Fusion Tables](http://www.google.com/fusiontables/) to make a legi mashup map if only because it's possible.
 
