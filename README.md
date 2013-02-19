@@ -1,5 +1,3 @@
-<del># Build a flat json file for handlebars.js template</del>
-
 # Build a flat json file for [handlebars.js](http://handlebarsjs.com/) template or [jquery-vertical-timelines](https://github.com/MinnPost/jquery-vertical-timeline)
 
 **UPDATED** I've made some updates to the handlebars-json.py script.
@@ -13,7 +11,9 @@ See more in the [Usage section](https://gist.github.com/chrislkeller/4700210#usa
 
 ----
 
-Both of the python scripts create a flat json file from a given csv file that can be used in either a handlebars.js template or a [vertical timeline](https://github.com/MinnPost/jquery-vertical-timeline).
+The csv-to-json.py script creates a flat json file from a given csv file that can be used in either a handlebars.js template or a [vertical timeline](https://github.com/MinnPost/jquery-vertical-timeline).
+
+The handlebars-json-csvkit.py script creates a flat json file from a given csv file that can be used in a handlebars.js template and assumes the use of [Christopher Groskopf's](https://twitter.com/onyxfish) [csvkit](http://csvkit.readthedocs.org/en/latest/).
 
 I had [Andy Boyle's](https://twitter.com/andymboyle) python [script](http://www.andymboyle.com/2011/11/02/quick-csv-to-json-parser-in-python/) from a year ago that creates json from a csv. And I noticed in the comments section on Andy's post that [Christopher Groskopf's](https://twitter.com/onyxfish) [csvkit](http://csvkit.readthedocs.org/en/latest/) has a [csvjson utility](http://csvkit.readthedocs.org/en/latest/scripts/csvjson.html) that can also convert a csv to a json file.
 
