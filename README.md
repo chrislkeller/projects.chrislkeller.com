@@ -1,5 +1,15 @@
 # Build a flat json file for handlebars.js template
 
+**UPDATED** I've made some updates to the handlebars-json.py script.
+
+- Script now accepts a "usage" argument for "handlebars or timeline"
+- Script assumes a header row and strips underscores and spaces from it when creating keys.
+- Because the resulting JSON file can also be used to power Vertical Timelines, I've re-named the script to csv-to-json.py
+
+See more in the [Usage section](https://gist.github.com/chrislkeller/4700210#usage) below.
+
+----
+
 Both of the python scripts create a flat json file from a given csv file that can be used in a handlebars.js template.
 
 I had [Andy Boyle's](https://twitter.com/andymboyle) python [script](http://www.andymboyle.com/2011/11/02/quick-csv-to-json-parser-in-python/) from a year ago that creates json from a csv. And I noticed in the comments section on Andy's post that [Christopher Groskopf's](https://twitter.com/onyxfish) [csvkit](http://csvkit.readthedocs.org/en/latest/) has a [csvjson utility](http://csvkit.readthedocs.org/en/latest/scripts/csvjson.html) that can also convert a csv to a json file.
@@ -10,7 +20,20 @@ After flirting with the idea of adding a custom argument to the csvjson utility 
 
 Change into the directory containing this script and the csv file and run the following from the command line where working-data-file.csv is the name of your csv file.
 
-		python handlebars-json.py working-data-file.csv
+		<del>python handlebars-json.py working-data-file.csv</del>
+
+		python handlebars-json.py working-data-file.csv handlebars
+
+or
+
+		python handlebars-json.py working-data-file.csv timeline
+
+
+
+
+
+
+
 
 The resulting file will look like this:
 
