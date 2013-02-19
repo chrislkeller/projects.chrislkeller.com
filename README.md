@@ -72,19 +72,31 @@ For more on the [jQuery vertical timeline plugin](https://github.com/MinnPost/jq
 
 ## Snags
 
-Now, admittedly it works because most of my handlebars work thus far has used simple data structures -- largely an object that contains an array of objects -- but my workflow might fall apart quickly should I need to access multiple data streams, etc. (UPDATE: This has already happened!)
+Now, admittedly csv-to-json.py works because most of my handlebars work thus far has used simple data structures -- largely an object that contains an array of objects -- but my workflow might fall apart quickly should I need to access tiered data. (UPDATE: This has already happened!):
 
-I also took the opportunity to make a version of the script that takes a file name as an argument, runs csvjson, wraps its output in an object and pipes it all to a file.
+        {"objects": [{
+            award_agency: "New York Film Critics",
+                source_link: "http://www.nyfcc.com/awards/",
+                awards: [
+                    {award: "Best Actor", winner: "Daniel Day-Lewis", movie: "(Lincoln)"},
+                    {award: "Best Actress", winner: "Rachel Weisz", movie: "(Deep Blue Sea)"},
+                    {award: "Best Director", winner: "Kathryn Bigelow", movie: "(Zero Dark Thirty)"},
+                    {award: "Best Film", winner: "Kathryn Bigelow", movie: "(Zero Dark Thirty)"}
+                ]
+            }]
+        }
 
-One thing I have noticed through this experiment is tabletop.js strips uppercase letters and underscores from object keys, while the csv to json version doesn't. So that's a thing as it's the difference between a handlebars.js template that uses…
+<del>One thing I have noticed through this experiment is tabletop.js strips uppercase letters and underscores from object keys, while the csv to json version doesn't. So that's a thing as it's the difference between a handlebars.js template that uses…</del>
 
-	{{projecttitle}}
+<del>{{projecttitle}}</del>
 
-and
+<del>and</del>
 
-	{{Project_Title}}
+<del>{{Project_Title}}</del>
 
-Another thing I've noticed is the python script that converts the csv to json renders everything as a string, which has caused some issues when using something like highcharts, which requires is data objects to be integers.
+I also took the step of normalizing the JSON output in that spaces, underscores and uppercase letters are removed from the header row. This is something that I've encountered in creating tabletop.js-driven presentations with handlebars.js -- and happens when timeline presentations -- so I felt the want to standardize things.
+
+FInally, I've noticed csv-to-json.py renders everything as a string, which has caused some issues when using something like highcharts, which requires is data objects to be integers. This needs a fix and I'll see that I can do.
 
 ## Links & Resources
 
