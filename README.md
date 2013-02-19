@@ -4,7 +4,8 @@
 
 - Script now accepts a "usage" argument for "handlebars or timeline"
 - Script assumes a header row and strips underscores and spaces from it when creating keys.
-- Because the resulting JSON file can also be used to power Vertical Timelines, I've re-named the script to csv-to-json.py
+- Because the resulting JSON file can also be used to power Vertical Timelines, I've re-named the script to csv-to-json.py.
+- The handlebars-json-csvkit.py script remains unchanged. I will attempt to re-work it to create handlebars or timeline JSON in the coming weeks.
 
 See more in the [Usage section](https://gist.github.com/chrislkeller/4700210#usage) below.
 
