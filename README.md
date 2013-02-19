@@ -1,9 +1,11 @@
-# Build a flat json file for handlebars.js template
+<del># Build a flat json file for handlebars.js template</del>
+
+# Build a flat json file for [handlebars.js](http://handlebarsjs.com/) template or [jquery-vertical-timelines](https://github.com/MinnPost/jquery-vertical-timeline)
 
 **UPDATED** I've made some updates to the handlebars-json.py script.
 
 - Script now accepts a "usage" argument for "handlebars or timeline"
-- Script assumes a header row and strips underscores and spaces from it when creating keys.
+- Script assumes a header row and strips underscores and spaces and converts header fields to lowercase when creating keys.
 - Because the resulting JSON file can also be used to power Vertical Timelines, I've re-named the script to csv-to-json.py.
 - The handlebars-json-csvkit.py script remains unchanged. I will attempt to re-work it to create handlebars or timeline JSON in the coming weeks.
 
@@ -11,36 +13,62 @@ See more in the [Usage section](https://gist.github.com/chrislkeller/4700210#usa
 
 ----
 
-Both of the python scripts create a flat json file from a given csv file that can be used in a handlebars.js template.
+Both of the python scripts create a flat json file from a given csv file that can be used in either a handlebars.js template or a [vertical timeline](https://github.com/MinnPost/jquery-vertical-timeline).
 
 I had [Andy Boyle's](https://twitter.com/andymboyle) python [script](http://www.andymboyle.com/2011/11/02/quick-csv-to-json-parser-in-python/) from a year ago that creates json from a csv. And I noticed in the comments section on Andy's post that [Christopher Groskopf's](https://twitter.com/onyxfish) [csvkit](http://csvkit.readthedocs.org/en/latest/) has a [csvjson utility](http://csvkit.readthedocs.org/en/latest/scripts/csvjson.html) that can also convert a csv to a json file.
 
-After flirting with the idea of adding a custom argument to the csvjson utility to allow me to specify a key, I simply adjusted Andy's script to make handlebars-json.py. Meanwhile handlebars-json-csvkit.py requires [Christopher Groskopf's](https://twitter.com/onyxfish) [csvkit](http://csvkit.readthedocs.org/en/latest/) to be installed, and uses its  [csvjson utility](http://csvkit.readthedocs.org/en/latest/scripts/csvjson.html)
+After flirting with the idea of adding a custom argument to the csvjson utility to allow me to specify a key, I simply adjusted Andy's script to make <del>handlebars-json.py</del> csv-to-json.py. Meanwhile handlebars-json-csvkit.py requires [Christopher Groskopf's](https://twitter.com/onyxfish) [csvkit](http://csvkit.readthedocs.org/en/latest/) to be installed, and uses its  [csvjson utility](http://csvkit.readthedocs.org/en/latest/scripts/csvjson.html)
 
 ## Usage
 
-Change into the directory containing this script and the csv file and run the following from the command line where working-data-file.csv is the name of your csv file.
+- The csv-to-json.py script accepts two command line arguments -- the name of the csv file and the usage. Right now the usage is either handlebars or timeline.
 
-		<del>python handlebars-json.py working-data-file.csv</del>
+- The csv-to-json.py script assumes the csv file has a header row to use when creating json keys.
 
-		python handlebars-json.py working-data-file.csv handlebars
+- The script also strips out underscores and spaces, and converts header fields to lowercase when creating keys.
 
-or
+### Handlebars
 
-		python handlebars-json.py working-data-file.csv timeline
+To generate a flat json file to use with Handlebars.js, change into the directory containing this script and the target csv file and run the following from the command line where working-handlebars.csv is the name of your csv file.
 
+		python csv-to-json.py working-handlebars.csv handlebars
 
+The resulting json file -- **working-data-file-handlebars.json** -- looks like this:
 
+		{"objects": [{"sourcelink": "http://www.nelp.org/", "dataorder": "1", "data": "12.29.2012", "source": "National Employment Law Project", "title": "The last day anyone will receive benefits from the Emergency Unemployment Compensation program unless Congress acts to renew it."}, {"sourcelink": "", "dataorder": "2", "data": "$30,000,000,000", "source": "Congressional Budget Office", "title": "Estimated cost to renew the Emergency Unemployment Compensation program through the end of 2013."}, {"sourcelink": "http://www.nelp.org/", "dataorder": "3", "data": "400,000", "source": "National Employment Law Project", "title": "Estimated number of Californians receiving benefits from the Emergency Unemployment Compensation program, which is set to expire Jan. 2."}, {"sourcelink": "http://www.nelp.org/", "dataorder": "4", "data": "2,100,000", "source": "National Employment Law Project", "title": "Estimated number of Americans receiving benefits under the Emergency Unemployment Compensation program that would lose their unemployment benefits come January if Congress doesn\u2019t act."}]}
 
+The path to **working-data-file-handlebars.json** can then be dropped into a [handlebars.js function](https://gist.github.com/3230081#file-data-script-js) and displayed on a [template](https://gist.github.com/3230081#file-datadetailstemplate-handlebars).
 
+### Timeline
 
+The option to create JSON to power a vertical timeline assumes a couple things.
 
+- That you are using the vertical timeline [spreadsheet template](https://docs.google.com/spreadsheet/ccc?key=0AsmHVq28GtVJdG1fX3dsQlZrY18zTVA2ZG8wTXdtNHc#gid=0) to store your data.
 
-The resulting file will look like this:
+- That you're using the [jQuery vertical timeline plugin](https://github.com/MinnPost/jquery-vertical-timeline) created by [MinnPost](https://github.com/MinnPost) and [Alan Palazzolo](https://github.com/zzolo) that allows for a javascript array of objects to substitued for getting data from a Google Spreadsheet.
 
-		{"objects": [{"Source": "National Employment Law Project", "DataOrder": "1", "SourceLink": "http://www.nelp.org/", "Data": "12.29.2012", "Title": "The last day anyone will receive benefits from the Emergency Unemployment Compensation program unless Congress acts to renew it."}, {"Source": "Congressional Budget Office", "DataOrder": "2", "SourceLink": "", "Data": "$30,000,000,000", "Title": "Estimated cost to renew the Emergency Unemployment Compensation program through the end of 2013."}, {"Source": "National Employment Law Project", "DataOrder": "3", "SourceLink": "http://www.nelp.org/", "Data": "400,000", "Title": "Estimated number of Californians receiving benefits from the Emergency Unemployment Compensation program, which is set to expire Jan. 2."}, {"Source": "National Employment Law Project", "DataOrder": "4", "SourceLink": "http://www.nelp.org/", "Data": "2,100,000", "Title": "Estimated number of Americans receiving benefits under the Emergency Unemployment Compensation program that would lose their unemployment benefits come January if Congress doesn\u2019t act."}]
+To generate a flat json file to use with the jQuery vertical timeline plugin, change into the directory containing this script and the target csv file and run the following from the command line where working-timeline.csv is the name of the csv file you downloaded from the vertical timeline spreadsheet template.
 
-The path to this flat file can then be dropped into a [handlebars.js function](https://gist.github.com/3230081#file-data-script-js) and displayed on a [template](https://gist.github.com/3230081#file-datadetailstemplate-handlebars).
+		python csv-to-json.py working-timeline.csv timeline
+
+The resulting json file -- **working-data-file-timeline.json** -- looks like this:
+
+        [{"body": " Dorner born in New York", "photourl": "", "readmoreurl": "", "title": "Dorner born", "caption": "", "displaydate": "June 4", "date": "June 4, 1979"}, {"body": "Christopher Dorner graduates from Southern Utah University in Cedar City, Utah and earns a Bachelor of Science in Political Science. (Facebook Photos)", "photourl": "http://a.scpr.org/i/f04b9fcd282822a9b38aa371f1a37c66/54656-wide.jpg", "readmoreurl": "", "title": "Graduation day from Southern Utah", "caption": "Photo: Facebook", "displaydate": "May 5", "date": "May 5, 2001"}, {"body": "Dorner achieves the rank of Ensign in the Navy. (Facebook Photos)", "photourl": "", "readmoreurl": "", "title": "Dorner receives Naval promotion", "caption": "", "displaydate": "Juy 3", "date": "July 3, 2002"}]
+
+The path to **working-data-file-timeline.json** can then be dropped into the [vertical timeline configuration function](https://github.com/MinnPost/jquery-vertical-timeline/blob/master/example.html#L38).
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $.getJSON('PATH-TO/working-data-file-timeline.json', function(data) {
+                    $('#timeline-display').verticalTimeline({
+                        data: data,
+                        width: '75%'
+                    });
+                });
+            });
+        </script>
+
+For more on the [jQuery vertical timeline plugin](https://github.com/MinnPost/jquery-vertical-timeline) created by [MinnPost](https://github.com/MinnPost) and [Alan Palazzolo](https://github.com/zzolo) read the docs [here](https://github.com/MinnPost/jquery-vertical-timeline/blob/master/README.md).
 
 ## Snags
 
@@ -62,7 +90,7 @@ Another thing I've noticed is the python script that converts the csv to json re
 
 - [Some thoughts after a couple months with tabletop and handlebars](http://blog.chrislkeller.com/some-thoughts-after-a-couple-months-with-tabl/)
 - [Repo](https://gist.github.com/4700210)
-- [Display data from a flat JSON file on a Handlebars.js template file rendered with AJAX](http://www.chrislkeller.com/display-data-from-a-flat-json-file-on-a-handl)
+- [Display data from a flat JSON file on a Handlebars.js template file rendered with AJAX](http://blog.chrislkeller.com/display-data-from-a-flat-json-file-on-a-handl)
 - [Repo](https://gist.github.com/3230081)
 
 ----
