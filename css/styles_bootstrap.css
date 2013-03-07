@@ -17,6 +17,7 @@ table {
 
 .table thead th {
     vertical-align: middle;
+	cursor: pointer;
 }
 
 label, input, button, select, textarea {
