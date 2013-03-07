@@ -1,14 +1,14 @@
 	var urlStart = 'https://docs.google.com/spreadsheet/pub?';
-	var urlKey = 'key=0An8W63YKWOsxdHVreXpLbVRWUGlJUlcweHVfZ01ycVE&';
-	var urloutput = 'single=true&gid=2&output=html';
-	var public_spreadsheet_url = 	urlStart + urlKey + urloutput;
+	var urlKey = 'key=0As3JvOeYDO50dF9NWWRiaTdqNmdKQ1lCY3dpdDhZU3c&';
+	var urloutput = 'single=true&grid=2&output=html';
+	var public_spreadsheet_url = urlStart + urlKey + urloutput;
 	var newDataSet = [];
 
 	//set up your DataTables column headers.
 	var tableColumnSet =   [
 		{ "sTitle": "Name", "sClass": "center"},
-		{ "sTitle": "Website", "sClass": "center"},
-		{ "sTitle": "City", "sClass": "center"}
+		{ "sTitle": "URL", "sClass": "center"},
+		{ "sTitle": "More Info", "sClass": "center"}
 	];
 
 	$(document).ready( function() {
@@ -25,10 +25,10 @@
 		});
 
 		// access the data from your spreadsheet
-		$.each( tabletop.sheets("Active Breweries").all(), function(i, brewery) {
+		$.each( tabletop.sheets("Breweries").all(), function(i, brewery) {
 			var nameData = brewery.name;
-			var websiteData = brewery.website;
-			var cityData = brewery.city;
+			var websiteData = brewery.url;
+			var cityData = brewery.moreinfo;
 			var myArray = [nameData, websiteData, cityData]
 
 			newDataSet.push(myArray);
@@ -36,12 +36,17 @@
 
 			console.log(newDataSet);
 
-		$('#demo').html( '<table cellpadding="0" cellspacing="0" border="0" class="display" id="example"></table>' );
+		$('#table_div').html( '<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="table"></table>' );
 
 		// push the data to the table
-		$('#example').dataTable( {
+		$('#table').dataTable( {
+			"sPaginationType": "bootstrap",
+			"iDisplayLength": 25,
 			"aaData": newDataSet,
-			"aoColumns": tableColumnSet
+			"aoColumns": tableColumnSet,
+			"oLanguage": {
+				"sLengthMenu": "_MENU_ records per page"
+			}
 		});
 	}
 
