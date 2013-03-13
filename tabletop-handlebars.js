@@ -1,17 +1,34 @@
-var public_spreadsheet_url = 'https://docs.google.com/spreadsheet/pub?key=0An8W63YKWOsxdC1rbVVTUGRUdXBwTHY3SHNnSFZrNWc&output=html';
+var jqueryNoConflict = jQuery;
 
-    $(document).ready(function(){
-        Tabletop.init({key: public_spreadsheet_url,
-        callback: showInfo,
-        parseNumbers: true } );
-    });
+// variable to hold the url to your spreadsheet
+var dataSpreadsheet = 'https://docs.google.com/spreadsheet/pub?key=0An8W63YKWOsxdC1rbVVTUGRUdXBwTHY3SHNnSFZrNWc&output=html';
 
-    function showInfo(data, tabletop){
-        var source   = $("#cat-template").html();
-        var template = Handlebars.compile(source);
+// the sheet being queried
+var dataSheet = 'Sheet1';
 
-        $.each( tabletop.sheets("Sheet1").all(), function(i, data) {
-            var html = template(data);
-            $("#content").append(html);
+    // function to initialize tabletop
+    jqueryNoConflict(document).ready(function() {
+
+        Tabletop.init({
+            key: dataSpreadsheet,
+            callback: retriveData,
+            parseNumbers: true,
+            simpleSheet: false,
+            debug: false
         });
+
+    });
+    // end
+
+// display data on template
+function retriveData(data, tabletop) {
+
+    var handlebarsData = {
+        objects: data.Sheet1.elements
     };
+
+    handlebarsDebugHelper();
+    renderHandlebarsTemplate('table-content.handlebars', '#handlebars-content', handlebarsData);
+
+};
+// end
