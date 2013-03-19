@@ -34,8 +34,6 @@
 			newDataSet.push(myArray);
 		});
 
-			console.log(newDataSet);
-
 		$('#demo').html( '<table cellpadding="0" cellspacing="0" border="0" class="display" id="example"></table>' );
 
 		// push the data to the table

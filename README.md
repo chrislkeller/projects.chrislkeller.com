@@ -36,3 +36,8 @@ Use [Tabletop.js](http://builtbybalance.com/Tabletop/) to pull json from Google 
 	"aaData": newDataSet,
 	"aoColumns": tableColumnSet
     });
+
+## Links & Resources
+
+- [Demo Page](http://projects.chrislkeller.com/demos/tabletop_to_datatables/)
+- [Repo](https://github.com/chrislkeller/tabletop_to_datatables)
