@@ -2,7 +2,7 @@
 
 Use [Tabletop.js](http://builtbybalance.com/Tabletop/) to pull json from Google Spreadsheet and feed it to the [DataTables](http://datatables.net/) jQuery plugin.
 
-Demo by [Chris Essig](https://twitter.com/CourierEssig) &amp; [Chris Keller](https://twitter.com/ChrisLKeller) thanks to the Open Source work of [Built By Balance](http://builtbybalance.com) &amp; [Allan Jardine](https://github.com/DataTables).
+Demo by [Chris Essig](https://twitter.com/CourierEssig) &amp; [Chris Keller](https://twitter.com/ChrisLKeller) made possible thanks to the Open Source work of [Built By Balance](http://builtbybalance.com) &amp; [Allan Jardine](https://github.com/DataTables).
 
 - [Demo Page](http://projects.chrislkeller.com/demos/tabletop_to_datatables)
 - [Repo](https://github.com/chrislkeller/tabletop_to_datatables)
