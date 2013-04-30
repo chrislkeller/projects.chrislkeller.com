@@ -1,20 +1,47 @@
 var jqueryNoConflict = jQuery;
 
 // begin main function
-$(document).ready(function(){
-    writeTableWith('static-files/data/nicar_sessions_sked.json');
+jqueryNoConflict(document).ready(function(){
+    //writeTableWith('static-files/data/nicar_sessions_sked.json');
+    initializeTabletopObject('0An8W63YKWOsxdE1aSVBMV2RBaWphdWFqT3VQOU1xeHc');
 });
 // end main function
+
+// pull data from google spreadsheet
+function initializeTabletopObject(dataSpreadsheet){
+    Tabletop.init({
+        key: dataSpreadsheet,
+        callback: evaluateTabletopObject,
+        simpleSheet: true,
+        debug: false
+    });
+}
+
+// create object from google spreadsheet data
+function evaluateTabletopObject(data){
+    var dataSource = {
+        objects: data
+    };
+    console.log(data);
+    console.log(dataSource);
+    writeTableWith(data)
+}
 
 // create the table container and object
 function writeTableWith(dataSource){
 
     jqueryNoConflict('#data-table').html('<table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered table-striped" id="data-table-container"></table>');
 
-    var oTable = $('#data-table-container').dataTable({
+    var oTable = jqueryNoConflict('#data-table-container').dataTable({
         'bProcessing': true,
-        'sAjaxSource': dataSource,
-        'sAjaxDataProp': 'objects',
+
+        /* works with tabletop */
+        'aaData': dataSource,
+
+        /* works with flat json file */
+        //'sAjaxDataProp': 'objects',
+        //'sAjaxSource': dataSource,
+
         'aoColumns': createTableColumns()
     });
 
@@ -24,6 +51,9 @@ function writeTableWith(dataSource){
 
 // create table headers
 function createTableColumns(){
+
+    /* swap out the properties of mDataProp & sTitle to reflect
+    the names of columns or keys you want to display */
     var tableColumns = [
         {'mDataProp': null, 'sClass': 'control center', 'sDefaultContent': '<i class="icon-plus icon-black"></i>'},
         {'mDataProp': "day", 'sTitle': 'Day'},
@@ -31,6 +61,25 @@ function createTableColumns(){
         {'mDataProp': "place", 'sTitle': 'Place'}
     ];
     return tableColumns;
+}
+
+// format details function
+function fnFormatDetails(oTable, nTr){
+    var oData = oTable.fnGetData(nTr);
+
+    /* swap out the properties of oData to reflect
+    the names of columns or keys you want to display */
+    var sOut =
+        '<div class="innerDetails">' +
+            '<p>' + oData.day + '</p>' +
+            '<p>' + oData.time + '</p>' +
+            '<p>' + oData.place + '</p>' +
+            '<p>' + oData.title + '</p>' +
+            '<p>' + oData.speaker + '</p>' +
+            '<p>' + oData.description + '</p>' +
+        '</div>';
+
+    return sOut;
 }
 
 // hide show drilldown details
@@ -41,7 +90,7 @@ function hideShowDiv(oTable){
     // animation to make opening and closing smoother
     jqueryNoConflict('#data-table td.control').live('click', function () {
         var nTr = this.parentNode;
-        var i = $.inArray(nTr, anOpen);
+        var i = jqueryNoConflict.inArray(nTr, anOpen);
 
         if (i === -1) {
             jqueryNoConflict('i', this).attr('class', 'icon-minus icon-black');
@@ -56,23 +105,6 @@ function hideShowDiv(oTable){
             });
         }
     });
-}
-
-// format details function
-function fnFormatDetails(oTable, nTr){
-    var oData = oTable.fnGetData(nTr);
-
-    var sOut =
-        '<div class="innerDetails">' +
-            '<p>' + oData.day + '</p>' +
-            '<p>' + oData.time + '</p>' +
-            '<p>' + oData.place + '</p>' +
-            '<p>' + oData.title + '</p>' +
-            '<p>' + oData.speaker + '</p>' +
-            '<p>' + oData.description + '</p>' +
-        '</div>';
-
-    return sOut;
 }
 
 //begin function
