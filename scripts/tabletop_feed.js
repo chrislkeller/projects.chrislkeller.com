@@ -2,7 +2,9 @@ var jqueryNoConflict = jQuery;
 
 // begin main function
 jqueryNoConflict(document).ready(function(){
+
     initializeTabletopObject('0An8W63YKWOsxdHVreXpLbVRWUGlJUlcweHVfZ01ycVE');
+
 });
 
 // pull data from google spreadsheet
@@ -14,16 +16,6 @@ function initializeTabletopObject(dataSpreadsheet){
         debug: false
     });
 }
-
-// create the table container and object
-function writeTableWith(dataSource){
-    jqueryNoConflict('#demo').html('<table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered table-striped" id="data-table-container"></table>');
-
-    var oTable = jqueryNoConflict('#data-table-container').dataTable({
-        'aaData': dataSource,
-        'aoColumns': createTableColumns()
-    });
-};
 
 // create table headers
 function createTableColumns(){
@@ -37,6 +29,16 @@ function createTableColumns(){
 	];
     return tableColumns;
 }
+
+// create the table container and object
+function writeTableWith(dataSource){
+    jqueryNoConflict('#demo').html('<table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered table-striped" id="data-table-container"></table>');
+
+    var oTable = jqueryNoConflict('#data-table-container').dataTable({
+        'aaData': dataSource,
+        'aoColumns': createTableColumns()
+    });
+};
 
 //define two custom functions (asc and desc) for string sorting
 jQuery.fn.dataTableExt.oSort['string-case-asc']  = function(x,y) {

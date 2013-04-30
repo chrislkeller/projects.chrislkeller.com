@@ -1,43 +1,37 @@
-# tabletop to datatables
+# Demo: tabletop to datatables
 
-Use [Tabletop.js](http://builtbybalance.com/Tabletop/) to pull json from Google Spreadsheet and feed it to the [DataTables](http://datatables.net/) jQuery plugin. View the [demo.](http://projects.chrislkeller.com/demos/tabletop_to_datatables)
+**tl;dr**: Use [Tabletop.js](http://builtbybalance.com/Tabletop/) to pull json from Google Spreadsheet and feed it to the [DataTables](http://datatables.net/) jQuery plugin.
+
+- [Demo Page](http://projects.chrislkeller.com/demos/tabletop_to_datatables)
+- [Repo](https://github.com/chrislkeller/tabletop_to_datatables)
 
 
 **Step 1** - [Prepare Google Spreadsheet data](http://builtbybalance.com/Tabletop/#tabletop-instructions).
 
-**Step 2** - Adjust tabletop_feed.js to account for spreadsheet key.
+**Step 2** - Add your spreadsheet key as an argument to the initializeTabletopObject function that is fired on document ready.
 
-    var urlStart = 'https://docs.google.com/spreadsheet/pub?';
-    var urlKey = 'key=0An8W63YKWOsxdHVreXpLbVRWUGlJUlcweHVfZ01ycVE&';
-    var urloutput = 'single=true&gid=2&output=html';
-    var public_spreadsheet_url = 	urlStart + urlKey + urloutput;
+        initializeTabletopObject('0An8W63YKWOsxdHVreXpLbVRWUGlJUlcweHVfZ01ycVE');
 
-**Step 3** - Set up your DataTables column headers in tabletop_feed.js.
+**Step 3** - Set up your DataTables column headers in by adjusting the array in the createTableColumns() function. You'll be changing the value for both the mDataProp and sTitle keys.
 
-    var tableColumnSet =   [
-	{ "sTitle": "Name", "sClass": "center"},
-    	{ "sTitle": "Website", "sClass": "center"},
-    	{ "sTitle": "City", "sClass": "center"}
-    ];
+        var tableColumns =   [
+    		{'mDataProp': 'name', 'sTitle': 'Name', 'sClass': 'center'},
+    		{'mDataProp': 'website', 'sTitle': 'Website', 'sClass': 'center'},
+    		{'mDataProp': 'city', 'sTitle': 'City', 'sClass': 'center'}
+    	];
 
-**Step 4** - Access the data from your spreadsheet in tabletop_feed.js.
+**Step 4** - Push the data to the table in tabletop_feed.js. I am creating a table with an id of data-table-container in the #demo div. I am then writing the datatable to that data-table-container div.
 
-    $.each( tabletop.sheets("Active Breweries").all(), function(i, brewery) {
-    	var nameData = brewery.name;
-    	var websiteData = brewery.website;
-    	var cityData = brewery.city;
-    	var myArray = [nameData, websiteData, cityData]
-    	newDataSet.push(myArray);
-    });
+        // create the table container and object
+        function writeTableWith(dataSource){
+            jqueryNoConflict('#demo').html('<table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered table-striped" id="data-table-container"></table>');
 
-**Step 5** - Push the data to the table in tabletop_feed.js.
-
-    $('#example').dataTable( {
-	"aaData": newDataSet,
-	"aoColumns": tableColumnSet
-    });
+            var oTable = jqueryNoConflict('#data-table-container').dataTable({
+                'aaData': dataSource,
+                'aoColumns': createTableColumns()
+            });
+        };
 
 ## Links & Resources
 
-- [Demo Page](http://projects.chrislkeller.com/demos/tabletop_to_datatables/)
-- [Repo](https://github.com/chrislkeller/tabletop_to_datatables)
+* [Data Tables](http://datatables.net/index)
