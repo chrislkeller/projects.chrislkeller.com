@@ -1,0 +1,46 @@
+/* structure for data elements */
+body {background: #979793;}
+#data-container {background: #ffffff; max-width: 960px; padding: 25px; margin: 0px auto 0px auto;}
+#data-details {margin: 15px 0 25px 0;}
+#data-visuals {margin: 15px 0 25px 0;}
+#content-article {width: 100%; height: auto; margin: 0 auto 25px auto;}
+
+/* for table elements */
+.table-striped thead th {background-color: #2e2e2e; color: #ffffff;}
+.table-striped tbody > tr:nth-child(even) > td,
+.table-striped tbody > tr:nth-child(even) > th {background-color: #c2c2c2;}
+.table-striped tbody > tr:nth-child(odd) > td,
+.table-striped tbody > tr:nth-child(odd) > th {background-color: #fdfdfd;}
+table div.innerDetails {display: none;}
+
+/* typography */
+body {font: 100%/1.5 'Varela Round', sans-serif; color: #2B2B2B;}
+body #data-container h1 {font-size: 210%;}
+body #data-container h2 {font-size: 180%;}
+body #data-container h3 {font-size: 150%;}
+body #data-container h4 {font-size: 120%;}
+body #data-container h5 {font-size: 100%;}
+body #data-container p {font-size: 95%;}
+body #data-container table{font-size: 95%;}
+
+/* headlines for Portrait tablet to landscape and desktop */
+@media (min-width: 500px) and (max-width: 979px) {
+    body #data-container h1 {font-size: 185%; line-height: 140%;}
+    body #data-container h2 {font-size: 165%; line-height: 140%;}
+    body #data-container h3 {font-size: 155%; line-height: 140%;}
+    body #data-container h4 {font-size: 145%; line-height: 140%;}
+    body #data-container h5 {font-size: 135%; line-height: 140%;}
+    body #data-container p {font-size: 95%; line-height: 140%;}
+    body #data-container table{font-size: 85%;}
+}
+
+/* headlines for Landscape phones and down */
+@media (max-width: 499px) {
+    body #data-container h1 {font-size: 170%; line-height: 130%}
+    body #data-container h2 {font-size: 150%; line-height: 130%}
+    body #data-container h3 {font-size: 140%; line-height: 130%}
+    body #data-container h4 {font-size: 130%; line-height: 130%}
+    body #data-container h5 {font-size: 120%; line-height: 130%}
+    body #data-container p {font-size: 95%; line-height: 130%}
+    body #data-container table{font-size: 75%;}
+}
