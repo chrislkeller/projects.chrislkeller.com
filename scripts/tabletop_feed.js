@@ -1,53 +1,48 @@
-	var urlStart = 'https://docs.google.com/spreadsheet/pub?';
-	var urlKey = 'key=0An8W63YKWOsxdHVreXpLbVRWUGlJUlcweHVfZ01ycVE&';
-	var urloutput = 'single=true&gid=2&output=html';
-	var public_spreadsheet_url = 	urlStart + urlKey + urloutput;
-	var newDataSet = [];
+var jqueryNoConflict = jQuery;
 
-	//set up your DataTables column headers.
-	var tableColumnSet =   [
-		{ "sTitle": "Name", "sClass": "center"},
-		{ "sTitle": "Website", "sClass": "center"},
-		{ "sTitle": "City", "sClass": "center"}
+// begin main function
+jqueryNoConflict(document).ready(function(){
+    initializeTabletopObject('0An8W63YKWOsxdHVreXpLbVRWUGlJUlcweHVfZ01ycVE');
+});
+
+// pull data from google spreadsheet
+function initializeTabletopObject(dataSpreadsheet){
+    Tabletop.init({
+        key: dataSpreadsheet,
+        callback: writeTableWith,
+        simpleSheet: true,
+        debug: false
+    });
+}
+
+// create the table container and object
+function writeTableWith(dataSource){
+    jqueryNoConflict('#demo').html('<table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered table-striped" id="data-table-container"></table>');
+
+    var oTable = jqueryNoConflict('#data-table-container').dataTable({
+        'aaData': dataSource,
+        'aoColumns': createTableColumns()
+    });
+};
+
+// create table headers
+function createTableColumns(){
+
+    /* swap out the properties of mDataProp & sTitle to reflect
+    the names of columns or keys you want to display */
+    var tableColumns =   [
+		{'mDataProp': 'name', 'sTitle': 'Name', 'sClass': 'center'},
+		{'mDataProp': 'website', 'sTitle': 'Website', 'sClass': 'center'},
+		{'mDataProp': 'city', 'sTitle': 'City', 'sClass': 'center'}
 	];
+    return tableColumns;
+}
 
-	$(document).ready( function() {
-		Tabletop.init( { key: public_spreadsheet_url,
-			callback: showInfo,
-			simpleSheet: false,
-			debug: true } )
-	});
+//define two custom functions (asc and desc) for string sorting
+jQuery.fn.dataTableExt.oSort['string-case-asc']  = function(x,y) {
+	return ((x < y) ? -1 : ((x > y) ?  0 : 0));
+};
 
-	function showInfo(data, tabletop) {
-
-		$.each( tabletop.sheets(), function(i, sheet) {
-			$("#table_info").append("<p>Your sheet named " + sheet.name + " has " + sheet.column_names.join(", ") + " as columns that you can pull data from.</p>");
-		});
-
-		// access the data from your spreadsheet
-		$.each( tabletop.sheets("Active Breweries").all(), function(i, brewery) {
-			var nameData = brewery.name;
-			var websiteData = brewery.website;
-			var cityData = brewery.city;
-			var myArray = [nameData, websiteData, cityData]
-
-			newDataSet.push(myArray);
-		});
-
-		$('#demo').html( '<table cellpadding="0" cellspacing="0" border="0" class="display" id="example"></table>' );
-
-		// push the data to the table
-		$('#example').dataTable( {
-			"aaData": newDataSet,
-			"aoColumns": tableColumnSet
-		});
-	}
-
-		//define two custom functions (asc and desc) for string sorting
-		jQuery.fn.dataTableExt.oSort['string-case-asc']  = function(x,y) {
-			return ((x < y) ? -1 : ((x > y) ?  0 : 0));
-		};
-
-		jQuery.fn.dataTableExt.oSort['string-case-desc'] = function(x,y) {
-			return ((x < y) ?  1 : ((x > y) ? -1 : 0));
-		};
+jQuery.fn.dataTableExt.oSort['string-case-desc'] = function(x,y) {
+	return ((x < y) ?  1 : ((x > y) ? -1 : 0));
+};

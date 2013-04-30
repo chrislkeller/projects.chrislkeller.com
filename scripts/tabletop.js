@@ -14,7 +14,7 @@
       return -1;
     };
   }
-  
+
   /*
     Initialize with Tabletop.init( { key: '0AjAPaAU9MeLFdHUxTlJiVVRYNGRJQnRmSnQwTlpoUXc' } )
       OR!
@@ -61,7 +61,7 @@
     this.model_names = [];
 
     this.base_json_url = "https://spreadsheets.google.com/feeds/worksheets/" + this.key + "/public/basic?alt=json-in-script";
-    
+
     if(!this.wait) {
       this.fetch();
     }
@@ -87,7 +87,7 @@
       }
       this.injectScript(this.base_json_url, this.loadSheets);
     },
-    
+
     /*
       Insert the URL into the page as a script tag. Once it's loaded the spreadsheet data
       it triggers the callback. This helps you avoid cross-domain errors
@@ -112,7 +112,7 @@
       document.getElementsByTagName('script')[0].parentNode.appendChild(script);
     },
 
-    /* 
+    /*
       Is this a sheet you want to pull?
       If { wanted: ["Sheet1"] } has been specified, only Sheet1 is imported
       Pulls all sheets if none are specified
@@ -124,7 +124,7 @@
         return this.wanted.indexOf(sheetName) != -1;
       }
     },
-    
+
     /*
       What gets send to the callback
       if simpleSheet == true, then don't return an array of Tabletop.this.models,
@@ -153,7 +153,7 @@
         this.wanted.push(sheet)
       }
     },
-    
+
     /*
       Load all worksheets of the spreadsheet, turning each into a Tabletop Model.
       Need to use injectScript because the worksheet view that you're working from
@@ -204,7 +204,7 @@
       Used as a callback for the list-based JSON
     */
     loadSheet: function(data) {
-      var model = new Tabletop.Model( { data: data, 
+      var model = new Tabletop.Model( { data: data,
                                     parseNumbers: this.parseNumbers,
                                     postProcess: this.postProcess } );
       this.models[ model.name ] = model;
