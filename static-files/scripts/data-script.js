@@ -48,6 +48,9 @@ var drilldownConfig = {
         var oTable = jqueryNoConflict('#data-table-container').dataTable({
             'bProcessing': true,
 
+
+            /*** NEED TO FIGURE OUT HOW TO SET THESE OPTIONS ***/
+
             /* works with tabletop */
             'aaData': dataSource,
 
