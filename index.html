@@ -1,37 +1,39 @@
 <!DOCTYPE html>
 <html>
-<body>
+    <head>
+        <title>Demo: Tabletop.js to DataTables</title>
+        <link rel="stylesheet" type="text/css" href="css/demo_table.css" />
+        <link rel="stylesheet" type="text/css" href="css/styles.css" />
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+    </head>
 
-<link rel="stylesheet" type="text/css" href="css/demo_page.css" />
-<link rel="stylesheet" type="text/css" href="css/demo_table.css" />
-<link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <body>
+        <noscript>
+            <div id="noscript_note">You must have JavaScript enabled to view this page.</div>
+        </noscript>
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <a href="https://github.com/chrislkeller/tabletop_to_datatables">Fork the repo</a>
 
-<noscript>
-<div id="noscript_note">You must have JavaScript enabled to view this page.</div>
-</noscript>
+        <div id="demo"></div>
 
-<a href="https://github.com/chrislkeller/tabletop_to_datatables">Fork the repo</a>
-<div id="demo"></div>
+        <script type="text/javascript" src="scripts/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="scripts/tabletop.js"></script>
+        <script type="text/javascript" src="scripts/tabletop_feed.js"></script>
 
-<script type="text/javascript" src="scripts/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="scripts/tabletop.js"></script>
-<script type="text/javascript" src="scripts/tabletop_feed.js"></script>
+        <!-- begin analytics -->
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-20502211-1']);
+            _gaq.push(['_trackPageview']);
 
-    <!-- begin analytics -->
-    <script type="text/javascript">
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-20502211-1']);
-        _gaq.push(['_trackPageview']);
+            (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+        <!-- end analytics -->
 
-        (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-    </script>
-    <!-- end analytics -->
-
-</body>
+    </body>
 </html>
