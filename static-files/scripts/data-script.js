@@ -11,12 +11,6 @@ jqueryNoConflict(document).ready(function(){
 // default configuration options
 var defaultTableOptions = {
 
-    // table type can be standard or drilldown
-    tableType: 'drilldown',
-
-    // table sorting method
-    tableSorting: null,
-
     // use either tabletop or flatfile. Default is tabletop
     dataSource: 'flatfile',
 
@@ -26,9 +20,19 @@ var defaultTableOptions = {
     // add if dataSource is a flat json file
     jsonFile: 'static-files/data/nicar_sessions_sked.json',
 
+    // div to write table to
+    tableElementContainer: '#demo',
+
+    // table type can be standard or drilldown
+    tableType: 'drilldown',
+
+    // table sorting method
+    // first value is the column to sort on
+    // second is 'asc' or 'desc'
+    tableSorting: [[ 3, "asc" ]],
+
     // minimum of 10 needed to alter the per page select menu
 	displayLength: 15
-
 };
 
 // begin main datatables object
@@ -36,7 +40,7 @@ var dataTablesConfig = {
 
     initialize: function(){
 
-        if (!defaultTableOptions.dataSource) {
+        if (!defaultTableOptions.dataSource){
             //jqueryNoConflict.error('please set the dataSource to either tabletop or flatfile');
             alert('Please set the dataSource to either tabletop or flatfile');
 
@@ -62,9 +66,16 @@ var dataTablesConfig = {
         });
     },
 
+    // function to push splice object to table column array if drilldown selected
+    createArrayOfTableColumns: function(){
+        if (defaultTableOptions.tableType === 'drilldown'){
+            var oTableColumnsTest = {'mDataProp': null, 'sClass': 'control center', 'sDefaultContent': '<i class="icon-plus icon-black"></i>'};
+            dataTablesConfig.oTableColumns.splice(0, 0, oTableColumnsTest);
+        }
+    },
+
     // create table headers with array of table header objects
     oTableColumns: [
-        {'mDataProp': null, 'sClass': 'control center', 'sDefaultContent': '<i class="icon-plus icon-black"></i>'},
         {'mDataProp': "day", 'sTitle': 'Day'},
         {'mDataProp': "time", 'sTitle': 'Time'},
         {'mDataProp': "place", 'sTitle': 'Place'}
@@ -78,26 +89,39 @@ var dataTablesConfig = {
         'sPaginationType': 'bootstrap',
         'iDisplayLength': defaultTableOptions.displayLength,
 
+        // sets table sorting
+        'aaSorting': defaultTableOptions.tableSorting,
+
         // sets column headers
         'aoColumns': null,
 
-        /* works with tabletop */
+        /* data source needed for tabletop */
         'aaData': null,
 
-        /* works with flat json file */
+        /* data source needed for flat json file */
         'sAjaxDataProp': null,
         'sAjaxSource': null
     },
 
     // create the table container and object
     writeTableWith: function(dataSource){
-        jqueryNoConflict('#demo').html('<table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered table-striped" id="data-table-container"></table>');
+
+        dataTablesConfig.createArrayOfTableColumns();
+
+        console.log(dataTablesConfig.oTableColumns);
+
+
+
+
+
+        jqueryNoConflict(defaultTableOptions.tableElementContainer).html('<table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered table-striped" id="data-table-container"></table>');
 
         // write values to oTableDefaultObjectTest if tabletop
         if (defaultTableOptions.dataSource === 'tabletop'){
             console.log('config = tabletop');
             dataTablesConfig.oTableDefaultObjectTest['aaData'] = dataSource;
             dataTablesConfig.oTableDefaultObjectTest['aoColumns'] = dataTablesConfig.oTableColumns;
+            console.log(dataTablesConfig.oTableDefaultObjectTest);
 
         // else write values if flatfile
         } else {
