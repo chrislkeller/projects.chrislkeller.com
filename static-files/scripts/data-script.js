@@ -1,13 +1,18 @@
 var jqueryNoConflict = jQuery;
+var defaultTableOptions = defaultTableOptions || {};
+var dataTablesConfig = dataTablesConfig || {};
 
 // begin main function
 jqueryNoConflict(document).ready(function(){
-    drilldownConfig.initialize();
+    dataTablesConfig.initialize();
 });
 // end main function
 
-var drilldownConfig = drilldownConfig || {};
-var drilldownConfig = {
+// default configuration options
+var defaultTableOptions = {
+
+    // table type can be standard or drilldown
+    tableType: 'drilldown',
 
     // use either tabletop or flatfile
     dataSource: 'tabletop',
@@ -18,51 +23,94 @@ var drilldownConfig = {
     // add if dataSource is a flat json file
     jsonFile: 'static-files/data/nicar_sessions_sked.json',
 
-    initialize: function (){
-        if (!drilldownConfig.dataSource) {
-            jqueryNoConflict.error('please set the dataSource to either tabletop or flatfile');
-        } else if (drilldownConfig.dataSource === 'tabletop'){
-            drilldownConfig.retrieveTabletopObject();
-        } else if (drilldownConfig.dataSource === 'flatfile'){
-            drilldownConfig.writeTableWith(drilldownConfig.jsonFile);
-        } else {
-            jqueryNoConflict.error('please set the dataSource to either tabletop or flatfile');
-        }
+    // minimum of 10 needed to alter the per page select menu
+	displayLength: 15
 
+};
+
+// begin main datatables object
+var dataTablesConfig = {
+
+    initialize: function(){
+
+        if (!defaultTableOptions.dataSource) {
+
+            //jqueryNoConflict.error('please set the dataSource to either tabletop or flatfile');
+            alert('Please set the dataSource to either tabletop or flatfile');
+
+        } else if (defaultTableOptions.dataSource === 'tabletop'){
+            dataTablesConfig.retrieveTabletopObject();
+
+        } else if (defaultTableOptions.dataSource === 'flatfile'){
+            dataTablesConfig.writeTableWith(defaultTableOptions.jsonFile);
+
+        } else {
+            //jqueryNoConflict.error('please set the dataSource to either tabletop or flatfile');
+            alert('Please set the dataSource to either tabletop or flatfile');
+        }
     },
 
-    retrieveTabletopObject: function (){
+    retrieveTabletopObject: function(){
         Tabletop.init({
-            key: drilldownConfig.spreadsheetKey,
-            callback: drilldownConfig.writeTableWith,
+            key: defaultTableOptions.spreadsheetKey,
+            callback: dataTablesConfig.writeTableWith,
             simpleSheet: true,
+            parseNumbers: true,
             debug: true
         });
     },
 
+    oTableDefaultObject: {},
+
     // create the table container and object
-    writeTableWith: function (dataSource){
+    writeTableWith: function(dataSource){
 
-        jqueryNoConflict('#data-table').html('<table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered table-striped" id="data-table-container"></table>');
+        jqueryNoConflict('#demo').html('<table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered table-striped" id="data-table-container"></table>');
 
-        var oTable = jqueryNoConflict('#data-table-container').dataTable({
-            'bProcessing': true,
+        var oTable;
 
+        // if defaultTableOptions set to tabletop
+        if (defaultTableOptions.dataSource === 'tabletop'){
+            oTable = jqueryNoConflict('#data-table-container').dataTable({
+                'oLanguage': {
+                    'sLengthMenu': '_MENU_ records per page'
+                    },
+                'bProcessing': true,
+            	'sPaginationType': 'bootstrap',
+            	'iDisplayLength': defaultTableOptions.displayLength,
+                'aoColumns': dataTablesConfig.createTableColumns(),
 
-            /*** NEED TO FIGURE OUT HOW TO SET THESE OPTIONS ***/
+                /* works with tabletop */
+                'aaData': dataSource,
 
-            /* works with tabletop */
-            'aaData': dataSource,
+                /* works with flat json file */
+                'sAjaxDataProp': null,
+                'sAjaxSource': null
+            });
 
-            /* works with flat json file */
-            //'sAjaxDataProp': 'objects',
-            //'sAjaxSource': dataSource,
+        // if defaultTableOptions set to flatfile
+        } else {
+            oTable = jqueryNoConflict('#data-table-container').dataTable({
+                'oLanguage': {
+                    'sLengthMenu': '_MENU_ records per page'
+                    },
+                'bProcessing': true,
+        		'sPaginationType': 'bootstrap',
+        		'iDisplayLength': defaultTableOptions.displayLength,
+                'aoColumns': dataTablesConfig.createTableColumns(),
 
-            'aoColumns': drilldownConfig.createTableColumns()
-        });
+                /* works with tabletop */
+                'aaData': null,
 
-    	drilldownConfig.hideShowDiv(oTable);
-        drilldownConfig.formatNumberData();
+                /* works with flat json file */
+                'sAjaxDataProp': 'objects',
+                'sAjaxSource': dataSource
+            });
+
+        }
+
+    	dataTablesConfig.hideShowDiv(oTable);
+        dataTablesConfig.formatNumberData();
     },
 
     // create table headers
@@ -104,13 +152,13 @@ var drilldownConfig = {
         var anOpen = [];
 
         // animation to make opening and closing smoother
-        jqueryNoConflict('#data-table td.control').live('click', function () {
+        jqueryNoConflict('#demo td.control').live('click', function () {
             var nTr = this.parentNode;
             var i = jqueryNoConflict.inArray(nTr, anOpen);
 
             if (i === -1) {
                 jqueryNoConflict('i', this).attr('class', 'icon-minus icon-black');
-                var nDetailsRow = oTable.fnOpen(nTr, drilldownConfig.fnFormatDetails(oTable, nTr), 'details');
+                var nDetailsRow = oTable.fnOpen(nTr, dataTablesConfig.fnFormatDetails(oTable, nTr), 'details');
                 jqueryNoConflict('div.innerDetails', nDetailsRow).slideDown();
                 anOpen.push(nTr);
             } else {
@@ -152,3 +200,4 @@ var drilldownConfig = {
         };
     }
 }
+// end main datatables object

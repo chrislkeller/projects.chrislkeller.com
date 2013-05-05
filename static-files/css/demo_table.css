@@ -201,7 +201,8 @@ table.display td.center {
 	background: url('../images/sort_desc_disabled.png') no-repeat center right;
 }
 
-th:active {
+table.display thead th:active,
+table.display thead td:active {
 	outline: none;
 }
 
@@ -364,8 +365,6 @@ table.display tr.odd.row_selected td {
  * Sorting classes for columns
  */
 /* For the standard odd/even */
-
-/*
 tr.odd td.sorting_1 {
 	background-color: #D3D6FF;
 }
@@ -389,7 +388,7 @@ tr.even td.sorting_2 {
 tr.even td.sorting_3 {
 	background-color: #F9F9FF;
 }
-*/
+
 
 /* For the Conditional-CSS grading rows */
 /*
@@ -567,12 +566,4 @@ table.display tr.gradeX {
 
 table.display tr.gradeU {
 	background-color: #ddd;
-}
-
-div.box {
-	height: 100px;
-	padding: 10px;
-	overflow: auto;
-	border: 1px solid #8080FF;
-	background-color: #E5E5FF;
 }
