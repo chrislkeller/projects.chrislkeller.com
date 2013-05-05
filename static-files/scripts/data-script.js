@@ -11,11 +11,8 @@ jqueryNoConflict(document).ready(function(){
 // default configuration options
 var defaultTableOptions = {
 
-    // table type can be standard or drilldown
-    tableType: 'drilldown',
-
-    // use either tabletop or flatfile
-    dataSource: 'tabletop',
+    // use either tabletop or flatfile. Default is tabletop
+    dataSource: 'flatfile',
 
     // add if dataSource is tabletop
     spreadsheetKey: '0An8W63YKWOsxdE1aSVBMV2RBaWphdWFqT3VQOU1xeHc',
@@ -23,9 +20,19 @@ var defaultTableOptions = {
     // add if dataSource is a flat json file
     jsonFile: 'static-files/data/nicar_sessions_sked.json',
 
+    // div to write table to
+    tableElementContainer: '#demo',
+
+    // table type can be standard or drilldown
+    tableType: 'drilldown',
+
+    // table sorting method
+    // first value is the column to sort on
+    // second is 'asc' or 'desc'
+    tableSorting: [[ 3, "asc" ]],
+
     // minimum of 10 needed to alter the per page select menu
 	displayLength: 15
-
 };
 
 // begin main datatables object
@@ -33,8 +40,7 @@ var dataTablesConfig = {
 
     initialize: function(){
 
-        if (!defaultTableOptions.dataSource) {
-
+        if (!defaultTableOptions.dataSource){
             //jqueryNoConflict.error('please set the dataSource to either tabletop or flatfile');
             alert('Please set the dataSource to either tabletop or flatfile');
 
@@ -60,71 +66,76 @@ var dataTablesConfig = {
         });
     },
 
-    oTableDefaultObject: {},
+    // function to push splice object to table column array if drilldown selected
+    createArrayOfTableColumns: function(){
+        if (defaultTableOptions.tableType === 'drilldown'){
+            var oTableColumnsTest = {'mDataProp': null, 'sClass': 'control center', 'sDefaultContent': '<i class="icon-plus icon-black"></i>'};
+            dataTablesConfig.oTableColumns.splice(0, 0, oTableColumnsTest);
+        }
+    },
+
+    // create table headers with array of table header objects
+    oTableColumns: [
+        {'mDataProp': "day", 'sTitle': 'Day'},
+        {'mDataProp': "time", 'sTitle': 'Time'},
+        {'mDataProp': "place", 'sTitle': 'Place'}
+    ],
+
+    oTableDefaultObjectTest: {
+        'oLanguage': {
+            'sLengthMenu': '_MENU_ records per page'
+            },
+        'bProcessing': true,
+        'sPaginationType': 'bootstrap',
+        'iDisplayLength': defaultTableOptions.displayLength,
+
+        // sets table sorting
+        'aaSorting': defaultTableOptions.tableSorting,
+
+        // sets column headers
+        'aoColumns': null,
+
+        /* data source needed for tabletop */
+        'aaData': null,
+
+        /* data source needed for flat json file */
+        'sAjaxDataProp': null,
+        'sAjaxSource': null
+    },
 
     // create the table container and object
     writeTableWith: function(dataSource){
 
-        jqueryNoConflict('#demo').html('<table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered table-striped" id="data-table-container"></table>');
+        dataTablesConfig.createArrayOfTableColumns();
 
-        var oTable;
+        console.log(dataTablesConfig.oTableColumns);
 
-        // if defaultTableOptions set to tabletop
+
+
+
+
+        jqueryNoConflict(defaultTableOptions.tableElementContainer).html('<table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered table-striped" id="data-table-container"></table>');
+
+        // write values to oTableDefaultObjectTest if tabletop
         if (defaultTableOptions.dataSource === 'tabletop'){
-            oTable = jqueryNoConflict('#data-table-container').dataTable({
-                'oLanguage': {
-                    'sLengthMenu': '_MENU_ records per page'
-                    },
-                'bProcessing': true,
-            	'sPaginationType': 'bootstrap',
-            	'iDisplayLength': defaultTableOptions.displayLength,
-                'aoColumns': dataTablesConfig.createTableColumns(),
+            console.log('config = tabletop');
+            dataTablesConfig.oTableDefaultObjectTest['aaData'] = dataSource;
+            dataTablesConfig.oTableDefaultObjectTest['aoColumns'] = dataTablesConfig.oTableColumns;
+            console.log(dataTablesConfig.oTableDefaultObjectTest);
 
-                /* works with tabletop */
-                'aaData': dataSource,
-
-                /* works with flat json file */
-                'sAjaxDataProp': null,
-                'sAjaxSource': null
-            });
-
-        // if defaultTableOptions set to flatfile
+        // else write values if flatfile
         } else {
-            oTable = jqueryNoConflict('#data-table-container').dataTable({
-                'oLanguage': {
-                    'sLengthMenu': '_MENU_ records per page'
-                    },
-                'bProcessing': true,
-        		'sPaginationType': 'bootstrap',
-        		'iDisplayLength': defaultTableOptions.displayLength,
-                'aoColumns': dataTablesConfig.createTableColumns(),
-
-                /* works with tabletop */
-                'aaData': null,
-
-                /* works with flat json file */
-                'sAjaxDataProp': 'objects',
-                'sAjaxSource': dataSource
-            });
-
+            console.log('config = flatfile');
+            dataTablesConfig.oTableDefaultObjectTest['aoColumns'] = dataTablesConfig.oTableColumns;
+            dataTablesConfig.oTableDefaultObjectTest['sAjaxDataProp'] = 'objects';
+            dataTablesConfig.oTableDefaultObjectTest['sAjaxSource'] = dataSource;
+            console.log(dataTablesConfig.oTableDefaultObjectTest);
         }
+
+        var oTable = jqueryNoConflict('#data-table-container').dataTable(dataTablesConfig.oTableDefaultObjectTest);
 
     	dataTablesConfig.hideShowDiv(oTable);
         dataTablesConfig.formatNumberData();
-    },
-
-    // create table headers
-    createTableColumns: function (){
-
-        /* swap out the properties of mDataProp & sTitle to reflect
-        the names of columns or keys you want to display */
-        var tableColumns = [
-            {'mDataProp': null, 'sClass': 'control center', 'sDefaultContent': '<i class="icon-plus icon-black"></i>'},
-            {'mDataProp': "day", 'sTitle': 'Day'},
-            {'mDataProp': "time", 'sTitle': 'Time'},
-            {'mDataProp': "place", 'sTitle': 'Place'}
-        ];
-        return tableColumns;
     },
 
     // format details function
