@@ -8,6 +8,9 @@ Demo by [Chris Essig](https://twitter.com/CourierEssig) &amp; [Chris Keller](htt
 - [Repo](https://github.com/chrislkeller/tabletop_to_datatables)
 - [ReadMe](https://github.com/chrislkeller/tabletop_to_datatables#readme)
 
+If interested in choosing between use of tabletop.js or a flat file, [here's a draft version](https://github.com/chrislkeller/datafeed_to_datatables).
+
+----
 
 **Step 1** - [Prepare Google Spreadsheet data](http://builtbybalance.com/Tabletop/#tabletop-instructions).
 
