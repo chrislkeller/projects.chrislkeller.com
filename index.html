@@ -5,28 +5,13 @@
 
     <!-- begin header -->
     <head>
-
-    <!-- begin meta -->
-    <title>Demo: Datafeed to Datatables Drilldown Table</title>
+        <title>Demo: Datafeed to Datatables Drilldown Table</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" id="meta-viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
-        <meta name="description" content="A quick demo of using a flat json file to create a responsive, searchable table with drilldowns information thanks to the DataTables jQuery plugin" />
-        <meta name="keywords" content="" />
-        <meta property="og:type" content="article"/>
-        <meta property="og:title" content="Demo: Datafeed to Datatables Drilldown Table" />
-        <meta property="og:url" content="http://projects.chrislkeller.com/demos/datafeed_to_datatables_drilldown/" />
-        <meta property="og:description" content="A quick demo of using a flat json file to create a responsive, searchable table with drilldowns information thanks to the DataTables jQuery plugin" />
-        <meta name="twitter:card" content="summary">
-        <meta name="twitter:site" content="ChrisLKeller">
-        <meta name="twitter:title" content="Demo: Datafeed to Datatables Drilldown Table">
-        <meta name="twitter:description" content="A quick demo combining the DataTables jQuery plugin with Tabletop.js">
-        <meta name="twitter:domain" content="http://www.projects.chrislkeller.com/">
-        <!-- end meta -->
 
         <!-- begin css  -->
         <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
         <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/css/bootstrap.min.css" />
-        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Varela+Round" />
         <link rel="stylesheet" type="text/css" href="static-files/css/demo_table.css" />
         <link rel="stylesheet" type="text/css" href="static-files/css/project-styles.css" />
         <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/css/bootstrap-responsive.min.css" />
@@ -42,28 +27,36 @@
 
     <!-- begin body -->
     <body>
-        <div id="data-container" class="container-fluid">
+
+        <noscript>
+            <div id="noscript_note">You must have JavaScript enabled to view this page.</div>
+        </noscript>
+
+        <div class="container-fluid">
             <div class="row-fluid">
                 <div class="span12">
-                    <div id="data-details">
-                        <div id="content-article">
-                            <h4 class="kicker">#13Nicar Sessions</h4>
-                            <h1>View sessions from NICAR 2103 </h1>
-                            <div id="content-article-text">
-                                <p>Beard hoodie, magna tumblr chillwave. Letterpress thundercats fixie consectetur accusamus cray gastropub bicycle rights.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="data-visuals">
-                        <div id="data-table"></div>
-                    </div>
+                    <h1>Demo: Datafeed to Datatables Drilldown Table</h1>
+                    <p>Use <a href="http://builtbybalance.com/Tabletop/">Tabletop.js</a> to pull json from Google Spreadsheet and feed it to the <a href="http://datatables.net/">DataTables</a> jQuery plugin.</p>
+                    <p>Demo by <a href="https://twitter.com/CourierEssig">Chris Essig</a> &amp; <a href="https://twitter.com/ChrisLKeller">Chris Keller</a> made possible thanks to the Open Source work of <a href="http://builtbybalance.com">Built By Balance &amp; <a href="https://github.com/DataTables">Allan Jardine</a>.</p>
+                    <ul>
+                        <li><p><a href="http://projects.chrislkeller.com/demos/tabletop_to_datatables">Demo Page</a></p></li>
+                        <li><p><a href="https://github.com/chrislkeller/tabletop_to_datatables">Fork the Repo</a></p></li>
+                        <li><p><a href="https://github.com/chrislkeller/tabletop_to_datatables#readme">View the ReadMe</a></p></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span12">
+                    <div id="demo"></div>
                 </div>
             </div>
         </div>
 
         <!-- begin scripts -->
-        <script src="static-files/scripts/libs/tabletop.js"></script>
-        <script src="static-files/scripts/libs/jquery.dataTables.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/jquery.dataTables.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.1.0/tabletop.min.js"></script>
+        <script src="static-files/scripts/data-tables-bootstrap.js"></script>
+        <script src="static-files/scripts/bootstrap-dropdown.js"></script>
         <script src="static-files/scripts/data-script.js"></script>
         <!-- end scripts -->
 
