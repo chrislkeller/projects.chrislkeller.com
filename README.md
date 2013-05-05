@@ -1,6 +1,6 @@
 # Demo: Tabletop or flat file to Datatables Table
 
-Use either [Tabletop.js](http://builtbybalance.com/Tabletop/) to pull data from either a Google Spreadsheet or a flat JSON file and feed it to the [DataTables](http://datatables.net/) jQuery plugin.
+Use either [Tabletop.js](http://builtbybalance.com/Tabletop/) and a Google Spreadsheet to feed data to the [DataTables](http://datatables.net/) jQuery plugin, or use a flat JSON file.
 
 Demo by [Chris Essig](https://twitter.com/CourierEssig) &amp; [Chris Keller](https://twitter.com/ChrisLKeller) made possible thanks to the Open Source work of [Built By Balance](http://builtbybalance.com) &amp; [Allan Jardine](https://github.com/DataTables).
 
@@ -10,7 +10,7 @@ Demo by [Chris Essig](https://twitter.com/CourierEssig) &amp; [Chris Keller](htt
 
 ----
 
-<del>**Step 1** - [Prepare Google Spreadsheet data](http://builtbybalance.com/Tabletop/#tabletop-instructions).
+**Step 1** - [Prepare Google Spreadsheet data](http://builtbybalance.com/Tabletop/#tabletop-instructions).
 
 **Step 2** - Add your spreadsheet key as an argument to the initializeTabletopObject function that is fired on document ready.
 
@@ -35,8 +35,6 @@ Demo by [Chris Essig](https://twitter.com/CourierEssig) &amp; [Chris Keller](htt
                 'aoColumns': createTableColumns()
             });
         };
-
-</del>
 
 ## Links & Resources
 
