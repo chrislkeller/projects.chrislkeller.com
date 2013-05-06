@@ -1,9 +1,9 @@
-# Demo: Tabletop or flat file to Datatables Table
+# Demo: Datafeed to Datatables Configurable Table
 
 ## About
 Use either [Tabletop.js](http://builtbybalance.com/Tabletop/) and a Google Spreadsheet to feed data to the [DataTables](http://datatables.net/) jQuery plugin, or use a flat JSON file. Some [additional configuration options](https://github.com/chrislkeller/datafeed_to_datatables#options) are available.
 
-This is an enhanced version of 	a demo by [Chris Essig](https://twitter.com/CourierEssig) &amp; [Chris Keller](https://twitter.com/ChrisLKeller) made possible thanks to the Open Source work of [Built By Balance](http://builtbybalance.com) &amp; [Allan Jardine](https://github.com/DataTables).
+This is an enhanced version of 	a demo by [Chris Essig](https://twitter.com/CourierEssig) &amp; [Chris Keller](https://twitter.com/ChrisLKeller) -- with kudos to [Jon Davenport](https://twitter.com/JonDavenport1) -- and made possible thanks to the Open Source work of [Built By Balance](http://builtbybalance.com) &amp; [Allan Jardine](https://github.com/DataTables).
 
 * [Demo Page](http://projects.chrislkeller.com/demos/datafeed_to_datatables)
 * [Repo](https://github.com/chrislkeller/datafeed_to_datatables)
