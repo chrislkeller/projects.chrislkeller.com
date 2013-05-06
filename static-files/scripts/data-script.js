@@ -12,7 +12,7 @@ jqueryNoConflict(document).ready(function(){
 var defaultTableOptions = {
 
     // use either tabletop or flatfile. Default is tabletop
-    dataSource: 'flatfile',
+    dataSource: 'tabletop',
 
     // add if dataSource is tabletop
     spreadsheetKey: '0An8W63YKWOsxdE1aSVBMV2RBaWphdWFqT3VQOU1xeHc',

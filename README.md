@@ -10,6 +10,58 @@ Demo by [Chris Essig](https://twitter.com/CourierEssig) &amp; [Chris Keller](htt
 
 ----
 
+## Options
+
+The following options can be passed to the plugin when called:
+
+* ```key```: This is the ID of the Google Spreadsheet.
+  * Data type: string
+  * Default value: ```0AsmHVq28GtVJdG1fX3dsQlZrY18zTVA2ZG8wTXdtNHc```
+* ```sheetName```: This is name of the sheet in the Google Spreadsheet.
+  * Data type: string
+  * Default value: ```Posts```
+
+
+*```dataSource```:  Specifies source of data for the table, either tabletop or flatfile. Default is tabletop
+
+    // add if dataSource is tabletop
+    spreadsheetKey: '0An8W63YKWOsxdE1aSVBMV2RBaWphdWFqT3VQOU1xeHc',
+
+    // add if dataSource is a flat json file
+    jsonFile: 'static-files/data/nicar_sessions_sked.json',
+
+    // div to write table to
+    tableElementContainer: '#demo',
+
+    // table type can be standard or drilldown
+    tableType: 'drilldown',
+
+    // column headers from the spreadsheet you want to appear
+    columnHeaders: ['Day', 'Time', 'Place'],
+
+    // table sorting method
+    // first value is the column to sort on
+    // second is 'asc' or 'desc'
+    tableSorting: [[ 3, "asc" ]],
+
+    // minimum of 10 needed to alter the per page select menu
+    displayLength: 15
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Step 1** - [Prepare Google Spreadsheet data](http://builtbybalance.com/Tabletop/#tabletop-instructions).
 
 **Step 2** - Add your spreadsheet key as an argument to the initializeTabletopObject function that is fired on document ready.
