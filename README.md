@@ -1,9 +1,9 @@
 # Demo: Tabletop or flat file to Datatables Table
 
 ## About
-Use either [Tabletop.js](http://builtbybalance.com/Tabletop/) and a Google Spreadsheet to feed data to the [DataTables](http://datatables.net/) jQuery plugin, or use a flat JSON file.
+Use either [Tabletop.js](http://builtbybalance.com/Tabletop/) and a Google Spreadsheet to feed data to the [DataTables](http://datatables.net/) jQuery plugin, or use a flat JSON file. Some additional configuration options are available.
 
-Demo by [Chris Essig](https://twitter.com/CourierEssig) &amp; [Chris Keller](https://twitter.com/ChrisLKeller) made possible thanks to the Open Source work of [Built By Balance](http://builtbybalance.com) &amp; [Allan Jardine](https://github.com/DataTables).
+This is an enhanced version of 	a demo by [Chris Essig](https://twitter.com/CourierEssig) &amp; [Chris Keller](https://twitter.com/ChrisLKeller) made possible thanks to the Open Source work of [Built By Balance](http://builtbybalance.com) &amp; [Allan Jardine](https://github.com/DataTables).
 
 * [Demo Page](http://projects.chrislkeller.com/demos/datafeed_to_datatables)
 * [Repo](https://github.com/chrislkeller/datafeed_to_datatables)
@@ -17,29 +17,19 @@ Demo by [Chris Essig](https://twitter.com/CourierEssig) &amp; [Chris Keller](htt
 
 * If planning to use a Google spreadsheet as the data source, follow the [Tabletop.js instructions](http://builtbybalance.com/Tabletop/#tabletop-instructions) for setting up the spreadsheet and publishing it.
 
-**Step 2** - Add your spreadsheet key as an argument to the initializeTabletopObject function that is fired on document ready.
+* Add your spreadsheet ID as a value to the spreadsheetKey key in the defaultTableOptions.
 
-        initializeTabletopObject('0An8W63YKWOsxdHVreXpLbVRWUGlJUlcweHVfZ01ycVE');
+	    // add if dataSource is tabletop
+	    spreadsheetKey: '0An8W63YKWOsxdE1aSVBMV2RBaWphdWFqT3VQOU1xeHc',
 
-**Step 3** - Set up your DataTables column headers in by adjusting the array in the createTableColumns() function. You'll be changing the value for both the mDataProp and sTitle keys.
+* If planning to use a flat json file, I prefer to:
+	* Set the file up in a Google Spreadsheet.
+	* Expo the file as a csv.
+	* Use this [csv to json Python script](https://gist.github.com/chrislkeller/4700210#file-csv-to-json-py) to set up the file format.
 
-        var tableColumns =   [
-    		{'mDataProp': 'name', 'sTitle': 'Name', 'sClass': 'center'},
-    		{'mDataProp': 'website', 'sTitle': 'Website', 'sClass': 'center'},
-    		{'mDataProp': 'city', 'sTitle': 'City', 'sClass': 'center'}
-    	];
+* Setup the columns you wish to display in the table by editing/adding strings to the the defaultTableOptions columnHeaders array. This will set the value for both the mDataProp and sTitle.
 
-**Step 4** - Push the data to the table in tabletop_feed.js. I am creating a table with an id of data-table-container in the #demo div. I am then writing the datatable to that data-table-container div.
-
-        // create the table container and object
-        function writeTableWith(dataSource){
-            jqueryNoConflict('#demo').html('<table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered table-striped" id="data-table-container"></table>');
-
-            var oTable = jqueryNoConflict('#data-table-container').dataTable({
-                'aaData': dataSource,
-                'aoColumns': createTableColumns()
-            });
-        };
+		columnHeaders: ['Day', 'Time', 'Place'],
 
 ## Options
 
@@ -80,4 +70,5 @@ The following configuration options are available:
 
 ## Links & Resources
 
+* [Tabletop.js](http://builtbybalance.com/Tabletop/)
 * [Data Tables](http://datatables.net/index)
