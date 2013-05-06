@@ -8,7 +8,7 @@ Demo by [Chris Essig](https://twitter.com/CourierEssig) &amp; [Chris Keller](htt
 - [Repo](https://github.com/chrislkeller/tabletop_to_datatables)
 - [ReadMe](https://github.com/chrislkeller/tabletop_to_datatables#readme)
 
-If interested in choosing between use of tabletop.js or a flat file, [here's a draft version](https://github.com/chrislkeller/datafeed_to_datatables).
+If interested in an enhanced version that allows you to choose between using a flat JSON file or tabletop.js to pull data from a Google spreadsheet, [here's a draft version](https://github.com/chrislkeller/datafeed_to_datatables).
 
 ----
 
