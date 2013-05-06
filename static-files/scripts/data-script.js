@@ -26,6 +26,9 @@ var defaultTableOptions = {
     // table type can be standard or drilldown
     tableType: 'drilldown',
 
+    // column headers from the spreadsheet you want to appear
+    columnHeaders: ['Day', 'Time', 'Place'],
+
     // table sorting method
     // first value is the column to sort on
     // second is 'asc' or 'desc'
@@ -68,18 +71,26 @@ var dataTablesConfig = {
 
     // function to push splice object to table column array if drilldown selected
     createArrayOfTableColumns: function(){
+
+        var headers = defaultTableOptions.columnHeaders;
+
         if (defaultTableOptions.tableType === 'drilldown'){
             var oTableColumnsTest = {'mDataProp': null, 'sClass': 'control center', 'sDefaultContent': '<i class="icon-plus icon-black"></i>'};
             dataTablesConfig.oTableColumns.splice(0, 0, oTableColumnsTest);
         }
+
+        for (var i=0;i<headers.length;i++){
+            var oTableColumnBuild = {
+                'mDataProp': headers[i].toLowerCase(),
+                'sTitle': headers[i]
+            };
+            dataTablesConfig.oTableColumns.push(oTableColumnBuild);
+        }
+
     },
 
     // create table headers with array of table header objects
-    oTableColumns: [
-        {'mDataProp': "day", 'sTitle': 'Day'},
-        {'mDataProp': "time", 'sTitle': 'Time'},
-        {'mDataProp': "place", 'sTitle': 'Place'}
-    ],
+    oTableColumns: [],
 
     oTableDefaultObjectTest: {
         'oLanguage': {
