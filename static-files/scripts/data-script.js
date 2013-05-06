@@ -11,30 +11,30 @@ jqueryNoConflict(document).ready(function(){
 // default configuration options
 var defaultTableOptions = {
 
-    // use either tabletop or flatfile. Default is tabletop
+    // specifies source of data for the table, either 'tabletop' or 'flatfile'.
     dataSource: 'tabletop',
 
-    // add if dataSource is tabletop
+    // add the key from your Google spreadsheet if the dataSource is set to tabletop.
     spreadsheetKey: '0An8W63YKWOsxdE1aSVBMV2RBaWphdWFqT3VQOU1xeHc',
 
-    // add if dataSource is a flat json file
+    // add the path to a flat json file if the dataSource is set to flatfile.
     jsonFile: 'static-files/data/nicar_sessions_sked.json',
 
-    // div to write table to
+    // the div id in which the table will be displayed.
     tableElementContainer: '#demo',
 
-    // table type can be standard or drilldown
+    // the type of table to render, either 'standard' or 'drilldown'.
+    // drilldown adds drill-down rows that contain more information.
     tableType: 'drilldown',
 
-    // column headers from the spreadsheet you want to appear
+    // table headers you want to appear from the the spreadsheet or data file.
     columnHeaders: ['Day', 'Time', 'Place'],
 
-    // table sorting method
-    // first value is the column to sort on
-    // second is 'asc' or 'desc'
+    // The table sorting method.
+    // The first value is the zero-indexed column to sort on. The second value can be 'asc' or 'desc'.
     tableSorting: [[ 3, "asc" ]],
 
-    // minimum of 10 needed to alter the per page select menu
+    // needs to at least be set to a minimum of 10 needed to alter the per page select menu.
     displayLength: 15
 };
 
