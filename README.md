@@ -31,6 +31,24 @@ This is an enhanced version of 	a demo by [Chris Essig](https://twitter.com/Cour
 
 		columnHeaders: ['Day', 'Time', 'Place'],
 
+* **If using the option for [drill-down rows](http://www.datatables.net/blog/Drill-down_rows)** you will have to edit/construct the presentation for the innerDetails div. This takes place at [line 148 of the data-script.js](https://github.com/chrislkeller/datafeed_to_datatables/blob/master/static-files/scripts/data-script.js#L148) file.
+
+        /* swap out the properties of oData to reflect
+        the names of columns or keys you want to display */
+        var sOut =
+            '<div class="innerDetails">' +
+                '<p>' + oData.day + '</p>' +
+                '<p>' + oData.time + '</p>' +
+                '<p>' + oData.place + '</p>' +
+                '<p>' + oData.title + '</p>' +
+                '<p>' + oData.speaker + '</p>' +
+                '<p>' + oData.description + '</p>' +
+            '</div>';
+
+oData is the object that contains key/value pairs of the data pulled from the spreadsheet via tabletop.js or from your flatfile. You can access any of the data from a particular comma using dot notation. For instance, if I had a column titled "name", I could access it via "oData.name". 
+
+I am working to automate this a bit by offering an array in the defaultTableOptions configuration.
+
 ## Options
 
 The following configuration options are available:
