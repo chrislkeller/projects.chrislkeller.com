@@ -32,7 +32,7 @@ var defaultTableOptions = {
     tableSorting: [[ 3, "asc" ]],
 
     // minimum of 10 needed to alter the per page select menu
-	displayLength: 15
+    displayLength: 15
 };
 
 // begin main datatables object
@@ -105,31 +105,20 @@ var dataTablesConfig = {
 
     // create the table container and object
     writeTableWith: function(dataSource){
-
         dataTablesConfig.createArrayOfTableColumns();
-
-        console.log(dataTablesConfig.oTableColumns);
-
-
-
-
 
         jqueryNoConflict(defaultTableOptions.tableElementContainer).html('<table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered table-striped" id="data-table-container"></table>');
 
         // write values to oTableDefaultObjectTest if tabletop
         if (defaultTableOptions.dataSource === 'tabletop'){
-            console.log('config = tabletop');
             dataTablesConfig.oTableDefaultObjectTest['aaData'] = dataSource;
             dataTablesConfig.oTableDefaultObjectTest['aoColumns'] = dataTablesConfig.oTableColumns;
-            console.log(dataTablesConfig.oTableDefaultObjectTest);
 
         // else write values if flatfile
         } else {
-            console.log('config = flatfile');
             dataTablesConfig.oTableDefaultObjectTest['aoColumns'] = dataTablesConfig.oTableColumns;
             dataTablesConfig.oTableDefaultObjectTest['sAjaxDataProp'] = 'objects';
             dataTablesConfig.oTableDefaultObjectTest['sAjaxSource'] = dataSource;
-            console.log(dataTablesConfig.oTableDefaultObjectTest);
         }
 
         var oTable = jqueryNoConflict('#data-table-container').dataTable(dataTablesConfig.oTableDefaultObjectTest);
