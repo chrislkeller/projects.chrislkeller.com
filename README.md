@@ -55,20 +55,6 @@ The following configuration options are available:
 
 * ```dataSource```:  Specifies source of data for the table, either **'tabletop'** or **'flatfile'**.
 	* Data type: string
-=======
-            '</div>';
-
-oData is the object that contains key/value pairs of the data pulled from the spreadsheet via tabletop.js or from your flatfile. You can access any of the data from a particular comma using dot notation. For instance, if I had a column titled "name", I could access it via "oData.name".
-
-I am working to automate this a bit by offering an array in the defaultTableOptions configuration.
-
-## Options
-
-The following configuration options are available:
-
-* ```dataSource```:  Specifies source of data for the table, either **'tabletop'** or **'flatfile'**.
-	* Data type: string
->>>>>>> configure_display_table_headers
 	* Default value: ```tabletop```
 
 * ```spreadsheetKey```:  Add the key from your Google spreadsheet if the dataSource is set to tabletop.
@@ -80,7 +66,7 @@ The following configuration options are available:
 	* Default value: ```static-files/data/nicar_sessions_sked.json```
 	* Flat file format used for this demo:
 
-		{"objects": [{"description": "", "title": "Breaking local stories with economic data (Sponsored by Donald W. Reynolds National Center for Business Journalism)", "place": "Regency North", "time": "2 p.m. - 5 p.m.", "speaker": "Paul Overberg, Jeannine Aversa, Thomas Dail", "day": "Wednesday"}]}
+    		{"objects": [{"description": "", "title": "Breaking local stories with economic data (Sponsored by Donald W. Reynolds National Center for Business Journalism)", "place": "Regency North", "time": "2 p.m. - 5 p.m.", "speaker": "Paul Overberg, Jeannine Aversa, Thomas Dail", "day": "Wednesday"}]}
 
 * ```tableElementContainer```:  The div id in which the table will be displayed.
 	* Data type: string
