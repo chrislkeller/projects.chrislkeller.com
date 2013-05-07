@@ -80,8 +80,8 @@ var dataTablesConfig = {
         var displayHeaders = defaultTableOptions.columnHeaders;
 
         if (defaultTableOptions.tableType === 'drilldown'){
-            var oTableColumnsTest = {'mDataProp': null, 'sClass': 'control center', 'sDefaultContent': '<i class="icon-plus icon-black"></i>'};
-            dataTablesConfig.oTableColumns.splice(0, 0, oTableColumnsTest);
+            var oTableColumnsObject = {'mDataProp': null, 'sClass': 'control center', 'sDefaultContent': '<i class="icon-plus icon-black"></i>'};
+            dataTablesConfig.oTableColumns.splice(0, 0, oTableColumnsObject);
         }
 
         for (var i=0;i<dataHeaders.length;i++){
@@ -97,7 +97,7 @@ var dataTablesConfig = {
     // create table headers with array of table header objects
     oTableColumns: [],
 
-    oTableDefaultObjectTest: {
+    oTableDefaultObject: {
         'oLanguage': {
             'sLengthMenu': '_MENU_ records per page'
             },
@@ -125,19 +125,19 @@ var dataTablesConfig = {
 
         jqueryNoConflict(defaultTableOptions.tableElementContainer).html('<table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered table-striped" id="data-table-container"></table>');
 
-        // write values to oTableDefaultObjectTest if tabletop
+        // write values to oTableDefaultObject if tabletop
         if (defaultTableOptions.dataSource === 'tabletop'){
-            dataTablesConfig.oTableDefaultObjectTest['aaData'] = dataSource;
-            dataTablesConfig.oTableDefaultObjectTest['aoColumns'] = dataTablesConfig.oTableColumns;
+            dataTablesConfig.oTableDefaultObject['aaData'] = dataSource;
+            dataTablesConfig.oTableDefaultObject['aoColumns'] = dataTablesConfig.oTableColumns;
 
         // else write values if flatfile
         } else {
-            dataTablesConfig.oTableDefaultObjectTest['aoColumns'] = dataTablesConfig.oTableColumns;
-            dataTablesConfig.oTableDefaultObjectTest['sAjaxDataProp'] = 'objects';
-            dataTablesConfig.oTableDefaultObjectTest['sAjaxSource'] = dataSource;
+            dataTablesConfig.oTableDefaultObject['aoColumns'] = dataTablesConfig.oTableColumns;
+            dataTablesConfig.oTableDefaultObject['sAjaxDataProp'] = 'objects';
+            dataTablesConfig.oTableDefaultObject['sAjaxSource'] = dataSource;
         }
 
-        var oTable = jqueryNoConflict('#data-table-container').dataTable(dataTablesConfig.oTableDefaultObjectTest);
+        var oTable = jqueryNoConflict('#data-table-container').dataTable(dataTablesConfig.oTableDefaultObject);
 
     	dataTablesConfig.hideShowDiv(oTable);
         dataTablesConfig.formatNumberData();
