@@ -1,9 +1,9 @@
 # Demo: Datafeed to Datatables Configurable Table
 
 ## About
-Use either [Tabletop.js](http://builtbybalance.com/Tabletop/) and a Google Spreadsheet to feed data to the [DataTables](http://datatables.net/) jQuery plugin, or use a flat JSON file. Some [additional configuration options](https://github.com/chrislkeller/datafeed_to_datatables#options) are available.
+A draft attempt to use either [Tabletop.js](http://builtbybalance.com/Tabletop/) and a Google Spreadsheet to feed data to the [DataTables](http://datatables.net/) jQuery plugin, or use a flat JSON file. Some [additional configuration options](https://github.com/chrislkeller/datafeed_to_datatables#options) are available.
 
-This is an enhanced version of 	a demo by [Chris Essig](https://twitter.com/CourierEssig) &amp; [Chris Keller](https://twitter.com/ChrisLKeller) -- with kudos to [Jon Davenport](https://twitter.com/JonDavenport1) -- and made possible thanks to the Open Source work of [Built By Balance](http://builtbybalance.com) &amp; [Allan Jardine](https://github.com/DataTables).
+This is a version of a demo by [Chris Essig](https://twitter.com/CourierEssig) &amp; [Chris Keller](https://twitter.com/ChrisLKeller) -- with kudos to [Jon Davenport](https://twitter.com/JonDavenport1) -- and made possible thanks to the Open Source work of [Built By Balance](http://builtbybalance.com) &amp; [Allan Jardine](https://github.com/DataTables).
 
 * [Demo Page](http://projects.chrislkeller.com/demos/datafeed_to_datatables)
 * [Repo](https://github.com/chrislkeller/datafeed_to_datatables)
@@ -12,7 +12,7 @@ This is an enhanced version of 	a demo by [Chris Essig](https://twitter.com/Cour
 ## Setup
 
 * Create a container to house the table.
-		
+
 		<div id="demo"></div>
 
 * If planning to use a Google spreadsheet as the data source, follow the [Tabletop.js instructions](http://builtbybalance.com/Tabletop/#tabletop-instructions) for setting up the spreadsheet and publishing it.
@@ -45,7 +45,7 @@ This is an enhanced version of 	a demo by [Chris Essig](https://twitter.com/Cour
                 '<p>' + oData.description + '</p>' +
             '</div>';
 
-oData is the object that contains key/value pairs of the data pulled from the spreadsheet via tabletop.js or from your flatfile. You can access any of the data from a particular comma using dot notation. For instance, if I had a column titled "name", I could access it via "oData.name". 
+oData is the object that contains key/value pairs of the data pulled from the spreadsheet via tabletop.js or from your flatfile. You can access any of the data from a particular comma using dot notation. For instance, if I had a column titled "name", I could access it via "oData.name".
 
 I am working to automate this a bit by offering an array in the defaultTableOptions configuration.
 
@@ -76,7 +76,11 @@ The following configuration options are available:
 	* Data type: string
 	* Default value: ```drilldown```
 
-* ```columnHeaders```:  Table headers you want to appear from the the spreadsheet or data file.
+* ```dataHeaders```: The names of the columns in your spreadsheet or keys in the json. Tabletop.js strips spaces and underscores and lowercases everything..
+	* Data type: array
+	* Default value: ```columnHeaders: ['day', 'time', 'place']```
+
+* ```columnHeaders```:  Proper display names as you want them to appear in the table.
 	* Data type: array
 	* Default value: ```columnHeaders: ['Day', 'Time', 'Place']```
 
