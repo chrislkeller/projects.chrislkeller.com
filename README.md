@@ -86,7 +86,11 @@ The following configuration options are available:
 
 * ```tableSorting```:  The table sorting method, The first value is the zero-indexed column to sort on. The second value can be 'asc' or 'desc'.
 	* Data type: array
-	* Default value: ```[[ 3, "asc" ]]```* ```displayLength```:  Seems as though it needs to at least be set to a minimum of 10 needed to alter the per page select menu.	* Data type: integer	* Default value: ```15```
+	* Default value: ```[[ 3, "asc" ]]```
+
+* ```displayLength```:  Seems as though it needs to at least be set to a minimum of 10 needed to alter the per page select menu.
+	* Data type: integer
+	* Default value: ```15```
 
 ## Links & Resources
 
