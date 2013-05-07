@@ -80,7 +80,7 @@ var dataTablesConfig = {
         var displayHeaders = defaultTableOptions.columnHeaders;
 
         if (defaultTableOptions.tableType === 'drilldown'){
-            var oTableColumnsObject = {'mDataProp': null, 'sClass': 'control center', 'sDefaultContent': '<i class="icon-plus icon-black"></i>'};
+            var oTableColumnsObject = {'mDataProp': null, 'sClass': 'control center', 'sTitle': 'Details', 'sDefaultContent': '<img src="static-files/images/details_open_base.png">'};
             dataTablesConfig.oTableColumns.splice(0, 0, oTableColumnsObject);
         }
 
@@ -168,17 +168,17 @@ var dataTablesConfig = {
         var anOpen = [];
 
         // animation to make opening and closing smoother
-        jqueryNoConflict('#demo td.control').live('click', function () {
+        jqueryNoConflict(defaultTableOptions.tableElementContainer + ' td.control').live('click', function () {
             var nTr = this.parentNode;
             var i = jqueryNoConflict.inArray(nTr, anOpen);
 
             if (i === -1) {
-                jqueryNoConflict('i', this).attr('class', 'icon-minus icon-black');
+                jqueryNoConflict('img', this).attr('src', 'static-files/images/details_close_base.png');
                 var nDetailsRow = oTable.fnOpen(nTr, dataTablesConfig.fnFormatDetails(oTable, nTr), 'details');
                 jqueryNoConflict('div.innerDetails', nDetailsRow).slideDown();
                 anOpen.push(nTr);
             } else {
-                jqueryNoConflict('i', this).attr('class', 'icon-plus icon-black');
+                jqueryNoConflict('img', this).attr('src', 'static-files/images/details_open_base.png');
                 jqueryNoConflict('div.innerDetails', jqueryNoConflict(nTr).next()[0]).slideUp( function (){
                     oTable.fnClose(nTr);
                     anOpen.splice(i, 1);
