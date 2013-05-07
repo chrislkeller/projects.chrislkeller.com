@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Demo: Datafeed to Datatables Configurable Table
 
 ## About
@@ -13,42 +12,6 @@ This is a version of a demo by [Chris Essig](https://twitter.com/CourierEssig) &
 ## Setup
 
 * Create a container to house the table.
-		
-		<div id="demo"></div>
-
-* If planning to use a Google spreadsheet as the data source, follow the [Tabletop.js instructions](http://builtbybalance.com/Tabletop/#tabletop-instructions) for setting up the spreadsheet and publishing it.
-
-* Add your spreadsheet ID as a value to the spreadsheetKey key in the defaultTableOptions.
-
-	    // add if dataSource is tabletop
-	    spreadsheetKey: '0An8W63YKWOsxdE1aSVBMV2RBaWphdWFqT3VQOU1xeHc',
-
-* If planning to use a flat json file, I prefer to:
-	* Set the file up in a Google Spreadsheet.
-	* Expo the file as a csv.
-	* Use this [csv to json Python script](https://gist.github.com/chrislkeller/4700210#file-csv-to-json-py) to set up the file format.
-
-* Setup the columns you wish to display in the table by editing/adding strings to the the defaultTableOptions columnHeaders array. This will set the value for both the mDataProp and sTitle.
-
-		columnHeaders: ['Day', 'Time', 'Place'],
-
-* **If using the option for [drill-down rows](http://www.datatables.net/blog/Drill-down_rows)** you will have to edit/construct the presentation for the innerDetails div. This takes place at [line 148 of the data-script.js](https://github.com/chrislkeller/datafeed_to_datatables/blob/master/static-files/scripts/data-script.js#L148) file.
-
-=======
-# Demo: Datafeed to Datatables Configurable Table
-
-## About
-A draft attempt to use either [Tabletop.js](http://builtbybalance.com/Tabletop/) and a Google Spreadsheet to feed data to the [DataTables](http://datatables.net/) jQuery plugin, or use a flat JSON file. Some [additional configuration options](https://github.com/chrislkeller/datafeed_to_datatables#options) are available.
-
-This is a version of a demo by [Chris Essig](https://twitter.com/CourierEssig) &amp; [Chris Keller](https://twitter.com/ChrisLKeller) -- with kudos to [Jon Davenport](https://twitter.com/JonDavenport1) -- and made possible thanks to the Open Source work of [Built By Balance](http://builtbybalance.com) &amp; [Allan Jardine](https://github.com/DataTables).
-
-* [Demo Page](http://projects.chrislkeller.com/demos/datafeed_to_datatables)
-* [Repo](https://github.com/chrislkeller/datafeed_to_datatables)
-* [ReadMe](https://github.com/chrislkeller/datafeed_to_datatables#readme)
-
-## Setup
-
-* Create a container to house the table.
 
 		<div id="demo"></div>
 
@@ -70,7 +33,6 @@ This is a version of a demo by [Chris Essig](https://twitter.com/CourierEssig) &
 
 * **If using the option for [drill-down rows](http://www.datatables.net/blog/Drill-down_rows)** you will have to edit/construct the presentation for the innerDetails div. This takes place at [line 148 of the data-script.js](https://github.com/chrislkeller/datafeed_to_datatables/blob/master/static-files/scripts/data-script.js#L148) file.
 
->>>>>>> configure_display_table_headers
         /* swap out the properties of oData to reflect
         the names of columns or keys you want to display */
         var sOut =
@@ -81,10 +43,9 @@ This is a version of a demo by [Chris Essig](https://twitter.com/CourierEssig) &
                 '<p>' + oData.title + '</p>' +
                 '<p>' + oData.speaker + '</p>' +
                 '<p>' + oData.description + '</p>' +
-<<<<<<< HEAD
             '</div>';
 
-oData is the object that contains key/value pairs of the data pulled from the spreadsheet via tabletop.js or from your flatfile. You can access any of the data from a particular comma using dot notation. For instance, if I had a column titled "name", I could access it via "oData.name". 
+oData is the object that contains key/value pairs of the data pulled from the spreadsheet via tabletop.js or from your flatfile. You can access any of the data from a particular comma using dot notation. For instance, if I had a column titled "name", I could access it via "oData.name".
 
 I am working to automate this a bit by offering an array in the defaultTableOptions configuration.
 
@@ -128,11 +89,9 @@ The following configuration options are available:
 * ```tableType```:  The type of table to render, either **'standard'** or **'drilldown'**. Drilldown adds [drill-down rows](http://www.datatables.net/blog/Drill-down_rows) that contain more information.
 	* Data type: string
 	* Default value: ```drilldown```
-<<<<<<< HEAD
 
 * ```columnHeaders```:  Table headers you want to appear from the the spreadsheet or data file.
 	* Data type: array
-=======
 
 * ```dataHeaders```: The names of the columns in your spreadsheet or keys in the json. Tabletop.js strips spaces and underscores and lowercases everything..
 	* Data type: array
@@ -140,7 +99,6 @@ The following configuration options are available:
 
 * ```columnHeaders```:  Proper display names as you want them to appear in the table.
 	* Data type: array
->>>>>>> configure_display_table_headers
 	* Default value: ```columnHeaders: ['Day', 'Time', 'Place']```
 
 * ```tableSorting```:  The table sorting method, The first value is the zero-indexed column to sort on. The second value can be 'asc' or 'desc'.
