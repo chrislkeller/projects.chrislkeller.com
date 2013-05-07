@@ -86,7 +86,7 @@ var dataTablesConfig = {
 
         for (var i=0;i<dataHeaders.length;i++){
             var oTableColumnBuild = {
-                'mDataProp': dataHeaders[i].toLowerCase(),
+                'mDataProp': dataHeaders[i].toLowerCase().replace(/\s/g, "").replace(/_/g, ""),
                 'sTitle': displayHeaders[i]
             };
             dataTablesConfig.oTableColumns.push(oTableColumnBuild);
