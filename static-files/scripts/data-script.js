@@ -27,7 +27,11 @@ var defaultTableOptions = {
     // drilldown adds drill-down rows that contain more information.
     tableType: 'drilldown',
 
-    // table headers you want to appear from the the spreadsheet or data file.
+    // names of the columns in your spreadsheet or keys in the json.
+    // tabletop.js strips spaces and underscores and lowercases everything.
+    dataHeaders: ['day', 'time', 'place'],
+
+    // proper display names as you want them to appear in the table
     columnHeaders: ['Day', 'Time', 'Place'],
 
     // The table sorting method.
@@ -72,17 +76,18 @@ var dataTablesConfig = {
     // function to push splice object to table column array if drilldown selected
     createArrayOfTableColumns: function(){
 
-        var headers = defaultTableOptions.columnHeaders;
+        var dataHeaders = defaultTableOptions.dataHeaders;
+        var displayHeaders = defaultTableOptions.columnHeaders;
 
         if (defaultTableOptions.tableType === 'drilldown'){
             var oTableColumnsTest = {'mDataProp': null, 'sClass': 'control center', 'sDefaultContent': '<i class="icon-plus icon-black"></i>'};
             dataTablesConfig.oTableColumns.splice(0, 0, oTableColumnsTest);
         }
 
-        for (var i=0;i<headers.length;i++){
+        for (var i=0;i<dataHeaders.length;i++){
             var oTableColumnBuild = {
-                'mDataProp': headers[i].toLowerCase(),
-                'sTitle': headers[i]
+                'mDataProp': dataHeaders[i].toLowerCase(),
+                'sTitle': displayHeaders[i]
             };
             dataTablesConfig.oTableColumns.push(oTableColumnBuild);
         }
