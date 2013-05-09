@@ -40,4 +40,6 @@ If interested in an enhanced version that allows you to choose between using a f
 
 ## Links & Resources
 
-* [Data Tables](http://datatables.net/index)
+* [Tabletop.js](http://builtbybalance.com/Tabletop/)
+* [Datatables](http://datatables.net/index)
+* [The Absurdly Illustrated Guide to Sortable, Searchable Online Data Tables](http://dataforradicals.com/the-absurdly-illustrated-guide-to-sortable-searchable-online-data-tables/)
