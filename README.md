@@ -4,9 +4,10 @@ Use [Tabletop.js](http://builtbybalance.com/Tabletop/) to pull json from Google 
 
 Demo by [Chris Essig](https://twitter.com/CourierEssig) &amp; [Chris Keller](https://twitter.com/ChrisLKeller) made possible thanks to the Open Source work of [Built By Balance](http://builtbybalance.com) &amp; [Allan Jardine](https://github.com/DataTables).
 
-- [Demo Page](http://projects.chrislkeller.com/demos/tabletop_to_datatables)
-- [Repo](https://github.com/chrislkeller/tabletop_to_datatables)
-- [ReadMe](https://github.com/chrislkeller/tabletop_to_datatables#readme)
+* [Demo Page](http://projects.chrislkeller.com/demos/tabletop_to_datatables)
+* [Repo](https://github.com/chrislkeller/tabletop_to_datatables)
+* [ReadMe](https://github.com/chrislkeller/tabletop_to_datatables#readme)
+* Lisa Williams' [Absurdly Illustrated Guide to Sortable, Searchable Online Data Tables](http://dataforradicals.com/the-absurdly-illustrated-guide-to-sortable-searchable-online-data-tables/)
 
 If interested in an enhanced version that allows you to choose between using a flat JSON file or tabletop.js to pull data from a Google spreadsheet, [here's a draft version](https://github.com/chrislkeller/datafeed_to_datatables).
 
