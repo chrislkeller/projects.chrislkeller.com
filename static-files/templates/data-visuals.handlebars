@@ -1,0 +1,27 @@
+<h2>Upcoming Events</h2>
+
+{{#objects}}
+
+<div class="row-fluid">
+    <div class="span12">
+        <h5 class="kicker"><span class="label label-info">{{eventcategory}}</span></h5>
+        <h4>{{eventdate}} - {{eventtitle}}</h4>
+        <div class="row-fluid">
+            <div class="span6">
+        <h5 class="kicker"></h5>
+        <p>{{eventvenue}}<br />
+        {{addresscombined}}</p>
+        <p><a href="{{eventlink}}" target="_blank">Learn more</a></p>
+                <p>{{eventdescription}}</p>
+            </div>
+            <div class="span6">
+                <p><img src="http://maps.googleapis.com/maps/api/staticmap?center={{addressgeocoded}}&zoom=14&size=300x300&maptype=roadmap&markers=color:blue%7C{{addressgeocoded}}&sensor=false&key=AIzaSyAtS1OYyuRY0inb23BK0nuGId3FiOC6Rb8" /></p>
+            </div>
+        </div>
+
+    </div>
+</div>
+{{/objects}}
+
+
+
