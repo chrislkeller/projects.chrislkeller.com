@@ -3,8 +3,8 @@ body {background: #979793;}
 #page-responsive-header {width: 100%; height: auto; background-color: #000000; color: #ffffff; margin: 0 0 0 0;}
 #page-responsive-header .navbar {margin-bottom: 0px;}
 #data-container {background: #ffffff; max-width: 960px; padding: 25px; margin: 0px auto 0px auto;}
-#data-details {margin: 25px 0 25px 0;}
-#data-visuals {margin: 25px 0 25px 0;}
+#data-details {margin: 5px 0 5px 0;}
+#data-visuals {margin: 5px 0 5px 0;}
 #content-article {width: 100%; height: auto; margin: 0 auto 25px auto;}
 #content-action-bar {width: 100%; height: auto; text-align: center; margin: 25px auto 25px auto;}
 #content-explainer {width: 100%; height: auto; margin: 25px auto 25px auto;}
@@ -57,9 +57,12 @@ a {color: #4B58A6;}
 .alert-info {background-color: #3399f3; border-color: #11adf1; color: #ffffff;}
 
 /* popup window */
-.modal {width: 100%; height: aut0; max-width: 600px;}
+#fire-event-modal {width: 90%; height: auto; max-width: 600px;}
 .modal-header {background: #000000;}
 .modal-header h3 a {color: #ffffff;}
+
+#data-user-submit {width: 100%; height: auto; background: #e8e8e8;}
+#events-submit-container {width: 96%; margin: auto 2% auto 2%;}
 
 /* headlines for Large desktop */
 @media (min-width: 980px) {
@@ -75,6 +78,7 @@ a {color: #4B58A6;}
     #data-container h5 {font-size: 135%; line-height: 140%;}
     #data-container p {font-size: 95%; line-height: 140%;}
     #data-container table{font-size: 95%;}
+    #fire-event-modal {width: 90%; height: 2400px; max-width: 400px;}
 }
 
 /* headlines for Landscape phones and down */
@@ -86,4 +90,5 @@ a {color: #4B58A6;}
     #data-container h5 {font-size: 120%; line-height: 130%}
     #data-container p {font-size: 95%; line-height: 130%}
     #data-container table{font-size: 95%;}
+    #fire-event-modal {width: 90%; height: 2400px; max-width: 400px;}
 }
