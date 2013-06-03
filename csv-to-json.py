@@ -1,3 +1,5 @@
+#!/usr/local/bin/python
+
 import os, sys, argparse, csv, json
 
 parser = argparse.ArgumentParser()
@@ -68,7 +70,7 @@ def convertToJson(filename, output):
         data_to_write = '%s' % (jsonOutput)
 
         # get file name by stripping csv extension and rename as json
-        json_flat_file = os.path.splitext(filename)[0] + '-timeline.json'
+        json_flat_file = os.path.splitext(filename)[0] + '_timeline.json'
 
     else:
         print "creating json for handlebars template"
@@ -77,7 +79,7 @@ def convertToJson(filename, output):
         data_to_write = '{"objects": %s}' % jsonOutput
 
         # get file name by stripping csv extension and rename as json
-        json_flat_file = os.path.splitext(filename)[0] + '-handlebars.json'
+        json_flat_file = os.path.splitext(filename)[0] + '_handlebars.json'
 
     # open output file
     new_file = open(json_flat_file, 'w')
