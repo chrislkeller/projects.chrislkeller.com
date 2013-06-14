@@ -1,0 +1,94 @@
+/* structure for data elements */
+body {background: #979793;}
+#page-responsive-header {width: 100%; height: auto; background-color: #000000; color: #ffffff; margin: 0 0 0 0;}
+#page-responsive-header .navbar {margin-bottom: 0px;}
+#data-container {background: #ffffff; max-width: 960px; padding: 25px; margin: 0px auto 0px auto;}
+#data-details {margin: 5px 0 5px 0;}
+#data-visuals {margin: 5px 0 5px 0;}
+#content-article {width: 100%; height: auto; margin: 0 auto 25px auto;}
+#content-action-bar {width: 100%; height: auto; text-align: center; margin: 25px auto 25px auto;}
+#content-explainer {width: 100%; height: auto; margin: 25px auto 25px auto;}
+#content-display {width: 100%; height: auto; margin: 25px auto 25px auto;}
+#content-map-canvas {width: 100%; height: 700px; margin: 10px 0 10px 0;}
+#page-responsive-footer {width: 100%; height: 45px; background-color: #000000; color: #ffffff; margin: 0 0 0 0;}
+
+/* for table elements */
+.table-striped thead th {background-color: #2e2e2e; color: #ffffff;}
+.table-striped tbody > tr:nth-child(even) > td,
+.table-striped tbody > tr:nth-child(even) > th {background-color: #CACACA;}
+.table-striped tbody > tr:nth-child(odd) > td,
+.table-striped tbody > tr:nth-child(odd) > th {background-color: #fdfdfd;}
+
+/* typography */
+body {font: 100%/1.5 'Varela Round', sans-serif; color: #2B2B2B;}
+#data-container h1 {font-size: 210%;}
+#data-container h2 {font-size: 180%;}
+#data-container h3 {font-size: 150%;}
+#data-container h4 {font-size: 120%;}
+#data-container h5 {font-size: 100%;}
+#data-container p {font-size: 95%;}
+#data-container table{font-size: 95%;}
+#data-container .sky-writing {font-size: 600%; color: #f57834;}
+#data-container .kicker {font-size: 75%; text-transform: uppercase;}
+#data-container .data-instructions {font-size: 75%;}
+#data-container .normal-display {font-size: 95%;}
+#data-container .small-display {font-size: 75%;}
+#data-container .lowercase {text-transform: lowercase;}
+#data-container .centered {text-align: center;}
+#data-container .right-align {text-align: right;}
+#data-container .left-align {text-align: left;}
+#data-container .underline {text-decoration: underline;}
+#data-container .credits {display: inline;}
+#data-container .pubdate {color: #930000; font-style: italic; display: inline;}
+#data-container .italics {font-style: italic;}
+#data-container .story-headline {font-weight: 700; margin-bottom: 0}
+#data-container .story-text {}
+#data-container .details-intro {}
+#data-container .details-drilldown {}
+#data-container .hidden {display: none;}
+#data-container blockquote {padding: 0 0 0 15px; margin: 0 0 20px; border-left: 3px solid #2B2B2B;}
+
+/* bootstrap overrides */
+a {color: #4B58A6;}
+.well {padding: 0px; background: none; border: none; -webkit-box-shadow: inset 0 0 0 rgba(0,0,0,0.05); -moz-box-shadow: inset 0 0 0 rgba(0,0,0,0.05); box-shadow: inset 0 0 0 rgba(0,0,0,0.05);}
+.well .input-block-level {width: 300px;}
+.lead {font-size: 22.5px; font-weight: 200; line-height: 31.5px;}
+.alert {padding: 8px 35px 8px 14px; margin-bottom: 21px; text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5); background-color: #d47500; border: 1px solid #c54c00; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px;}
+.alert-info {background-color: #3399f3; border-color: #11adf1; color: #ffffff;}
+
+/* popup window */
+#fire-event-modal {width: 90%; height: auto; max-width: 600px;}
+.modal-header {background: #000000;}
+.modal-header h3 a {color: #ffffff;}
+
+#data-user-submit {width: 100%; height: auto; background: #e8e8e8;}
+#events-submit-container {width: 96%; margin: auto 2% auto 2%;}
+
+/* headlines for Large desktop */
+@media (min-width: 980px) {
+
+}
+
+/* headlines for Portrait tablet to landscape and desktop */
+@media (min-width: 500px) and (max-width: 979px) {
+    #data-container h1 {font-size: 185%; line-height: 140%;}
+    #data-container h2 {font-size: 165%; line-height: 140%;}
+    #data-container h3 {font-size: 155%; line-height: 140%;}
+    #data-container h4 {font-size: 145%; line-height: 140%;}
+    #data-container h5 {font-size: 135%; line-height: 140%;}
+    #data-container p {font-size: 95%; line-height: 140%;}
+    #data-container table{font-size: 95%;}
+    #fire-event-modal {width: 90%; height: 2400px; max-width: 400px;}
+}
+
+/* headlines for Landscape phones and down */
+@media (max-width: 499px) {
+    #data-container h1 {font-size: 170%; line-height: 130%}
+    #data-container h2 {font-size: 150%; line-height: 130%}
+    #data-container h3 {font-size: 140%; line-height: 130%}
+    #data-container h4 {font-size: 130%; line-height: 130%}
+    #data-container h5 {font-size: 120%; line-height: 130%}
+    #data-container p {font-size: 95%; line-height: 130%}
+    #data-container table{font-size: 95%;}
+    #fire-event-modal {width: 90%; height: 2400px; max-width: 400px;}
+}
