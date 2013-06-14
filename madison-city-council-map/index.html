@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+
+<meta charset="utf-8">
+
+<!-- begin meta -->
+<title>Madison City Council Map</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=0.6667, user-scalable=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="keywords" content="Madison, Wisconsin, Madison City Council" />
+<meta name="description" content="Enter your address to find contact information for your Madison alderman." />
+<!-- end meta -->
+
+<!-- BEGIN CSS -->
+<link rel="stylesheet" type="text/css" href="css/styles.css" media="screen" />
+
+<!--[if ! IE 9]>
+<style type="text/css" media="screen">
+#map-action-bar .form-submit-button {background-color:#ededed; border:1px solid #232020; display:inline-block; color:#000000; font-family:arial; font-size:10px; font-weight:bold; padding:6px 12px; text-decoration:none;}
+</style>
+<![endif]-->
+<!-- end css -->
+
+<!-- begin scripts -->
+<script type="text/javascript">
+	function clickclear(thisfield, defaulttext) {
+		if (thisfield.value == defaulttext) {
+			thisfield.value = "";
+		}
+	}
+
+	function clickrecall(thisfield, defaulttext) {
+		if (thisfield.value == "") {
+			thisfield.value = defaulttext;
+		}
+	}
+</script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3.2&sensor=false&region=US"></script>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript" src="scripts/map.js"></script>
+<!-- end scripts -->
+
+</head>
+<!-- end header -->
+
+<!-- begin body -->
+<body>
+
+<!-- begin map container -->
+<div id="map-container">
+
+<!-- begin map -->
+<div id="map_canvas"></div>
+<!-- end map -->
+
+<!--begin map explainer -->
+<div id="map-explainer">
+<h1>Who's your Alderman?</h1>
+
+<p class="body">Enter your address below to learn about your alderman, where you vote and the more about the ward you live in.</p>
+
+<p class="small">Example: 1901 Fish Hatchery Rd, Madison, Wis.</p>
+
+<!-- begin explainer -->
+<input type="text" class="pg-input" id="address" onclick="clickclear(this, 'Example: 1901 Fish Hatchery Rd, Madison, Wis')" onblur="clickrecall(this,'Example: 1901 Fish Hatchery Rd, Madison, Wis')" />
+<input type="button" id="searchsubmit" class="form-submit-button" value="search" onclick="zoomtoaddress()"/>
+<!-- end explainer -->
+
+<!-- begin credits -->
+<p class="small"><em>Map by <a href="http://twitter.com/#!/ChrisLKeller" target="_blank">Chris Keller.</a></em></p>
+<!-- end credits -->
+
+<!-- begin data display -->
+<div id="display-blox">
+</div>
+<!-- end data display -->
+
+</div>
+<!-- end map explainer -->
+
+</div>
+<!-- end map container -->
+
+</body>
+<!-- end body -->
+
+</html>
+<!-- end document -->
