@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+
+<meta charset="utf-8">
+
+<!-- begin meta -->
+<title>U.S. Bank Failures</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<meta name="keywords" content="bank failures, FDIC" />
+<meta name="description" content=">Locate and research the more-than-375 U.S. banks that have been shuttered by the Federal Deposit Insurance Corporation since Oct. 1 2000" />
+<!-- end meta -->
+
+<!-- begin css -->
+<link rel="stylesheet" type="text/css" href="css/styles.css" media="screen" />
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+
+</head>
+<!-- end header -->
+
+<!-- begin body -->
+<body onload="initialize()">
+
+<!-- begin map container -->
+<div id="map-container">
+
+<!-- begin action bar -->
+<div id ="map-action-bar">
+
+</div>
+<!-- end action bar -->
+
+<!-- begin map -->
+<div id="map_canvas"></div>
+<!-- end map -->
+
+<!--begin map explainer -->
+<div id="map-explainer">
+<h1>U.S. Bank Failures</h1>
+<p>Locate and research the more-than-375 U.S. banking companies have been shuttered by the <a href="http://www.fdic.gov/">Federal Deposit Insurance Corporation</a> since Oct. 1 2000.</p>
+
+<p>In viewing the <a href="http://www.fdic.gov/bank/individual/failed/banklist.html" target="blank">FDIC's online list</a>, no distinction was made between banking companies operating a single branch or multiple branches in multiple states.</p>
+
+<p>To view banking companies that failed prior to Oct. 1, 2000, the FDIC offers this <a href="http://www2.fdic.gov/hsob/SelectRpt.asp?EntryTyp=30">search</a>.</p>
+
+<!-- begin credits -->
+<div id="smalltype">
+<p>Map by <a href="http://twitter.com/#!/ChrisLKeller">Chris Keller.</a><br />
+<a href="https://docs.google.com/spreadsheet/pub?hl=en_US&hl=en_US&key=0An8W63YKWOsxdDhYak12SkxrZHlDRDY4SXRkTVNqS0E&output=csv">Download the data</a><br />
+<a href="https://github.com/chrislkeller/failed-us-banks-since-2000">View on GitHub</a>
+</p>
+</div>
+<!-- end credits -->
+
+</div>
+<!-- end map explainer -->
+
+<!-- begin table -->
+<div id="visualization"></div>
+<!-- end table -->
+
+</div>
+<!-- end map container -->
+
+</body>
+<!-- end body -->
+
+<!-- scripts -->
+<script type="text/javascript"src="http://maps.google.com/maps/api/js?sensor=false&region=us"></script>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript" src="scripts/map.js"></script>
+<!-- end scripts -->
+
+<!-- begin analytics code -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setaccount', 'ua-17387424-1']);
+  _gaq.push(['_setdomainname', '.chrislkeller.com']);
+  _gaq.push(['_trackpageview']);
+
+  (function() {
+    var ga = document.createelement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getelementsbytagname('script')[0]; s.parentnode.insertbefore(ga, s);
+  })();
+</script>
+<!-- end analytics code -->
+
+</html>
+<!-- end document -->
