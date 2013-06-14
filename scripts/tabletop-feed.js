@@ -3,7 +3,7 @@ var jqueryNoConflict = jQuery;
 // begin main function
 jqueryNoConflict(document).ready(function(){
 
-    initializeTabletopObject('0As3JvOeYDO50dF9NWWRiaTdqNmdKQ1lCY3dpdDhZU3c');
+    initializeTabletopObject('0An8W63YKWOsxdHlyTVAzQ1RPSGhxZDM5T3NqdU9RcHc');
 
 });
 
@@ -24,10 +24,11 @@ function createTableColumns(){
     the names of columns or keys you want to display.
     Remember, tabletop.js strips out spaces from column titles, which
     is what happens with the More Info column header */
+
     var tableColumns =   [
-		{'mDataProp': 'name', 'sTitle': 'Name', 'sClass': 'center'},
-		{'mDataProp': 'url', 'sTitle': 'URL', 'sClass': 'center'},
-		{'mDataProp': 'moreinfo', 'sTitle': 'More Info', 'sClass': 'center'}
+		{'mDataProp': 'brewery', 'sTitle': 'Brewery', 'sClass': 'center'},
+		{'mDataProp': 'city', 'sTitle': 'City', 'sClass': 'center'},
+		{'mDataProp': 'website', 'sTitle': 'Website', 'sClass': 'center'}
 	];
     return tableColumns;
 }

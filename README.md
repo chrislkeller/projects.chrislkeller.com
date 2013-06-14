@@ -22,9 +22,9 @@ If interested in an enhanced version that allows you to choose between using a f
 **Step 3** - Set up your DataTables column headers in by adjusting the array in the createTableColumns() function. You'll be changing the value for both the mDataProp and sTitle keys.
 
         var tableColumns =   [
-    		{'mDataProp': 'name', 'sTitle': 'Name', 'sClass': 'center'},
-    		{'mDataProp': 'website', 'sTitle': 'Website', 'sClass': 'center'},
-    		{'mDataProp': 'city', 'sTitle': 'City', 'sClass': 'center'}
+    		{'mDataProp': 'brewery', 'sTitle': 'Brewery', 'sClass': 'center'},
+    		{'mDataProp': 'city', 'sTitle': 'City', 'sClass': 'center'},
+    		{'mDataProp': 'website', 'sTitle': 'Website', 'sClass': 'center'}
     	];
 
 **Step 4** - Push the data to the table in tabletop_feed.js. I am creating a table with an id of data-table-container in the #demo div. I am then writing the datatable to that data-table-container div.
