@@ -1,0 +1,15 @@
+html, body {width: 100%; height: 100%;}
+
+body {margin: 0px;  font-family: Arial, sans-serif;}
+
+#map-container
+
+#map-action-bar {width: 100%; height: 35px; text-align: center;}
+
+#map-profile {position: absolute; top:40px; left:25px; width:205px; background-color:#ffffff; padding:10px; font-family: Arial, sans-serif; font-size:12px; line-height: 16px; border: 2px solid #232020; line-height: 16px;}
+
+#map_canvas {width: 100%; height: 100%;}
+
+#infobar { background: black; color: #ccc; padding: 6px; }
+
+#infobar a { color: white; text-decoration: underline; }

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+
+<meta charset="utf-8">
+
+<!-- BEGIN META -->
+<title>Knight-Mozilla learning lab participants</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=0.6667, user-scalable=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta content="Knight-Mozilla News Technology Partnership" name="keywords" />
+<meta content="We're calling this experiment the Òlearning lab.Ó It's the second stage of the Knight-Mozilla News Technology Partnership, which kicked off in May with an online competition that solicited 300 news innovation ideas from people around the globe." name="description" />
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="apple-touch-startup-image" href="images/startup.jpg" />
+
+<!-- END META -->
+
+<!-- BEGIN CSS -->
+<link rel="stylesheet" type="text/css" href="css/screen.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/smartphone.css" media="only screen and (max-device-width: 480px)" />
+<link rel="stylesheet" type="text/css" href="css/handheld.css" media="handheld" />
+<!-- END CSS -->
+
+<script type="text/javascript">
+	function BlockMove(event) {
+		// Tell Safari not to move the window
+		event.preventDefault() ;
+	}
+</script>
+
+<script type="text/javascript">
+var Handler = {
+  clearedOnce : false,
+  clear : function ( field ) {
+    if (this.clearedOnce == false) {
+      field.value = '';
+      this.clearedOnce = true;
+    }
+  }
+}
+</script>
+
+</head>
+<!-- END HEADER -->
+
+<!-- BEGIN BODY -->
+<body onload="initialize()" ontouchmove="BlockMove(event);">
+
+<div id="infobar">
+Knight-Mozilla learning lab participants, some groundwork -- loco sensor, web app meta -- is here to take this mobile or add city/state searching. <a href="https://github.com/chrislkeller/Knight-Mozilla-learning-lab-participants" target="_blank">Code is here.</a></div>
+
+<div id="map_canvas"></div>
+
+<!--BEGIN PROFILE -->
+<div id="map-profile">
+
+<!--BEGIN PERSON -->
+<div id="moz-profile">
+</div>
+<!--END PERSON -->
+
+<h3>Search for like interests</h3>
+<p>If a participant has the keyword listed, you'll see who they are.</p>
+<input type="text" class="mapActionButton" id="store_name" value="Enter keywords" onFocus="javascript:this.value=''" />
+<input type="button" class="mapActionButton" value="Search" onclick="changeMap(document.getElementById('store_name').value);" />
+
+<!--BEGIN CREDITS -->
+<div id="credits">
+<p><a href="http://p2pu.org/en/chrislkeller/" target="_blank">Map by Chris Keller</a></p>
+</div>
+<!--END CREDITS -->
+
+</div>
+<!--END PROFILE -->
+
+<!-- SCRIPTS -->
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3.2&sensor=false&region=US"></script>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript" src="scripts/map.js"></script>
+<!-- END SCRIPTS -->
+
+</body>
+<!-- END BODY -->
+
+</html>
+<!-- END DOCUMENT -->
