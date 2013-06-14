@@ -1,0 +1,11 @@
+#map-container {width: 620px; height: auto; margin: 0 auto 0 auto;}
+#map-data {width: 600px; height: 50px; margin: 0 auto 20px auto;}
+#map-canvas {width: 600px; height: 600px; margin: 0 auto 0 auto;}
+
+/*based on WaPo styles found here:
+http://www.washingtonpost.com/wp-srv/special/world/india-leads-push-to-7-billion/ */
+#map-slider {width: 500px; margin: 20px auto 0 auto;}
+#map-slider #slider {width: 200px; margin: 0 auto 0 auto;}
+#map-slider #markerContainer {width: 100%; height: auto; margin: 15px; auto 0 auto;}
+#map-slider .markerScatter2010 {font-size: 10px; font-weight: bold; float:left; width:1px; height:12px; margin: -5px 0 0 125;}
+#map-slider .markerScatter2012 {font-size: 10px; font-weight: bold; float:right; width:1px; height:12px; margin: -5px 185px 0 0}

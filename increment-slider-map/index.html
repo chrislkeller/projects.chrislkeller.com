@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="http://view.jqueryui.com/master/themes/base/jquery.ui.all.css">
+<link rel="stylesheet" href="styles.css">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://view.jqueryui.com/master/ui/jquery.ui.core.js"></script>
+<script type="text/javascript" src="http://view.jqueryui.com/master/ui/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="http://view.jqueryui.com/master/ui/jquery.ui.mouse.js"></script>
+<script type="text/javascript" src="http://view.jqueryui.com/master/ui/jquery.ui.slider.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&region=us"></script>
+<script type="text/javascript" src="map-script.js"></script>
+
+<div id="map-container">
+
+    <h3>Simple jQuery Slider Toggle</h3>
+    <div id="map-data">
+        <div id="map-slider">
+            <!--
+            thanks john keefe, who learned from kat downs, for the slider model:
+            http://dl.dropbox.com/u/466610/blogelements/slider-experiment.html
+            -->
+            <div id="slider" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" title="Slide me to the next election"><a class="ui-slider-handle ui-state-default ui-corner-all" href="#"></a></div>
+            <div id="markerContainer">
+                <div class="markerScatter2010"><p class="markerYear">2010</p></div>
+                <div class="markerScatter2012"><p class="markerYear">2012</p></div>
+            </div>
+        </div>
+    </div>
+    <div id="map-canvas"></div>
+</div>
