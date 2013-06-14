@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<title>GrooveDrool - Planet on my Shoulders</title>
+
+<meta name="description" content="A little taste of what's to come on Feb. 7 at Lilly's in Chicago." />
+<meta name="keywords" content="GrooveDrool" />
+
+<link href="http://jplayer.org/latest/skin/blue.monday/jplayer.blue.monday.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<script type="text/javascript" src="http://jplayer.org/2.1.0/js/jquery.jplayer.min.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+    $("#jquery_jplayer_1").jPlayer({
+        ready: function(event) {
+            $(this).jPlayer("setMedia", {
+                mp3: "tracks/planet_on_my_shoulders.mp3"
+            });
+        },
+        swfPath: "http://www.jplayer.org/2.1.0/js",
+        supplied: "mp3"
+    });
+});
+
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=198655453525612";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<style type="text/css">
+body {background: #f5f5f5;}
+#wrapper {width: 1000px; height: auto; margin: 25px auto 25px auto;}
+#container {width: 500px; height: auto; margin: 100px auto 25px auto;}
+</style>
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+<div id="container">
+
+<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+<div id="jp_container_1" class="jp-audio">
+<div class="jp-type-single">
+<div class="jp-title">
+<ul>
+<li>Planet on my Shoulders</li>
+</ul>
+</div>
+
+<div class="jp-gui jp-interface">
+<ul class="jp-controls">
+<li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+<li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+<li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
+<li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
+<li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
+<li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max volume</a></li>
+</ul>
+
+<div class="jp-progress">
+<div class="jp-seek-bar">
+<div class="jp-play-bar"></div>
+</div>
+</div>
+
+<div class="jp-volume-bar">
+<div class="jp-volume-bar-value"></div>
+</div>
+<div class="jp-current-time"></div>
+<div class="jp-duration"></div>
+</div>
+<div class="jp-title">
+<ul>
+<li>Ben Haley - Guitar; Chris Keller - Drums</li>
+</ul>
+</div>
+
+<div class="jp-no-solution">
+<span>Update Required</span>
+To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+</div>
+</div>
+</div>
+
+<p>Tracks played via <a href="http://jplayer.org/">jPlayer</a>, the open source jQuery HTML5 Audio/Video Library.</p>
+
+<div class="fb-comments" data-href="http://www.projects.chrislkeller.com/groovedrool/" data-num-posts="5" data-width="420"></div>
+
+</div>
+
+</div>
+
+    <!-- begin analytics -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-20502211-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- end analytics -->
+
+</body>
+</html>

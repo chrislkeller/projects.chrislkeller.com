@@ -1,0 +1,65 @@
+{
+"meta": {
+"limit": 10,
+"next": null,
+"offset": 0,
+"previous": null,
+"total_count": 6
+},
+"objects": [
+{
+"address": "215 S. Pinckney St., Madison, Wis",
+"latitude": 43.073934,
+"longitude": -89.380245,
+"name": "Government East Garage",
+"resource_uri": "/api/v1/parking_garage/3/",
+"spots": "186",
+"time": "2012-09-14T09:34:30.414602"
+},
+{
+"address": "318 W. Mifflin St., Madison, Wis",
+"latitude": 43.073353,
+"longitude": -89.389283,
+"name": "Overture Center Garage",
+"resource_uri": "/api/v1/parking_garage/4/",
+"spots": "263",
+"time": "2012-09-14T09:34:30.423299"
+},
+{
+"address": "415 N. Lake St., Madison, Wis",
+"latitude": 43.0737583,
+"longitude": -89.3973182,
+"name": "State Street Campus Garage",
+"resource_uri": "/api/v1/parking_garage/5/",
+"spots": "665",
+"time": "2012-09-14T09:34:30.430949"
+},
+{
+"address": "214 N. Carroll St., Madison, Wis",
+"latitude": 43.075452,
+"longitude": -89.388079,
+"name": "State Street Capitol Garage",
+"resource_uri": "/api/v1/parking_garage/6/",
+"spots": "403",
+"time": "2012-09-14T09:34:30.438051"
+},
+{
+"address": "1 South Butler St., Madison, Wis.",
+"latitude": 43.076728,
+"longitude": -89.3802089,
+"name": "Brayton Lot",
+"resource_uri": "/api/v1/parking_garage/1/",
+"spots": "54",
+"time": "2012-09-14T09:34:30.297755"
+},
+{
+"address": "218 East Mifflin St., Madison, Wis",
+"latitude": 43.077627,
+"longitude": -89.383215,
+"name": "Capitol Square North Garage",
+"resource_uri": "/api/v1/parking_garage/2/",
+"spots": "220",
+"time": "2012-09-14T09:34:30.408341"
+}
+]
+}

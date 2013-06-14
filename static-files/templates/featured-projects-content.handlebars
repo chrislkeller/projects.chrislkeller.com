@@ -1,0 +1,72 @@
+<div class="row-fluid">
+    <div class="span8 offset2">
+        <div id="myCarousel" class="carousel slide">
+            <div class="carousel-inner">
+                {{#objects}}
+                    {{#if projectorder}}
+                        {{#is projectorder '1'}}
+                        <div class="item active">
+                            <img src="{{projectimage}}" alt="{{projecttitle}}" />
+                            <div class="carousel-caption">
+                                <h3><a href="{{projecturl}}">{{projecttitle}}</a></h3>
+                                <p>{{projectdescription}}</p>
+                            <div class="project-nav">
+                                <ul>
+                                    {{#if projecturl}}
+                                        <li><a class="btn btn-mini btn-danger" href="{{projecturl}}" target="_blank"><i class="icon-bookmark icon-white"></i> View Project</a></li>
+                                    {{else}}
+                                        <li></li>
+                                    {{/if}}
+                                    {{#if projectwalkthrough}}
+                                        <li><a class="btn btn-mini btn-warning" href="{{projectwalkthrough}}" target="_blank"><i class="icon-list-alt icon-white"></i> Read Walkthrough</a></li>
+                                    {{else}}
+                                        <li></li>
+                                    {{/if}}
+                                    {{#if projectrepo}}
+                                        <li><a class="btn btn-mini btn-info" href="{{projectrepo}}" target="_blank"><i class="icon-folder-open icon-white"></i> View on GitHub</a></li>
+                                    {{else}}
+                                        <li></li>
+                                    {{/if}}
+                                </ul>
+                            </div>
+                            </div>
+                        </div>
+                        {{else}}
+                        <div class="item">
+                            <img src="{{projectimage}}" alt="{{projecttitle}}" />
+                            <div class="carousel-caption">
+                                <h3><a href="{{projecturl}}">{{projecttitle}}</a></h3>
+                                <p>{{projectdescription}}</p>
+<div class="project-nav">
+                                <ul>
+                                    {{#if projecturl}}
+                                        <li><a class="btn btn-mini btn-danger" href="{{projecturl}}" target="_blank"><i class="icon-bookmark icon-white"></i> View Project</a></li>
+                                    {{else}}
+                                        <li></li>
+                                    {{/if}}
+
+                                    {{#if projectwalkthrough}}
+                                        <li><a class="btn btn-mini btn-warning" href="{{projectwalkthrough}}" target="_blank"><i class="icon-list-alt icon-white"></i> Read Walkthrough</a></li>
+                                    {{else}}
+                                        <li></li>
+                                    {{/if}}
+
+                                    {{#if projectrepo}}
+                                        <li><a class="btn btn-mini btn-info" href="{{projectrepo}}" target="_blank"><i class="icon-folder-open icon-white"></i> View on GitHub</a></li>
+                                    {{else}}
+                                        <li></li>
+                                    {{/if}}
+                                </ul>
+                            </div>
+                            </div>
+                        </div>
+                        {{/is}}
+                    {{else}}
+                    {{/if}}
+                {{/objects}}
+            </div>
+            <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+            <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+        </div>
+    </div>
+</div>

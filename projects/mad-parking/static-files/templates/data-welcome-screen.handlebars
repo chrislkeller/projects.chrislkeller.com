@@ -1,0 +1,15 @@
+<div id="userWelcome">
+    <div class="alert alert-block alert-error fade in">
+        <h1 class="alert-heading">{{welcomeTitle}}</h1>
+        <p>{{welcomeMessage}}</p>
+        <div id="overline-navigation">
+            <ul>
+                <li><a class="btn btn-red" id="current-conditions" onclick="currentRampConditions();">Current Parking Conditions</a></li>
+                <li><a class="btn btn-yellow" id="nearest-location" onclick="calculateLocation();">Nearest to my location</a></li>
+                <li><a class="btn btn-green" id="nearest-destination" onclick="showDestinationForm();">Nearest to my destination</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="data-footer"></div>
+</div>

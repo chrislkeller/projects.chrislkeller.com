@@ -1,0 +1,32 @@
+<div class="row-fluid">
+    <div class="span6">
+        <h4>Code Snippets</h4>
+            {{#objects}}
+                {{#is projecttype 'code snippet'}}
+                    <ul>
+                        {{#is projecturl 'n/a'}}
+                            <li><a href="{{projectrepo}}" target="_blank">{{projecttitle}}</a></li>
+                        {{else}}
+                            <li><a href="{{projecturl}}" target="_blank">{{projecttitle}}</a></li>
+                        {{/is}}
+                    </ul>
+                {{else}}
+                {{/is}}
+            {{/objects}}
+    </div>
+    <div class="span6">
+        <h4>Demo Projects</h4>
+            {{#objects}}
+                {{#is projecttype 'demo'}}
+                    <ul>
+                        {{#is projecturl 'n/a'}}
+                            <li><a href="{{projectrepo}}" target="_blank">{{projecttitle}}</a></li>
+                        {{else}}
+                            <li><a href="{{projecturl}}" target="_blank">{{projecttitle}}</a></li>
+                        {{/is}}
+                    </ul>
+                {{else}}
+                {{/is}}
+            {{/objects}}
+    </div>
+</div>

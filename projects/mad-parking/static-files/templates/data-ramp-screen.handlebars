@@ -1,0 +1,19 @@
+<h2>Current Ramp Conditions</h2>
+<table class="table table-striped table-condensed">
+    <thead>
+        <tr>
+          <th class="text-shadow-light header">Ramp</th>
+          <th class="text-shadow-light header">Spaces Available</th>
+          <th class="text-shadow-light header">Last Update</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#objects}}
+            <tr id="{{id}}">
+                <td>{{name}}</td>
+                <td>{{spots}}</td>
+                <td>{{dateFormat time}}</td>
+            </tr>
+        {{/objects}}
+    </tbody>
+</table>

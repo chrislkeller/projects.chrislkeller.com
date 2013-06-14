@@ -1,0 +1,74 @@
+/* structure */
+body {background: #111; font-family: 'Varela Round', sans-serif;}
+.container-fluid {background: #ffffff; max-width: 960px; padding: 25px; margin: 45px auto 0 auto;}
+#project-header {margin: 15px 0 15px 0;}
+#content-header {padding-top: 25px; text-align: center;}
+#project-footer {margin: 15px 0 15px 0;}
+
+/* overline nav */
+#overline-navigation
+{width: 100%; height: 15px; margin: 5px auto 30px auto; }
+#overline-navigation ul
+{width: 670px; margin: 5px auto 30px auto;}
+#overline-navigation ul li
+{float: left; list-style-type: none;}
+#overline-navigation ul li a
+{display: block; margin: 0px 0px 0 0; width: 70px; font-size: 12px; line-height: 20px; text-align: center; text-decoration: none; color: #ffffff;}
+#overline-navigation ul li a:hover
+{color:#555555;}
+#overline-navigation ul li.twitter a
+{margin-left: 5px; padding-left: 20px; text-align: left; background: url("http://www.projects.chrislkeller.com/images/blog/twitter_favicon.png") left center no-repeat;}
+#overline-navigation ul li.blog a
+{margin-left: 5px; padding-left: 20px; text-align: left; background: url("http://www.projects.chrislkeller.com/images/blog/posterous.png") left center no-repeat;}
+#overline-navigation ul li.facebook a
+{margin-left: 5px; padding-left: 20px; text-align: left; background: url("http://www.projects.chrislkeller.com/images/blog/facebook_favicon.png") left center no-repeat;}
+#overline-navigation ul li.quora a
+{margin-left: 5px; padding-left: 20px; text-align: left; background: url("http://www.google.com/s2/favicons?domain=www.quora.com") left center no-repeat;}
+#overline-navigation ul li.tumblr a
+{margin-left: 5px; padding-left: 20px; text-align: left; background: url("http://www.projects.chrislkeller.com/images/blog/tumblr_favicon.png") left center no-repeat;}
+#overline-navigation ul li.github a
+{margin-left: 5px; padding-left: 20px; text-align: left; background: url("http://www.projects.chrislkeller.com/images/blog/github-favicon.png") left center no-repeat;}
+#overline-navigation ul li.linkedin a
+{margin-left: 5px; padding-left: 20px; text-align: left; background: url("http://www.projects.chrislkeller.com/images/blog/linkedin_favicon.png") left center no-repeat;}
+#overline-navigation ul li.subscribe a
+{margin-left: 5px; padding-left: 20px; text-align: left; background: url("http://www.projects.chrislkeller.com/images/blog/feedburner-favicon.png") left center no-repeat;}
+
+/* project buttons */
+.project-nav {width: 100%; height: 35px; margin: 25px auto 25px auto;}
+.project-nav ul {list-style-type: none; text-align: center;}
+.project-nav ul li {display: inline;}
+.project-nav ul li a {height: auto; padding: .2em 1em; text-decoration: none; color: #ffffff;}
+.project-nav ul li a:hover {color:#555555;}
+
+/* typography */
+#content-header h1 a {font-family: 'Varela Round', sans-serif; font-size: 66px; line-height: 70px; color: #FFFFFF; text-decoration: none; font-weight: normal;}
+#content-header p {font-family: 'Varela Round', sans-serif; font-size: 24px; color: #999999;}
+#projects-content h3 a, #projects-content h4 a {text-align: center; color: #333333;}
+#projects-content h3 a:hover, #projects-content h4 a:hover {color: #006699;}
+
+/* carousel */
+.item {height: 400px; margin: 0 0 0px 0;}
+.item img {max-height: 400px; min-height: 300px; margin: 0 auto 0 auto;}
+.carousel-caption {height: auto; background: #303030;}
+
+/* Media Queries */
+/* Large desktop */
+@media (min-width: 1200px) {
+    img {max-width: 100%;}
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+    img {max-width: 100%;}
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+    img {max-width: 100%;}
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+    img {max-width: 100%;}
+    h1, h2, h3, h4, h5, h6 {font-size: 80%;}
+}
