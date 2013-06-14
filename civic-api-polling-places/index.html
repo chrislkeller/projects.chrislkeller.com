@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Get directions to your polling location</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="Google Civic Data API, 2012 election">
+<meta name="description" content="This quick lookup uses Google Civic Data API to locate your polling place based on your address and then give you driving directions.">
+<meta name="author" content="Chris Keller">
+
+<!-- begin css  -->
+<!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" href="http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap-responsive.css" type="text/css" />
+<link rel="stylesheet" href="styles.css" type="text/css" />
+<!-- end css  -->
+
+<script src="http://code.jquery.com/jquery.min.js"></script>
+</head>
+
+<body>
+<div class="container-fluid">
+<div class="row-fluid">
+        <div class="span12">
+            <div id="data_display">
+                <h3>Get directions to your polling location</h3>
+                <form class="form-inline">
+                    <input id="addressInput" type="text" class="input-large" placeholder="Enter your address, City and State">
+                    <input type="button" id="searchsubmit" class="btn btn-primary" value="Submit" onclick="codeAddress()"/>
+                    <input type="button" id="reset" class="btn btn-primary" value="Search Again" onclick="window.location.reload()"/>
+                </form>
+            <div id="results"></div>
+            </div>
+            <div id="map_canvas"></div>
+            <div id="directions_display"></div>
+            <div id="races">
+            <h3>Upcoming State Races</h3>
+            <ul id="racesList"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?&sensor=false&region=us"></script>
+<script src="data_query.js"></script>
+<script src="https://apis.google.com/js/client.js?onload=load"></script>
+
+</body>
+</html>
