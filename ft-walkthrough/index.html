@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<!-- BEGIN DOC -->
+<html lang="en">
+
+<!-- BEGIN HEADER -->
+<head>
+
+<!-- BEGIN META -->
+<meta charset="utf-8">
+<title>Where to Swim in Chicago </title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<!-- END META -->
+
+<!-- BEGIN CSS  -->
+<link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/base/jquery-ui.css" rel="stylesheet" />	
+
+<style type="text/css" media="screen">
+#wrapper {width:960px; margin-right: auto; margin-left: auto; }
+
+.tabs {width:100%; height:auto; margin:0px; padding:0px; scrollbar:false;}
+
+.tabs a span { font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; font-size:14px; font-weight:bold; margin-top:2px; margin-bottom:2px; color:#666; }
+</style>
+<!-- END CSS -->
+
+<!-- BEGIN SCRIPTS -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function () {
+
+	//write tabs
+	$(".tabs").tabs();
+
+});
+</script>
+<!-- END SCRIPTS -->
+
+</head>
+<!-- END HEADER -->
+
+<!-- BEGIN BODY -->
+<body>
+
+<!-- BEGIN TAB GROUP -->
+<div class="tabs">
+<ul>
+<li><a href="#tab-1"><span>Chicago Swimming</span></a></li>
+<li><a href="#tab-2"><span>Custom Markers</span></a></li>
+<li><a href="#tab-3"><span>Chicago Community</span></a></li>
+<li><a href="#tab-4"><span>Chicago Neighborhoods</span></a></li>
+</ul>
+
+<div id="tab-1">
+<iframe width="100%" height="600px" scrolling="no"  src="https://www.google.com/fusiontables/embedviz?viz=MAP&q=select+col2+from+2592665+&h=false&lat=41.80627160917577&lng=-87.60796174570315&z=10&t=1&l=col2"></iframe>
+</div>
+
+<div id="tab-2">
+<iframe width="100%" height="600px" scrolling="no"  src="https://www.google.com/fusiontables/embedviz?viz=MAP&q=select+col2+from+2592952+&h=false&lat=41.83847349075433&lng=-87.66861595&z=10&t=1&l=col2"></iframe>
+</div>
+
+<div id="tab-3">
+<iframe width="100%" height="600px" scrolling="no"  src="https://www.google.com/fusiontables/embedviz?viz=MAP&q=select+col2+from+2596653+&h=false&lat=41.83409102589456&lng=-87.68535864914998&z=10&t=1&l=col2"></iframe>
+</div>
+
+<div id="tab-4">
+<iframe width="100%" height="600px" scrolling="no"  src="https://www.google.com/fusiontables/embedviz?viz=MAP&q=select+col2+from+2596652+&h=false&lat=41.83407063341436&lng=-87.73212559320001&z=10&t=1&l=col2"></iframe>
+</div>
+
+</div>
+<!-- END TAB GROUP -->
+
+</body>
+<!-- END BODY -->
+
+</html>
+<!-- END DOC -->
