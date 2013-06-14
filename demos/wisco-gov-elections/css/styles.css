@@ -1,0 +1,58 @@
+/*STRUCTURE*/
+#map-container {width: 940px; height: auto; padding: 5px; /*border: 2px solid #232020;*/}
+#map-explainer {display: block; width: 320px; height: auto; float: left; padding: 10px;}
+#map-box {display: block; width: 600px; height:625px; float: right;}
+#map-action-bar {width: 600px; height: auto; text-align: center; margin: 0 0 0 0;}
+#map_canvas {display: block; width: 600px; height:625px; float: right;}
+#map-loading {width: 290px; height: 100px; margin-top: 20px; padding: 0px; text-align:center; display:none;}
+
+/*STYLES*/
+#facebook-like {margin: 10px auto 10px auto;}
+#map-explainer h1 {font-family: Arial; color: #333333; font-size:34px; line-height: 34px; margin:0 0 10px 0;}
+#map-explainer h2 {color: #333333; font-size:24px; line-height: 28px; margin:0 0 5px 0;}
+#map-explainer h3 {font-size: 18px; font-weight: bold; line-height: 20px; margin:0 0 5px 0;}
+#map-explainer h4 {color: #333333; font-size:16px; line-height: 20px; margin:0 0 5px 0; font-weight: bold; text-align: center;}
+#map-explainer p {color: #333333; font-size:14px; line-height: 18px; clear:both; margin:0px 0 0 0; padding-bottom: 5px;}
+#map-explainer .body {color: #333333; font-size:14px; line-height: 18px; text-indent:10px; clear:both; margin:0px 0 0 0; padding-bottom: 5px;}
+#map-explainer .small {color: #333333; font-size: 10px; line-height: 14px; clear:both; margin:0px 0 0 0; padding-bottom: 5px;}
+#map-explainer .markerYear {color: #333333; font-size:10px; line-height: 14px; position:absolute; margin: 13px 0 0 -11px;}
+#map-explainer .small a {text-decoration: none;}
+.display {color: #333333;}
+.dem-highest {color: #2362A6;}
+.gop-highest {color: #9d0000;}
+.submit-button {margin: 7px 0 7px 0;}
+
+/*LEGEND*/
+/*OLD COLORS
+#map-action-bar .dem-highest {background-color: #2C7BB6BF;}
+#map-action-bar .dem-lowest {background-color: #ABD9E9BF;}
+#map-action-bar .median {background-color: #FFFFBFBF;}
+#map-action-bar .gop-lowest {background-color: #FDAE61BF;}
+#map-action-bar .gop-highest {background-color: #D7191CBF;}*/
+
+#map-action-bar .dem-highest {background-color: #2362A6;}
+#map-action-bar .dem-lowest {background-color: #96BDE7;}
+#map-action-bar .median {background-color: #ACACAC;}
+#map-action-bar .gop-lowest {background-color: #dd1717;}
+#map-action-bar .gop-highest {background-color: #9d0000;}
+
+table,th,tr,td {border-width: 0px; border-style: solid; border-color: gray; border-collapse: collapse; background-color: white;}
+table {font-size: 12px; width: 100%;}
+th {color: #fff; background-color: #aaa; padding: 5px 5px; border-top: 4px solid #555; font-weight: bold}
+th a {color: #fff;}
+td {padding: 2px; text-align: center;}
+
+/*BASED ON WA PO STYLES FOUND HERE: http://www.washingtonpost.com/wp-srv/special/world/india-leads-push-to-7-billion/ */
+#map-slider {width: 310px; margin: 10px 0 10px 0;}
+#map-slider #slider {width: 300px;}
+#map-slider #markerContainer {float: left; margin-left: 5px; margin-bottom:30px;}
+
+#map-slider .markerScatter1978 {float:left; width:1px; height:12px; border-left:1px solid #cccccc; margin-top:-5px; margin-right:33px;}
+#map-slider .markerScatter1982 {float:left; width:1px; height:12px; border-left:1px solid #cccccc; margin-top:-5px; margin-right:37px;}
+#map-slider .markerScatter1986 {float:left; width:1px; height:12px; border-left:1px solid #cccccc; margin-top:-5px; margin-right:33px;}
+#map-slider .markerScatter1990 {float:left; width:1px; height:12px; border-left:1px solid #cccccc; margin-top:-5px; margin-right:33px;}
+#map-slider .markerScatter1994 {float:left; width:1px; height:12px; border-left:1px solid #cccccc; margin-top:-5px; margin-right:37px;}
+#map-slider .markerScatter1998 {float:left; width:2px; height:12px; border-left:1px solid #cccccc; margin-top:-5px; margin-right:33px;}
+#map-slider .markerScatter2002 {float:left; width:1px; height:12px; border-left:1px solid #cccccc; margin-top:-5px; margin-right:33px;}
+#map-slider .markerScatter2006 {float:left; width:1px; height:12px; border-left:1px solid #cccccc; margin-top:-5px; margin-right:38px;}
+#map-slider .markerScatter2010 {float:left; width:1px; height:12px; border-left:1px solid #cccccc; margin-top:-5px; margin-right:0px;}

@@ -1,0 +1,70 @@
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+
+<div class="ss-form">
+
+    <script type="text/javascript">
+        var submitted = false;
+        var radioValue;
+    </script>
+
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted && radioValue === 'Option 1') {window.location='option_1.html';} else if (submitted && radioValue === 'Option 2') {window.location='option_2.html';}"></iframe>
+
+    <form action="https://docs.google.com/forms/d/15accNt2JEYQa0hR4owct0rUtjvUdcOH7DbITaZZ6CZA/formResponse" method="POST" id="ss-form" target="hidden_iframe" onsubmit="submitted=true; radioValue = $('input:radio:checked').val();">
+
+
+        <div class="ss-form-question errorbox-good">
+            <div dir="ltr" class="ss-item  ss-text">
+                <div class="ss-form-entry">
+                    <label class="ss-q-item-label" for="entry_574532641">
+                        <div class="ss-q-title">name</div>
+                        <div class="ss-q-help ss-secondary-text" dir="ltr"></div>
+                    </label>
+                    <input type="text" name="entry.574532641" value="" class="ss-q-short" id="entry_574532641" dir="auto">
+                </div>
+            </div>
+        </div>
+        <div class="ss-form-question errorbox-good">
+            <div dir="ltr" class="ss-item  ss-text">
+                <div class="ss-form-entry">
+                    <label class="ss-q-item-label" for="entry_958680784">
+                        <div class="ss-q-title">city</div>
+                        <div class="ss-q-help ss-secondary-text" dir="ltr"></div>
+                    </label>
+                    <input type="text" name="entry.958680784" value="" class="ss-q-short" id="entry_958680784" dir="auto">
+                </div>
+            </div>
+        </div>
+        <div class="ss-form-question errorbox-good">
+            <div dir="ltr" class="ss-item  ss-checkbox">
+                <div class="ss-form-entry">
+                    <label class="ss-q-item-label" for="entry_1638350169">
+                        <div class="ss-q-title">payment</div>
+                        <div class="ss-q-help ss-secondary-text" dir="ltr"></div>
+                    </label>
+                    <div class="ss-printable-hint" aria-hidden="">Check all that apply.</div>
+                    <ul class="ss-choices">
+                        <li class="ss-choice-item">
+                            <label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.640994620" value="Option 1" id="group_640994620_1" class="ss-q-checkbox"></span>
+                            <span class="ss-choice-label">Option 1</span>
+                            </label>
+                        </li>
+                        <li class="ss-choice-item">
+                            <label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.640994620" value="Option 2" id="group_640994620_2" class="ss-q-checkbox"></span>
+                            <span class="ss-choice-label">Option 2</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <input type="hidden" name="draftResponse" value="[]">
+        <input type="hidden" name="pageHistory" value="0">
+
+        <div class="ss-item ss-navigate">
+            <div class="ss-form-entry">
+                <input type="submit" name="submit" value="Submit" id="ss-submit">
+            </div>
+        </div>
+    </form>
+</div>

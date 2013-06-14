@@ -1,0 +1,183 @@
+<html>
+
+<!-- BEGIN DOC HEADER -->
+<head>
+
+<!-- BEGIN CSS -->
+<link rel="stylesheet" href="css/styles.css" media="screen" />
+<link rel="stylesheet" href="http://view.jqueryui.com/master/themes/base/jquery.ui.all.css">
+<!-- END CSS -->
+
+<!-- BEGIN SCRIPTS -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://view.jqueryui.com/master/ui/jquery.ui.core.js"></script>
+<script type="text/javascript" src="http://view.jqueryui.com/master/ui/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="http://view.jqueryui.com/master/ui/jquery.ui.mouse.js"></script>
+<script type="text/javascript" src="http://view.jqueryui.com/master/ui/jquery.ui.slider.js"></script>
+<script type="text/javascript" src="scripts/jquery.ba-dotimeout.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3.2&sensor=false&region=US"></script>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript" src="scripts/data-map.js"></script>
+<!-- END SCRIPTS -->
+
+</head>
+<!-- END DOC HEADER -->
+
+<!-- BEGIN BODY -->
+<body>
+
+<!-- BEGIN MAP CONTAINER -->
+<div id="map-container">
+
+<!-- BEGIN MAP EXPLAINER -->
+<div id="map-explainer">
+
+<!-- BEGIN MAP TITLE -->
+<div id="map-title">
+<h1>How You Voted</h1>
+<h3>Visualizing Wisconsin's vote for governor between 1978 and 2010</h3>
+</div>
+<!-- END MAP TITLE -->
+
+<p class="body">Using the slider below, travel through the past nine gubernatorial elections to see how the state voted. Click on individual counties to see the vote breakdown and the margin of victory for the major-party candidates.</p>
+
+<!-- BEGIN MAP SLIDER -->
+<div id="map-slider">
+
+<!--
+THANKS JOHN KEEFE, WHO LEARNED FROM KAT DOWNS, FOR THE SLIDER MODEL:
+http://dl.dropbox.com/u/466610/blogelements/slider-experiment.html
+-->
+<div id="slider" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" title="Slide Me"><a class="ui-slider-handle ui-state-default ui-corner-all" href="#"></a></div>
+
+<div id="markerContainer">
+<div class="markerScatter1978"><p style="font-weight: bold; color: #9d0000;" class="markerYear">1978</p></div>
+<div class="markerScatter1982"><p style="font-weight: bold; color: #2362A6;" class="markerYear">1982</p></div>
+<div class="markerScatter1986"><p style="font-weight: bold; color: #9d0000;" class="markerYear">1986</p></div>
+<div class="markerScatter1990"><p style="font-weight: bold; color: #9d0000;" class="markerYear">1990</p></div>
+<div class="markerScatter1994"><p style="font-weight: bold; color: #9d0000;" class="markerYear">1994</p></div>
+<div class="markerScatter1998"><p style="font-weight: bold; color: #9d0000;" class="markerYear">1998</p></div>
+<div class="markerScatter2002"><p style="font-weight: bold; color: #2362A6;" class="markerYear">2002</p></div>
+<div class="markerScatter2006"><p style="font-weight: bold; color: #2362A6;" class="markerYear">2006</p></div>
+<div class="markerScatter2010"><p style="font-weight: bold; color: #9d0000;" class="markerYear">2010</p></div>
+</div>
+
+<!-- BEGIN CREDITS -->
+<p class="small"><em>Data gathered by <a href="http://twitter.com/#!/ChrisLKeller" target="_blank">Chris Keller.</a></em></p>
+<!-- END CREDITS -->
+
+<hr></hr>
+
+</div>
+<!-- END MAP SLIDER -->
+
+<!-- BEGIN DATA LOAD INDICATOR -->
+<div id="map-loading"><span><h3 class="display">Loading Candidate Data</h3><img class="lightbox" src="http://host.madison.com/app/maps/images/loader.gif" width="250px" /></span></div>
+<!-- END DATA LOAD INDICATOR -->
+
+<!-- BEGIN MAP DATA -->
+<div id="map-data">
+
+<!-- BEGIN WRITE DATA -->
+<table border="0" cellspacing="0" cellpadding="1" style="width:310px; margin: 10px auto 0 auto;">
+<tbody>
+
+<tr><td colspan="2"><div id="map-election"><h3>1978 Governor's Election</h3></div></td></tr>
+
+<tr><td><div id="dem-profile"><h3 class="dem-highest">Martin Schreiber</h3><img src="http://bloximages.chicago2.vip.townnews.com/host.madison.com/content/tncms/assets/v3/editorial/e/e5/ee5a8cfe-1abf-11e1-9734-001cc4c03286/4ee236e069ce8.image.jpg" height="100px" alt="Martin Schreiber" /></div></td>
+<td><div id="gop-profile"><h3 class="gop-highest">Lee Dreyfus</h3><img src="http://bloximages.chicago2.vip.townnews.com/host.madison.com/content/tncms/assets/v3/editorial/6/fc/6fc4a852-1abf-11e1-8039-001cc4c03286/4ee23632daa9c.image.jpg" height="100px" alt="Lee Dreyfus" /></div></td></tr>
+
+<tr><td colspan="2"><div id="location"><h4>Statewide Results</h4></div></td></tr>
+
+<tr>
+<td>
+<div id="dem-votes">
+<p><strong>Percent: </strong>45.05%
+<br><strong>Votes: </strong>673,813
+<br><strong>Margin: </strong>-137,243</p>
+</div>
+</td>
+
+<td>
+<div id="gop-votes">
+<p><strong>Percent: </strong>54.22%
+<br><strong>Votes: </strong>811,056
+<br><strong>Margin: </strong>137,243</p>
+</div>
+</td>
+</tr>
+
+<tr><td colspan="2"><div id="third-votes"></div></td></tr>
+
+</tbody>
+</table>
+
+</table>
+<!-- END WRITE DATA -->
+
+</div>
+<!-- END MAP NARRATION-->
+
+</div>
+<!-- END MAP EXPLAINER -->
+
+<!-- BEGIN RIGHT -->
+<div id="map-box">
+
+<!-- BEGIN ACTION BAR -->
+<div id="map-action-bar">
+
+<!-- THANKS JOHN KEEFE FOR THE LEGEND(ARY) INSPIRATION -->
+<table cellspacing="0" cellpadding="1" border="0" style="width:600px;">
+<tbody>
+<!-- <tr>
+<td style="width: 120px;"><strong>Solid Democrat</strong></td>
+<td style="width: 120px;"><strong>Trending Democrat</strong></td>
+<td style="width: 120px;"><strong></strong></td>
+<td style="width: 120px;"><strong>Trending Republican</strong></td>
+<td style="width: 120px;"><strong>Solid Republican</strong></td>
+</tr> -->
+<tr>
+<td class="dem-highest" style="color: #ffffff; font-weight: bold; width: 120px;">+20 points</td>
+<td class="dem-lowest" style="color: #ffffff; font-weight: bold; width: 120px;">+19 to 6 points</td>
+<td class="median" style="color: #ffffff; font-weight: bold; width: 120px;">+5 points to +5 points</td>
+<td class="gop-lowest" style="color: #ffffff; font-weight: bold; width: 120px;">+6 to 19 points</td>
+<td class="gop-highest" style="color: #ffffff; font-weight: bold; width: 120px;">20+ points</td>
+</tr>
+
+</tbody>
+</table>
+<!-- END TABLE -->
+
+</div>
+<!-- END ACTION BAR -->
+
+<!-- BEGIN MAP -->
+<div id="map_canvas"></div>
+<!-- END MAP -->
+
+</div>
+<!-- END RIGHT -->
+
+</div>
+<!-- END MAP CONTAINER -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-20502211-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+<!-- END BODY -->
+
+</html>
+<!-- END DOCUMENT -->
