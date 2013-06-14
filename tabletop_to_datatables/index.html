@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Demo: Tabletop.js to DataTables</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" id="meta-viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+        <!-- begin css  -->
+        <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+        <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/demo_table.css" />
+        <link rel="stylesheet" type="text/css" href="css/styles.css" />
+        <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/css/bootstrap-responsive.min.css" />
+        <!-- end css -->
+
+        <!-- begin scripts -->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+        <!-- end scripts -->
+    </head>
+
+    <body>
+        <noscript>
+            <div id="noscript_note">You must have JavaScript enabled to view this page.</div>
+        </noscript>
+
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span12">
+                    <h1>Demo: tabletop to datatables</h1>
+                    <p>Use <a href="http://builtbybalance.com/Tabletop/">Tabletop.js</a> to pull json from Google Spreadsheet and feed it to the <a href="http://datatables.net/">DataTables</a> jQuery plugin.</p>
+                    <p>Demo by <a href="https://twitter.com/CourierEssig">Chris Essig</a> &amp; <a href="https://twitter.com/ChrisLKeller">Chris Keller</a> made possible thanks to the Open Source work of <a href="http://builtbybalance.com">Built By Balance &amp; <a href="https://github.com/DataTables">Allan Jardine</a>.</p>
+                    <ul>
+                        <li><p><a href="http://projects.chrislkeller.com/demos/tabletop_to_datatables">Demo Page</a></p></li>
+                        <li><p><a href="https://github.com/chrislkeller/tabletop_to_datatables">Fork the Repo</a></p></li>
+                        <li><p><a href="https://github.com/chrislkeller/tabletop_to_datatables#readme">View the ReadMe</a></p></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span12">
+                    <div id="demo"></div>
+                </div>
+            </div>
+        </div>
+
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/jquery.dataTables.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.1.0/tabletop.min.js"></script>
+        <script src="scripts/tabletop-feed.js"></script>
+        <script src="scripts/data-tables-bootstrap.js"></script>
+        <script src="scripts/bootstrap-dropdown.js"></script>
+
+        <!-- begin analytics -->
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-20502211-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+        <!-- end analytics -->
+
+    </body>
+</html>
