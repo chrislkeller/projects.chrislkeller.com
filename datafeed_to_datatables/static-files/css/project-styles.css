@@ -1,0 +1,26 @@
+/* typography */
+body {font: 100%/1.5 'Helvetica', sans-serif; color: #2B2B2B;}
+body h1 {font-size: 210%;}
+body h2 {font-size: 180%;}
+body h3 {font-size: 150%;}
+body h4 {font-size: 120%;}
+body h5 {font-size: 100%;}
+body p {font-size: 95%;}
+body table{font-size: 95%;}
+
+/* for table elements */
+.table-striped thead th {background-color: #2e2e2e; color: #ffffff;}
+.table-striped tbody > tr:nth-child(even) > td,
+.table-striped tbody > tr:nth-child(even) > th {background-color: #c2c2c2;}
+.table-striped tbody > tr:nth-child(odd) > td,
+.table-striped tbody > tr:nth-child(odd) > th {background-color: #fdfdfd;}
+table div.innerDetails {display: none;}
+.table th, .table td {text-align: left;}
+.table thead th {vertical-align: middle; cursor: pointer;}
+
+/* misc */
+label, input, button, select, textarea { line-height: 30px }
+input, textarea, select, .uneditable-input { height: 25px; line-height: 25px; }
+select { width: 75px }
+.dataTables_length { padding-left: 10px }
+.dataTables_filter { padding-right: 10px }
