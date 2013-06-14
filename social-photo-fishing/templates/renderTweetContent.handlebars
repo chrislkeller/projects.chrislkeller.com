@@ -1,0 +1,64 @@
+{{#results}}
+
+    <div id="user_container">
+
+        <div id="user_content">
+
+            <div id="user_tweet_content">
+            <h3>
+                {{#entities}}
+                    {{#each hashtags}}
+                        #{{text}};
+                    {{/each}}
+                {{/entities}}
+            </h3>
+            <p>Posted: {{created_at}}</p>
+            <p>{{text}}</p>
+            </div>
+
+            <div id="user_tweet_image">
+                {{#entities}}
+                    {{#each media}}
+                        <img src="{{media_url}}" width="250px" />
+                    {{/each}}
+                {{/entities}}
+
+                <br />
+                <br />
+
+<!-- <script>
+    $(function (){
+        $("#example").popover()
+    });
+</script>
+
+<a href="#" id="example" class="btn btn-danger" rel="popover" data-content="But didn't I get pretty far?" data-original-title="Sorry, not yet">Someday Save To Google</a> -->
+
+
+    {{#entities}}
+        {{#each media}}
+            <a class="btn btn-danger" href="{{media_url}}" target="_blank">Someday save to Fusion Tables, but for now Right Click/Save Link'</a>
+        {{/each}}
+    {{/entities}}
+
+            </div>
+
+            <div id="user_metadata">
+            <h4>Posted by: <a href="http://twitter.com/{{from_user}}">{{from_user}}</a> ({{from_user_name}})&nbsp;&nbsp;&nbsp;<a href="http://twitter.com/{{from_user}}"><img src="{{profile_image_url}}"/></a></h4>
+
+            <br />
+
+            {{#geo}}
+            <p><img src="http://maps.googleapis.com/maps/api/staticmap?center={{coordinates}}&zoom=13&size=300x300&maptype=roadmap
+            &markers=color:blue%7C{{coordinates}}&sensor=false" /></p>
+            {{/geo}}
+
+            </div>
+
+            <div style="clear:both"></div>
+
+        </div>
+
+    </div>
+
+{{/results}}
