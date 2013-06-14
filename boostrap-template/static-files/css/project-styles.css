@@ -1,0 +1,47 @@
+/* structure for data elements */
+body {background: #979793; font-family: 'Varela Round', sans-serif;}
+#page-responsive-header {width: 100%; height: 45px; background-color: #000000; color: #ffffff; margin: 0 0 0 0;}
+#data-container {background: #ffffff; max-width: 960px; padding: 25px; margin: 0px auto 0px auto;}
+#data-details {margin: 25px 0 25px 0;}
+#data-visuals {margin: 25px 0 25px 0;}
+#content-article {width: 100%; height: auto; margin: 0 auto 25px auto;}
+#content-action-bar {width: 100%; height: auto; text-align: center; margin: 25px auto 25px auto;}
+#content-explainer {width: 100%; height: auto; margin: 25px auto 25px auto;}
+#content-display {width: 100%; height: auto; margin: 25px auto 25px auto;}
+#content-map-canvas {width: 100%; height: 700px; margin: 10px 0 10px 0;}
+#page-responsive-footer {width: 100%; height: 45px; background-color: #000000; color: #ffffff; margin: 0 0 0 0;}
+
+/* typography */
+#data-container h1 {font-size: 36px; font-weight: 800; line-height: 30px; color: #2B2B2B;}
+#data-container h2 {font-size: 24px; font-weight: 700; line-height: 30px; color: #2B2B2B;}
+#data-container .lowercase {text-transform: lowercase;}
+#data-container .underline {text-decoration: underline;}
+#data-container .data-instructions {font-size: 11px; margin: 10px 25px 15px 25px;}
+#data-container .normal-display {font-size: 14px;}
+#data-container .small-display {font-size: 10px;}
+
+/* popup window */
+.modal {width: 300px; max-width: 300px;}
+.modal-header {background: #000000;}
+.modal-header h3 a {color: #ffffff;}
+
+/* Media Queries */
+/* Large desktop */
+@media (min-width: 1200px) {
+
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+    #data-visuals #map_canvas {width: 100%; height: 250px;}
+}
