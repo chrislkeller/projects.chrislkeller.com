@@ -2,3 +2,8 @@
 .htaccess
 fabfile.py
 *.pyc
+
+priority/
+repo-forks/
+stage_three_learning/
+working/
