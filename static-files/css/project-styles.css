@@ -1,6 +1,6 @@
 /* structure */
-body {background: #111; font-family: 'Varela Round', sans-serif;}
-.container-fluid {background: #ffffff; max-width: 960px; padding: 25px; margin: 45px auto 0 auto;}
+body {background: #111; font: 100%/1.5 'Varela Round', sans-serif; color: #2B2B2B;}
+.container-fluid {background: #ffffff; max-width: 960px; padding: 25px; margin: 35px auto 0 auto;}
 #project-header {margin: 15px 0 15px 0;}
 #content-header {padding-top: 25px; text-align: center;}
 #project-footer {margin: 15px 0 15px 0;}
@@ -47,7 +47,7 @@ body {background: #111; font-family: 'Varela Round', sans-serif;}
 #projects-content h3 a:hover, #projects-content h4 a:hover {color: #006699;}
 
 /* carousel */
-.item {width: 100%; height: 500px; margin: 10px 0 20px 0;}
+.item {width: 100%; height: 500px; margin: 5px 0 20px 0;}
 .item img {max-height: 500px; min-height: 300px; margin: 0 auto 20px auto;}
 .carousel-caption {height: 150px; background: #303030;}
 
@@ -57,19 +57,26 @@ body {background: #111; font-family: 'Varela Round', sans-serif;}
     img {max-width: 100%;}
 }
 
-/* Portrait tablet to landscape and desktop */
-@media (min-width: 768px) and (max-width: 979px) {
+/* headlines for Portrait tablet to landscape and desktop */
+@media (min-width: 500px) and (max-width: 979px) {
     img {max-width: 100%;}
+    h1 {font-size: 135%; line-height: 140%;}
+    h2 {font-size: 125%; line-height: 140%;}
+    h3 {font-size: 115%; line-height: 140%;}
+    h4 {font-size: 105%; line-height: 140%;}
+    h5 {font-size: 95%; line-height: 140%;}
+    p {font-size: 95%; line-height: 140%;}
+    li {font-size: 95%; line-height: 140%;}
 }
 
-/* Landscape phone to portrait tablet */
-@media (max-width: 767px) {
+/* headlines for Landscape phones and down */
+@media (max-width: 499px) {
     img {max-width: 100%;}
-    h1, h2, h3, h4, h5, h6 {font-size: 95%;}
-}
-
-/* Landscape phones and down */
-@media (max-width: 480px) {
-    img {max-width: 100%;}
-    h1, h2, h3, h4, h5, h6 {font-size: 90%;}
+    h1 {font-size: 135%; line-height: 140%;}
+    h2 {font-size: 125%; line-height: 140%;}
+    h3 {font-size: 115%; line-height: 140%;}
+    h4 {font-size: 105%; line-height: 140%;}
+    h5 {font-size: 95%; line-height: 140%;}
+    p {font-size: 95%; line-height: 140%;}
+    li {font-size: 95%; line-height: 140%;}
 }
