@@ -47,9 +47,9 @@ body {background: #111; font-family: 'Varela Round', sans-serif;}
 #projects-content h3 a:hover, #projects-content h4 a:hover {color: #006699;}
 
 /* carousel */
-.item {height: 400px; margin: 0 0 0px 0;}
-.item img {max-height: 400px; min-height: 300px; margin: 0 auto 0 auto;}
-.carousel-caption {height: auto; background: #303030;}
+.item {width: 100%; height: 500px; margin: 10px 0 20px 0;}
+.item img {max-height: 500px; min-height: 300px; margin: 0 auto 20px auto;}
+.carousel-caption {height: 150px; background: #303030;}
 
 /* Media Queries */
 /* Large desktop */
@@ -65,10 +65,11 @@ body {background: #111; font-family: 'Varela Round', sans-serif;}
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
     img {max-width: 100%;}
+    h1, h2, h3, h4, h5, h6 {font-size: 95%;}
 }
 
 /* Landscape phones and down */
 @media (max-width: 480px) {
     img {max-width: 100%;}
-    h1, h2, h3, h4, h5, h6 {font-size: 80%;}
+    h1, h2, h3, h4, h5, h6 {font-size: 90%;}
 }
