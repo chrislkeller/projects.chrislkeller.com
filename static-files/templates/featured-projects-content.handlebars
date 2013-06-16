@@ -9,7 +9,7 @@
                                 <img src="{{projectimage}}" alt="{{projecttitle}}" />
                                 <div class="carousel-caption">
                                     <h3><a href="{{projecturl}}">{{projecttitle}}</a></h3>
-                                    <p>{{truncate projectdescription 150 "..."}}</p>
+                                    <p>{{truncate projectdescription 180 "..."}}</p>
                                     <div class="project-nav">
                                         <ul>
                                             {{#if projecturl}}
@@ -36,7 +36,7 @@
                                 <img src="{{projectimage}}" alt="{{projecttitle}}" />
                                 <div class="carousel-caption">
                                     <h3><a href="{{projecturl}}">{{projecttitle}}</a></h3>
-                                    <p>{{projectdescription}}</p>
+                                    <p>{{truncate projectdescription 180 "..."}}</p>
                                     <div class="project-nav">
                                         <ul>
                                             {{#if projecturl}}
