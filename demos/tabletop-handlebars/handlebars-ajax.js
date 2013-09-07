@@ -1,5 +1,4 @@
 var jqueryNoConflict = jQuery;
-var proxyPrefix = 'http://projects.scpr.org/static/static-files/templates/';
 
 // render handlebars templates via ajax
 function getTemplateAjax(path, callback) {
