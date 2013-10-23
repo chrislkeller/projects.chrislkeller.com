@@ -1,0 +1,55 @@
+/*------------------------------
+IMAGES
+------------------------------*/
+img.blog_divider{
+	display:block;
+	margin:15px auto;
+	width:250px;
+}
+	
+img.main_divider{
+	display:block;
+	margin:15px auto;
+	width:250px;
+}
+
+
+img.side_divider{
+	display:block;
+	margin:15px auto;
+	width:100px;
+}
+
+
+	
+.last{
+	border-bottom:0px;
+}
+	
+.no_border{
+	border-bottom:0px;
+}
+
+#back_btn{
+	color:black;
+	width:100%;
+	font-size:1px;
+	height:330px;
+	display:block;
+	border:0px;
+}
+	
+.vertical_divider{
+	width:30px;
+	height:1px;
+	float:left;
+	background: url("../images/column_divider.png") center top repeat-y;
+}
+	
+.clear{
+	clear:both;
+}
+
+#sidebar img{		
+	margin-top:10px;
+}

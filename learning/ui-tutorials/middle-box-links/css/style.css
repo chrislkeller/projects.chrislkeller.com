@@ -1,0 +1,29 @@
+/*
+	 CSS-Tricks Example
+	 by Chris Coyier
+	 http://css-tricks.com
+*/
+
+* { margin: 0; padding: 0; }
+body { font: 14px Georgia, serif; background: #333; color: #eee; }
+#page-wrap { width: 800px; margin: 20px auto; }
+p { margin: 0 0 10px 0; }
+
+.rounded { -moz-border-radius: 20px; -webkit-border-radius: 20px; border-radius: 20px; }
+
+.widget { width: 300px; padding: 20px; border: 1px solid #999;
+          margin: 0 20px 20px 0; float: left; position: relative; }
+          
+.overlay { 
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: url(../images/black75.png);
+    background: rgba(0,0,0,0.6); 
+    text-align: center; 
+}
+           
+.widget-button { 
+    position: relative; 
+    padding: 4px 16px; background: black; border: 2px solid white; color: white; text-decoration: none; 
+    text-transform: uppercase; -moz-box-shadow: 0 0 20px white; -webkit-box-shadow: 0 0 20px white; box-shadow: 0 0 20px white; }
+
+.widget-button:hover { color: #fe4902; }

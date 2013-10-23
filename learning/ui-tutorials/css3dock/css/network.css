@@ -1,0 +1,129 @@
+.network {
+	display: none;
+	position: absolute;
+	top: 0;
+	right: 20px;
+	z-index: 999;
+	width: 160px;
+	font: normal 12px/1.4 "Lucida Grande", Arial, sans-serif;
+	-moz-box-shadow: 0 0 5px rgba(30, 30, 30, .4);
+	-webkit-box-shadow: 0 0 5px rgba(30, 30, 30, .4);
+	box-shadow: 0 0 5px rgba(30, 30, 30, .4);
+}
+
+.network nav {
+	background: rgb(30, 30, 30);
+	background: rgba(30, 30, 30, .8);
+	color: rgb(220, 220, 220);
+	border-bottom: 1px solid rgba(30, 30, 30, .8);
+}
+
+.network ul {
+	margin: 0;
+	padding: 0;
+}
+
+.network li {
+	list-style: none inside;
+}
+
+.network nav > ul {
+	padding: 5px 0;
+}
+
+.network nav > ul > li {
+	margin-bottom: 4px;
+}
+
+.network nav > ul > li:last-child {
+	margin-bottom: 0;
+}
+
+.network nav > ul > li em {
+	padding: 0 7px;
+	text-transform: uppercase;
+	font-size: 9px;
+	font-style: normal;
+	letter-spacing: 1px;
+	text-shadow: 0 -1px 0 rgba(30, 30, 30, .7);
+	color: rgb(140, 140, 140);
+	cursor: default;
+}
+
+.network nav a {
+	display: block;
+	padding: 3px 7px;
+	text-decoration: none;
+	border: none;
+	color: inherit;
+}
+
+.network nav a:hover {
+	background: -moz-linear-gradient(top, rgba(255, 255, 255, .15), rgba(200, 200, 200, .05));
+	background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, .15)), to(rgba(200, 200, 200, .05)));
+}
+
+.network .label {
+	position: relative;
+	display: block;
+	width: 160px;
+	height: 35px;
+	text-indent: -9999em;
+	background: url(../img/network.png) no-repeat 0 0;
+	cursor: pointer;
+}
+
+.network .label .pointer {
+	position: absolute;
+	top: 50%;
+	right: 10px;
+	width: 10px;
+	height: 10px;
+	margin-top: -5px;
+	background: url(../img/network.png) no-repeat;
+}
+
+.network.opened .label .pointer {
+	background-position: -10px -70px;
+}
+
+.network.closed .label .pointer {
+	background-position: 0 -70px;
+}
+
+/* @group Light */
+.network.light {
+	-moz-box-shadow: 0 0 5px rgba(30, 30, 30, .7);
+	-webkit-box-shadow: 0 0 5px rgba(30, 30, 30, .7);
+	box-shadow: 0 0 5px rgba(30, 30, 30, .7);
+}
+
+.network.light nav {
+	background: rgb(229, 229, 229);
+	background: rgba(229, 229, 229, .9);
+	color: rgb(30, 30, 30);
+	border-color: rgba(180, 180, 180, .8);
+}
+
+.network.light nav > ul > li em {
+	text-shadow: 0 -1px 0 rgba(255, 255, 255, .7);
+	color: rgb(120, 120, 120);
+}
+
+.network nav a:hover {
+	background: -moz-linear-gradient(top, rgba(0, 0, 0, .05), rgba(40, 40, 40, .15));
+}
+
+.network.light .label {
+	background-position: 0 -35px;
+	border-color: rgba(255, 255, 255, .9);
+}
+
+.network.light.opened .label .pointer {
+	background-position: -30px -70px;
+}
+
+.network.light.closed .label .pointer {
+	background-position: -20px -70px;
+}
+/* @end */

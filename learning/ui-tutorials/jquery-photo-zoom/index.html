@@ -1,0 +1,49 @@
+<html>
+	<head>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('img').click(function(){
+			var width = $(this).width();
+			var animateToWidth = 2048;
+			if(width == animateToWidth){
+				$(this).animate({ 
+					width: "960px"
+				}, 1500 );
+
+			} else {
+			$(this).animate({ 
+				width: animateToWidth+"px"
+			  }, 1500 );
+			  
+			}
+		});
+	
+	
+	});
+	
+	
+	</script>
+
+
+</head>
+
+<body>
+
+<img src="bracket.jpg" width="960px" />
+
+
+<?php ### BEGIN FOOTER ### ?>
+<hr />
+<script src="/app/inc/footerJsNew.js" type="text/javascript"></script>
+<?php ### END FOOTER ### ?>
+
+</div>
+<?php ### END CONTENT ### ?>
+
+
+</body>
+<?php ### END BODY ###?>
+</html>
+
+

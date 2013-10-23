@@ -1,0 +1,167 @@
+/*
+ 
+ File:EdgeToEdge.css
+ 
+ Abstract: CSS properties for the EdgeToEdge sample 
+ 
+ Version: <1.0>
+ 
+ Disclaimer: IMPORTANT:  This Apple software is supplied to you by 
+ Apple Inc. ("Apple") in consideration of your agreement to the
+ following terms, and your use, installation, modification or
+ redistribution of this Apple software constitutes acceptance of these
+ terms.  If you do not agree with these terms, please do not use,
+ install, modify or redistribute this Apple software.
+ 
+ In consideration of your agreement to abide by the following terms, and
+ subject to these terms, Apple grants you a personal, non-exclusive
+ license, under Apple's copyrights in this original Apple software (the
+ "Apple Software"), to use, reproduce, modify and redistribute the Apple
+ Software, with or without modifications, in source and/or binary forms;
+ provided that if you redistribute the Apple Software in its entirety and
+ without modifications, you must retain this notice and the following
+ text and disclaimers in all such redistributions of the Apple Software. 
+ Neither the name, trademarks, service marks or logos of Apple Inc. 
+ may be used to endorse or promote products derived from the Apple
+ Software without specific prior written permission from Apple.  Except
+ as expressly stated in this notice, no other rights or licenses, express
+ or implied, are granted by Apple herein, including but not limited to
+ any patent rights that may be infringed by your derivative works or by
+ other works in which the Apple Software may be incorporated.
+ 
+ The Apple Software is provided by Apple on an "AS IS" basis.  APPLE
+ MAKES NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION
+ THE IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY AND FITNESS
+ FOR A PARTICULAR PURPOSE, REGARDING THE APPLE SOFTWARE OR ITS USE AND
+ OPERATION ALONE OR IN COMBINATION WITH YOUR PRODUCTS.
+ 
+ IN NO EVENT SHALL APPLE BE LIABLE FOR ANY SPECIAL, INDIRECT, INCIDENTAL
+ OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) ARISING IN ANY WAY OUT OF THE USE, REPRODUCTION,
+ MODIFICATION AND/OR DISTRIBUTION OF THE APPLE SOFTWARE, HOWEVER CAUSED
+ AND WHETHER UNDER THEORY OF CONTRACT, TORT (INCLUDING NEGLIGENCE),
+ STRICT LIABILITY OR OTHERWISE, EVEN IF APPLE HAS BEEN ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+ 
+ Copyright (C) 2007 Apple Inc. All Rights Reserved.
+ 
+ */ 
+ 
+body 
+{
+	margin: 0;
+	padding: 0;
+	-webkit-text-size-adjust:none;			/* Turn off font resizing */
+}
+
+ul	
+{
+
+	font-size:20px;             /* All text content is 20 pixels */
+	font-family: Helvetica;
+	font-weight:bold;
+	color:black;
+	
+	margin: 0;               /* The list fills the whole iPhone screen */
+	padding: 0;
+	
+	width: 320px;           /* Each cell is 320 pixels wide */
+	background-color: white;
+}
+
+
+li
+{
+	list-style-type: none;
+	
+	border-top-width:1px;                    /*	 Add a line at the top of every cell */
+	border-top-color:rgb(217,217,217);
+	border-top-style:solid;
+	
+	padding-top:10px;
+	padding-right:10px;
+	padding-bottom:14px;
+	padding-left:10px;
+	
+	height:19px;       /* The total cell height includes the padding-top, padding-bottom, border and height values: 10+14+1+19=44 pixels */
+	line-height:19px;  /* Ensure that the height of the cell includes the line at the top of the cell  */
+}
+
+
+li:first-child
+{
+	border-top:0;   /* Remove the line above the first item of the list */
+}
+
+
+a /* Handle the click/tap highlight. Fills the entire cell with the iPhone grey background when tapped */
+{		
+	display: block;  /* Set the href to be a block rather than inline */
+	
+	/* The padding properties adjust the text content within the href block */
+	padding-top: 8px;
+	padding-right: 8px;
+	padding-bottom: 12px;
+	padding-left: 8px;
+	
+	/* The margin properties adjust the size of the href block */
+	margin-top: -8px;
+	margin-right: -8px;
+	margin-bottom: -12px;
+	margin-left: -8px;	  
+	
+	text-decoration: none;
+	color: black;
+}
+
+
+.secondary	/* Used for secondary text (text that is less important) */
+{
+	font-weight:normal;      /* Regular font is used for secondary text */
+	float:right;	         /* Align secondary text to the right of its parent cell */
+	margin-right:10px;	  
+	line-height:20px;	  /* Vertically center text on the row */
+}
+
+
+
+.secondaryWLink	/* Used for secondary text that is a link */
+{
+	font-weight:normal;		
+	float:right;		   
+	margin-right:10px;	
+	
+	color: #324F85;		 /* sets the color of the link */
+	line-height:20px;   /* Vertically center text on the row */
+}
+
+
+.button 
+{
+	display:block;
+	
+	padding:0;
+	padding-right: 5px;        /* Indent text on the button */
+	padding-left: 5px;
+	
+	height: 29px;            /* control is 29 pixels high */
+	line-height: 29px;
+	
+	font-weight: bold;
+	font-family:Heveltica;
+	font-weight:bold;
+	font-size: 12px;       /* Text displayed is 12 pixels */
+	
+	color: #FFFFFF;
+	background-color:black;  
+
+	text-align:center;
+	text-shadow: #000 1px 1px 1px;
+	border: solid gray 1px;           /* Creates a rectangle around a text */
+	-webkit-border-radius: 5px;      /* Rounds each corner of the created rectangle */
+	
+	margin-top:-4px;
+	float:right;                  /* Align button to the right */ 
+	margin-right:10px;           
+}

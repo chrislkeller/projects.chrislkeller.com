@@ -1,0 +1,2993 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<?php ### BEGIN DOC ###?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<?php ### BEGIN DOC HEADER ###?>
+<head>
+
+<?php ### BEGIN TITLE ###?>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Scrollable Timeline</title>
+<?php ### END TITLE ###?>
+
+<?php ### BEGIN CSS ### ?>
+<link rel="stylesheet" href="#" type="text/css" media="screen" />
+<style type="text/css">
+<style type="text/css" media="screen">
+body { 
+    margin: 0; 
+    padding: 0 20px; 
+    font: 1em "Trebuchet MS", verdana, arial, sans-serif; 
+    font-size: 85%; 
+}
+
+div, ul, li {
+    zoom: 1;
+}
+
+ul ul,
+ul ul li {
+    zoom: 0;
+}
+
+#timeline {
+    height: 375px;
+    margin-top: 10px;
+    padding: 20px;
+    overflow: auto;
+    /*cursor: -moz-grab !important;*/ /* should this be applied with JS? */
+    border: 2px solid #D9E4FF;
+}
+
+.tl-events {
+    width: 11800px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tl-events li {
+    float: left;
+    width: 300px;
+    margin-right: 10px;
+}
+
+.tl-events ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.tl-events ul li a {
+    text-decoration: none;
+    color: #000;
+    background: #D9E4FF;
+    border: 1px solid #D9E4FF;
+    -moz-border-radius: 4px;
+    display: block;
+    margin: 5px 2px;
+    padding: 2px;
+}
+
+.tl-events ul li a:hover,
+.tl-events ul li a:focus {
+    outline: 0;
+    background: #C2CCE4;
+    border: 1px solid #B0BACF;
+}
+
+.doodle {
+    display: none;
+}
+
+h1 {
+    margin: 8px 0;
+}
+</style>
+<?php ### END CSS ### ?>
+
+<?php ### BEGIN SCRIPT ### ?>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="jquery.mousewheel.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function () {        
+        $('#timeline').mousedown(function (event) {
+            $(this)
+                .data('down', true)
+                .data('x', event.clientX)
+                .data('scrollLeft', this.scrollLeft);
+                
+            return false;
+        }).mouseup(function (event) {
+            $(this).data('down', false);
+        }).mousemove(function (event) {
+            if ($(this).data('down') == true) {
+                this.scrollLeft = $(this).data('scrollLeft') + $(this).data('x') - event.clientX;
+            }
+        }).mousewheel(function (event, delta) {
+            this.scrollLeft -= (delta * 30);
+        }).css({
+            'overflow' : 'hidden',
+            'cursor' : '-moz-grab'
+        });
+    });
+    
+    $(window).mouseout(function (event) {
+        if ($('#timeline').data('down')) {
+            try {
+                if (event.originalTarget.nodeName == 'BODY' || event.originalTarget.nodeName == 'HTML') {
+                    $('#timeline').data('down', false);
+                }                
+            } catch (e) {}
+        }
+    });
+</script>
+<?php ### END SCRIPT ### ?>
+
+</head>
+<?php ### END DOC HEADER ###?>
+
+<?php ### BEGIN BODY ###?>
+<body>
+<h1>Google 10 Year Timeline</h1>
+<div id="timeline">
+<ul class="tl-events">
+<li class="welcome">
+<h2>Welcome to the interactive timeline of Google history!</h2>
+<p>Travel through time by dragging the timeline or the slider below. Click on any event to see more information.</p>
+<p>
+
+</p>
+</li>
+<li class="first last">
+<h3>
+1995–1997</h3>
+<ul class="column">
+<li class="doodle" id="event-1997-1-doodle">
+<a href="#1997-1-doodle" hidefocus="">
+
+</a>
+</li>
+<li class="milestone" id="event-1995-when-larry-met-sergey">
+<a href="#1995-when-larry-met-sergey" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">When Larry met Sergey</span>
+
+</span>
+</a>
+</li>
+<li class="milestone" id="event-1996-new-search-tool-named-backrub">
+<a href="#1996-new-search-tool-named-backrub" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">New search tool named BackRub</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-1996-backrub-search-index-grows">
+<a href="#1996-backrub-search-index-grows" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">BackRub search index grows</span>
+
+</span>
+</a>
+</li>
+<li class="milestone" id="event-1997-google-com-registered-as-a-domain">
+<a href="#1997-google-com-registered-as-a-domain" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google.com registered as a domain</span>
+</span>
+</a>
+</li>
+</ul>
+</li>
+<li class="first last">
+<h3>
+1998</h3>
+
+<ul class="column">
+<li class="doodle" id="event-1998-1-doodle">
+<a href="#1998-1-doodle" hidefocus="">
+
+</a>
+</li>
+<li class="milestone" id="event-1998-andy-bechtolsheim-is-first-google-investor">
+<a href="#1998-andy-bechtolsheim-is-first-google-investor" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Andy Bechtolsheim is first Google investor</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-1998-danny-sullivan-s-early-review">
+<a href="#1998-danny-sullivan-s-early-review" hidefocus="">
+
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Danny Sullivan’s early review</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-1998-google-rents-a-silicon-valley-garage">
+<a href="#1998-google-rents-a-silicon-valley-garage" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google rents a Silicon Valley garage</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-1998-google-incorporates">
+
+<a href="#1998-google-incorporates" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google incorporates</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-1998-early-technical-specs-detailed">
+<a href="#1998-early-technical-specs-detailed" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Early technical specs detailed</span>
+</span>
+</a>
+</li>
+
+<li class="milestone" id="event-1998-employee-1-craig-silverstein">
+<a href="#1998-employee-1-craig-silverstein" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Employee #1: Craig Silverstein</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-1998-google-named-top-search-engine">
+<a href="#1998-google-named-top-search-engine" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google named Top Search Engine</span>
+</span>
+</a>
+
+</li>
+<li class="culture" id="event-1998-first-google-friends-newsletter">
+<a href="#1998-first-google-friends-newsletter" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">First Google Friends Newsletter</span>
+</span>
+</a>
+</li>
+<li class="homepage" id="event-1998-original-homepage-prototype">
+<a href="#1998-original-homepage-prototype" hidefocus="">
+<span title="Image" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Original homepage prototype</span>
+</span>
+
+</a>
+</li>
+</ul>
+</li>
+<li class="first">
+<h3>
+1999 <span class="month">January–June</span>
+</h3>
+<ul class="column">
+<li class="doodle" id="event-1999-1-doodle">
+<a href="#1999-1-doodle" hidefocus="">
+
+</a>
+</li>
+<li class="milestone" id="event-1999-google-opens-palo-alto-office">
+
+<a href="#1999-google-opens-palo-alto-office" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google opens Palo Alto office</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-1999-employee-11-omid-kordestani">
+<a href="#1999-employee-11-omid-kordestani" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Employee #11: Omid Kordestani</span>
+</span>
+</a>
+</li>
+
+<li class="milestone" id="event-1999-google-funded-by-major-venture-capital-firms">
+<a href="#1999-google-funded-by-major-venture-capital-firms" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google funded by major venture capital firms</span>
+</span>
+</a>
+</li>
+<li class="culture" id="event-1999-fish-food">
+<a href="#1999-fish-food" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Fish food</span>
+</span>
+</a>
+
+</li>
+<li class="culture" id="event-1999-we-hit-the-slopes">
+<a href="#1999-we-hit-the-slopes" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">We hit the slopes</span>
+</span>
+</a>
+</li>
+<li class="definition" id="event-1999-googler-n">
+<a href="#1999-googler-n" hidefocus="">
+<span title="Definition" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">
+<dfn>Googler</dfn>, n.</span>
+
+</span>
+</a>
+</li>
+</ul>
+</li>
+<li class="last">
+<h3>
+<span class="month">July–December</span>
+</h3>
+<ul class="column">
+<li class="doodle" id="event-1999-7-doodle">
+<a href="#1999-7-doodle" hidefocus="">
+
+</a>
+</li>
+
+<li class="milestone" id="event-1999-google-moves-to-new-mountain-view-offices">
+<a href="#1999-google-moves-to-new-mountain-view-offices" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google moves to new Mountain View offices</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-1999-charlie-ayers-hired-as-first-google-chef">
+<a href="#1999-charlie-ayers-hired-as-first-google-chef" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Charlie Ayers hired as first Google chef</span>
+</span>
+</a>
+
+</li>
+<li class="milestone" id="event-1999-first-positive-reviews">
+<a href="#1999-first-positive-reviews" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">First positive reviews</span>
+</span>
+</a>
+</li>
+<li class="stats" id="event-1999-year-end-look-at-google-search-trends">
+<a href="#1999-year-end-look-at-google-search-trends" hidefocus="">
+<span title="Stats" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Year-end look at Google search trends</span>
+</span>
+
+</a>
+</li>
+<li class="definition" id="event-1999-seafood-friday-n">
+<a href="#1999-seafood-friday-n" hidefocus="">
+<span title="Definition" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">
+<dfn>Seafood Friday</dfn>, n.</span>
+</span>
+</a>
+</li>
+<li class="homepage" id="event-1999-homepage-uncle-sam-added">
+<a href="#1999-homepage-uncle-sam-added" hidefocus="">
+<span title="Image" class="tl-icon"/>
+<span class="tl-msg">
+
+<span class="tl-msg-inside">Homepage: “Uncle Sam” added</span>
+</span>
+</a>
+</li>
+</ul>
+</li>
+<li class="first last">
+<h3>
+2000</h3>
+<ul class="column">
+<li class="doodle" id="event-2000-1-doodle">
+<a href="#2000-1-doodle" hidefocus="">
+
+</a>
+</li>
+
+<li class="milestone" id="event-2000-google-in-10-languages">
+<a href="#2000-google-in-10-languages" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google in 10 languages</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-2000-google-wins-first-webby-awards">
+<a href="#2000-google-wins-first-webby-awards" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google wins first Webby Awards</span>
+</span>
+</a>
+
+</li>
+<li class="milestone" id="event-2000-yahoo-signs-up-for-google-search">
+<a href="#2000-yahoo-signs-up-for-google-search" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Yahoo! signs up for Google search</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-2000-search-index-1-billion-pages">
+<a href="#2000-search-index-1-billion-pages" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Search index: 1 billion pages</span>
+</span>
+
+</a>
+</li>
+<li class="milestone" id="event-2000-google-in-chinese-japanese-korean">
+<a href="#2000-google-in-chinese-japanese-korean" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google in Chinese, Japanese, Korean</span>
+</span>
+</a>
+</li>
+<li class="culture" id="event-2000-first-april-fool-s-joke">
+<a href="#2000-first-april-fool-s-joke" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">First April Fool’s joke</span>
+
+</span>
+</a>
+</li>
+<li class="products" id="event-2000-google-adwords">
+<a href="#2000-google-adwords" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google AdWords</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2000-google-toolbar">
+<a href="#2000-google-toolbar" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Toolbar</span>
+
+</span>
+</a>
+</li>
+<li class="stats" id="event-2000-year-end-look-at-google-search-trends">
+<a href="#2000-year-end-look-at-google-search-trends" hidefocus="">
+<span title="Stats" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Year-end look at Google search trends</span>
+</span>
+</a>
+</li>
+<li class="homepage" id="event-2000-homepage-1-billion-items">
+<a href="#2000-homepage-1-billion-items" hidefocus="">
+<span title="Image" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Homepage: 1 billion items</span>
+
+</span>
+</a>
+</li>
+</ul>
+</li>
+<li class="first">
+<h3>
+2001 <span class="month">January–June</span>
+</h3>
+<ul class="column">
+<li class="doodle" id="event-2001-1-doodle">
+<a href="#2001-1-doodle" hidefocus="">
+
+</a>
+</li>
+
+<li class="milestone" id="event-2001-wayne-rosing-hired-as-engineering-vp">
+<a href="#2001-wayne-rosing-hired-as-engineering-vp" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Wayne Rosing hired as Engineering VP</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-2001-deja-usenet-acquired">
+<a href="#2001-deja-usenet-acquired" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Deja Usenet acquired</span>
+</span>
+</a>
+
+</li>
+<li class="milestone" id="event-2001-eric-schmidt-named-chairman">
+<a href="#2001-eric-schmidt-named-chairman" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Eric Schmidt named chairman</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-2001-google-in-26-languages">
+<a href="#2001-google-in-26-languages" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google in 26 languages</span>
+</span>
+
+</a>
+</li>
+<li class="culture" id="event-2001-meng-s-gallery-begins">
+<a href="#2001-meng-s-gallery-begins" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Meng’s Gallery begins</span>
+</span>
+</a>
+</li>
+<li class="culture" id="event-2001-bork-bork-bork">
+<a href="#2001-bork-bork-bork" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Bork, bork, bork!</span>
+
+</span>
+</a>
+</li>
+<li class="definition" id="event-2001-figs-cjk-n">
+<a href="#2001-figs-cjk-n" hidefocus="">
+<span title="Definition" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">
+<dfn>FIGS+CJK</dfn>, n.</span>
+</span>
+</a>
+</li>
+<li class="homepage" id="event-2001-homepage-logo-centered">
+<a href="#2001-homepage-logo-centered" hidefocus="">
+<span title="Image" class="tl-icon"/>
+
+<span class="tl-msg">
+<span class="tl-msg-inside">Homepage: Logo centered</span>
+</span>
+</a>
+</li>
+</ul>
+</li>
+<li class="last">
+<h3>
+<span class="month">July–December</span>
+</h3>
+<ul class="column">
+<li class="doodle" id="event-2001-7-doodle">
+<a href="#2001-7-doodle" hidefocus="">
+
+
+</a>
+</li>
+<li class="milestone" id="event-2001-first-international-office-tokyo">
+<a href="#2001-first-international-office-tokyo" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">First international office: Tokyo</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-2001-eric-schmidt-named-ceo">
+<a href="#2001-eric-schmidt-named-ceo" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Eric Schmidt named CEO</span>
+
+</span>
+</a>
+</li>
+<li class="milestone" id="event-2001-first-search-partnership-in-latin-america">
+<a href="#2001-first-search-partnership-in-latin-america" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">First search partnership in Latin America</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2001-google-image-search">
+<a href="#2001-google-image-search" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Image Search</span>
+
+</span>
+</a>
+</li>
+<li class="stats" id="event-2001-search-index-3-billion">
+<a href="#2001-search-index-3-billion" hidefocus="">
+<span title="Stats" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Search index: 3 billion</span>
+</span>
+</a>
+</li>
+<li class="stats" id="event-2001-year-end-look-at-google-search-trends">
+<a href="#2001-year-end-look-at-google-search-trends" hidefocus="">
+<span title="Stats" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Year-end look at Google search trends</span>
+
+</span>
+</a>
+</li>
+<li class="definition" id="event-2001-i18n-abbr">
+<a href="#2001-i18n-abbr" hidefocus="">
+<span title="Definition" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">
+<dfn>i18n</dfn>, abbr.</span>
+</span>
+</a>
+</li>
+<li class="definition" id="event-2001-zeitgeist-n">
+<a href="#2001-zeitgeist-n" hidefocus="">
+<span title="Definition" class="tl-icon"/>
+
+<span class="tl-msg">
+<span class="tl-msg-inside">
+<dfn>Zeitgeist</dfn>, n.</span>
+</span>
+</a>
+</li>
+</ul>
+</li>
+<li class="first">
+<h3>
+2002 <span class="month">January–June</span>
+</h3>
+<ul class="column">
+
+<li class="doodle" id="event-2002-1-doodle">
+<a href="#2002-1-doodle" hidefocus="">
+
+</a>
+</li>
+<li class="milestone" id="event-2002-partnership-with-aol">
+<a href="#2002-partnership-with-aol" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Partnership with AOL</span>
+</span>
+</a>
+</li>
+<li class="culture" id="event-2002-tlhingan-majqa">
+<a href="#2002-tlhingan-majqa" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+
+<span class="tl-msg">
+<span class="tl-msg-inside">tlhIngan majQa’!</span>
+</span>
+</a>
+</li>
+<li class="culture" id="event-2002-birdbrains">
+<a href="#2002-birdbrains" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Birdbrains</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2002-google-search-appliance">
+<a href="#2002-google-search-appliance" hidefocus="">
+
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Search Appliance</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2002-adwords-now-cost-per-click">
+<a href="#2002-adwords-now-cost-per-click" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">AdWords now cost-per-click</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2002-first-google-apis">
+
+<a href="#2002-first-google-apis" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">First Google APIs</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2002-google-labs">
+<a href="#2002-google-labs" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Labs</span>
+</span>
+</a>
+</li>
+
+</ul>
+</li>
+<li class="last">
+<h3>
+<span class="month">July–December</span>
+</h3>
+<ul class="column">
+<li class="doodle" id="event-2002-7-doodle">
+<a href="#2002-7-doodle" hidefocus="">
+
+</a>
+</li>
+<li class="milestone" id="event-2002-first-google-dance">
+<a href="#2002-first-google-dance" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+
+<span class="tl-msg">
+<span class="tl-msg-inside">First Google Dance</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-2002-australia-office-opens">
+<a href="#2002-australia-office-opens" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Australia office opens</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2002-google-news">
+<a href="#2002-google-news" hidefocus="">
+
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google News</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2002-froogle">
+<a href="#2002-froogle" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Froogle</span>
+</span>
+</a>
+</li>
+<li class="stats" id="event-2002-year-end-look-at-google-search-trends">
+
+<a href="#2002-year-end-look-at-google-search-trends" hidefocus="">
+<span title="Stats" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Year-end look at Google search trends</span>
+</span>
+</a>
+</li>
+<li class="definition" id="event-2002-google-dance-n">
+<a href="#2002-google-dance-n" hidefocus="">
+<span title="Definition" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">
+<dfn>Google Dance</dfn>, n.</span>
+</span>
+
+</a>
+</li>
+<li class="definition" id="event-2002-20-time-n">
+<a href="#2002-20-time-n" hidefocus="">
+<span title="Definition" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">
+<dfn>20% time</dfn>, n.</span>
+</span>
+</a>
+</li>
+<li class="homepage" id="event-2002-homepage-tab-for-google-news">
+<a href="#2002-homepage-tab-for-google-news" hidefocus="">
+<span title="Image" class="tl-icon"/>
+<span class="tl-msg">
+
+<span class="tl-msg-inside">Homepage: Tab for Google News</span>
+</span>
+</a>
+</li>
+</ul>
+</li>
+<li class="first last">
+<h3>
+2003</h3>
+<ul class="column">
+<li class="doodle" id="event-2003-1-doodle">
+<a href="#2003-1-doodle" hidefocus="">
+
+</a>
+</li>
+
+<li class="milestone" id="event-2003-blogger-com-acquired">
+<a href="#2003-blogger-com-acquired" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Blogger.com acquired</span>
+</span>
+</a>
+</li>
+<li class="culture" id="event-2003-linguists-recognize-the-word-google">
+<a href="#2003-linguists-recognize-the-word-google" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Linguists recognize the word “google”</span>
+</span>
+</a>
+
+</li>
+<li class="culture" id="event-2003-programmers-attend-first-code-jam">
+<a href="#2003-programmers-attend-first-code-jam" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Programmers attend first Code Jam</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2003-google-adsense">
+<a href="#2003-google-adsense" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google AdSense</span>
+</span>
+
+</a>
+</li>
+<li class="products" id="event-2003-google-grants">
+<a href="#2003-google-grants" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Grants</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2003-google-print">
+<a href="#2003-google-print" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Print</span>
+
+</span>
+</a>
+</li>
+<li class="stats noclick" id="event-2003-googler-headcount-1-628">
+<a href="#2003-googler-headcount-1-628" hidefocus="">
+<span title="Stats" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Googler headcount: 1,628</span>
+</span>
+</a>
+</li>
+<li class="stats" id="event-2003-year-end-look-at-google-search-trends">
+<a href="#2003-year-end-look-at-google-search-trends" hidefocus="">
+<span title="Stats" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Year-end look at Google search trends</span>
+
+</span>
+</a>
+</li>
+</ul>
+</li>
+<li class="first">
+<h3>
+2004 <span class="month">January–March</span>
+</h3>
+<ul class="column">
+<li class="doodle" id="event-2004-1-doodle">
+<a href="#2004-1-doodle" hidefocus="">
+
+</a>
+</li>
+
+<li class="milestone" id="event-2004-larry-named-nae-fellow">
+<a href="#2004-larry-named-nae-fellow" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Larry named NAE Fellow</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-2004-search-index-6-billion">
+<a href="#2004-search-index-6-billion" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Search index: 6 billion</span>
+</span>
+</a>
+
+</li>
+<li class="milestone" id="event-2004-move-to-new-headquarters-campus">
+<a href="#2004-move-to-new-headquarters-campus" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Move to new headquarters campus</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-2004-enterprise-unit-forms">
+<a href="#2004-enterprise-unit-forms" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Enterprise unit forms</span>
+</span>
+
+</a>
+</li>
+<li class="products" id="event-2004-orkut-released">
+<a href="#2004-orkut-released" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">orkut released</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2004-google-local">
+<a href="#2004-google-local" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Local</span>
+
+</span>
+</a>
+</li>
+<li class="definition" id="event-2004-microkitchen-n">
+<a href="#2004-microkitchen-n" hidefocus="">
+<span title="Definition" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">
+<dfn>Microkitchen</dfn>, n.</span>
+</span>
+</a>
+</li>
+<li class="homepage" id="event-2004-homepage-change-from-tabs-to-links">
+<a href="#2004-homepage-change-from-tabs-to-links" hidefocus="">
+<span title="Image" class="tl-icon"/>
+
+<span class="tl-msg">
+<span class="tl-msg-inside">Homepage: Change from tabs to links</span>
+</span>
+</a>
+</li>
+</ul>
+</li>
+<li>
+<h3>
+<span class="month">April–June</span>
+</h3>
+<ul class="column">
+<li class="doodle" id="event-2004-4-doodle">
+<a href="#2004-4-doodle" hidefocus="">
+
+
+</a>
+</li>
+<li class="milestone" id="event-2004-filed-for-ipo">
+<a href="#2004-filed-for-ipo" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Filed for IPO</span>
+</span>
+</a>
+</li>
+<li class="culture" id="event-2004-fly-me-to-the-moon">
+<a href="#2004-fly-me-to-the-moon" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Fly me to the moon</span>
+
+</span>
+</a>
+</li>
+<li class="culture" id="event-2004-official-google-blog">
+<a href="#2004-official-google-blog" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Official Google Blog</span>
+</span>
+</a>
+</li>
+<li class="culture" id="event-2004-google-commuter-shuttles">
+<a href="#2004-google-commuter-shuttles" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google commuter shuttles</span>
+
+</span>
+</a>
+</li>
+<li class="culture" id="event-2004-googlers-buy-10-000-lava-lamps">
+<a href="#2004-googlers-buy-10-000-lava-lamps" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Googlers buy 10,000 lava lamps</span>
+</span>
+</a>
+</li>
+<li class="culture" id="event-2004-scholarships-for-women-engineers">
+<a href="#2004-scholarships-for-women-engineers" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Scholarships for women engineers</span>
+
+</span>
+</a>
+</li>
+<li class="products" id="event-2004-gmail">
+<a href="#2004-gmail" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Gmail</span>
+</span>
+</a>
+</li>
+<li class="definition" id="event-2004-caribou-n">
+<a href="#2004-caribou-n" hidefocus="">
+<span title="Definition" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">
+
+<dfn>Caribou</dfn>, n.</span>
+</span>
+</a>
+</li>
+</ul>
+</li>
+<li>
+<h3>
+<span class="month">July–October</span>
+</h3>
+<ul class="column">
+<li class="doodle" id="event-2004-7-doodle">
+<a href="#2004-7-doodle" hidefocus="">
+
+
+</a>
+</li>
+<li class="milestone" id="event-2004-google-ipo-on-nasdaq">
+<a href="#2004-google-ipo-on-nasdaq" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google IPO on NASDAQ</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-2004-100-google-domains">
+<a href="#2004-100-google-domains" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">100+ Google domains</span>
+
+</span>
+</a>
+</li>
+<li class="milestone" id="event-2004-european-headquarters-open-in-dublin">
+<a href="#2004-european-headquarters-open-in-dublin" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">European headquarters open in Dublin</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-2004-sergey-amp-larry-named-marconi-fellows">
+<a href="#2004-sergey-amp-larry-named-marconi-fellows" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Sergey & Larry named Marconi Fellows</span>
+
+</span>
+</a>
+</li>
+<li class="milestone" id="event-2004-engineering-offices-open-in-india">
+<a href="#2004-engineering-offices-open-in-india" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Engineering offices open in India</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-2004-keyhole-acquired">
+<a href="#2004-keyhole-acquired" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Keyhole acquired</span>
+
+</span>
+</a>
+</li>
+<li class="products" id="event-2004-sms-for-mobile">
+<a href="#2004-sms-for-mobile" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">SMS for mobile</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2004-google-desktop-search">
+<a href="#2004-google-desktop-search" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Desktop Search</span>
+
+</span>
+</a>
+</li>
+<li class="products" id="event-2004-google-scholar">
+<a href="#2004-google-scholar" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Scholar</span>
+</span>
+</a>
+</li>
+</ul>
+</li>
+<li class="last">
+<h3>
+<span class="month">November–December</span>
+
+</h3>
+<ul class="column">
+<li class="doodle" id="event-2004-11-doodle">
+<a href="#2004-11-doodle" hidefocus="">
+
+</a>
+</li>
+<li class="milestone" id="event-2004-tokyo-r-amp-d-center">
+<a href="#2004-tokyo-r-amp-d-center" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Tokyo R&D center</span>
+</span>
+</a>
+
+</li>
+<li class="products" id="event-2004-google-book-search-adds-libraries">
+<a href="#2004-google-book-search-adds-libraries" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Book Search adds libraries</span>
+</span>
+</a>
+</li>
+<li class="stats" id="event-2004-search-index-8-billion">
+<a href="#2004-search-index-8-billion" hidefocus="">
+<span title="Stats" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Search index: 8 billion</span>
+</span>
+
+</a>
+</li>
+<li class="stats noclick" id="event-2004-googler-headcount-3-021">
+<a href="#2004-googler-headcount-3-021" hidefocus="">
+<span title="Stats" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Googler headcount: 3,021</span>
+</span>
+</a>
+</li>
+<li class="stats" id="event-2004-year-end-look-at-google-search-trends">
+<a href="#2004-year-end-look-at-google-search-trends" hidefocus="">
+<span title="Stats" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Year-end look at Google search trends</span>
+
+</span>
+</a>
+</li>
+</ul>
+</li>
+<li class="first">
+<h3>
+2005 <span class="month">January–March</span>
+</h3>
+<ul class="column">
+<li class="doodle" id="event-2005-1-doodle">
+<a href="#2005-1-doodle" hidefocus="">
+
+</a>
+</li>
+
+<li class="milestone" id="event-2005-urchin-acquired">
+<a href="#2005-urchin-acquired" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Urchin acquired</span>
+</span>
+</a>
+</li>
+<li class="culture" id="event-2005-first-google-code-jam-india">
+<a href="#2005-first-google-code-jam-india" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">First Google Code Jam India</span>
+</span>
+</a>
+
+</li>
+<li class="products" id="event-2005-google-maps">
+<a href="#2005-google-maps" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Maps</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2005-code-google-com">
+<a href="#2005-code-google-com" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">code.google.com</span>
+</span>
+
+</a>
+</li>
+<li class="stats" id="event-2005-google-image-search-1-1-billion-images">
+<a href="#2005-google-image-search-1-1-billion-images" hidefocus="">
+<span title="Stats" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Image Search: 1.1 billion images</span>
+</span>
+</a>
+</li>
+</ul>
+</li>
+<li>
+<h3>
+<span class="month">April</span>
+
+</h3>
+<ul class="column">
+<li class="doodle" id="event-2005-4-doodle">
+<a href="#2005-4-doodle" hidefocus="">
+
+</a>
+</li>
+<li class="culture" id="event-2005-grasping-for-straws">
+<a href="#2005-grasping-for-straws" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Grasping for straws</span>
+</span>
+</a>
+</li>
+<li class="culture" id="event-2005-i-googlebot">
+
+<a href="#2005-i-googlebot" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">I, Googlebot</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2005-maps-in-the-u-k">
+<a href="#2005-maps-in-the-u-k" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Maps in the U.K.</span>
+</span>
+</a>
+</li>
+
+<li class="products" id="event-2005-more-maps-features">
+<a href="#2005-more-maps-features" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">More Maps features</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2005-google-local-for-mobile">
+<a href="#2005-google-local-for-mobile" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Local for mobile</span>
+</span>
+</a>
+
+</li>
+<li class="products" id="event-2005-my-search-history">
+<a href="#2005-my-search-history" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">My Search History</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2005-adwords-site-targeting">
+<a href="#2005-adwords-site-targeting" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">AdWords Site Targeting</span>
+</span>
+
+</a>
+</li>
+</ul>
+</li>
+<li>
+<h3>
+<span class="month">May–August</span>
+</h3>
+<ul class="column">
+<li class="doodle" id="event-2005-5-doodle">
+<a href="#2005-5-doodle" hidefocus="">
+
+</a>
+</li>
+<li class="culture" id="event-2005-summer-of-code">
+
+<a href="#2005-summer-of-code" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Summer of Code</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2005-blogger-mobile">
+<a href="#2005-blogger-mobile" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Blogger Mobile</span>
+</span>
+</a>
+</li>
+
+<li class="products" id="event-2005-google-scholar-for-libraries">
+<a href="#2005-google-scholar-for-libraries" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Scholar for libraries</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2005-igoogle">
+<a href="#2005-igoogle" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">iGoogle</span>
+</span>
+</a>
+
+</li>
+<li class="products" id="event-2005-mobile-web-search">
+<a href="#2005-mobile-web-search" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Mobile Web Search</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2005-google-earth">
+<a href="#2005-google-earth" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Earth</span>
+</span>
+
+</a>
+</li>
+<li class="products" id="event-2005-personalized-search">
+<a href="#2005-personalized-search" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Personalized Search</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2005-maps-api">
+<a href="#2005-maps-api" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Maps API</span>
+
+</span>
+</a>
+</li>
+<li class="products" id="event-2005-machine-translation">
+<a href="#2005-machine-translation" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Machine translation</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2005-google-talk">
+<a href="#2005-google-talk" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Talk</span>
+
+</span>
+</a>
+</li>
+</ul>
+</li>
+<li>
+<h3>
+<span class="month">September–October</span>
+</h3>
+<ul class="column">
+<li class="doodle" id="event-2005-9-doodle">
+<a href="#2005-9-doodle" hidefocus="">
+
+</a>
+</li>
+
+<li class="milestone" id="event-2005-welcome-vint-cerf">
+<a href="#2005-welcome-vint-cerf" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Welcome, Vint Cerf</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-2005-kai-fu-lee-hired">
+<a href="#2005-kai-fu-lee-hired" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Kai-Fu Lee hired</span>
+</span>
+</a>
+
+</li>
+<li class="culture" id="event-2005-baby-google">
+<a href="#2005-baby-google" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Baby Google</span>
+</span>
+</a>
+</li>
+<li class="culture" id="event-2005-authors-google">
+<a href="#2005-authors-google" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Authors@Google</span>
+</span>
+
+</a>
+</li>
+<li class="products" id="event-2005-seeing-katrina-on-earth">
+<a href="#2005-seeing-katrina-on-earth" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Seeing Katrina on Earth</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2005-google-blog-search">
+<a href="#2005-google-blog-search" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Blog Search</span>
+
+</span>
+</a>
+</li>
+<li class="products" id="event-2005-google-reader">
+<a href="#2005-google-reader" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Reader</span>
+</span>
+</a>
+</li>
+<li class="homepage" id="event-2005-homepage-google-turns-7">
+<a href="#2005-homepage-google-turns-7" hidefocus="">
+<span title="Image" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Homepage: Google turns 7</span>
+
+</span>
+</a>
+</li>
+</ul>
+</li>
+<li class="last">
+<h3>
+<span class="month">November–December</span>
+</h3>
+<ul class="column">
+<li class="doodle" id="event-2005-11-doodle">
+<a href="#2005-11-doodle" hidefocus="">
+
+</a>
+</li>
+
+<li class="milestone" id="event-2005-first-latin-america-offices">
+<a href="#2005-first-latin-america-offices" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">First Latin America offices</span>
+</span>
+</a>
+</li>
+<li class="culture" id="event-2005-i-m-feeling-silly">
+<a href="#2005-i-m-feeling-silly" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">I’m feeling silly</span>
+</span>
+</a>
+
+</li>
+<li class="products" id="event-2005-google-analytics">
+<a href="#2005-google-analytics" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Analytics</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2005-google-transit">
+<a href="#2005-google-transit" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Transit</span>
+</span>
+
+</a>
+</li>
+<li class="products" id="event-2005-gmail-for-mobile">
+<a href="#2005-gmail-for-mobile" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Gmail for mobile</span>
+</span>
+</a>
+</li>
+<li class="stats noclick" id="event-2005-googler-headcount-5-680">
+<a href="#2005-googler-headcount-5-680" hidefocus="">
+<span title="Stats" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Googler headcount: 5,680</span>
+
+</span>
+</a>
+</li>
+<li class="stats" id="event-2005-year-end-look-at-google-search-trends">
+<a href="#2005-year-end-look-at-google-search-trends" hidefocus="">
+<span title="Stats" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Year-end look at Google search trends</span>
+</span>
+</a>
+</li>
+</ul>
+</li>
+<li class="first">
+<h3>
+2006 <span class="month">January–February</span>
+
+</h3>
+<ul class="column">
+<li class="doodle" id="event-2006-1-doodle">
+<a href="#2006-1-doodle" hidefocus="">
+
+</a>
+</li>
+<li class="milestone" id="event-2006-dmarc-acquired">
+<a href="#2006-dmarc-acquired" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">dMarc acquired</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-2006-google-in-china">
+
+<a href="#2006-google-in-china" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google in China</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-2006-eric-schmidt-named-nae-fellow">
+<a href="#2006-eric-schmidt-named-nae-fellow" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Eric Schmidt named NAE Fellow</span>
+</span>
+</a>
+</li>
+
+<li class="milestone" id="event-2006-google-org-hires-larry-brilliant">
+<a href="#2006-google-org-hires-larry-brilliant" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google.org hires Larry Brilliant</span>
+</span>
+</a>
+</li>
+<li class="culture" id="event-2006-code-jam-in-china">
+<a href="#2006-code-jam-in-china" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Code Jam in China</span>
+</span>
+</a>
+
+</li>
+<li class="products" id="event-2006-picasa-in-25-more-languages">
+<a href="#2006-picasa-in-25-more-languages" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Picasa in 25 more languages</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2006-chat-with-your-email">
+<a href="#2006-chat-with-your-email" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Chat with your email</span>
+</span>
+
+</a>
+</li>
+<li class="products" id="event-2006-google-news-for-mobile">
+<a href="#2006-google-news-for-mobile" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google News for mobile</span>
+</span>
+</a>
+</li>
+</ul>
+</li>
+<li>
+<h3>
+<span class="month">March–April</span>
+
+</h3>
+<ul class="column">
+<li class="doodle" id="event-2006-3-doodle">
+<a href="#2006-3-doodle" hidefocus="">
+
+</a>
+</li>
+<li class="milestone" id="event-2006-writely-acquired">
+<a href="#2006-writely-acquired" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Writely acquired</span>
+</span>
+</a>
+</li>
+<li class="culture" id="event-2006-searching-for-love">
+
+<a href="#2006-searching-for-love" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Searching for love?</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2006-google-finance">
+<a href="#2006-google-finance" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Finance</span>
+</span>
+</a>
+</li>
+
+<li class="products" id="event-2006-google-calendar">
+<a href="#2006-google-calendar" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Calendar</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2006-maps-in-europe">
+<a href="#2006-maps-in-europe" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Maps in Europe</span>
+</span>
+</a>
+
+</li>
+</ul>
+</li>
+<li>
+<h3>
+<span class="month">May–June</span>
+</h3>
+<ul class="column">
+<li class="doodle" id="event-2006-5-doodle">
+<a href="#2006-5-doodle" hidefocus="">
+
+</a>
+</li>
+<li class="culture" id="event-2006-testing-on-the-toilet">
+<a href="#2006-testing-on-the-toilet" hidefocus="">
+
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Testing on the Toilet</span>
+</span>
+</a>
+</li>
+<li class="culture" id="event-2006-google-in-the-oed">
+<a href="#2006-google-in-the-oed" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">“Google” in the OED</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2006-google-trends">
+
+<a href="#2006-google-trends" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Trends</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2006-picasa-web-albums">
+<a href="#2006-picasa-web-albums" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Picasa Web Albums</span>
+</span>
+</a>
+</li>
+
+<li class="products" id="event-2006-mobile-tools-in-8-more-languages">
+<a href="#2006-mobile-tools-in-8-more-languages" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Mobile tools in 8 more languages</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2006-gmail-in-40-languages">
+<a href="#2006-gmail-in-40-languages" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Gmail in 40 languages</span>
+</span>
+</a>
+
+</li>
+</ul>
+</li>
+<li>
+<h3>
+<span class="month">July–August</span>
+</h3>
+<ul class="column">
+<li class="doodle" id="event-2006-7-doodle">
+<a href="#2006-7-doodle" hidefocus="">
+
+</a>
+</li>
+<li class="milestone" id="event-2006-mountain-view-gets-wifi">
+<a href="#2006-mountain-view-gets-wifi" hidefocus="">
+
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Mountain View gets WiFi</span>
+</span>
+</a>
+</li>
+<li class="culture" id="event-2006-google-code-jam-europe">
+<a href="#2006-google-code-jam-europe" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Code Jam Europe</span>
+</span>
+</a>
+</li>
+<li class="culture" id="event-2006-it-s-it">
+
+<a href="#2006-it-s-it" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">It’s IT</span>
+</span>
+</a>
+</li>
+<li class="culture" id="event-2006-live-long-and-google">
+<a href="#2006-live-long-and-google" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Live long and Google</span>
+</span>
+</a>
+</li>
+
+<li class="products" id="event-2006-100-uc-libraries-join-google-books">
+<a href="#2006-100-uc-libraries-join-google-books" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">100 UC libraries join Google Books</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2006-google-apps-for-your-domain">
+<a href="#2006-google-apps-for-your-domain" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Apps for Your Domain</span>
+</span>
+</a>
+
+</li>
+<li class="products" id="event-2006-free-book-downloads-in-book-search">
+<a href="#2006-free-book-downloads-in-book-search" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Free book downloads in Book Search</span>
+</span>
+</a>
+</li>
+</ul>
+</li>
+<li>
+<h3>
+<span class="month">September–October</span>
+
+</h3>
+<ul class="column">
+<li class="doodle" id="event-2006-9-doodle">
+<a href="#2006-9-doodle" hidefocus="">
+
+</a>
+</li>
+<li class="milestone" id="event-2006-literacy-project">
+<a href="#2006-literacy-project" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Literacy Project</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-2006-youtube-acquired">
+
+<a href="#2006-youtube-acquired" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">YouTube acquired</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-2006-jotspot-acquired">
+<a href="#2006-jotspot-acquired" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">JotSpot acquired</span>
+</span>
+</a>
+</li>
+
+<li class="culture" id="event-2006-kittens-on-our-intranet">
+<a href="#2006-kittens-on-our-intranet" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Kittens on our intranet</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2006-google-news-archives">
+<a href="#2006-google-news-archives" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google News Archives</span>
+</span>
+</a>
+
+</li>
+<li class="products" id="event-2006-google-earth-featured-content">
+<a href="#2006-google-earth-featured-content" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Earth Featured Content</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2006-first-spanish-library-joins-google-books">
+<a href="#2006-first-spanish-library-joins-google-books" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">First Spanish library joins Google Books</span>
+</span>
+
+</a>
+</li>
+<li class="products" id="event-2006-google-docs-and-spreadsheets">
+<a href="#2006-google-docs-and-spreadsheets" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Docs and Spreadsheets</span>
+</span>
+</a>
+</li>
+<li class="definition" id="event-2006-moma-n">
+<a href="#2006-moma-n" hidefocus="">
+<span title="Definition" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">
+<dfn>Moma</dfn>, n.</span>
+
+</span>
+</a>
+</li>
+</ul>
+</li>
+<li class="last">
+<h3>
+<span class="month">November–December</span>
+</h3>
+<ul class="column">
+<li class="doodle" id="event-2006-11-doodle">
+<a href="#2006-11-doodle" hidefocus="">
+
+</a>
+</li>
+
+<li class="culture" id="event-2006-doodle-4-google-united-kingdom">
+<a href="#2006-doodle-4-google-united-kingdom" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Doodle 4 Google - United Kingdom</span>
+</span>
+</a>
+</li>
+<li class="culture" id="event-2006-i-m-feeling-sleepy">
+<a href="#2006-i-m-feeling-sleepy" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">I’m feeling sleepy</span>
+</span>
+</a>
+
+</li>
+<li class="products" id="event-2006-patent-search">
+<a href="#2006-patent-search" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Patent Search</span>
+</span>
+</a>
+</li>
+<li class="stats noclick" id="event-2006-googler-headcount-10-674">
+<a href="#2006-googler-headcount-10-674" hidefocus="">
+<span title="Stats" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Googler headcount: 10,674</span>
+</span>
+
+</a>
+</li>
+<li class="stats" id="event-2006-year-end-look-at-google-search-trends">
+<a href="#2006-year-end-look-at-google-search-trends" hidefocus="">
+<span title="Stats" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Year-end look at Google search trends</span>
+</span>
+</a>
+</li>
+</ul>
+</li>
+<li class="first">
+<h3>
+2007 <span class="month">January–February</span>
+
+</h3>
+<ul class="column">
+<li class="doodle" id="event-2007-1-doodle">
+<a href="#2007-1-doodle" hidefocus="">
+
+</a>
+</li>
+<li class="milestone" id="event-2007-china-mobile-partnership">
+<a href="#2007-china-mobile-partnership" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">China Mobile partnership</span>
+</span>
+</a>
+</li>
+<li class="culture" id="event-2007-us-presidential-candidate-visits-begin">
+
+<a href="#2007-us-presidential-candidate-visits-begin" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">US Presidential candidate visits begin</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2007-google-maps-australia">
+<a href="#2007-google-maps-australia" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Maps Australia</span>
+</span>
+</a>
+</li>
+
+<li class="products" id="event-2007-google-docs-in-11-more-languages">
+<a href="#2007-google-docs-in-11-more-languages" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Docs in 11 more languages</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2007-gmail-open-to-everyone">
+<a href="#2007-gmail-open-to-everyone" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Gmail open to everyone</span>
+</span>
+</a>
+
+</li>
+<li class="products" id="event-2007-google-apps-premier-edition">
+<a href="#2007-google-apps-premier-edition" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Apps Premier Edition</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2007-google-maps-traffic-information">
+<a href="#2007-google-maps-traffic-information" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Maps traffic information</span>
+</span>
+
+</a>
+</li>
+</ul>
+</li>
+<li>
+<h3>
+<span class="month">March–April</span>
+</h3>
+<ul class="column">
+<li class="doodle" id="event-2007-3-doodle">
+<a href="#2007-3-doodle" hidefocus="">
+
+</a>
+</li>
+<li class="culture" id="event-2007-google-code-jam-latin-america">
+
+<a href="#2007-google-code-jam-latin-america" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Code Jam Latin America</span>
+</span>
+</a>
+</li>
+<li class="culture" id="event-2007-gbikes-everywhere">
+<a href="#2007-gbikes-everywhere" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">gBikes everywhere</span>
+</span>
+</a>
+</li>
+
+<li class="culture" id="event-2007-seriously-there-is-a-snake">
+<a href="#2007-seriously-there-is-a-snake" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Seriously, there is a snake</span>
+</span>
+</a>
+</li>
+<li class="culture" id="event-2007-our-t-rex-under-siege">
+<a href="#2007-our-t-rex-under-siege" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Our T-Rex under siege</span>
+</span>
+</a>
+
+</li>
+<li class="culture" id="event-2007-the-google-channel">
+<a href="#2007-the-google-channel" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">The @Google Channel</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2007-google-apps-in-africa">
+<a href="#2007-google-apps-in-africa" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Apps in Africa</span>
+</span>
+
+</a>
+</li>
+<li class="products" id="event-2007-blogger-in-8-more-languages">
+<a href="#2007-blogger-in-8-more-languages" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Blogger in 8 more languages</span>
+</span>
+</a>
+</li>
+</ul>
+</li>
+<li>
+<h3>
+<span class="month">May</span>
+
+</h3>
+<ul class="column">
+<li class="doodle" id="event-2007-5-doodle">
+<a href="#2007-5-doodle" hidefocus="">
+
+</a>
+</li>
+<li class="milestone" id="event-2007-first-michigan-office">
+<a href="#2007-first-michigan-office" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">First Michigan office</span>
+</span>
+</a>
+</li>
+<li class="culture" id="event-2007-gardening-at-google">
+
+<a href="#2007-gardening-at-google" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Gardening at Google</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2007-universal-search">
+<a href="#2007-universal-search" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Universal Search</span>
+</span>
+</a>
+</li>
+
+<li class="products" id="event-2007-google-hot-trends">
+<a href="#2007-google-hot-trends" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Hot Trends</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2007-street-view-for-maps">
+<a href="#2007-street-view-for-maps" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Street View for Maps</span>
+</span>
+</a>
+
+</li>
+<li class="products" id="event-2007-google-gears">
+<a href="#2007-google-gears" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Gears</span>
+</span>
+</a>
+</li>
+</ul>
+</li>
+<li>
+<h3>
+<span class="month">June</span>
+
+</h3>
+<ul class="column">
+<li class="doodle" id="event-2007-6-doodle">
+<a href="#2007-6-doodle" hidefocus="">
+
+</a>
+</li>
+<li class="milestone" id="event-2007-partnership-with-salesforce-com">
+<a href="#2007-partnership-with-salesforce-com" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Partnership with Salesforce.com</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-2007-google-stand-on-net-neutrality">
+
+<a href="#2007-google-stand-on-net-neutrality" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google stand on Net Neutrality</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-2007-new-energy-initiatives">
+<a href="#2007-new-energy-initiatives" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">New energy initiatives</span>
+</span>
+</a>
+</li>
+
+<li class="products" id="event-2007-maps-on-the-iphone">
+<a href="#2007-maps-on-the-iphone" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Maps on the iPhone</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2007-youtube-in-9-more-domains">
+<a href="#2007-youtube-in-9-more-domains" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">YouTube in 9 more domains</span>
+</span>
+</a>
+
+</li>
+<li class="products" id="event-2007-google-earth-for-nonprofits">
+<a href="#2007-google-earth-for-nonprofits" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Earth for nonprofits</span>
+</span>
+</a>
+</li>
+<li class="stats" id="event-2007-solar-panels-on-campus-9-212">
+<a href="#2007-solar-panels-on-campus-9-212" hidefocus="">
+<span title="Stats" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Solar panels on campus: 9,212</span>
+</span>
+
+</a>
+</li>
+<li class="video" id="event-2007-featured-content-in-earth">
+<a href="#2007-featured-content-in-earth" hidefocus="">
+<span title="Video" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Featured Content in Earth</span>
+</span>
+</a>
+</li>
+</ul>
+</li>
+<li>
+<h3>
+<span class="month">July–August</span>
+
+</h3>
+<ul class="column">
+<li class="doodle" id="event-2007-7-doodle">
+<a href="#2007-7-doodle" hidefocus="">
+
+</a>
+</li>
+<li class="milestone" id="event-2007-postini-acquired">
+<a href="#2007-postini-acquired" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Postini acquired</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-2007-google-privacy-channel">
+
+<a href="#2007-google-privacy-channel" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Privacy Channel</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-2007-google-tech-talks">
+<a href="#2007-google-tech-talks" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Tech Talks</span>
+</span>
+</a>
+</li>
+
+<li class="products" id="event-2007-youtube-amp-politics">
+<a href="#2007-youtube-amp-politics" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">YouTube & politics</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2007-google-finance-canada">
+<a href="#2007-google-finance-canada" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Finance Canada</span>
+</span>
+
+</a>
+</li>
+<li class="products" id="event-2007-google-apps-in-28-languages">
+<a href="#2007-google-apps-in-28-languages" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Apps in 28 languages</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2007-google-earth-and-sky">
+<a href="#2007-google-earth-and-sky" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Earth (and Sky)</span>
+
+</span>
+</a>
+</li>
+<li class="video" id="event-2007-gmail-around-the-world">
+<a href="#2007-gmail-around-the-world" hidefocus="">
+<span title="Video" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Gmail around the world</span>
+</span>
+</a>
+</li>
+<li class="definition" id="event-2007-tech-talk-n">
+<a href="#2007-tech-talk-n" hidefocus="">
+<span title="Definition" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">
+
+<dfn>Tech Talk</dfn>, n.</span>
+</span>
+</a>
+</li>
+</ul>
+</li>
+<li>
+<h3>
+<span class="month">September–October</span>
+</h3>
+<ul class="column">
+<li class="doodle" id="event-2007-9-doodle">
+<a href="#2007-9-doodle" hidefocus="">
+
+
+</a>
+</li>
+<li class="milestone" id="event-2007-joint-supercomputing-project-with-ibm">
+<a href="#2007-joint-supercomputing-project-with-ibm" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Joint supercomputing project with IBM</span>
+</span>
+</a>
+</li>
+<li class="culture" id="event-2007-lunar-x-prize">
+<a href="#2007-lunar-x-prize" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Lunar X PRIZE</span>
+
+</span>
+</a>
+</li>
+<li class="culture" id="event-2007-scary-fun">
+<a href="#2007-scary-fun" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Scary fun</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2007-adsense-for-mobile">
+<a href="#2007-adsense-for-mobile" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">AdSense for Mobile</span>
+
+</span>
+</a>
+</li>
+<li class="products" id="event-2007-presentations-in-google-docs">
+<a href="#2007-presentations-in-google-docs" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Presentations in Google Docs</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2007-google-reader-in-10-more-languages">
+<a href="#2007-google-reader-in-10-more-languages" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Reader in 10 more languages</span>
+
+</span>
+</a>
+</li>
+<li class="products" id="event-2007-google-earth-wildfire-updates">
+<a href="#2007-google-earth-wildfire-updates" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Earth wildfire updates</span>
+</span>
+</a>
+</li>
+<li class="video" id="event-2007-google-docs-explained">
+<a href="#2007-google-docs-explained" hidefocus="">
+<span title="Video" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Docs explained</span>
+
+</span>
+</a>
+</li>
+<li class="homepage" id="event-2007-homepage-google-in-arabic">
+<a href="#2007-homepage-google-in-arabic" hidefocus="">
+<span title="Image" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Homepage: Google in Arabic</span>
+</span>
+</a>
+</li>
+</ul>
+</li>
+<li class="last">
+<h3>
+<span class="month">November–December</span>
+
+</h3>
+<ul class="column">
+<li class="doodle" id="event-2007-11-doodle">
+<a href="#2007-11-doodle" hidefocus="">
+
+</a>
+</li>
+<li class="milestone" id="event-2007-renewable-energy-less-than-coal-re-lt-c">
+<a href="#2007-renewable-energy-less-than-coal-re-lt-c" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Renewable Energy Less Than Coal (RE<C)</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-2007-the-queen-on-youtube">
+
+<a href="#2007-the-queen-on-youtube" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">The Queen on YouTube</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2007-opensocial">
+<a href="#2007-opensocial" hidefocus="" class="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">OpenSocial</span>
+</span>
+</a>
+</li>
+
+<li class="products" id="event-2007-android-mobile-platform">
+<a href="#2007-android-mobile-platform" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Android mobile platform</span>
+</span>
+</a>
+</li>
+<li class="stats" id="event-2007-googlers-love-chocolate">
+<a href="#2007-googlers-love-chocolate" hidefocus="">
+<span title="Stats" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Googlers love chocolate</span>
+</span>
+</a>
+
+</li>
+<li class="stats noclick" id="event-2007-googler-headcount-16-805">
+<a href="#2007-googler-headcount-16-805" hidefocus="">
+<span title="Stats" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Googler headcount: 16,805</span>
+</span>
+</a>
+</li>
+<li class="stats" id="event-2007-year-end-look-at-google-search-trends">
+<a href="#2007-year-end-look-at-google-search-trends" hidefocus="">
+<span title="Stats" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Year-end look at Google search trends</span>
+</span>
+
+</a>
+</li>
+<li class="video" id="event-2007-google-toolbar-explained">
+<a href="#2007-google-toolbar-explained" hidefocus="">
+<span title="Video" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Toolbar explained</span>
+</span>
+</a>
+</li>
+</ul>
+</li>
+<li class="first">
+<h3>
+2008 <span class="month">January–March</span>
+
+</h3>
+<ul class="column">
+<li class="doodle" id="event-2008-1-doodle">
+<a href="#2008-1-doodle" hidefocus="">
+
+</a>
+</li>
+<li class="milestone" id="event-2008-google-org-s-new-goals">
+<a href="#2008-google-org-s-new-goals" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google.org’s new goals</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-2008-google-bids-on-spectrum">
+
+<a href="#2008-google-bids-on-spectrum" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google bids on spectrum</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-2008-doubleclick-acquired">
+<a href="#2008-doubleclick-acquired" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">DoubleClick acquired</span>
+</span>
+</a>
+</li>
+
+<li class="milestone" id="event-2008-opensocial-foundation">
+<a href="#2008-opensocial-foundation" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">OpenSocial Foundation</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2008-right-to-left-language-searching">
+<a href="#2008-right-to-left-language-searching" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Right-to-left language searching</span>
+</span>
+</a>
+
+</li>
+<li class="products" id="event-2008-google-sites">
+<a href="#2008-google-sites" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Sites</span>
+</span>
+</a>
+</li>
+<li class="video" id="event-2008-making-a-new-year-doodle">
+<a href="#2008-making-a-new-year-doodle" hidefocus="">
+<span title="Video" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Making a New Year doodle</span>
+</span>
+
+</a>
+</li>
+<li class="video" id="event-2008-gmail-explained">
+<a href="#2008-gmail-explained" hidefocus="">
+<span title="Video" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Gmail explained</span>
+</span>
+</a>
+</li>
+<li class="definition" id="event-2008-misc-n">
+<a href="#2008-misc-n" hidefocus="">
+<span title="Definition" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">
+<dfn>Misc</dfn>, n.</span>
+
+</span>
+</a>
+</li>
+</ul>
+</li>
+<li>
+<h3>
+<span class="month">April</span>
+</h3>
+<ul class="column">
+<li class="doodle" id="event-2008-4-doodle">
+<a href="#2008-4-doodle" hidefocus="">
+
+</a>
+</li>
+
+<li class="milestone" id="event-2008-google-design-principles">
+<a href="#2008-google-design-principles" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google design principles</span>
+</span>
+</a>
+</li>
+<li class="culture" id="event-2008-april-fool-s-goes-global">
+<a href="#2008-april-fool-s-goes-global" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">April Fool’s goes global</span>
+</span>
+</a>
+
+</li>
+<li class="products" id="event-2008-google-earth-updates">
+<a href="#2008-google-earth-updates" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Earth updates</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2008-website-optimizer">
+<a href="#2008-website-optimizer" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Website Optimizer</span>
+</span>
+
+</a>
+</li>
+<li class="products" id="event-2008-google-finance-china">
+<a href="#2008-google-finance-china" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Finance China</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2008-artists-on-igoogle">
+<a href="#2008-artists-on-igoogle" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Artists on iGoogle</span>
+
+</span>
+</a>
+</li>
+<li class="video" id="event-2008-larry-and-sergey-announce-virgle">
+<a href="#2008-larry-and-sergey-announce-virgle" hidefocus="">
+<span title="Video" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Larry and Sergey announce Virgle</span>
+</span>
+</a>
+</li>
+</ul>
+</li>
+<li>
+<h3>
+<span class="month">May</span>
+
+</h3>
+<ul class="column">
+<li class="doodle" id="event-2008-5-doodle">
+<a href="#2008-5-doodle" hidefocus="">
+
+</a>
+</li>
+<li class="milestone" id="event-2008-google-supports-unicode">
+<a href="#2008-google-supports-unicode" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google supports Unicode</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-2008-adopting-internet-protocol-v6">
+
+<a href="#2008-adopting-internet-protocol-v6" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Adopting Internet Protocol v6</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-2008-blog-series-explores-search-quality">
+<a href="#2008-blog-series-explores-search-quality" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Blog series explores search quality</span>
+</span>
+</a>
+</li>
+
+<li class="culture" id="event-2008-doodle-4-google-us">
+<a href="#2008-doodle-4-google-us" hidefocus="">
+<span title="Culture" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Doodle 4 Google - US</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2008-google-earth-and-disaster-relief">
+<a href="#2008-google-earth-and-disaster-relief" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Earth and disaster relief</span>
+</span>
+</a>
+
+</li>
+<li class="products" id="event-2008-friendconnect">
+<a href="#2008-friendconnect" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">FriendConnect</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2008-google-translate-in-10-more-languages">
+<a href="#2008-google-translate-in-10-more-languages" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Translate in 10 more languages</span>
+</span>
+
+</a>
+</li>
+<li class="stats" id="event-2008-we-heart-indy-and-spidey">
+<a href="#2008-we-heart-indy-and-spidey" hidefocus="">
+<span title="Stats" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">We heart Indy and Spidey</span>
+</span>
+</a>
+</li>
+<li class="video" id="event-2008-animating-our-doodles">
+<a href="#2008-animating-our-doodles" hidefocus="">
+<span title="Video" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Animating our doodles</span>
+
+</span>
+</a>
+</li>
+</ul>
+</li>
+<li>
+<h3>
+<span class="month">June–July</span>
+</h3>
+<ul class="column">
+<li class="doodle" id="event-2008-6-doodle">
+<a href="#2008-6-doodle" hidefocus="">
+
+</a>
+</li>
+
+<li class="milestone" id="event-2008-code-jam-us">
+<a href="#2008-code-jam-us" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Code Jam - US</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2008-google-finance-real-time-stock-quotes">
+<a href="#2008-google-finance-real-time-stock-quotes" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Finance real-time stock quotes</span>
+</span>
+</a>
+
+</li>
+<li class="products" id="event-2008-google-maps-for-mobile-with-transit">
+<a href="#2008-google-maps-for-mobile-with-transit" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Maps for mobile with transit</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2008-street-view-for-tour-de-france">
+<a href="#2008-street-view-for-tour-de-france" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Street View for Tour de France</span>
+</span>
+
+</a>
+</li>
+<li class="products" id="event-2008-iphone-gets-google-search">
+<a href="#2008-iphone-gets-google-search" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">iPhone gets Google search</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2008-a-40-language-initiative">
+<a href="#2008-a-40-language-initiative" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">A 40-language initiative</span>
+
+</span>
+</a>
+</li>
+<li class="products" id="event-2008-google-index-1-trillion">
+<a href="#2008-google-index-1-trillion" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google index: 1 trillion</span>
+</span>
+</a>
+</li>
+<li class="video" id="event-2008-rock-roll-and-data">
+<a href="#2008-rock-roll-and-data" hidefocus="">
+<span title="Video" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Rock, roll, and data</span>
+
+</span>
+</a>
+</li>
+</ul>
+</li>
+<li>
+<h3>
+<span class="month">August–September</span>
+</h3>
+<ul class="column">
+<li class="doodle" id="event-2008-8-doodle">
+<a href="#2008-8-doodle" hidefocus="">
+
+</a>
+</li>
+
+<li class="milestone" id="event-2008-google-turns-10">
+<a href="#2008-google-turns-10" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google turns 10</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-2008-google-active-at-u-s-political-conventions">
+<a href="#2008-google-active-at-u-s-political-conventions" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google active at U.S. political conventions</span>
+</span>
+</a>
+
+</li>
+<li class="products" id="event-2008-street-view-in-asia-australia">
+<a href="#2008-street-view-in-asia-australia" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Street View in Asia, Australia</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2008-google-suggest">
+<a href="#2008-google-suggest" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Suggest</span>
+</span>
+
+</a>
+</li>
+<li class="products" id="event-2008-election-tools-for-citizens">
+<a href="#2008-election-tools-for-citizens" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Election tools for citizens</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2008-google-chrome-browser">
+<a href="#2008-google-chrome-browser" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google Chrome browser</span>
+
+</span>
+</a>
+</li>
+<li class="products" id="event-2008-new-picasa-release">
+<a href="#2008-new-picasa-release" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">New Picasa release</span>
+</span>
+</a>
+</li>
+<li class="products" id="event-2008-news-archive-search-additions">
+<a href="#2008-news-archive-search-additions" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">News Archive Search additions</span>
+
+</span>
+</a>
+</li>
+<li class="products" id="event-2008-first-android-powered-phone">
+<a href="#2008-first-android-powered-phone" hidefocus="">
+<span title="Products" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">First Android-powered phone</span>
+</span>
+</a>
+</li>
+</ul>
+</li>
+</ul>
+    </div>
+</body>
+<?### END BODY ###?>
+
+</html>
+<?### END DOC ###?>

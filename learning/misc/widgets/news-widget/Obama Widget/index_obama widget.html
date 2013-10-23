@@ -1,0 +1,786 @@
+[include:/inc/headerfront.php]
+
+<?php // ##################### BEGIN SUB NAV ##################### ?>
+
+[include:/inc/headers/news.php]
+
+<?php // ##################### END SUB NAV ##################### ?>
+
+
+<?php // ##################### BEGIN INAUGURATION WIDGET UNCOMMENT TO DISPLAY ##################### ?>
+
+[include:/packages/inauguration_resources/inauguration_widget.txt]
+
+<?php // ##################### END INAUGURATION WIDGET COMMENT OUT TO HIDE ##################### ?>
+
+<?php // ##################### BEGIN TOP MAIN ##################### ?>
+
+<div id="main">
+
+
+<?php // ##################### BEGIN CENTERPIECE ##################### ?>
+		
+		<div style="float:left; clear:both; padding-right:15px; padding-bottom:0px; border-right:1px solid #e7e7e7;">
+
+		<?php // BEGIN ROTATING CENTERPIECE ?>
+		[include:/inc/home_page_top_photo.html]
+		<?php // BEGIN STATIC CENTERPIECE ?>
+		<!--[include:/inc/centerpiece/new.php]-->
+		<!--[include:/inc/centerpiece_test.php]-->
+		
+<?php // ##################### END CENTERPIECE ##################### ?>
+        
+
+<?php // ##################### BEGIN TOP NEWS ##################### ?>	
+		<div style="margin-top:10px; width:300px;">  <!--top news div-->
+        
+		
+<?php // ################ COMMENTED OUT WHEN CP IS STATIC ############### ?>
+		<h3><span class="red">Top News</span></h3>
+        <a href="[story_component:news/top_news:1:story-uri]">[story_component:news/top_news:1:headline]</a>
+        <p class="sm"><span class="updated">[story_component:news/top_news:1:timestamp]</span> | <a align="center" href="[story_component:news/top_news:1:story-uri]#nwicomments">[simpleblog:count::1:news/top_news:filename]</a></p>
+
+        <a href="[story_component:news/top_news:2:story-uri]">[story_component:news/top_news:2:headline]</a>
+        <p class="sm"><span class="updated">[story_component:news/top_news:2:timestamp]</span> | <a align="center" href="[story_component:news/top_news:2:story-uri]#nwicomments">[simpleblog:count::2:news/top_news:filename]</a></p>
+
+        <a href="[story_component:news/top_news:3:story-uri]">[story_component:news/top_news:3:headline]</a>
+        <p class="sm"><span class="updated">[story_component:news/top_news:3:timestamp]</span> | <a align="center" href="[story_component:news/top_news:3:story-uri]#nwicomments">[simpleblog:count::3:news/top_news:filename]</a></p>
+		
+
+       </div> <!--end top news div-->
+       </div> <!-- end centerpiece div-->
+
+        <?php // END CENTERPIECE ?>
+
+
+<?php // BEGIN LATEST NEWS AND TOP NEWS SECTION ?>
+
+        <div class="right_rail">
+
+                [include_if_articles:updates/breaking_news:1:0:files/breaking/on/latest1.txt]
+                [include_if_articles:updates/breaking_news:1:0:::files/breaking/off/front1.txt]
+
+                <div class="line_dotted"></div>
+
+                [include_if_articles:updates/breaking_news:2:0:files/breaking/on/latest2.txt]
+                [include_if_articles:updates/breaking_news:2:0:::files/breaking/off/front2.txt]
+
+                [include_if_articles:updates/breaking_news:3:0:files/breaking/on/latest3.txt]
+                [include_if_articles:updates/breaking_news:3:0:::files/breaking/off/front3.txt]
+
+                [include_if_articles:updates/breaking_news:4:0:files/breaking/on/latest4.txt]
+                [include_if_articles:updates/breaking_news:4:0:::files/breaking/off/front4.txt]
+
+                <div class="line_dotted"></div>
+                <p><a href="updates">MORE HEADLINES</a></p>
+                        <ul>
+        [font:index:headline:<li>:</li>]
+
+                        [include_if_articles:updates/breaking_news:5:0:files/breaking/on/latest5.txt]
+                        [include_if_articles:updates/breaking_news:6:0:files/breaking/on/latest6.txt]
+                        [include_if_articles:updates/breaking_news:7:0:files/breaking/on/latest7.txt]
+                        [include_if_articles:updates/breaking_news:8:0:files/breaking/on/latest8.txt]
+                        [include_if_articles:updates/breaking_news:9:0:files/breaking/on/latest9.txt]
+                        [include_if_articles:updates/breaking_news:10:0:files/breaking/on/latest10.txt]
+                        [include_if_articles:updates/breaking_news:10:0:::files/breaking/off/front5.txt]
+                        [include_if_articles:updates/breaking_news:9:0:::files/breaking/off/front6.txt]
+                        [include_if_articles:updates/breaking_news:8:0:::files/breaking/off/front7.txt]
+                        [include_if_articles:updates/breaking_news:7:0:::files/breaking/off/front8.txt]
+                        [include_if_articles:updates/breaking_news:6:0:::files/breaking/off/front9.txt]
+                        [include_if_articles:updates/breaking_news:5:0:::files/breaking/off/front10.txt]
+                        [index:ap/headlines:inner-headline-only:1:::1:1]
+                        [index:ap/headlines:inner-headline-only:1:::2:2]
+
+                        </ul>
+
+                        <!--<h4><a style ="color:#AB0001;" href="/blogs/news/">ELECTION UPDATES &raquo;</a></h4>
+[rss:nwitimes.com/blogs/news/?feed=rss2:4:UTF-8:bullet-nolead:0]-->
+                                <p class="moreTab">
+                                        <a href="http://nwi.com/archives">Today's Paper</a>
+                                        <a href="http://nwi.com/news/lake">Lake</a>
+                                        <a href="http://nwi.com/news/porter">Porter</a>
+                                        <a href="http://nwi.com/news/illinois">Illinois</a>
+                                </p>
+
+        </div><!-- close right_rail -->
+
+        <?php // END LATEST NEWS AND TOP NEWS SECTION ?>
+
+        <div class="clear"></div>
+</div><!-- close main -->
+
+<?php // ##################### END TOP MAIN ##################### ?>
+
+<?php // ##################### BEGIN TOP SIDE ##################### ?>
+
+<div id="side">
+
+               
+                                <?php // BEGIN TAB REFER ?>
+
+
+
+          [include:/inc/weekend_ad.php:0]
+                      
+
+
+
+
+                <!--<?php // BEGIN NEWSLETTER REFER ?>
+
+                <div class="sidebg">
+                <img src="http://visitshoremagazine.com/3/images/btn_email.gif" style="float:left; margin: 10px 15px 0 0;" />
+                <p class="btn_email">Sign up today to get the latest headlines delivered to your inbox. <a href="http://nwi.com/pages/newsletters/">Go now &raquo;</a></p>
+
+        </div> -->
+
+
+                <?php // END NEWSLETTER REFER ?>
+
+
+
+                <?php // BEGIN MOST POPULAR SECTION?>
+
+                <div class="sidebg" style="margin-bottom:0px;">
+                        <div><p><b>MOST POPULAR</b> &raquo [include:/inc/scripts/commentCount.php:0]</p></div>
+                        <div class="sidebgwhite">
+                                <div class="tabs">
+                        <ul class="tab_menu">
+                                <li><a id="popular1" class="selected" href="javascript:void(0);" onclick="toggle('1','popular','3');return false;">Most Commented</a></li>
+                                <li><a id="popular2" href="javascript:void(0);" onclick="toggle('2','popular','3');return false;">Most Read</a></li>
+                                <li><a id="popular3" href="javascript:void(0);" onclick="toggle('3','popular','3');return false;">Most Emailed</a></li>
+                        </ul>
+                        <div id="div_popular1" class="tab_item_selected">[topblogs:5:7]</div>
+                        <div id="div_popular2" class="tab_item"><ul class="bull">[mostpopular:articles:5:weekly]</ul></div>
+                        <div id="div_popular3" class="tab_item"><ul class="bull">[mostpopular:email:5:weekly]</ul></div>
+                </div>
+                        </div><!-- close sidebgwhite -->
+                </div><!-- close sidebg -->
+
+                <?php // END MOST POPULAR SECTION?>
+
+                <?php // BEGIN MOST COMMENTED SECTION?>
+
+
+
+                <?php // END MOST COMMENTED SECTION?>
+
+</div><!-- close side -->
+
+<div class="clear"></div><!-- CLEARFLOATS MAIN, SIDE -->
+
+<?php // ##################### END TOP SIDE ##################### ?>
+
+
+<?php // ##################### BEGIN MIDDLE BAR ##################### ?>
+
+<div id="middlebar">
+
+        <div class="refers">
+
+        <?php // BEGIN PROMO SECTION ?>
+
+                <div class="refer1">
+                <a href="http://www.nwi.com/special/yearinreview/"><img src="http://nwi.com/frontpagepromo/promo_images/023a40e3e75a40a6d34f72d4b347332b.jpg" border="0" /></a>
+                        <p class="readmore"><a href="http://www.nwi.com/special/yearinreview/">YEAR END &raquo;</a></p>
+                        <ul>
+                        <li><a href="http://www.nwi.com/special/yearinreview/"><span class="link_type">SPECIAL: </span>2008 in review</a></li>
+                        <li><a href="http://nwi.com/special/yearinreview/yourtopstories/"><span class="link_type">READ: </span>Your top stories</a></li>
+                        <li><a href="http://www.nwi.com/special/yearinreview/"><span class="link_type">WATCH: </span>Most watched videos</a></li>
+						<li><a href="http://www.nwi.com/special/yearinreview/"><span class="link_type">PHOTOS: </span>Most watched slideshows</a></li>
+                        </ul>
+
+                </div><!-- close refer1 -->
+
+        <?php // END PROMO SECTION ?>
+
+        <?php // BEGIN EDITORS PICKS SECTION ?>
+
+
+
+        <div class="refer2">
+
+        <?php
+                                // PULLS EDITORS PICKS
+                                // Someone please write a caching script for this. Thanks
+
+                                // ##################### DATABASE GLOBALS #####################
+
+
+                                $link = mysql_connect('db.townnews.com', 'munster', 'apr1003') or die('Could not connect: ' . mysql_error());
+
+                            mysql_select_db('nwitimes_com') or die('Could not select database');
+
+
+                                $sql4="SELECT * FROM front_page_promo_tb ORDER by id desc LIMIT 5";
+
+                                $results4 = mysql_query($sql4) or die('Invalid query: ' . mysql_error());
+                                $num_rows4 = mysql_num_rows($results4);
+
+                                $i=0;
+                                while ($row4 = mysql_fetch_array($results4, MYSQL_ASSOC)) {
+                                $promo_link=$row4["promo_link"];
+                                $image_filename=$row4["image_filename"];
+                                $promo_text=$row4["promo_text"];
+                                $promo_type=$row4["promo_type"];
+                                $i++;
+
+                                if($i==1) {
+
+                                ?>
+
+                                <a href="<?php print $promo_link; ?>"><img src="http://nwi.com/frontpagepromo/promo_images/<?php print $image_filename; ?>" /></a>
+                                <p class="readmore"><a href="/multimedia">EDITOR'S PICKS &raquo;</a></p>
+                                <ul>
+                                        <li><a href="<?php print $promo_link; ?>"><span class="link_type"><?php print $promo_type; ?>:</span> <?php print $promo_text; ?></a></li>
+
+                                <?php } elseif($i==2 || $i==3 || $i==4) { ?>
+
+                                        <li><a href="<?php print $promo_link; ?>"><span class="link_type"><?php print $promo_type; ?>:</span> <?php print $promo_text; ?></a></li>
+
+                                <?php
+
+                                } else { ?>
+                                        <li><a href="<?php print $promo_link; ?>"><span class="link_type"><?php print $promo_type; ?>:</span> <?php print $promo_text; ?></a></li></ul>
+                        <?php }
+                                }
+                        ?>
+
+        </div><!-- CLOSE REFER2 -->
+
+        <?php // END EDITORS PICKS SECTION ?>
+
+     <?php // BEGIN SUBSCRIBE SECTION ?>
+
+
+        <?php // BEGIN PROMO SECTION ?>
+
+                <div class="refer3">
+                <a href="/blogs/coldcase"><img src="http://nwi.com/packages/coldcase_resources/images/coldcasefplogo.jpg" alt="Cold Cases" border="0" /></a>
+                        <p class="readmore"><a href="/blogs/coldcase/">Cold Case &raquo;</a></p>
+                        <p style="color:#FFFFFF">Follow our series profiling unsolved homicides in the region.</p>
+
+
+                </div><!-- close refer1 -->
+
+         <!--       <div class="refer3">
+                <img src="http://nwi.com/images/subscribe.jpg" />
+
+                                <p class="readmore"><a href="http://www.nwi.com/pages/readercare/trialsubscribe">SUBSCRIBE &raquo;</a></p>
+                                <ul>
+                                <li><a href="/pages/about">About us</a></li>
+                                <li><a href="/pages/contact">Contact us</a></li>
+                                <li><a href="http://www.nwi.com/pages/readercare">Services</a></li>
+                                <li><a href="http://www.nwi.com/pages/newsletters">Newsletters</a></li>
+                                <li><a href="http://nwitimes.mycapture.com/mycapture/index.asp">Photo Store</a></li>
+                                </ul>
+
+          </div>--> <!-- close refer 3 -->
+
+        <?php // END SUBSCRIBE SECTION ?>
+
+                <div class="clear"></div>
+        </div><!-- close refers  -->
+</div><!-- close middlebar -->
+
+<?php // ##################### END MIDDLE BAR ##################### ?>
+
+
+
+<?php // ##################### BEGIN LEFT ##################### ?>
+
+<div id="left">
+                <h4>LATEST</h4>
+                                <div class="block"><div class="img_block"><a href="[story_component:ap/headlines:1:story-uri]">[story_component:ap/headlines:1:image-thumbnail-nopopup:100]</a></div><p><strong><a href="[story_component:ap/headlines:1:story-uri]">[story_component:ap/headlines:1:headline]</a></strong></p>
+                                <div class="clear"></div></div>
+                                <div class="block"><div class="img_block"><a href="[story_component:ap/headlines:2:story-uri]">[story_component:ap/headlines:2:image-thumbnail-nopopup:100]</a></div><p><strong><a href="[story_component:ap/headlines:2:story-uri]">[story_component:ap/headlines:2:headline]</a></strong></p>
+                                <div class="clear"></div></div>
+                                <div class="block"><div class="img_block"><a href="[story_component:ap/headlines:3:story-uri]">[story_component:ap/headlines:3:image-thumbnail-nopopup:100]</a></div><p><strong><a href="[story_component:ap/headlines:3:story-uri]">[story_component:ap/headlines:3:headline]</a></strong></p>
+                                <div class="clear"></div></div>
+                                <div class="block"><div class="img_block"><a href="[story_component:ap/headlines:4:story-uri]">[story_component:ap/headlines:4:image-thumbnail-nopopup:100]</a></div><p><strong><a href="[story_component:ap/headlines:4:story-uri]">[story_component:ap/headlines:4:headline]</a></strong></p>
+                                <div class="clear"></div></div>
+                                <div class="block"><div class="img_block"><a href="[story_component:ap/sports:1:story-uri]">[story_component:ap/sports:1:image-thumbnail-nopopup:100]</a></div><p><strong><a href="[story_component:ap/sports:1:story-uri]">[story_component:ap/sports:1:headline]</a></strong></p>
+                                <div class="clear"></div></div>
+                                <div class="block"><div class="img_block"><a href="[story_component:ap/sports:2:story-uri]">[story_component:ap/sports:2:image-thumbnail-nopopup:100]</a></div><p><strong><a href="[story_component:ap/sports:2:story-uri]">[story_component:ap/sports:2:headline]</a></strong></p>
+                                <div class="clear"></div></div>
+                                <div class="block"><div class="img_block"><a href="[story_component:ap/entertainment:1:story-uri]">[story_component:ap/entertainment:1:image-thumbnail-nopopup:100]</a></div><p><strong><a href="[story_component:ap/entertainment:1:story-uri]">[story_component:ap/entertainment:1:headline]</a></strong></p>
+                                <div class="clear"></div></div>
+                                <div class="block"><div class="img_block"><a href="[story_component:ap/entertainment:2:story-uri]">[story_component:ap/entertainment:2:image-thumbnail-nopopup:100]</a></div><p><strong><a href="[story_component:ap/entertainment:2:story-uri]">[story_component:ap/entertainment:2:headline]</a></strong></p>
+                                <div class="clear"></div></div>
+                                <div class="block"><div class="img_block"><a href="[story_component:ap/entertainment:3:story-uri]">[story_component:ap/entertainment:3:image-thumbnail-nopopup:100]</a></div><p><strong><a href="[story_component:ap/entertainment:3:story-uri]">[story_component:ap/entertainment:3:headline]</a></strong></p>
+                                <div class="clear"></div></div>
+                                <div class="block"><div class="img_block"><a href="[story_component:ap/entertainment:4:story-uri]">[story_component:ap/entertainment:4:image-thumbnail-nopopup:100]</a></div><p><strong><a href="[story_component:ap/entertainment:4:story-uri]">[story_component:ap/entertainment:4:headline]</a></strong></p>
+                                <div class="clear"></div></div>
+                                <div class="block"><div class="img_block"><a href="[story_component:ap/strange:9:story-uri]">[story_component:ap/strange:1:image-thumbnail-nopopup:100]</a></div><p><strong><a href="[story_component:ap/strange:1:story-uri]">[story_component:ap/strange:1:headline]</a></strong></p>
+                                <div class="clear"></div></div>
+                                <div class="block"><div class="img_block"><a href="[story_component:ap/health:1:story-uri]">[story_component:ap/health:1:image-thumbnail-nopopup:100]</a></div><p><strong><a href="[story_component:ap/health:1:story-uri]">[story_component:ap/health:1:headline]</a></strong></p>
+                                <div class="clear"></div></div>
+                                <div class="block"><div class="img_block"><a href="[story_component:ap/entertainment:5:story-uri]">[story_component:ap/entertainment:5:image-thumbnail-nopopup:100]</a></div><p><strong><a href="[story_component:ap/entertainment:5:story-uri]">[story_component:ap/entertainment:5:headline]</a></strong></p>
+                                <div class="clear"></div></div>
+                                <div class="block"><div class="img_block"><a href="[story_component:ap/headlines:3:story-uri]">[story_component:ap/headlines:3:image-thumbnail-nopopup:100]</a></div><p><strong><a href="[story_component:ap/headlines:3:story-uri]">[story_component:ap/headlines:3:headline]</a></strong></p>
+                                <div class="clear"></div></div>
+                                <div class="block"><div class="img_block"><a href="[story_component:ap/headlines:4:story-uri]">[story_component:ap/headlines:4:image-thumbnail-nopopup:100]</a></div><p><strong><a href="[story_component:ap/headlines:4:story-uri]">[story_component:ap/headlines:4:headline]</a></strong></p>
+                                <div class="clear"></div></div>
+                                <div class="block"><div class="img_block"><a href="[story_component:ap/headlines:5:story-uri]">[story_component:ap/headlines:5:image-thumbnail-nopopup:100]</a></div><p><strong><a href="[story_component:ap/headlines:5:story-uri]">[story_component:ap/headlines:5:headline]</a></strong></p>
+                                <div class="clear"></div></div>
+                                <div class="block"><div class="img_block"><a href="[story_component:ap/headlines:6:story-uri]">[story_component:ap/headlines:6:image-thumbnail-nopopup:100]</a></div><p><strong><a href="[story_component:ap/headlines:6:story-uri]">[story_component:ap/headlines:6:headline]</a></strong></p>
+                                <div class="clear"></div></div>
+                                <div class="block"><div class="img_block"><a href="[story_component:ap/headlines:7:story-uri]">[story_component:ap/headlines:7:image-thumbnail-nopopup:100]</a></div><p><strong><a href="[story_component:ap/headlines:7:story-uri]">[story_component:ap/headlines:7:headline]</a></strong></p>
+                                <div class="clear"></div></div>
+
+
+</div>
+<?php // ##################### END LEFT ##################### ?>
+
+
+<?php // ##################### BEGIN CENTER ##################### ?>
+
+<div id="center">
+
+
+
+       <?php //###################SPECIAL NEWS SECTION###########################?>
+
+
+
+       <!-- <div class="refers">
+
+                <div class="refer1">
+                    [rss:nwi.com/blogs/news/?feed=rss2:3:UTF-8:bullet-nolead]
+               </div>
+
+               <div class="refer2">
+                        <a href="http://nwi.com/packages/ap/pres_illness/"><img src="http://nwitimes.com/images/elections/clinton.jpg" /></a>
+                        <p><a href="http://nwi.com/packages/ap/pres_illness/"><strong>Presidential Quiz</strong></a></p>
+                        <p>Test your saavy on presidential illnesses public and private</p>
+                </div>
+
+                                <div class="clear"></div>
+
+        </div> -->
+
+
+
+<? //#####################END OF SPECIAL NEWS SECTION###########################?>
+
+        <?php        // END ELECTION FEED ?>
+
+
+        <?php        // BEGIN LOCAL NEWS FEED ?>
+
+        <h4>LOCAL NEWS</h4>
+        <h3><a href="[story_component:news/top_news:1:story-uri]">[story_component:news/top_news:1:headline]</a></h3>
+        <div class="img_block">[story_component:news/top_news:1:image-thumbnail-nopopup:100]</div>
+        <p>[story_component:news/top_news:1:paragraphs:1:1]</p><div class="clear"></div><!-- closes img_block and clears float -->
+
+                <div class="line_dotted"></div>
+
+                <ul>
+                        [font:index:headline:<li>:</li>]
+                        [index:news/top_news:inner-headline-only:5:::2:7]
+                </ul>
+
+        <?php        // END LOCAL NEWS FEED ?>
+
+<br /><br />
+
+        <?php        // BEGIN SPORTS FEED ?>
+
+        <h4><a href="/sports">SPORTS &raquo;</a></h4>
+                <h3><a href="[story_component:sports/top_sports:1:story-uri]">[story_component:sports/top_sports:1:headline]</a></h3>
+                <div class="img_block">[story_component:sports/top_sports:1:image-thumbnail-nopopup:100]</div>
+                <p>[story_component:sports/top_sports:1:paragraphs:1:1]</p><div class="clear"></div><!-- closes img_block and clears float -->
+                <div class="line_dotted"></div>
+
+                <ul>
+                        [font:index:headline:<li>:</li>]
+                        [index:sports/indiana_prep_sports:inner-headline-only:1:::2:2]
+                        [index:sports/illinois_prep_sports:inner-headline-only:1:::1:1]
+                        [index:sports/college_sports:inner-headline-only:3:::1:3]
+                        [index:sports/region_sports:inner-headline-only:1:::1:1]
+                </ul>
+
+                <p class="moreTab">
+                                        <a href="http://nwi.com/ap/sports">Pro</a>
+                                        <a href="http://nwi.com/sports/prepsports">Prep</a>
+                                        <a href="http://nwi.com/sports/college_sports">College</a>
+                                        <a href="http://nwi.com/sports/region_sports">Region</a>
+                                </p>
+
+        <div class="refers">
+
+        <?php
+                                // GRAB SPORTS EXTRAS
+                                // Someone please write a caching script for this. Thanks
+                                // To add this code to another section
+                                // Copy and paste, and change the tag between the '% %' below
+                                // For example, '%sports%' to '%business%'
+
+                                $sql3="SELECT * FROM front_page_promo_tb WHERE promo_tags LIKE '%sports%' ORDER by id desc LIMIT 2";
+
+                                $results3 = mysql_query($sql3) or die('Invalid query: ' . mysql_error());
+                                $num_rows3 = mysql_num_rows($results3);
+
+                                $i=0;
+                                while ($row3 = mysql_fetch_array($results3, MYSQL_ASSOC)) {
+                                $promo_link=$row3["promo_link"];
+                                $image_filename=$row3["image_filename"];
+                                $promo_text=$row3["promo_text"];
+                                $promo_type=$row3["promo_type"];
+                                $i++;
+
+                                if($i==1) {
+
+                                ?>
+
+                                <div class="refer1"><a href="<? print $promo_link; ?>"><img src="/frontpagepromo/promo_images/<? print $image_filename; ?>"></a><p><a href="<? print $promo_link; ?>"><strong><? print $promo_type; ?></strong></a></p><p><? print $promo_text; ?></p></div>
+
+                                <?php } else { ?>
+
+                                <div class="refer2"><a href="<? print $promo_link; ?>"><img src="/frontpagepromo/promo_images/<? print $image_filename; ?>"></a><p><a href="<? print $promo_link; ?>"><strong><? print $promo_type; ?></strong></a></p><p><? print $promo_text; ?></p></div>
+
+                                <?php
+
+                                }
+                                }
+
+                        ?>
+
+                <div class="clear"></div>
+        </div>
+
+        <?php        // END SPORTS FEED ?>
+
+<br /><br />
+
+        <?php        // BEGIN BUSINESS FEED ?>
+
+        <h4><a href="/business">BUSINESS &raquo;</a></h4>
+                <h3><a href="[story_component:business/business:1:story-uri]">[story_component:business/business:1:headline]</a></h3>
+                <div class="img_block">[story_component:business/business:1:image-thumbnail-nopopup:100]</div>
+                <p>[story_component:business/business:1:paragraphs:1:1]</p><div class="clear"></div><!-- closes img_block and clears float -->
+                <div class="line_dotted"></div>
+
+                <ul>
+                [font:index:headline:<li>:</li>]
+                [index:business/business:inner-headline-only:5:::2:7]
+                </ul>
+
+        <?php        // END BUSINESS FEED ?>
+
+<br /><br />
+ <?php        // BEGIN WHATS GOING ON ?>
+
+        <h4><a href="/other/calendar/events">WHAT'S GOING ON &raquo;</a></h4>
+
+                <div class="calendarTabs">
+
+            <?php
+
+            // Calc next 7 days and dates
+
+            $day1 = date("D",mktime(0,0,0,date("m") ,date("d"),date("Y")));
+            $day1date = date("d",mktime(0,0,0,date("m") ,date("d"),date("Y")));
+                    $day1long=date("Y-m-d",mktime(0,0,0,date("m") ,date("d"),date("Y")));
+
+            $day2 = date("D",mktime(0,0,0,date("m") ,date("d")+1,date("Y")));
+            $day2date = date("d",mktime(0,0,0,date("m") ,date("d")+1,date("Y")));
+                    $day2long = date("Y-m-d",mktime(0,0,0,date("m") ,date("d")+1,date("Y")));
+
+            $day3 = date("D",mktime(0,0,0,date("m") ,date("d")+2,date("Y")));
+            $day3date = date("d",mktime(0,0,0,date("m") ,date("d")+2,date("Y")));
+                    $day3long = date("Y-m-d",mktime(0,0,0,date("m") ,date("d")+2,date("Y")));
+
+            $day4 = date("D",mktime(0,0,0,date("m") ,date("d")+3,date("Y")));
+            $day4date = date("d",mktime(0,0,0,date("m") ,date("d")+3,date("Y")));
+                    $day4long = date("Y-m-d",mktime(0,0,0,date("m") ,date("d")+3,date("Y")));
+
+            $day5 = date("D",mktime(0,0,0,date("m") ,date("d")+4,date("Y")));
+            $day5date = date("d",mktime(0,0,0,date("m") ,date("d")+4,date("Y")));
+                    $day5long = date("Y-m-d",mktime(0,0,0,date("m") ,date("d")+4,date("Y")));
+
+            $day6 = date("D",mktime(0,0,0,date("m") ,date("d")+5,date("Y")));
+            $day6date = date("d",mktime(0,0,0,date("m") ,date("d")+5,date("Y")));
+                    $day6long = date("Y-m-d",mktime(0,0,0,date("m") ,date("d")+5,date("Y")));
+
+            $day7 = date("D",mktime(0,0,0,date("m") ,date("d")+6,date("Y")));
+            $day7date = date("d",mktime(0,0,0,date("m") ,date("d")+6,date("Y")));
+                    $day7long = date("Y-m-d",mktime(0,0,0,date("m") ,date("d")+6,date("Y")));
+
+            // Output day tabs
+
+            ?>
+
+            <ul class="tab_menu">
+                <li><a id="calendar1" class="selected" href="javascript:void(0);" onclick="toggle('1','calendar','7');"><span><? print $day1; ?></span><? print $day1date; ?></a></li>
+                <li><a id="calendar2" href="javascript:void(0);" onclick="toggle('2','calendar','7');"><span><? print $day2; ?></span><? print $day2date; ?></a></li>
+                <li><a id="calendar3" href="javascript:void(0);" onclick="toggle('3','calendar','7');"><span><? print $day3; ?></span><? print $day3date; ?></a></li>
+                <li><a id="calendar4" href="javascript:void(0);" onclick="toggle('4','calendar','7');"><span><? print $day4; ?></span><? print $day4date; ?></a></li>
+                <li><a id="calendar5" href="javascript:void(0);" onclick="toggle('5','calendar','7');"><span><? print $day5; ?></span><? print $day5date; ?></a></li>
+                <li><a id="calendar6" href="javascript:void(0);" onclick="toggle('6','calendar','7');"><span><? print $day6; ?></span><? print $day6date; ?></a></li>
+                <li><a id="calendar7" href="javascript:void(0);" onclick="toggle('7','calendar','7');"><span><? print $day7; ?></span><? print $day7date; ?></a></li>
+            </ul>
+
+<?php
+
+        // GRAB THE EVENTS
+        // Someone please write a caching script for this. Thanks
+
+        for ($i = 0; $i <= 6; $i++) {
+
+                $calDate=date("Y-m-d",mktime(0,0,0,date("m") ,date("d")+$i,date("Y")));
+
+                $sql=  "SELECT Title, LocationName, PkID, Description
+                                FROM hc_events
+                                WHERE IsActive = 1
+                                AND IsApproved = 1
+                                AND StartDate ='$calDate'
+                                ORDER BY StartTime, Title
+                                LIMIT 0,3";
+
+                $results = mysql_query($sql) or die('Invalid query: ' . mysql_error());
+
+                $num_rows = mysql_num_rows($results); ?>
+
+<div id="div_calendar<? print $i+1; ?>" <? if($i == 0) { ?> class="tab_item_selected" <? } else { ?> class="tab_item"<? }?>>
+
+        <ul class="homeEvents">
+
+                <? while ($row = mysql_fetch_array($results, MYSQL_ASSOC)) {
+
+                        $title=$row["Title"];
+                        $location=$row["LocationName"];
+                        $eventid=$row["PkID"];
+                        $description=$row["Description"];
+
+
+                        $escapeValues = array("<div>","</div>","<strong>","</strong>","<p>","</p>","<br>","<br />","<em>","</em>","<ul>","</ul>","<li>","</li>","<span","<span>","</span>","<p","<img",);
+                        $killValues = array("");
+                        $about =  str_replace($escapeValues, $killValues, $description);
+
+                        // OUTPUT EVENTS
+                 ?>
+
+                <div class="cal_title">
+                        <a href="http://www.nwitimes.com/other/calendar/events/index.php?com=detail&eID=<?php echo $eventid; ?>"><? print $title; ?></a>
+                </div>
+                <div class="cal_desc"><?php echo substr($about,0,70)." ..."; ?> <a href="http://www.nwitimes.com/other/calendar/events/index.php?com=detail&eID=<?php echo $eventid; ?>">More</a></div>
+                <div class="line_dotted"></div>
+                <? } ?>
+
+                </ul>
+        <p><a href="/other/calendar/events/"><strong>View all events</strong></a> | <a href="/other/calendar/events/index.php?com=submit">Submit Event</a></p>
+
+                </div>
+
+        <?php } ?>
+
+        </div>
+
+        <?php        // END WHATS GOING ON ?>
+
+<br /><br />
+
+        <?php        // BEGIN COMMENTARY ?>
+
+        <h4><a href="/columnists">COMMENTARY &raquo;</a></h4>
+
+        <h3><a href="[story_component:columnists/mark_kiesling:1:story-uri]">[story_component:columnists/mark_kiesling:1:headline]</a></h3>
+        <div class="img_block"><a href="[story_component:columnists/mark_kiesling:1:story-uri]"><img src="http://images.townnews.com/nwitimes.com/images/columnists/kiesling.gif" /></a></div>
+        <p>[story_component:columnists/mark_kiesling:1:paragraphs:1:1]</p><p><strong>&raquo; <a href="http://nwi.com/columnists/mark_kiesling/">More columns from Mark Kiesling</a></strong></p><div class="clear"></div><!-- closes img_block and clears float -->
+
+                <div class="line_dotted"></div>
+
+                <h3><a href="[story_component:columnists/offbeat:1:story-uri]">[story_component:columnists/offbeat:1:headline]</a></h3><div class="img_block"><a href="[story_component:columnists/offbeat:1:story-uri]"><img src="http://www.nwitimes.com/images/columnists/potempa2.jpg" /></a></div><p>[story_component:columnists/offbeat:1:paragraphs:1:1]</p><p><strong>&raquo; <a href="http://nwi.com/columnists/offbeat/">More columns from Philip Potempa's offBeat</a><br>&raquo <a href="http://nwi.com/columnists/philip_potempa/">More columns from Philip Potempa's From the Farm</a></strong></p><div class="clear"></div><!-- closes img_block and clears float -->
+
+                        <div class="line_dotted"></div>
+
+        <h3><a href="[story_component:columnists/molly_woulfe:1:story-uri]">[story_component:columnists/molly_woulfe:1:headline]</a></h3><div class="img_block"><a href="[story_component:columnists/molly_woulfe:1:story-uri]"><img src="http://www.nwitimes.com/images/columnists/woulfe.jpg" /></a></div><p>[story_component:columnists/molly_woulfe:1:paragraphs:1:1]</p><p><strong>&raquo; <a href="http://nwi.com/columnists/molly_woulfe/">More columns from Molly Woulfe</a></strong></p><div class="clear"></div><!-- closes img_block and clears float -->
+        <?php        // END COMMENTARY ?>
+
+<br /><br />
+
+        <?php        // BEGIN POLL AND AD SPOT ?>
+
+        <h4>POLL</h4>
+        <div class="poll">[ajaxpoll:opinion:center1]</div><!-- close poll -->
+        <div class="ad">[adsys_ad:front:index]</div><!-- close ad -->
+        <div class="clear"></div><!-- clearfloat poll and ad -->
+
+        <?php        // CLOSE POLL AND AD SPOT ?>
+
+<br /><br />
+
+        <?php        // BEGIN ENTERTAINMENT FEED ?>
+
+        <h4><a href="/entertainment">ENTERTAINMENT &raquo;</a></h4>
+                <h3><a href="[story_component:entertainment/entertainment:1:story-uri]">[story_component:entertainment/entertainment:1:headline]</a></h3>
+                <div class="img_block">[story_component:entertainment/entertainment:1:image-thumbnail-nopopup:100]</div>
+                <p>[story_component:entertainment/entertainment:1:paragraphs:1:1]</p><div class="clear"></div><!-- closes img_block and clears float -->
+                <div class="line_dotted"></div>
+
+                <ul>
+                [font:index:headline:<li>:</li>]
+                [index:entertainment/entertainment:inner-headline-only:5:::2:7]
+                </ul>
+				
+        <p class="moreTab">
+            <a href="http://nwi.com/entertainment/movies">Movies</a>
+            <a href="http://nwi.com/entertainment/music">Music</a>
+            <a href="http://nwi.com/entertainment/books">Books</a>
+            <a href="http://nwi.com/entertainment/theatre">Theatre</a>
+			<a href="http://nwi.com/entertainment/tv">TV</a>
+        </p>
+
+        <?php        // END ENTERTAINMENT FEED ?>
+
+<br /><br />
+
+        <?php        // BEGIN HEALTH FEED ?>
+
+        <h4><a href="/get_healthy/get_healthy">HEALTH &raquo;</a></h4>
+                <h3><a href="[story_component:get_healthy/get_healthy:1:story-uri]">[story_component:get_healthy/get_healthy:1:headline]</a></h3>
+                <div class="img_block">[story_component:get_healthy/get_healthy:1:image-thumbnail-nopopup:100]</div>
+                <p>[story_component:get_healty/get_healthy:1:paragraphs:1:1]</p><div class="clear"></div><!-- closes img_block and clears float -->
+                <div class="line_dotted"></div>
+
+                <ul>
+                [font:index:headline:<li>:</li>]
+                [index:get_healthy/get_healthy:inner-headline-only:5:::2:7]
+                </ul>
+
+         <p class="moreTab">
+                                        <a href="http://www.nwi.com/health/search/?name=&zip=&specialty=&city=">Doctor Directory</a>
+                                </p>
+        <?php        // END HEALTH FEED ?>
+		
+<br /><br />
+
+        <?php        // BEGIN FOOD FEED ?>
+
+        <h4><a href="/features/food">FOOD &raquo;</a></h4>
+                <h3><a href="[story_component:features/food:1:story-uri]">[story_component:features/food:1:headline]</a></h3>
+                <div class="img_block">[story_component:features/food:1:image-thumbnail-nopopup:100]</div>
+                <p>[story_component:features/food:1:paragraphs:1:1]</p><div class="clear"></div><!-- closes img_block and clears float -->
+                <div class="line_dotted"></div>
+
+                <ul>
+                [font:index:headline:<li>:</li>]
+                [index:features/food:inner-headline-only:5:::2:7]
+                </ul>
+                 <p class="moreTab">
+                                        <a href="http://www.nwi.com/food/search/?name=&zip=&cuisine=&city=">Restaurant Guide</a>
+                                </p>
+
+        <?php        // END FOOD FEED ?>
+
+
+</div><!-- CLOSE CENTER -->
+
+
+<?php // ##################### END CENTER ##################### ?>
+
+
+<?php // ##################### BEGIN BOTTOM SIDE ##################### ?>
+
+<div id="side">
+
+ 
+    [include:/inc/lower_weather.php:0]
+
+
+        <?php // BEGIN RIGHT AD ?>
+
+                <div class="ad_container">
+                        <script type="text/javascript" src="http://adsys.townnews.com/creative/nwitimes.com/front_box/static.js"></script>
+                </div><!-- close ad_container -->
+
+        <?php // END RIGHT AD ?>
+
+        <?php // BEGIN VMIX PLAYER ?>
+
+                <h4><a href="http://nwitimes.videos.vmixcore.com/p/video?id=">LATEST VIDEO &raquo;</a></h4>
+                        <script type="text/javascript" language="javascript" src="http://api.vmixcore.com/widgets/video_list_player.js.php?token=843b24e46e75f54b4a1d64e5a600dc05"></script>
+                        <script type="text/javascript" language="javascript">
+                        var wid = new VideoListPlayerWidget();
+                        wid.pre_roll = 'default';
+                        wid.ad_url = 'http://green.vmixcore.com/getad';
+                        wid.play_url = 'http://nwitimes.videos.vmixcore.com/p/video?id=';
+                        wid.genre_name='News';
+                        wid.show_featured=1;
+                        wid.scope_by_genre=1;
+                        wid.width = 322;
+                        wid.height = 515;
+                        wid.drawWidget();
+                        </script>
+
+        <?php // END VMIX PLAYER ?>
+
+
+
+        <?php // BEGIN SHORE REFER ?>
+
+                <div class="sidebg">
+                        <p>Shore Magazine</p>
+                        <div class="sidebgwhite">
+                                <div class="img_block"><a href="http://www.visitshoremagazine.com/2"><img src="http://nwi.com/images/pubs/refers/fashionicons.jpg" style="position:relative;" /></a></div>Check out the latest issue of Shore magazine online. Find special content not in print. <a href="http://visitshoremagazine.com/2"><strong>Go now &raquo;</strong></a><div class="clear"></div><!-- clear img float -->
+
+                        </div><!--  close sidebgwhite -->
+                </div><!-- close sidebg -->
+
+        <?php // END SHORE REFER ?>
+
+        <?php // BEGIN MARKETPLACE ?>
+
+                <h4><a href="http://chicago.kaango.com/">MARKETPLACE &raquo;</a></h4>
+                [include:/inc/marketTabs.php:0]
+
+        <?php // END MARKETPLACE ?>
+
+        <?php// START YAHOO ADS//?>
+        [yahoo_content_match:
+        '/business'=>'business',
+        '/business'=>'finance',
+        '/ap/hitech'=>'technology',
+        '/get_healthy/get_healthy'=>'health',
+        '/education'=>'education',
+        '/travel'=>'travel',
+        '/homes'=>'real_estate',
+        '/cars'=>'cars',
+        '/jobs'=>'employment',
+        '/rentals'=>'rentals',
+        '/entertainment'=>'entertainment',
+        '/features'=>'lifestyle':
+        '/admarket'=>'classifieds_tier_2',
+        '/blogs'=>'blogs_social',
+        '/multimedia'=>'photos_videos',
+        '/weather'=>'weather',
+        '/news'=>'news'
+        '/sports'=>'sports',
+        '/opinion'=>'opinion',
+        '/pages'=>'web_site_pages',
+        '/admarket'=>'shopping',
+        '/pages/celebrations'=>'announcements'
+        :3:dl::npc_lee_thetimes_t1_ctxt:npc_lee_thetimes_t2_ctxt:3514931570:cm.npc-lee.overture.com:/xml_2_9_3/]
+
+         <?php //END YAHOO ADS?>
+
+        <?php // BEGIN DOUBLEWIDE AD ?>
+
+                <div class="ad_container">
+                        <script type="text/javascript" src="http://adsys.townnews.com/creative/nwitimes.com/doublewide_front/static.js"></script>
+                </div>
+
+        <?php // END DOUBLEWIDE AD ?>
+
+
+</div><!-- close bottom side -->
+
+
+<?php // ##################### END BOTTOM SIDE ##################### ?>
+
+<div class="clear"></div><!-- CLEARFLOAT LEFT,MAIN,SIDE -->
+
+<!--</div>-->
+
+[include:/inc/footer.php]

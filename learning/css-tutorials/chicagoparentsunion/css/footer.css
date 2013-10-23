@@ -1,0 +1,50 @@
+/*------------------------------
+=FOOTER
+------------------------------*/
+footer {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	background: #333333;
+	
+}
+
+footer div {
+	display: table;
+	margin: 0 auto;
+	padding: 10px;
+	width: 940px;
+	color: #fff;
+}
+	
+footer div section {
+	display: table-cell;
+	width: 300px;
+}
+		
+footer div #about, footer div #blogroll {
+	padding-right: 20px;
+}
+		
+footer h3 {
+	color: #FFF;
+}
+	
+footer a {
+	color: #fff;
+}
+	
+footer a:hover {
+	color: #000;
+	text-decoration: none;
+}
+	
+footer ul {
+	margin: 0 0 0 40px;
+	list-style: square;
+	color: #fff;
+}
+	
+footer ul li a {
+	display: block;
+}

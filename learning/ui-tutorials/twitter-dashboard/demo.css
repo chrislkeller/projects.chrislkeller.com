@@ -1,0 +1,20 @@
+body,a
+{
+font-family: verdana;
+font-size: 11px;
+color: #efefef;
+}
+body
+{
+	background: #000000;
+}
+textarea
+{
+	display: block;
+	width: 400px;
+	height: 80px;
+	padding: 4px;
+	font-size: 11px;
+	background: #444;
+	color: #ccc;
+}

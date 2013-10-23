@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+	<track>
+		<path>flashplayer/song.mp3</path>
+		<title>Pete's Song - Pete's Song</title>
+	</track>
+	<track>
+		<path>song.mp3</path>
+		<title>Track 2 - Track Title</title>
+	</track>
+	<track>
+		<path>song.mp3</path>
+		<title>Track 3 - Track Title</title>
+	</track>
+	<track>
+		<path>song.mp3</path>
+		<title>Track 4 - Track Title</title>
+	</track>
+	<track>
+		<path>song.mp3</path>
+		<title>Track 5 - Track Title</title>
+	</track>
+	<track>
+		<path>song.mp3</path>
+		<title>Track 6 - Track Title</title>
+	</track>
+	<track>
+		<path>song.mp3</path>
+		<title>Track 7 - Track Title</title>
+	</track>
+	<track>
+		<path>song.mp3</path>
+		<title>Track 8 - Track Title</title>
+	</track>
+	<track>
+		<path>song.mp3</path>
+		<title>Track 9 - Track Title</title>
+	</track>
+	<track>
+		<path>song.mp3</path>
+		<title>Track 10 - Track Title</title>
+	</track>
+	<track>
+		<path>song.mp3</path>
+		<title>Track 11 - Track Title</title>
+	</track>
+	<track>
+		<path>song.mp3</path>
+		<title>Track 12 - Track Title</title>
+	</track>
+</xml>

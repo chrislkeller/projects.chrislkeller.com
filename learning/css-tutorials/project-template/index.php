@@ -1,0 +1,1 @@
+<?php include('includes/header.php'); ?><!-- BEGIN BODY --><body><!-- BEGIN WRAPPER --><div id="wrapper"><!-- BEGIN SHADOW --><div class="shadow"><!-- BEGIN CONTENT --><div id="content"><h1>Name of Project</h1></div><!-- END CONTENT --><!-- BEGIN SIDERAIL --><div id="siderail"></div><!-- END SIDERAIL --><?php include('includes/footer.php'); ?>

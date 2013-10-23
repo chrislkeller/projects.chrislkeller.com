@@ -1,0 +1,17 @@
+Welcome to the first "task" you can do alone. If you've taken a look at example one, you should know how to create a single div which can open and close. Study that, and maybe write the code for the same thing from scratch. Once you're familiar with that, try and create nultiple divs which will open and close if you click on their buttons. 
+
+You can find the HTML for it ready (you will probably need to add to it), with jquery, functions.js, style.css linked to it already, so just edit the files. 
+
+Please keep this folder in tact, I will send you sub folders for it. The folder contains an "includes" folder which has jquery in it. Instead of having a copy in each folder I just link to that one folder all the time. For now we are ok with this, once we get into any php we will need to use your local net. 
+
+Getting back to the task, you can see the three widgets on screen. The task is to make each one open and close when you click on the button. The problem you'll run into is that if you do it in a similar way as the first example, every div will close when you click on one button. There are many ways to do what we need though, just some pointers: 
+
+The "bad, but perfectly working" way is to use id-s for each element and write code separately for each. a click event for "widget_1', a click event for "widget_2". They would close "container_1" "and container_2" and change the element contents of "state_1" and "state_2" respectively. This is perfectly ok functionality-wise, but obviously if you have 50 widgets it is unnecessary code.
+
+The basics of how to do it better can be found in the jQuery manual here:
+http://docs.jquery.com/Traversing
+and by using $(this)
+
+Try and look stuff up, but don't spend hours and hours, I will of course show you how, this is hard to do without prior knowledge, so don't sweat it if it doesn't work out :) 
+
+On another note, I will try and create a system online to manage these tutorials, I can give you ftp access, so you can modify all the files and I can immediately see what you do :) i don't have too much time for this, but I will devote quite a bit, since having you on my team would be very valuable!

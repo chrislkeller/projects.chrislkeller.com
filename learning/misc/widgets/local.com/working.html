@@ -1,0 +1,526 @@
+<!-- BEGIN CSS -->
+<style type="text/css">
+.pg-widget-container,.pg-widget-contaner{
+	font-size:12px;
+	margin:0;
+	padding:0;
+	font-family:Arial,Helvetica,sans-serif;
+}
+
+.pg-clear{
+	clear:both;
+}
+
+.pg-widget-container{
+	border:solid 1px #34526F;
+}
+
+.pg-widget-title{
+	background:#34526F;
+	color:#fff;
+	font-size:16px;
+	font-weight:bold;
+	padding:5px 10px;
+}
+
+.pg-widget-contents{
+	padding:10px;
+}
+
+.pg-widget-featured{
+	border-bottom:solid 1px #34526F;
+	margin-bottom:5px;
+	padding-bottom:10px;
+}
+
+.pg-widget-image{
+	float:left;
+	margin-right:5px;
+	width:85px;
+}
+
+.pg-widget-bizinfo{
+	float:left;
+	width:160px;
+}
+
+.pg-widget-bizname a{
+	color:#000000;
+	font-size:14px;
+	font-weight:bold;
+	text-decoration: none;
+	font-family:Arial,Helvetica,sans-serif;
+}
+
+.pg-widget-bizname a:hover{
+	text-decoration: underline;
+}
+
+.pg-widget-bizcity{
+	color:#000000;
+	font-size:11px;
+	padding:1px 0;
+}
+
+.pg-widget-links{
+	color:#646464;
+}
+
+.pg-widget-links a{
+	color:#34526F;
+	text-decoration:none;
+	font-size:13px;
+}
+
+.pg-widget-links a:hover{
+	text-decoration:underline;
+}
+
+ul.pg-widget-related{
+	margin:0 0 0 20px;
+	padding:0;
+} 
+
+.pg-widget-related li{
+	line-height:2em;
+}
+
+.pg-widget-related li a{
+	color:#34526F;
+	text-decoration:none;
+}
+
+.pg-widget-related li a:hover{
+	text-decoration:underline;
+}
+
+.pg-widget-search{
+	background:#34526F;
+	border:solid 1px #000000;
+	font-size:0;
+	line-height:0;
+	margin:5px 0;
+	text-align:center;
+}
+
+.pg-widget-search table{
+	font-size:12px;
+	padding:10px;
+}
+
+.pg-widget-input{
+	padding-right:22px;
+}
+
+.pg-widget-search input[type="text"]{
+	border:solid 1px #34526F;
+	padding:4px 5px;
+	width:100%;
+}
+
+.pg-widget-submit{
+	padding-left:5px;
+}
+
+.pg-widget-more-links{
+	color:#000;
+	font-size:10px;
+}
+
+.pg-widget-more-links a{
+	color:#34526F;
+	text-decoration: none;
+	text-align: center;
+}
+
+.pg-widget-more-links a:hover{
+	text-decoration:underline;
+}
+
+#box{
+}
+
+#boxleft{
+	float: left;
+}
+
+#boxright{
+	float: right;
+}
+
+table.search-table  {
+	float:left;
+	margin-top:9px;
+	width:500px;
+}
+
+.pg-search-row {
+	margin:0 auto;
+	position:relative;
+	width:980px;
+}
+.pg-search-box {
+	background:none repeat scroll 0 0 #E3F1FB;
+	border:1px solid #BDDCF3;
+	height:46px;
+	padding:1px 15px 14px;
+	width:637px;
+}
+
+.pg-widget-search label {
+	color:#000000;
+	font-size:20px;
+	font-weight:bold;
+	text-transform:uppercase;
+}
+
+.pg-search-box .pg-input {
+	border:1px solid #888888;
+	color:#555555;
+	font-size:11px;
+	margin-right:6px;
+	padding:7px 5px;
+	width:194px;
+}
+
+.pg-search-box .pg-input:focus {
+	border:1px solid #000000;
+	color:#000000;
+}
+
+.pg-search-box .pg-submit {
+	position:relative;
+	top:9px;
+}
+</style>
+<!-- END CSS -->
+
+<!-- BEGIN SCRIPT -->
+<script type="text/javascript" src="http://local.nwitimes.com/skins/default/js/widget.js" ></script>
+<!-- END SCRIPT -->
+
+<!-- BEGIN CONTAINER -->
+<div class="pg-widget-container" style="width:100%;" >
+
+<!-- BEGIN TITLE -->
+<div class="pg-widget-title">Search Porter County Businesses</div>
+
+<!-- BEGIN CONTENTS -->
+<div class="pg-widget-contents">
+
+<!-- BEGIN SEARCH BOX -->
+<div class="pg-widget-search">
+<table cellpadding="0" cellspacing="2" border="0" width="100%">
+<tr>
+<form id="wform" >
+<td class="pg-widget-input">
+<input type="text" id="what" />
+<input type="text" Style="display:none; visibility:hidden;" />
+</td>
+<td width="67" class="pg-widget-submit">
+<input type="submit" value="Search" class="submit-button moz-border" onclick="return search(this.form['what'].value ,  'valparaiso, ind', 'local.nwitimes.com' );"/>
+</td>
+</form>
+</tr>
+</table>
+</div>
+<!-- END SEARCH BOX -->
+
+<!-- BEGIN RELATED LISTINGS -->
+<!-- <ul class="pg-widget-related">
+<li>
+<a href="http://local.nwitimes.com/munster+in/auto+mechanic/name.30.n.all.zq.html?partnerlink=true">Munster Auto Mechanics</a>
+</li>
+</ul> -->
+<!-- END RELATED LISTINGS -->
+
+<!-- BEGIN BULLET SEARCHES -->
+<div id="box" style="margin-top: 5px;">
+<p style="font-size: 14px;"><strong>Chesterton</strong></p>
+
+<div id="boxleft">
+<ul class="bull-list">
+<li><a title="Autos" href="http://local.nwitimes.com/chesterton+in/auto/distance.30.n.all.zq.html">Autos</a></li>
+<li><a title="Gyms" href="http://local.nwitimes.com/chesterton+in/gyms.zq.html">Gyms</a></li>
+<li><a title="Beauty Salons" href="http://local.nwitimes.com/chesterton+in/beauty+salons.zq.html">Beauty Salons</a></li>
+</ul>
+</div>
+
+<div id="boxright">
+<ul class="bull-list">
+<li><a title="Banks" href="http://local.nwitimes.com/chesterton+in/banks/distance.30.n.all.zq.html">Banks</a></li>
+<li><a title="Doctors" href="http://local.nwitimes.com/chesterton+in/gyms.zq.html">Doctors</a></li>
+<li><a title="Lawyers" href="http://local.nwitimes.com/chesterton+in/beauty+salons.zq.html">Lawyers</a></li>
+</ul>
+</div>
+
+</div>
+<div class="clear"></div>
+<!-- END BULLET SEARCHES -->
+
+<!-- BEGIN BULLET SEARCHES -->
+<div id="box" style="margin-top: 5px;">
+<p style="font-size: 14px;"><strong>Portage</strong></p>
+
+<div id="boxleft">
+<ul class="bull-list">
+<li><a title="Autos" href="http://local.nwitimes.com/portage+in/auto/distance.30.n.all.zq.html">Autos</a></li>
+<li><a title="Gyms" href="http://local.nwitimes.com/portage+in/gyms.zq.html">Gyms</a></li>
+<li><a title="Beauty Salons" href="http://local.nwitimes.com/portage+in/beauty+salons.zq.html">Beauty Salons</a></li>
+</ul>
+</div>
+
+<div id="boxright">
+<ul class="bull-list">
+<li><a title="Banks" href="http://local.nwitimes.com/portage+in/banks/distance.30.n.all.zq.html">Banks</a></li>
+<li><a title="Doctors" href="http://local.nwitimes.com/portage+in/gyms.zq.html">Doctors</a></li>
+<li><a title="Lawyers" href="http://local.nwitimes.com/portage+in/beauty+salons.zq.html">Lawyers</a></li>
+</ul>
+</div>
+
+</div>
+<div class="clear"></div>
+<!-- END BULLET SEARCHES -->
+
+<!-- BEGIN BULLET SEARCHES -->
+<div id="box" style="margin-top: 5px;">
+<p style="font-size: 14px;"><strong>Valparaiso</strong></p>
+
+<div id="boxleft">
+<ul class="bull-list">
+<li><a title="Autos" href="http://local.nwitimes.com/valparaiso+in/auto/distance.30.n.all.zq.html">Autos</a></li>
+<li><a title="Gyms" href="http://local.nwitimes.com/valparaiso+in/gyms.zq.html">Gyms</a></li>
+<li><a title="Beauty Salons" href="http://local.nwitimes.com/valparaiso+in/beauty+salons.zq.html">Beauty Salons</a></li>
+</ul>
+</div>
+
+<div id="boxright">
+<ul class="bull-list">
+<li><a title="Banks" href="http://local.nwitimes.com/valparaiso+in/banks/distance.30.n.all.zq.html">Banks</a></li>
+<li><a title="Doctors" href="http://local.nwitimes.com/valparaiso+in/gyms.zq.html">Doctors</a></li>
+<li><a title="Lawyers" href="http://local.nwitimes.com/valparaiso+in/beauty+salons.zq.html">Lawyers</a></li>
+</ul>
+</div>
+
+</div>
+<div class="clear"></div>
+<!-- END BULLET SEARCHES -->
+
+<!-- BEGIN MORE LINKS -->
+<div class="pg-widget-more-links">
+Browse the <a href="http://local.nwitimes.com">full business directory</a> Powered by <a href="http://www.local.com/city/in/valparaiso.aspx"
+target="_blank">Local.com</a>
+</div>
+<!-- END MORE LINKS -->
+
+</div>
+<!-- END TITLE -->
+
+</div>
+<!-- END CONTAINER -->
+
+<br />
+<br />
+<hr></hr>
+<br />
+<br />
+
+
+<!-- BEGIN CONTAINER -->
+<div class="pg-widget-container" style="width:100%;" >
+
+<!-- BEGIN TITLE -->
+<div class="pg-widget-title">Search Lake County Businesses</div>
+
+<!-- BEGIN CONTENTS -->
+<div class="pg-widget-contents">
+
+<!-- BEGIN SEARCH BOX -->
+<div class="pg-widget-search">
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tr>
+<form id="wform" >
+<td class="pg-widget-input">
+<input type="text" id="what" />
+<input type="text" Style="display:none; visibility:hidden;" />
+</td>
+<td width="67" class="pg-widget-submit">
+<input type="submit" value="Search" class="submit-button moz-border" onclick="return searchLocal(this.form['txtwhat'].value ,  this.form['txtwhere'].value, 'local.nwitimes.com' );"/>
+</td>
+</form>
+</tr>
+</table>
+</div>
+<!-- END SEARCH BOX -->
+
+<!-- BEGIN RELATED LISTINGS -->
+<!-- <ul class="pg-widget-related">
+<li>
+<a href="http://local.nwitimes.com/munster+in/auto+mechanic/name.30.n.all.zq.html?partnerlink=true">Munster Auto Mechanics</a>
+</li>
+</ul> -->
+<!-- END RELATED LISTINGS -->
+
+<!-- BEGIN BULLET SEARCHES -->
+<div id="box" style="margin-top: 5px;">
+<p style="font-size: 14px;"><strong>Crown Point</strong></p>
+
+<div id="boxleft">
+<ul class="bull-list">
+<li><a title="Autos" href="http://local.nwitimes.com/crown-point+in/auto/distance.30.n.all.zq.html">Autos</a></li>
+<li><a title="Gyms" href="http://local.nwitimes.com/crown-point+in/gyms.zq.html">Gyms</a></li>
+<li><a title="Beauty Salons" href="http://local.nwitimes.com/crown-point+in/beauty+salons.zq.html">Beauty Salons</a></li>
+</ul>
+</div>
+
+<div id="boxright">
+<ul class="bull-list">
+<li><a title="Banks" href="http://local.nwitimes.com/crown-point+in/banks/distance.30.n.all.zq.html">Banks</a></li>
+<li><a title="Doctors" href="http://local.nwitimes.com/crown-point+in/gyms.zq.html">Doctors</a></li>
+<li><a title="Lawyers" href="http://local.nwitimes.com/crown-point+in/beauty+salons.zq.html">Lawyers</a></li>
+</ul>
+</div>
+
+</div>
+<div class="clear"></div>
+<!-- END BULLET SEARCHES -->
+
+<!-- BEGIN BULLET SEARCHES -->
+<div id="box" style="margin-top: 5px;">
+<p style="font-size: 14px;"><strong>Dyer</strong></p>
+
+<div id="boxleft">
+<ul class="bull-list">
+<li><a title="Autos" href="http://local.nwitimes.com/dyer+in/auto/distance.30.n.all.zq.html">Autos</a></li>
+<li><a title="Gyms" href="http://local.nwitimes.com/dyer+in/gyms.zq.html">Gyms</a></li>
+<li><a title="Beauty Salons" href="http://local.nwitimes.com/dyer+in/beauty+salons.zq.html">Beauty Salons</a></li>
+</ul>
+</div>
+
+<div id="boxright">
+<ul class="bull-list">
+<li><a title="Banks" href="http://local.nwitimes.com/dyer+in/banks/distance.30.n.all.zq.html">Banks</a></li>
+<li><a title="Doctors" href="http://local.nwitimes.com/dyer+in/gyms.zq.html">Doctors</a></li>
+<li><a title="Lawyers" href="http://local.nwitimes.com/dyer+in/beauty+salons.zq.html">Lawyers</a></li>
+</ul>
+</div>
+
+</div>
+<div class="clear"></div>
+<!-- END BULLET SEARCHES -->
+
+<!-- BEGIN BULLET SEARCHES -->
+<div id="box" style="margin-top: 5px;">
+<p style="font-size: 14px;"><strong>Hammond</strong></p>
+
+<div id="boxleft">
+<ul class="bull-list">
+<li><a title="Autos" href="http://local.nwitimes.com/hammond+in/auto/distance.30.n.all.zq.html">Autos</a></li>
+<li><a title="Gyms" href="http://local.nwitimes.com/hammond+in/gyms.zq.html">Gyms</a></li>
+<li><a title="Beauty Salons" href="http://local.nwitimes.com/hammond+in/beauty+salons.zq.html">Beauty Salons</a></li>
+</ul>
+</div>
+
+<div id="boxright">
+<ul class="bull-list">
+<li><a title="Banks" href="http://local.nwitimes.com/hammond+in/banks/distance.30.n.all.zq.html">Banks</a></li>
+<li><a title="Doctors" href="http://local.nwitimes.com/hammond+in/gyms.zq.html">Doctors</a></li>
+<li><a title="Lawyers" href="http://local.nwitimes.com/hammond+in/beauty+salons.zq.html">Lawyers</a></li>
+</ul>
+</div>
+
+</div>
+<div class="clear"></div>
+<!-- END BULLET SEARCHES -->
+
+<!-- BEGIN BULLET SEARCHES -->
+<div id="box" style="margin-top: 5px;">
+<p style="font-size: 14px;"><strong>Schererville</strong></p>
+
+<div id="boxleft">
+<ul class="bull-list">
+<li><a title="Autos" href="http://local.nwitimes.com/schererville+in/auto/distance.30.n.all.zq.html">Autos</a></li>
+<li><a title="Gyms" href="http://local.nwitimes.com/schererville+in/gyms.zq.html">Gyms</a></li>
+<li><a title="Beauty Salons" href="http://local.nwitimes.com/schererville+in/beauty+salons.zq.html">Beauty Salons</a></li>
+</ul>
+</div>
+
+<div id="boxright">
+<ul class="bull-list">
+<li><a title="Banks" href="http://local.nwitimes.com/schererville+in/banks/distance.30.n.all.zq.html">Banks</a></li>
+<li><a title="Doctors" href="http://local.nwitimes.com/schererville+in/gyms.zq.html">Doctors</a></li>
+<li><a title="Lawyers" href="http://local.nwitimes.com/schererville+in/beauty+salons.zq.html">Lawyers</a></li>
+</ul>
+</div>
+
+</div>
+<div class="clear"></div>
+<!-- END BULLET SEARCHES -->
+
+<!-- BEGIN MORE LINKS -->
+<div class="pg-widget-more-links">
+Browse the <a href="http://local.nwitimes.com">full business directory</a> Powered by <a href="http://www.local.com/city/in/valparaiso.aspx"
+target="_blank">Local.com</a>
+</div>
+<!-- END MORE LINKS -->
+
+</div>
+<!-- END TITLE -->
+
+</div>
+<!-- END CONTAINER -->
+
+
+<br />
+<br />
+<hr></hr>
+<br />
+<br />
+
+
+<!-- BEGIN SCRIPT -->
+<form id="wForm">
+<script type="text/javascript">
+function showPremiumListing(category,location,partnerURL)
+{document.getElementById('premium-listing').innerHTML='<IFRAME src="http://'+partnerURL+'/widget.aspx?'+'q='+escape(category)+'&p='+escape(partnerURL)+'&z='+escape(location)+'"   frameborder="0" scrolling="no" style="width:100%; height:115px; min-height:10px"></IFRAME>';}
+function searchLocal(keyword,location,partnerURL)
+{window.location="http://"+partnerURL+"/search.pg?q="+escape(keyword)+"&z="+escape(location);return false;}
+</script>
+
+<!-- END SCRIPT -->
+
+<!-- BEGIN CONTAINER -->
+<div class="pg-widget-container" style="width:100%;" >
+
+<!-- BEGIN TITLE -->
+<div class="pg-widget-title">Search Local Businesses</div>
+
+<!-- BEGIN CONTENTS -->
+<div class="pg-widget-contents">
+
+<!-- BEGIN SEARCH BOX -->
+<div id="box" style="margin-top: 5px;">
+
+<label>Find:</label>
+<input type="text" alt="Business, Products and Services" id="txtwhat" class="pg-input">
+<p style="font-size: 12px;"><strong>Home contractors, pizza, beauty salons</strong></p>
+
+<label>Near:</label>
+<input type="text" alt="ZIP, City &amp; State, Address" id="txtwhere" class="pg-input">
+<p style="font-size: 12px;"><strong>City & State, or Zip Code</strong></p>
+<input type="submit" value="Search" class="submit-button moz-border" onclick="return searchLocal(this.form['txtwhat'].value ,  this.form['txtwhere'].value, 'local.nwitimes.com' );"/>
+</div>
+<div class="clear"></div>
+
+<!-- BEGIN MORE LINKS -->
+<div class="pg-widget-more-links">
+Browse the <a href="http://local.nwitimes.com">full business directory</a> Powered by <a href="http://www.local.com/"
+target="_blank">Local.com</a>
+</div>
+<!-- END MORE LINKS -->
+
+</div>
+<!-- END TITLE -->
+
+</div>
+<!-- END CONTAINER -->

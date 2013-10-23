@@ -1,0 +1,89 @@
+*
+{margin: 0; padding: 0; outline: none; border: 0;}
+
+.clear
+{clear: both;}
+
+/*STRUCTURE*/
+body
+{font-size: 14px; font-family: Arial, Helvetica, sans-serif; color: #37321d; background: #cccccc;}
+
+.wrapper
+{width: 100%; max-width: 310px !important; margin: 40px auto 0 auto;  background: #ffffff; border: 5px solid #000000;}
+
+/*TYPOGRAPHY*/
+a
+{text-decoration: none; color:#0C6BB0;}
+
+a:visited
+{color:#0C6BB0;}
+
+.headline
+{display: block; width: 100%; height: auto; text-align: center; color: #df2127; font-weight: bold; font-size: 1.3em; margin: 10px auto; margin-bottom: 20px;}
+
+.business-widget h1
+{margin: 0 15px 0 15px;}
+
+/*MENU*/
+.navigation ul
+{list-style: none;}
+
+.navigation li
+{width: 90px; height: 90px; margin: 20px 5px 10px 5 px; float: left;  display: inline;  border: 1px solid #000000;}
+
+.navigation #todays-deal
+{background: url('http://dummyimage.com/90x90/DA0E7F/000000.png&text=Deals') center left no-repeat;}
+
+.navigation #coupons
+{background: url('http://dummyimage.com/90x90/DA640E/000000.png&text=Coupons') center left no-repeat;}
+
+.navigation #offers
+{background: url('http://dummyimage.com/90x90/DA0E7F/000000.png&text=Offers') center left no-repeat;}
+
+.navigation #dining
+{background: url('http://dummyimage.com/90x90/E44A0F/000000.png&text=Dining') center left no-repeat;}
+
+.navigation #shopping
+{background: url('http://dummyimage.com/90x90/E40F1B/000000.png&text=Shopping') center left no-repeat;}
+
+.navigation #entertainment
+{background: url('http://dummyimage.com/90x90/CD2F18/000000.png&text=Entertainment') center left no-repeat;}
+
+.navigation #services
+{background: url('http://dummyimage.com/90x90/E72003/000000.png&text=Services') center left no-repeat;}
+
+.navigation #cat1
+{background: url('http://dummyimage.com/90x90/E72003/000000.png&text=Category') center left no-repeat;}
+
+.navigation #cat2
+{background: url('http://dummyimage.com/90x90/E72003/000000.png&text=Category') center left no-repeat;}
+
+/*FORM*/
+
+form div
+{margin: 5px 0 10px 0; }
+
+form label
+{font-size: 16px; color: #7c1920; margin: 20px 0 0 15px; font-weight: bold;}
+
+form p
+{margin: 5px 15px 0 15px;}
+
+
+form p a:link, form p a:visited
+{color:#7c1920;}
+
+form p a:hover, form p a:active
+{color:#591019;}
+
+input
+{width: 270px; background: #e6e6e6 none repeat scroll 0 0; border: 5px solid #336699; font-size: 16px; font-weight: normal; color: #333; margin: 5px 15px 0 15px; padding: 5px; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;}
+
+input:focus, textarea:focus
+{background: #fff none repeat scroll 0 0; border: 5px solid #7C1920;}
+
+input.searchsubmit
+{display: block; width: 270px; margin: 0px 15px 0 15px; padding: 5px; font-size: 14px; font-weight: bold; text-align: center; border: 0; color: #efefef; background-color: #336699; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;}
+
+input.searchsubmit:hover
+{background-color: #7C1920; color: #ffffff; cursor: pointer;}

@@ -1,0 +1,172 @@
+/*
+Base 960 Grid Framework, Inspired by Baseline - Stephane Curzi, ProjetUrbain.com
+Creative Commons Attribution-Share Alike 3.0 License
+version 0.1
+*/
+
+/*BASE*/
+h1, h2, h3, h4, h5, h6
+{line-height: 1.2;}
+
+h4, h5, h6
+{font-weight: bold;}
+
+b, strong, caption, th, thead, dt, legend
+{font-weight: bold;}
+
+cite, dfn, em, i
+{font-style: italic;}
+
+code, kbd, samp, pre, tt, var
+{font-family: mono-space, monospace;}
+
+h1, h2, h3, h4, h5, h6
+{word-spacing: 0.125em;}
+
+p
+{word-spacing: 0.125em; hyphenate: auto; hyphenate-lines: 3;}
+
+p+p
+{text-indent: 1.5em;}
+
+p+p.no-indent
+{text-indent: 0;}
+
+pre
+{white-space: pre;}
+
+del
+{text-decoration: line-through;}
+
+mark
+{background: rgba(255, 255, 0, 0.4); padding: 0 .25em;}
+
+ins
+{color: #f00;}
+
+small, sup, sub
+{font-size: 80%;}
+
+big
+{font-size: 125%; line-height: 80%;}
+
+abbr, acronym
+{font-size: 85%; text-transform: uppercase; letter-spacing: .1em;}
+
+abbr[title], acronym[title], dfn[title]
+{border-bottom: 1px dotted black; cursor: help;}
+
+sup, sub
+{line-height: 0;}
+
+sup
+{vertical-align: super;}
+
+sub
+{vertical-align: sub;}
+
+ul, ol
+{margin-left: 1.5em;}
+
+ul
+{list-style: disc outside;}
+
+ol
+{list-style: decimal outside;}
+
+select, button
+{cursor: pointer;}
+
+input
+{cursor: text;}
+
+table
+{font: inherit; width: 100%;}
+
+
+/*HTML5*/
+article, aside, header, hgroup, nav, figure, section, footer
+{display: block;}
+
+/* Debug */
+.debug
+{outline: solid gold 1px;}
+
+.debug-background
+{background: rgba(255, 215, 0, 0.2) !important;}
+
+/*
+Base 960 Grid Framework, Inspired by Baseline - Stephane Curzi, ProjetUrbain.com
+Creative Commons Attribution-Share Alike 3.0 License
+version 0.1
+*/
+
+
+/******************** Baseline grid: 13/18px ********************/
+body
+{font-size: 75%; line-height: 1.5; /*12/18*/}
+
+h1, h2, h3, h4, h5, h6
+{position: relative;}
+h1, h2
+{line-height: 28px; margin-bottom: 18px;}
+
+h1, h2, h3, h4
+{margin-top: 18px;}
+
+h3, h4, h5, h6
+{line-height: 22px;}
+
+h1
+{font-size: 28px; top: 5px;}
+
+h2
+{font-size: 22px; top: 8px;}
+
+h3
+{font-size: 16px; top: 1px;}
+
+h4
+{font-size: 12px; top: 2px;}
+
+h5
+{font-size: 10px; top: 4px;}
+
+h6
+{font-size: 8px; top: 5px;}
+
+h1:first-child, h2:first-child, h3:first-child, h4:first-child
+{margin-top: 0;}
+
+p, pre, address
+{font-size: 13px; line-height: 18px; position: relative; top: 5px;}
+
+small
+{font-size: 11px;}
+
+abbr, code, kbd, samp, small, var
+{line-height: 15px;}
+
+ul, ol, dl, dialog
+{font-size: 13px; line-height: 18px; position: relative; top: 5px; margin-top: 18px; margin-bottom: 18px;}
+
+li ul, li ol, ul ul, ol ol
+{top: 0; margin-top: 0; margin-bottom: 0;}
+
+li h1, li h2, li h3, li h4, li h5, li h6, li p
+{top: 0;}
+
+form, legend, label
+{font-size: 13px; line-height: 18px;}
+
+legend
+{position: relative; top: 5px;}
+
+table
+{font-size: 13px;}
+
+caption
+{font-size: 13px; line-height: 18px; position: relative;}
+
+hr
+{position: relative; height: 4px; margin: 18px 0 14px 0;}

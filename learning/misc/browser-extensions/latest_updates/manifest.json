@@ -1,0 +1,15 @@
+{
+  "name": "nwi.com News Reader",
+  "version": "0.1",
+  "description": "Displays Latest Updates from nwi.com.",
+  "icons": { "128": "icon.png" },
+  "browser_action": {
+    "default_title": "nwi.com News Reader",
+    "default_icon": "news_action.png",
+    "popup": "feed.html"
+  },
+  "permissions": [
+    "tabs",
+    "http://www.nwitimes.com/*"
+  ]
+}

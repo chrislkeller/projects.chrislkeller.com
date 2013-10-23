@@ -1,0 +1,173 @@
+<style type="text/css">
+
+
+/* Structure */
+
+body {
+	background-color: #e8e8e8;
+}
+
+/* Container */
+.container {
+	height: 1000px;
+	width: 960px;
+	margin: 20px auto;
+	padding: 30px;
+}
+
+/* Content*/
+.content {
+	width: 620px; float: left;
+}
+
+/* Block */
+.block
+{
+background-color: #fff;
+color: #000;
+border: 1px solid #000;
+padding: 0.5em;
+}
+
+/* Sub Block Left */
+.blockleft { 
+	width: 300px; float: left;
+}
+
+/* Sub Block Right */
+.blockright {
+	width: 300px; float: right; 
+}
+
+
+/* Sidebar */
+.aside {
+	width: 300px;
+	float: right;
+}
+
+
+/* Element Styles */
+.block {
+margin-top: 20px;
+}
+
+
+.block, .shadow
+{
+position: relative;
+bottom: 4px;
+right: 4px;
+}
+
+.shadow
+{
+background-color: #ccc;
+}
+
+.blockright h2 {
+	text-transform:uppercase;
+}
+
+.blockleft h2 {
+	text-transform:uppercase;
+}
+	
+</style>
+
+<?php ############# BEGIN BODY ##################### ?>
+<body>
+
+<?php ############# BEGIN CONTAINER ##################### ?>
+<div class="container">
+
+<?php ############# BEGIN SHADOW ##################### ?>
+<div class="shadow">
+
+<?php ############# BEGIN BLOCK ##################### ?>
+<div class="block">
+<h1>Chris Keller</h1>
+<p>I am Chris Keller and this is my new project</p>
+</div>
+<?php ############# END BLOCK ##################### ?>
+
+</div>
+<?php ############# END SHADOW ##################### ?>
+
+
+
+<?php ############# BEGIN CONTENT AREA ##################### ?>
+<div class="content">
+
+<?php ############# BEGIN SHADOW ##################### ?>
+<div class="shadow">
+<?php ############# BEGIN BLOCK ##################### ?>
+<div class="block">
+<h1>Here I will put some content</h1>
+<p>This is the div element that will have the shadow on it. You can also shadow images instead of a div with content in it.</p>
+</div>
+<?php ############# END BLOCK ##################### ?>
+</div>
+<?php ############# END SHADOW ##################### ?>
+
+
+<br>
+<br>
+
+<?php ############# BEGIN BLOCKLEFT ##################### ?>
+<div class="blockleft">
+<?php ############# BEGIN SHADOW ##################### ?>
+<div class="shadow">
+<?php ############# BEGIN BLOCK ##################### ?>
+<div class="block">
+<h2>Left spans 300px</h2>
+<p>This is the div element that will have the shadow on it. You can also shadow images instead of a div with content in it.</p>
+</div>
+<?php ############# END BLOCK ##################### ?>
+</div>
+<?php ############# END SHADOW ##################### ?>
+</div>
+<?php ############# END BLOCKLEFT ##################### ?>
+
+
+<?php ############# BEGIN BLOCKRIGHT ##################### ?>
+<div class="blockright">
+<?php ############# BEGIN SHADOW ##################### ?>
+<div class="shadow">
+<?php ############# BEGIN BLOCK ##################### ?>
+<div class="block">
+<h2>Right spans 300px</h2>
+<p>This is the div element that will have the shadow on it. You can also shadow images instead of a div with content in it.</p>
+</div>
+<?php ############# END BLOCK ##################### ?>
+</div>
+<?php ############# END SHADOW ##################### ?>
+</div>
+<?php ############# END BLOCKRIGHT##################### ?>
+
+
+</div>
+<?php ############# END CONTENT AREA ##################### ?>
+
+
+<?php ############# BEGIN SIDEBAR AREA ##################### ?>
+<div class="aside">
+<?php ############# BEGIN SHADOW ##################### ?>
+<div class="shadow">
+<?php ############# BEGIN BLOCK ##################### ?>
+<div class="block">
+<h1>Spans 300px</h1>
+<p>This is the div element that will have the shadow on it. You can also shadow images instead of a div with content in it.</p>
+</div>
+<?php ############# END BLOCK ##################### ?>
+</div>
+<?php ############# END SHADOW ##################### ?>
+</div>
+<?php ############# END SIDEBAR ##################### ?>
+
+</div>
+<?php ############# END CONTAINER ##################### ?>
+
+<?php ############# END BODY ##################### ?>
+</body>
+</html>

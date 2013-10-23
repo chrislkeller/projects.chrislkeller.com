@@ -1,0 +1,107 @@
+/*
+Author : Onextrapixel
+URL: http://www.onextrapixel.com
+*/
+
+* {
+	border:none; 
+	margin:0; 
+	padding:0;
+}
+
+body {
+	background:#fff; 
+	color: #999999; 
+	font:12.35px Georgia, Arial, "Lucida Grande", Verdana, sans-serif;
+}
+
+a:link {
+	color:#0054a6;
+	text-decoration:none; 
+}
+
+h1 {
+	font-size:20px;
+	margin-bottom:20px; 
+}
+
+#wrap {
+	margin:10px auto;
+	width:960px; 
+}
+
+/************************************************
+	      JCAROUSEL LITE		
+************************************************/
+#list {
+	height:130px;
+	width:880px; 
+	margin:30px auto; 
+}
+
+.slider {
+	float:left;
+	left: -5000px; 
+	margin:15px; 
+	position:relative; 
+	visibility:hidden;	
+}
+	
+.slider ul {
+	height:100px;
+	width:600px; 
+}
+
+.slider ul li {
+	padding:0 20px;
+}
+
+.slider ul li img {
+	cursor:pointer;
+	padding-top:3px;
+	width:225px;
+	height:425px;   
+}
+
+.prev {
+	cursor:pointer; 
+	float:left;
+	padding-top:60px;
+}
+
+.next {
+	cursor:pointer; 
+	float:right; 
+	padding-top:60px;
+}
+
+/************************************************
+	      CAPTIFY CAPTION		
+************************************************/
+.caption-top, .caption-bottom {
+	background: #000000;
+	color: #ffffff; 
+	cursor:default;
+	padding:2px; 
+	font-size:24px;   
+	text-align:center;
+}
+
+.caption-top {
+	border-width:0px;
+}
+
+.caption-bottom {
+	border-width:0px;
+}
+
+.caption a, .caption a {
+	background:#000;
+	border:none; 
+	text-decoration:none;  
+	padding:2px;
+}
+
+.caption a:hover, .caption a:hover {
+	background:#202020;
+}

@@ -1,0 +1,11 @@
+<script type="text/javascript">
+var myTweets
+function cb(data){
+    myTweets = data;
+    document.write(myTweets[0].user.name + " says:<br/>\"" + myTweets[0].text + "\"");
+}
+</script>
+
+<script type="text/javascript"
+src="http://twitter.com/statuses/user_timeline/chrislkeller.json?callback=cb&count=3">
+</script>

@@ -1,0 +1,138 @@
+<style type="text/css">
+#main {
+width:230px;
+height: 500px;
+}
+
+.left {
+width:105px;
+margin-right:0px;
+float:left;
+}
+
+.right {
+width:105px;
+margin-left:0px;
+float:right;
+}
+
+ul.thumb {
+	float: left;
+	list-style: none;
+	margin: 0; padding: 5px;
+	width: 230px;
+}
+
+ul.thumb li {
+	margin: 0; padding: 5px;
+	float: left;
+	position: relative;
+	width: 80px;
+	height: 80px;
+}
+ul.thumb li img {
+	width: 80px; height: 80px;
+	border: 1px solid #ddd;
+	padding: 5px;
+	position: absolute;
+	left: 0; top: 0;
+	-ms-interpolation-mode: bicubic; 
+}
+ul.thumb li img.hover {
+	background:url(thumb_bg.png) no-repeat center center;
+	border: 2px solid #CC0000;
+	
+</style>
+
+<?php ############# BEGIN JAVASCRIPT HERE ##################### ?>
+<script language="JavaScript">
+<!--
+
+function SymError()
+{
+  return true;
+}
+
+window.onerror = SymError;
+
+var SymRealWinOpen = window.open;
+
+function SymWinOpen(url, name, attributes)
+{
+  return (new Object());
+}
+
+window.open = SymWinOpen;
+
+//-->
+</script>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script> 
+<script type="text/javascript"> 
+$(document).ready(function(){
+
+//Larger thumbnail preview 
+
+$("ul.thumb li").hover(function() {
+	$(this).css({'z-index' : '10'});
+	$(this).find('img').addClass("hover").stop()
+		.animate({
+			marginTop: '-110px', 
+			marginLeft: '-110px', 
+			top: '50%', 
+			left: '50%',
+			width: '110px', 
+			height: '110px',
+			padding: '20px' 
+		}, 200);
+	
+	} , function() {
+	$(this).css({'z-index' : '0'});
+	$(this).find('img').removeClass("hover").stop()
+		.animate({
+			marginTop: '0', 
+			marginLeft: '0',
+			top: '0', 
+			left: '0', 
+			width: '80px', 
+			height: '80px', 
+			padding: '5px'
+		}, 400);
+});
+
+//Swap Image on Click
+	$("ul.thumb li a").click(function() {
+		
+		var mainImage = $(this).attr("href"); //Find Image Name
+		$("#main_view img").attr({ src: mainImage });
+		return false;		
+	});
+ 
+});
+</script>
+<?php ############# END JAVASCRIPT HERE ##################### ?>
+
+</head>
+
+<body>
+<div id="main">
+<?php ############# BEGIN IMG BLOCK ##################### ?>
+<div class="left">
+
+<ul class="thumb">
+<li><a href="http://twitter.com/chitowntattler" target="_blank"><img src="twitter.png" alt="Twitter" width="80" height="80"/></li>
+</ul>
+</div>
+<?php ############# END IMG BLOCK ##################### ?>
+
+<?php ############# BEGIN IMG BLOCK ##################### ?>
+<div class="right">
+<ul class="thumb">
+<li><a href="http://www.chitowntattler.com/?feed=rss2" target="_blank"><img src="rss.png" alt="RSS" width="80" height="80"/></li>
+</ul>
+</div>
+<?php ############# END IMG BLOCK ##################### ?>
+</div>
+<?php ############# END MAIN DIV ##################### ?>
+</body>
+</html>

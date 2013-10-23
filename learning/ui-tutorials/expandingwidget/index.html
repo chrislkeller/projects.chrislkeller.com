@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<?php #### BEGIN HEADER #### ?>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Collapsible Message Panels</title>
+
+
+<?php #### BEGIN JAVASCRIPT #### ?>
+<script type="text/javascript" src="jquery.js">
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+//hide the all of the element with class msg_body
+$(".msg_body").hide();
+
+//toggle the componenet with class msg_body
+$(".msg_head").click(function(){
+
+$(this).next(".msg_body").slideToggle(600);
+});
+});
+</script>
+
+<?php #### BEGIN CSS #### ?>
+<style type="text/css">
+body {
+	background:#fff;
+	margin: 10px auto;
+	width: 570px;
+	font: 75%/120% Verdana,Arial, Helvetica, sans-serif;
+}
+
+p
+{
+margin:0px;	
+}
+
+.msg_list
+{
+	margin: 0px;
+	padding: 0px;
+	width: 383px;
+}
+
+.msg_head
+{
+	padding: 5px 10px;
+	cursor: pointer;
+	position: relative;
+	background-color:#FFCCCC;
+	margin:1px;
+}
+
+.msg_body
+{
+	padding: 5px 10px 15px;
+	background-color:#F4F4F8;
+}
+</style>
+
+</head>
+
+<?php #### BEGIN BODY #### ?>
+<body>
+
+<?php #### BEGIN MAIN DIV #### ?>
+<div align="center">
+<p>Click on the each news head to toggle</p>
+</div>
+
+<div class="msg_list">
+<p class="msg_head">Header-1 </p>
+<div class="msg_body">
+orem ipsum dolor sit amet, consectetuer adipiscing elit orem ipsum dolor sit amet, consectetuer adipiscing elit
+</div>
+
+	
+<p class="msg_head">Header-2</p>
+<div class="msg_body">
+orem ipsum dolor sit amet, consectetuer adipiscing elit orem ipsum dolor sit amet, consectetuer adipiscing elit
+</div>
+	
+
+<p class="msg_head">Header-3</p>
+<div class="msg_body">
+orem ipsum dolor sit amet, consectetuer adipiscing elit orem ipsum dolor sit amet, consectetuer adipiscing elit
+</div>
+	
+</div>
+<?php #### END MAIN DIV #### ?>
+
+</body>
+<?php #### END BODY #### ?>
+
+</html>

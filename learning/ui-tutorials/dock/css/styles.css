@@ -1,0 +1,12 @@
+body
+{background: #cccccc;}
+
+.desktop
+{position: relative; overflow: hidden; width: 960px; height: 890px; 
+background: #000000;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-box-shadow: 0 1px 10px rgb(20, 20, 20);
+	-webkit-box-shadow: 0 1px 10px rgb(20, 20, 20);
+	box-shadow: 0 1px 10px rgb(20, 20, 20);
+}

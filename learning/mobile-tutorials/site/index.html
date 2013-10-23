@@ -1,0 +1,190 @@
+<?php ### BEGIN DOC ###?>
+<html>
+
+<?php ### BEGIN HEADER ###?>
+<head>
+<meta name="viewport" content="user-scalable=no, width=device-width" />
+
+<?php ### BEGIN CSS ###?>
+<link rel="stylesheet" href="/css/iphone.css" type="text/css" media="only screen and (max-device-width: 480px)" />
+<link rel="stylesheet" href="/css/desktop.css" type="text/css" media="screen and (min-device-width: 481px)" />
+
+<!--[if IE]>
+<link rel="stylesheet" type="text/css" href="explorer.css" media="all" />
+<![endif]-->
+
+
+<style>
+body {
+    background-color: #e8e8e8; /* Background color */
+    color: #222;            /* Foreground color used for text */
+    font-family: Helvetica; 
+    font-size: 14px;
+    margin: 0;              /* Amount of negative space around the outside of the body */
+    padding: 0;             /* Amount of negative space around the inside of the body */
+	text-shadow: 0px 1px 0px #e8e8e8;
+    background-image: -webkit-gradient(linear, left top, right bottom, from(#ccc), to(#999));
+}
+
+#header h1 {
+    margin: 0;
+    padding: 0;
+}
+#header h1 a {
+    background-color: #ccc;
+    border-bottom: 1px solid #666;
+    color: #222;
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 0;
+    text-align: center;
+    text-decoration: none;
+}
+
+#header ul {
+    list-style: none;
+    margin: 10px;
+    padding: 0;
+}
+#header ul li a {
+    background-color: #FFFFFF;
+    border: 1px solid #999999;
+    color: #222222;
+    display: block;
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: -1px;
+    padding: 12px 10px;
+    text-decoration: none;
+}
+
+#header ul.hide {
+    display: none;
+}
+
+#content, #sidebar {
+    padding: 10px;
+}
+
+#footer {
+    display: none;
+}
+
+#header h1 a {
+	text-shadow: 0px 1px 0px #e8e8e8;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#999));
+}
+
+#header ul li:first-child a {
+    -webkit-border-top-left-radius: 8px;
+    -webkit-border-top-right-radius: 8px;
+}
+#header ul li:last-child a {
+    -webkit-border-bottom-left-radius: 8px;
+    -webkit-border-bottom-right-radius: 8px;
+}
+
+
+#header div.leftButton {
+    position: absolute;
+    top: 7px;
+    left: 6px;
+    height: 30px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    text-shadow: rgba(0,0,0,0.6) 0px -1px 0px;
+    line-height: 28px;
+    border-width: 0 8px 0 8px;
+    -webkit-border-image: url(images/button.png) 0 8 0 8;
+}
+
+#header div.pressed {
+    -webkit-border-image: url(images/button_clicked.png) 0 8 0 8;
+}
+
+</style>
+
+
+
+<?php ### END CSS ###?>
+
+<?php ### BEGIN JQUERY ###?>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="iphone.js"></script>
+<?php ### END JQUERY ###?>
+
+<?php ### BEGIN TITLE ###?>
+<title>Jonathan Stark</title>
+
+</head>
+<?php ### BEGIN HEADER ###?>
+
+<?php ### BEGIN BODY ###?>
+<body>
+
+<?php ### BEGIN DIV ###?>
+<div id="container">
+
+<?php ### BEGIN HEADER DIV ###?>
+<div id="header">
+<h1><a href="./">Jonathan Stark</a></h1>
+
+
+
+
+<?php ### BEGIN UTILITY DIV ###?>
+<div id="utility">
+<ul>
+<li><a href="about.html">About</a></li>
+<li><a href="blog.html">Blog</a></li>
+</ul>
+</div>
+<?php ### END UTILITY DIV ###?>
+
+<?php ### BEGIN NAV DIV ###?>
+<div id="nav">
+<ul>
+<li><a href="consulting-clinic.html">Consulting Clinic</a></li>
+<li><a href="on-call.html">On Call</a></li>
+<li><a href="development.html">Development</a></li>
+</ul>
+</div>
+<?php ### END NAV DIV ###?>
+
+</div>
+<?php ### END HEADER DIV ###?>
+
+<?php ### BEGIN CONTENT DIV ###?>
+<div id="content">
+<h2>About</h2>
+<p>Jonathan Stark is a web developer, speaker, and author. His consulting firm, Jonathan Stark Consulting, Inc., has attracted clients such as Staples, Turner Broadcasting, and the PGA Tour. ...</p>
+</div>
+<?php ### END CONTENT DIV ###?>
+
+<?php ### BEGIN SIDEBAR DIV ###?>
+<div id="sidebar">
+<img alt="Manga Portrait of Jonathan Stark" src="http://jonathanstark.com/images/jonathanstark-manga-small.png"/>
+<p>Jonathan Stark is a mobile and web application developer who the Wall Street Journal has called an expert on publishing desktop data to the web.</p>
+</div>
+<?php ### END SIDEBAR DIV ###?>
+
+<?php ### BEGIN FOOTER DIV ###?>
+<div id="footer">
+<ul>
+<li><a href="services.html">Services</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="blog.html">Blog</a></li>
+</ul>
+<p class="subtle">Jonathan Stark Consulting, Inc.</p>
+</div>
+<?php ### END FOOTER DIV ###?>
+</div>
+<?php ### END CONTAINER DIV ###?>
+
+</body>
+<?php ### END BODY ###?>
+
+</html>
+<?php ### END DOC ###?>

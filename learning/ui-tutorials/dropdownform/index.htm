@@ -1,0 +1,68 @@
+
+
+<div id="container">
+<div id="topnav" class="topnav"> 
+Have an account? <a href="login" class="signin"><span>Sign in</span></a>
+</div>
+
+<fieldset id="signin_menu">
+<form method="post" id="signin" action="#">
+<p>
+<label for="name">Name</label>
+<input id="name" name="name" value="" title="name" tabindex="4" type="text">
+</p>
+
+<p>
+<label for="password">Email</label>
+<input id="password" name="password" value="" title="password" tabindex="5" type="password">
+</p>
+
+<p>
+<label for="password">Phone Number</label>
+<input id="password" name="password" value="" title="password" tabindex="5" type="password">
+</p>
+
+<p>
+<label for="password">What can we help you with?</label>
+<input id="password" name="password" value="" title="password" tabindex="5" type="password">
+</p>
+
+<p class="remember">
+<input id="signin_submit" value="Submit" tabindex="6" type="submit">
+</p>
+</form>
+</fieldset>
+
+</div>
+
+
+
+
+<script type="text/javascript">
+        $(document).ready(function() {
+
+            $(".signin").click(function(e) {          
+				e.preventDefault();
+                $("fieldset#signin_menu").toggle();
+				$(".signin").toggleClass("menu-open");
+            });
+			
+			$("fieldset#signin_menu").mouseup(function() {
+				return false
+			});
+			$(document).mouseup(function(e) {
+				if($(e.target).parent("a.signin").length==0) {
+					$(".signin").removeClass("menu-open");
+					$("fieldset#signin_menu").hide();
+				}
+			});			
+			
+        });
+</script>
+
+
+<script type='text/javascript'>
+    $(function() {
+	  $('#forgot_username_link').tipsy({gravity: 'w'});   
+    });
+  </script>

@@ -1,0 +1,11 @@
+#widget
+{margin: 200px auto 0 auto; width: 320px; height: 400px;}
+
+#widget h2
+{margin: 0px; background: #336699; color :#fff; padding: 3px 10px; 24px;}
+
+.widgetState
+{float: right; cursor: pointer; padding: 0 5px;}
+
+.widgetContent
+{color: #444; padding:12px 12px; text-align: justify; border:1px #aaa solid; border-top: 0px;}

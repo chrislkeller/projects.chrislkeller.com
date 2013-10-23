@@ -1,0 +1,285 @@
+/* Main Selectors */
+
+body {
+
+	background-color: #000000;
+	color: #C0C0C0;
+}
+
+
+
+a, a:visited {
+	background-color: transparent;
+	color: #E4E4E4;
+	text-decoration: none;
+}
+
+
+
+a:hover {
+	background-color: transparent;
+	color: #FFFFFF;
+	style: none;
+	text-decoration: none;
+}
+
+
+
+/* Header */
+
+div#header h1 {
+
+	font-family: tahoma, arial, helvetica, sans-serif;
+
+	text-align: center;
+
+	background-color: transparent;
+
+	color: #C0C0C0;
+
+}
+
+
+
+/* Thumbnail Index */
+
+div#index {
+
+	margin: 1ex 0 1ex 0;
+
+	text-align: center;
+
+}
+
+
+
+div#index table {
+
+	text-align: center;
+
+	margin: 0 auto 0 auto;
+
+}
+
+
+
+div#index td.thumbcell {
+
+	width: 100px;
+
+	border-style: solid;
+
+	border-color: #282828;
+
+	border-width: 1px;
+
+	text-align: center;
+
+	vertical-align: middle;
+
+	padding: 10px;
+
+}
+
+
+
+div#index td.thumbcell img {
+
+	border-style: none;
+
+}
+
+
+
+div#index div.pages {
+
+	font-family: tahoma, arial, helvetica, sans-serif;
+
+	font-size: 0.8em;
+
+	text-align: right;
+
+}
+
+
+
+/* Photo Navigation */
+
+div#navigation {
+
+	text-align: center;
+
+	font-family: tahoma, arial, helvetica, sans-serif;
+
+	font-size: 0.8em;
+
+	margin: 1ex 0 1ex 0;
+
+}
+
+
+
+div#navigation table {
+
+	text-align: center;
+
+	margin: 0 auto 0 auto;
+
+}
+
+
+
+div#navigation td.previous {
+
+	text-align: left;
+
+	width: 100px;
+
+}
+
+
+
+div#navigation td.index {
+
+	text-align: center;
+
+}
+
+
+
+div#navigation td.next {
+
+	text-align: right;
+
+	width: 100px;
+
+}
+
+
+
+div#navigation td.thumbcell {
+
+	width: 100px;
+
+	border-style: solid;
+
+	border-color: #282828;
+
+	border-width: 1px;
+
+	text-align: center;
+
+	vertical-align: middle;
+
+	padding: 10px;
+
+}
+
+
+
+div#navigation td.thumbcell img {
+
+	border-style: none;
+
+}
+
+
+
+div#navigation td.selected {
+
+	border-style: outset;
+
+	border-width: 2px;
+
+}
+
+
+
+div#navigation span.home {
+
+	display: block;
+
+	padding-bottom: 1em;
+
+}
+
+
+
+/* Photograph */
+
+div#photograph {
+
+	text-align: center;
+
+	margin: 1ex 0 1ex 0;
+
+}
+
+
+
+div#photograph img {
+
+	margin: 0 auto 0 auto;
+
+	border-style: solid;
+
+	border-color: #C0C0C0;
+
+	border-width: 1px;
+
+}
+
+
+
+/* Photograph Title */
+
+h1.title {
+
+	text-align: center;
+
+	font-family: tahoma, arial, helvetica, sans-serif;
+
+	font-size: 0.8em;
+
+	font-weight: bold;
+
+	margin: 0px;
+
+}
+
+
+
+/* Photograph Caption */
+
+p.caption, p.description {
+
+	font-family: tahoma, arial, helvetica, sans-serif;
+
+	text-align: center;
+
+	font-size: 0.8em;
+
+	display: block;
+
+	width: 800px;
+
+	margin: auto;
+
+}
+
+
+
+/* Footnote */
+
+p.footnote {
+
+	font-family: tahoma, arial, helvetica, sans-serif;
+
+	font-size: 0.6em;
+
+	text-align: right;
+
+	padding: 0 2em 0 0;
+
+}
+

@@ -1,0 +1,27 @@
+/*------------------------------
+=SIDEBAR
+------------------------------*/
+
+aside section {
+	margin: 30px 0 0 0;
+	padding: 25px 25px;
+	background: #CFD685/*url("../images/sidebar_section_background.png") repeat-x*/;
+	/* Border-radius not implemented yet
+	-moz-border-radius: 11px;
+	-webkit-border-radius: 11px; */
+}
+
+aside section ul {
+	margin: 0 0 0 22px;
+	list-style: none;
+}
+	
+aside section ul li a {
+	display: block;
+	text-decoration: none;
+	color: #000;
+}
+		
+aside section ul li a:hover {
+	text-decoration: underline;
+}

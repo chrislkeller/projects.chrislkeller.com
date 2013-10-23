@@ -1,0 +1,115 @@
+/* @group Animations */
+@-webkit-keyframes 'bounce'
+{
+0% { -webkit-transform: translateY(0); }
+100% { -webkit-transform: translateY(-20px); }
+}
+
+@-webkit-keyframes 'bounce-reflection'
+{
+0% { -webkit-transform: translateY(0); }
+100% { -webkit-transform: translateY(20px); }
+}
+
+@-webkit-keyframes 'indicator'
+{
+0% { opacity: 0; }
+80% { opacity: 0; }
+100% { opacity: 1; }
+}
+/* @end */
+
+.dock
+{position: absolute; bottom: 0; z-index: 10; width: 100%; text-align: center; font: normal 14px/1 Lucida, Arial, sans-serif;}
+
+.dock .apps
+{position: relative; z-index: 20; display: inline-block; padding: 0 12px; background: url(../images/dock-bg-m.png) repeat-x bottom;}
+
+.dock .apps .l, .dock .apps .r 
+{position: absolute; top: 0; bottom: 0; width: 50px;
+}
+
+.dock .apps .l
+{left: -50px; background: url(../images/dock-bg-l.png) no-repeat right bottom;}
+
+.dock .apps .r 
+{right: -50px; background: url(../images/dock-bg-r.png) no-repeat left bottom;}
+
+.dock ul
+{display: inline-block; padding: 0; margin: 0;}
+
+.dock .app
+{position: relative; display: inline-block; margin: 0 -2px; padding-bottom: 15px;}
+
+.dock .app a
+{cursor: default; outline: none;}
+
+.dock .app:active .icon
+{opacity: .9;}
+
+.dock .app:target .icon
+{
+	-webkit-animation-name: 'bounce';
+	-webkit-animation-duration: .3s;
+	-webkit-animation-iteration-count: 6;
+	-webkit-animation-direction: alternate;
+	-webkit-animation-timing-function: ease-out;
+}
+
+.dock .app:target .reflection
+{
+-webkit-animation: 'bounce-reflection' .3s alternate 6 ease-out;
+}
+
+.dock .app:target .indicator
+{
+-webkit-animation: 'indicator' 2s;
+opacity: 1;
+}
+
+/* @group Label */
+.dock .app .label
+{position: absolute; top: -30px; left: 50%; display: none; width: 150px; margin-left: -75px; text-align: center; color: #ffffff;}
+
+.dock .app:hover .label
+{display: block;}
+
+.dock .app .label em
+{display: inline-block; padding: 4px 10px; font-style: normal; background: #000; background: rgba(0, 0, 0, .7);
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;}
+
+.dock .app .label .pointer
+{position: absolute; bottom: -5px; left: 50%; margin-left: -5px; width:0;  height:0;  border-left: 5px solid transparent;  border-right: 5px solid transparent; border-top: 5px solid rgba(0, 0, 0, .7); border-bottom: 0;}
+/* @end */
+
+.dock .indicator
+{
+	-webkit-transition-property: opacity;
+	-webkit-transition-duration: .7s;
+	-moz-transition-property: opacity;
+	-moz-transition-duration: .7s;
+display: block; width: 47px; height: 24px; position: absolute; bottom: 4px; left: 50%; z-index: 20; margin-left: -23px; background: url(http://localhost/1projects/css3dock/images/indicator.png) no-repeat center bottom; opacity: 0; filter: alpha(opacity=0);
+}
+
+/* @group Reflection */
+.dock .app .reflection
+{position: absolute; bottom: 0; left: 0; right: 0; overflow: hidden; height: 21px; z-index: 5; text-align: center;}
+
+.dock .app .reflection img
+{display: inline-block; opacity: .07; filter: alpha(opacity=7);}
+/* @end */
+
+.dock img {
+	-webkit-transition-property: width, height;
+	-webkit-transition-duration: .2s;
+	-moz-transition-property: width, height;
+	-moz-transition-duration: .2s;
+}
+
+.dock img
+{width: 86px;}
+
+.dock .app:hover img
+{width: 96px;}

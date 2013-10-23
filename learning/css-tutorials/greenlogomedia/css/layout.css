@@ -1,0 +1,25 @@
+/*STRUCTURE*/
+
+body
+{background: #2E3133;}
+	
+#wrapper
+{background: #666666; width: 960px;  height: 100%; margin: 40px auto 20px auto; padding: 10px;}
+
+.shadow
+{-moz-box-shadow: 20px 20px 50px #000000; -webkit-box-shadow: 20px 20px 50px #000000; box-shadow: 20px 20px 50px #000000;}
+
+#header-logo
+{height: 100px; margin-bottom: 10px; clear: both; padding-left: 15px;}
+
+#header-logo img
+{border: 0; float: left; border-bottom: 2px solid #99cc66;}
+
+#content
+{width: 620px; float: left; padding-left: 15px; padding-right: 20px;}
+
+#siderail
+{width: 300px; float: right; padding-right: 0px;}
+	
+#footer
+{padding-top: 20px; padding-bottom: 5px; clear: both;}

@@ -1,0 +1,49 @@
+body{ 
+	background-color:#cce; 
+	color:#000;
+	font:normal 14px arial, sans-serif;
+	line-height:21px;
+}
+
+#box{ 
+	margin:0 auto; 
+	padding:0 0 50px 0; 
+	width:600px; 
+	background-color: #F28E00; 
+}
+
+#test-box{
+	background-color: #78C7F2;
+	padding:10px 0 0 10px;
+	font-size:14px;
+	width:590px;
+	height:390px;
+}
+
+
+h1,h2{ 
+	font:bold 20px 'Lucida Grande', 'Trebuchet MS', sans-serif;
+	margin-top:25px; 
+}
+
+h1{ font-size:24px; margin-bottom:36px; }
+h2{ color:#f2aa24; margin-bottom:15px; }
+
+.orange{ color:#f2aa24; }
+.cyan, a{ color:#78c7f2; }
+
+a{ outline:none; text-decoration:none; }
+a:hover{ text-decoration:underline; color:#f2aa24; }
+
+ul{ list-style:none; margin:0; padding:0; }
+ol{ list-style-position:inside; margin:0 0 10px 0; padding:0;}
+li{ padding:0px; margin-bottom:10px; }
+
+
+.code{ 
+	margin:10px;
+	font-size:12px;
+	color:#6C0;
+}
+
+

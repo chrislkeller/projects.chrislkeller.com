@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>iOS 6 Media Capture Demo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- begin css  -->
+<!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" href="http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap-responsive.css" type="text/css" />
+<link rel="stylesheet" href="static/css/styles.css" type="text/css" />
+
+<style>
+.alert {color: red;}
+</style>
+<!-- end css  -->
+
+<script src="http://code.jquery.com/jquery.min.js"></script>
+</head>
+
+<body>
+<div class="container-fluid">
+<div class="row-fluid">
+        <div class="span12">
+        
+            <form>
+                <input type="file" accept="image/*" capture="camera">
+            </form>
+            <p><code>&lt;input type="file" accept="image/*" capture="camera"&gt;</code></p>
+            
+            <form>
+                <input type="file" accept="video/*" capture="camcorder">
+            </form>
+            <p><code>&lt;input type="file" accept="video/*" capture="camcorder"&gt;</code></p>
+            
+            <p class="alert">Not Working:</p>
+            <form>
+                <input type="file" accept="audio/*" capture="microphone">
+            </form>
+            <p><code>&lt;input type="file" accept="audio/*" capture="microphone"&gt;</code></p>
+            
+            <p>Note that this form doesn't actually do anything, it's just meant to show support for Media Capture in iOS 6</p>
+        
+        </div>
+</div>
+</div>
+
+</body>
+</html>

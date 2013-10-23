@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<style style="display:none;">/*bit.ly chrome ext added this automatically*/
+#bitly_expanded_container {
+    position:absolute;
+    /* round the corners  */
+    bottom:1px;
+    z-index:5000;
+/*    width:100%;*/
+    left:0px;
+    display:none;
+    height:80px;
+    width:392px;
+    overflow:hidden;
+    margin-top:3px;    
+}
+
+#bitly_expanded_container * {
+    margin:0;
+    padding:0;
+}
+#bitly_expanded_container a {
+    text-decoration:none;
+    display:inline;
+    background:transparent;
+}
+#bitly_expanded_container ul, #bitly_expanded_container li, #bitly_expanded_container ul li {
+    list-style-type:none;
+}
+
+#bitly_expanded_container .bit_url_expander_box {
+    padding:0 10px;
+    background:white;
+    border:3px solid #ccc;    
+    -webkit-border-radius: 6px;
+    -webkit-box-shadow: 3px 3px 6px #9d9d9d;    
+    width:360px;
+    min-height:45px;
+    text-align:left;
+    position:relative;
+}
+
+#bitly_expanded_container .bit_clearer {
+    clear:both;
+    float:none;
+}
+#bitly_expanded_container .bit_clearer hr {
+    display:none;
+}
+#bitly_expanded_container .bitly_url_clicksbox {
+    float:left;
+    width:40px;
+    text-align:left;  
+    padding:10px 10px 10px 0; 
+    border-right:1px solid #ccc;    
+    font-size:11px;
+    color:#999;    
+}
+#bitly_expanded_container .bit_url_expander_box a, #bitly_expanded_container .bitly_url_clicksbox a {
+    color:#69f;
+}
+
+#bitly_expanded_container .bitly_url_infobox {
+    float:left;
+    width:275px;
+    text-align:left;    
+    padding:10px 0 10px 15px; 
+    
+}
+
+#bitly_expanded_container .bitly_url_infobox p, #bitly_expanded_container .bitly_url_infobox h3 {
+    overflow: hidden;
+    text-overflow: ellipsis;    
+    white-space: nowrap;   
+    font-weight:normal; 
+    display:block;
+    margin:0;
+    padding:0;
+}
+#bitly_expanded_container .bitly_url_infobox h3 {
+    font-size:13px;
+    padding:0 0 2px;
+    margin:0;
+}
+#bitly_expanded_container .bit_url_expander_box .bitly_url_expander_box_close {
+    position:absolute;
+    top:3px;
+    right:6px;
+    color:#999;
+    font-size:11px;
+}
+
+#bitly_expanded_container .bit_url_expander_box .bit_long_link_preview {
+    font-size:11px;
+    color:#999;
+    
+}
+
+#bitly_expanded_container .bit_url_expander_box .bitly_home_promo {
+    position:absolute;    
+    bottom:3px;
+    right:6px;
+    margin:0 6px 3px 0;
+    font-size:11px;
+    color:#c79840;
+}
+#bitly_expanded_container .bit_user_clicks_box {
+    font-size:13px;
+}
+#always_for_this_domain {
+    position:absolute;
+    right:6px;
+    top:15px;
+    padding:4px;
+    border:1px solid #ccc;
+    z-index:5001;
+    background:white;
+    border-radius:4px;
+}
+</style><head><title>Pure CSS Slideshow</title>
+<meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width = device-width;"> 
+
+<!-- Should work in Chrome, Safari, Opera and Firefox 4. 
+     Graceful Degradation in older Versions (no transition effects).
+     Except Internet Explorer of course. -->
+
+<!-- Every page has its own #url for direct links.
+     Check your browserhistory. Its not broken. -->
+
+<style>
+
+
+/* The Basic Style for all Pages */
+
+.page { 
+position: absolute; 
+width: 100%; 
+height: 100%; 
+}
+
+
+
+/* The Pages */
+
+#i1 { left: 0%; background-color: #fff; }
+#i1 { left: 100%; background-color: #fff; }
+#i2 { left: 200%; background-color: #bbb; }
+#i3 { left: 300%; background-color: #777; }
+
+
+
+/* The Transition Effect */
+
+.page { 
+-webkit-transition: -webkit-transform 0.8s;
+-moz-transition: -moz-transform 0.8s;
+-o-transition: -o-transform 0.8s;
+}
+
+
+
+/* The Sliding Action */
+/* TranslateX for better Performance. Translate3D for better Performance on Ipad. */
+
+#a1:target .page { -webkit-transform: translateX(-100%); -moz-transform: translateX(-100%); -o-transform: translateX(-100%); }
+#a2:target .page { -webkit-transform: translateX(-200%); -moz-transform: translateX(-200%); -o-transform: translateX(-200%); }
+#a3:target .page { -webkit-transform: translateX(-300%); -moz-transform: translateX(-300%); -o-transform: translateX(-300%); }
+
+
+
+/* The First Page - Initial Positioning without Anchor */
+
+.page { 
+-webkit-transform: translateX(-100%); -moz-transform: translateX(-100%); -o-transform: translateX(-100%);
+}
+
+
+</style>
+
+
+
+
+<!-- These divs are used for anchor-jumps with the pseudoclass :target -->
+
+<link type="text/css" rel="stylesheet" href="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/style.css"><script type="text/javascript" charset="utf-8" src="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/page_context.js"></script></head><body screen_capture_injected="true"><div id="a1">
+ <div id="a2">
+  <div id="a3">
+
+
+
+   <!-- Top Navigation. Ya, tables are evil. -->
+
+   <table> 
+    <tbody><tr> 
+     <td><a href="#a1" id="p1">1</a></td> 
+     <td><a href="#a2" id="p2">2</a></td> 
+     <td><a href="#a3" id="p3">3</a></td> 
+    </tr> 
+   </tbody></table>
+
+
+
+   <!-- Fallback -->
+
+   <div id="i0" class="page">
+
+    <h1>Your browser sucks.</h1>
+
+   </div>
+
+
+
+   <!-- First Page #a1 -->
+
+   <div id="i1" class="page">
+
+    <a href="#a3" class="backbutton"></a>
+    <a href="#a2" class="nextbutton"></a>
+
+    <h1>Pure CSS Slideshow</h1>
+
+    <img src="pure-css-slideshow-1.png">
+
+   </div>
+
+
+
+   <!-- Second Page #a2 -->
+
+   <div id="i2" class="page">
+
+    <a href="#a1" class="backbutton"></a>
+    <a href="#a3" class="nextbutton"></a>
+
+    <h1>Simplified Demo</h1>
+
+    <img src="pure-css-slideshow-2.png">
+
+   </div>
+
+
+
+   <!-- Third Page #a3 -->
+
+   <div id="i3" class="page">
+
+    <a href="#a2" class="backbutton"></a>
+    <a href="#a1" class="nextbutton"></a>
+
+    <h1>Check the Source Code</h1>
+
+    <img src="pure-css-slideshow-3.png">
+
+   </div>
+
+
+
+  </div>
+ </div>
+</div>
+
+
+<!-- The End -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<footer>
+
+ <a href="http://www.designmadeingermany.de/" class="link">Design made in Germany</a>
+
+</footer>
+
+<iframe allowtransparency="true" frameborder="0" role="presentation" scrolling="no" src="http://platform.twitter.com/widgets/tweet_button.html?url=http%3A%2F%2Fwww.designmadeingermany.de%2Fslideshow%2F&amp;text=Pure CSS Slideshow:&amp;via=Dmig" style="width:105px; height: 30px; position: fixed; bottom: 50px; right: 50px; z-index: 100;"></iframe> 
+
+
+<style>
+
+/* Basic Styles */
+
+* { margin: 0; padding: 0; }
+body { overflow: hidden; color: #222; font-family: helvetica, arial; line-height: 1.2; } a:active { outline: none;}
+.nextbutton, .backbutton { position: absolute; top: 0; height: 100%; width: 50%; }
+.nextbutton { cursor: url('right.png'), e-resize; right: 0; }
+.backbutton { cursor: url('left.png'), w-resize; left: 0; }
+h1 { text-align: center; padding: 0 50px; margin-top: 150px; font-size: 50px; }
+img { margin: 0 auto; display: block; margin-top: 50px;}
+footer { z-index: 2; position: fixed; bottom: 60px; left: 50%; width: 600px; margin-left: -300px; text-align: center; }
+footer a.link { color: #111; font-size: 15px; font-weight: bold; text-decoration: none; border-bottom: solid 2px; }
+footer a.link:hover { color: red; }
+
+
+/* Top Navigation.  */
+
+table { 
+display: table;
+width: 100%; 
+cellspacing: 0; 
+border-collapse: collapse;
+position: fixed;
+z-index: 5000;
+top: -1px;
+left: 0;
+right: 0;
+}
+
+
+table a {
+line-height: 54px;
+font-family: helvetica, arial;
+font-size: 11px;
+font-weight: bold;
+text-decoration: none;
+color: #aaa;
+display: block;
+text-align: center;
+margin: 0;
+background-color: #111;
+-moz-transition: all 1s; 
+-webkit-transition: all 1s; 
+-o-transition: all 1s; 
+transition: all 1s; 
+}
+
+
+#a1:target #p1,
+#a2:target #p2,
+#a3:target #p3 { background-color: red; color: #fff; }
+
+table a:hover {
+background-color: #444;
+-moz-transition: background 0s; 
+-webkit-transition: background 0s; 
+-o-transition: background 0s; 
+transition: background 0s; 
+}
+
+
+</style>
+
+
+
+ <script type="text/javascript"> 
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+ </script><script src="http://www.google-analytics.com/ga.js" type="text/javascript"></script> 
+ <script type="text/javascript"> 
+var pageTracker = _gat._getTracker("UA-670025-3");
+pageTracker._initData();
+pageTracker._trackPageview();
+ </script> 
+ 
+<div id="shadowMeasureIt"></div><div id="divCoordMeasureIt"></div><div id="divRectangleMeasureIt"><div id="divRectangleBGMeasureIt"></div></div></body></html>

@@ -1,0 +1,212 @@
+/*GENERAL STYLES*/
+body
+{background:url(../img/background.png) repeat-x #e8e8e8;}
+
+/*Note: All the image will be in the downloadable source code. */
+a
+{text-decoration:none;
+color:#474747;
+padding:1px;}
+
+a:hover
+{color:#000000; text-decoration: underline;}
+
+.selected
+{border-bottom:1px solid #474747;}
+
+li
+{padding-left:15px;
+background:url(../img/bullet.png) 0 5.9px no-repeat;}
+
+/*STRUCTURE*/
+#container
+{margin:40px auto;
+width:960px;
+border:1px solid #474747;
+background:#fcfcfc;}
+
+#container > header, #container > footer
+{padding:20px 80px 20px 80px;
+width:800px;
+overflow:hidden;
+border: 1px solid #474747;
+border-width:1px 0 1px 0;}
+
+#container > header
+{background:url(../img/header-background.png) repeat-x #d9d9d7;}
+
+#container > header ul li
+{padding: 5px 0 5px 0;}
+
+#container > header ul li a, #container > footer ul li a
+{margin-left: 10px; margin-right: 10px;}
+
+#container > header li, #container > footer li
+{float:left;
+padding:0 5px 0 0;
+background:none;}
+
+#container > section
+{background:#fcfcfc;
+padding:0 40px 40px 80px;
+float:left;
+width:493px;
+border-right:1px solid #474747;}
+
+#container > aside
+{padding-top:20px;
+float:left;
+width:346px;}
+
+#container > footer
+{background:url(../img/header-background.png) repeat-x #d9d9d7;}
+
+/*#container > footer li:after
+{content:" |"}
+
+#container > footer li:last-child:after
+{ content:""}*/
+
+
+/*POST STYLES*/ 
+.post
+{overflow:visible;
+margin-top:40px;}
+
+.post > header
+{margin:0 0 20px 0;
+position:relative;}
+
+.post .date
+{padding:2px 4px ;
+background:#474747;
+color:#ececec;
+font-weight:bold;
+transform:rotate(270deg);
+-moz-transform:rotate(270deg);
+-webkit-transform:rotate(270deg);
+position:absolute;
+top:60px;
+left:-105.5px;}
+
+.post img
+{float:left;
+margin-right:10px;}
+
+.post.ext img
+{float:right;
+margin:0 0 0 10px;}
+
+.post footer
+{overflow:hidden;}
+
+.post footer li
+{float:left;
+background:none;}
+	
+/*SIDEBAR*/
+.side-box
+{padding: 20px 80px 20px 40px;}
+
+.side-box:not(:last-child)
+{border-bottom:1px solid #474747;}
+
+.side-box > header h3
+{margin-bottom:0;}
+ 
+ .side-box > header p
+{text-transform:uppercase;
+font-style:italic;
+font-size:90%;}
+
+.pop-out > section > *
+{display:block;
+background:#fefefe;
+border:1px solid #474747;
+padding:20px;
+position:relative;
+width: 120%;
+left:20px;}
+
+.post-it
+{border:1px solid #2b2c2c;
+padding: 10px;
+font-style:italic;
+position:relative;
+background:#474747;
+color:#ffffff;
+transform:rotate(356deg);
+-moz-transform:rotate(356deg);
+-webkit-transform:rotate(356deg);
+z-index:10;
+top:10px;
+box-shadow:1px 1px 0px #333;
+-moz-box-shadow:1px 1px 0px #333;
+-webkit-box-shadow:1px 1px 0px #333;}
+
+.meta
+{font-size:75%;
+font-style:italic;}
+
+.subtitle
+{text-transform:uppercase;
+font-size:130%;
+font-weight:normal;
+letter-spacing:1px;
+color: #ffffff;
+text-shadow:1px 1px 0 #2b2c2c;}
+
+.comment  
+  { border:1px solid #474747;  
+    border-radius:7px;  
+    -moz-border-radius:7px;  
+    -webkit-border-radius:7px;  
+    padding:10px;  
+    margin:0 0 10px 0;  
+  }  
+    .comment > header > p  
+      { font-weight:bold;  
+        display:inline;  
+        margin:0 10px 20px 0;  
+      }  
+	  
+	  
+	  .reply.comment  
+  { margin-left:80px;  
+  }  
+.author.comment  
+  { color:#ececec;  
+    background:#474747;  
+  } 
+  
+  
+  
+  .comments-form p  
+  { padding:5px;  
+    border-radius:5px;  
+    -moz-border-radius:5px;  
+    -webkit-border-radius:5px;  
+  }  
+.comments-form p:hover  
+  { background:#ececec;  
+  }  
+.comments-form label  
+  { display:inline-block;  
+    width:70px;  
+    vertical-align:top; }  
+.comments-form label:after  
+  { content: " : ";  
+  }  
+.comments-form input[type=text],  
+.comments-form button,  
+.comments-form textarea  
+  { width:200px;  
+    border:1px solid #474747;  
+    border-radius:5px;  
+    -moz-border-radius:5px;  
+    -webkit-border-radius:5px;  
+    padding:2px;  
+  }  
+.comments-form button[type=submit]  
+  { margin-left:70px;  
+  }

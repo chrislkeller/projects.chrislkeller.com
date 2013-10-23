@@ -1,0 +1,39 @@
+<!-- BEGIN META -->
+<meta charset='utf-8' />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+<meta name="description" content="
+<?php if (have_posts() && is_single() OR is_page()):while(have_posts()):the_post();
+$out_excerpt = str_replace(array("\r\n", "\r", "\n"), "", get_the_excerpt());
+echo apply_filters('the_excerpt_rss', $out_excerpt);
+endwhile;
+
+elseif(is_category()):
+if(is_category()):
+echo category_description('');
+
+endif;
+else: ?>
+If motorists drove congestion-free through Chicago life as a commuter would be a dream. But instead we deal with the Circle Interchange, the Eisenhower Expressway and the Kennedy Expressway. Horrible traffic - and horrible drivers - are a way of life for Chicago commuters. That's where the ChiTown Traffic Tattler comes in, providing construction news and commuter information and hopefully some laughs along thw way. Let's call it group therapy for your commute.
+<?php endif; ?>" />
+<meta name="keywords" content="Chicago Traffic, Traffic News, Commute, Chicago Commute, Lake Shore Drive, Circle Interchange, Eisenhower Expressway, Kennedy Expressway, Dan Ryan Expressway">
+<meta name="google-site-verification" content="9q9FqMN1vi22yi1ks2w6RhwL_2_t4SZxnQ6nGSLf-qc" />
+<meta name="copyright" content="Copyright (c)2009-2014 ChiTown Tattler. All Rights Reserved." />
+<meta name="contact" content="admin@chitowntattler.com" />
+
+<!-- BEGIN DYNAMIC PAGE TITLE -->
+<title>
+ <? if ( is_home() ) { ?><?php bloginfo('name'); ?><?php } ?>
+ <? if ( is_search() ) { ?>Search Results | <?php bloginfo('name'); ?><?php } ?>
+ <? if ( is_author() ) { global $wp_query; $curauth = $wp_query->get_queried_object(); ?>Author Archives | <?php echo $curauth->nickname; ?> | <?php bloginfo('name'); ?><?php } ?>
+ <? if ( is_single() ) { ?><?php wp_title(''); ?> | <?php bloginfo('name'); ?><?php } ?>
+ <? if ( is_page() ) { ?><?php wp_title(''); ?> | <?php bloginfo('name'); ?><?php } ?>
+ <? if ( is_category() ) { ?><?php single_cat_title(); ?> | <?php bloginfo('name'); ?><?php } ?>
+ <? if ( is_year() ) { ?><?php the_time('Y'); ?> | <?php bloginfo('name'); ?><?php } ?>
+ <? if ( is_month() ) { ?><?php the_time('F Y'); ?> | <?php bloginfo('name'); ?><?php } ?>
+ <? if ( is_day() ) { ?><?php the_time('d F Y'); ?> | <?php bloginfo('name'); ?><?php } ?>
+ <? if ( is_404() ) { ?>Page not found...<?php } ?>
+<? if (function_exists('is_tag')) { if (is_tag()) { ?><?php single_tag_title("", true); ?> | Tag Archive | <?php bloginfo('name'); ?><?php } } ?>
+</title>
+<!-- END DYNAMIC PAGE TITLE -->
+
+<!-- END META --> 

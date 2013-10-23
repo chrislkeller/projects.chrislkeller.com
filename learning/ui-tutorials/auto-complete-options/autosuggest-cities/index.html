@@ -1,0 +1,145 @@
+<html>
+<head>
+<title>new searcher</title>
+
+
+<script type="text/javascript" src="js/bsn.AutoSuggest_c_2.0.js"></script>
+
+<link rel="stylesheet" href="css/autosuggest_inquisitor.css" type="text/css" media="screen" charset="utf-8" />
+
+<style type="text/css">
+
+	body {
+		font-family: Lucida Grande, Arial, sans-serif;
+		font-size: 10px;
+		text-align: center;
+		margin: 0;
+		padding: 0;
+	}
+	
+	table
+	{
+		border: 1px;
+		background-color: #999;
+		font-size: 10px;
+	}
+	tr
+	{
+		vertical-align: top;
+	}
+	th
+	{
+		text-align: left;
+		background-color: #ccc;
+	}
+	th,
+	td
+	{
+		padding: 2px;
+		font-family: Lucida Grande, Arial, sans-serif;
+		font-size: 1.2em;
+	}
+	td
+	{
+		background-color: #fff;
+	}
+	
+	a {
+		font-weight: bold;
+		text-decoration: none;
+		color: #f30;
+	}
+	
+	a:hover {
+		color: #fff;
+		background-color: #f30; 
+	}
+	
+	#wrapper {
+		width: 600px;
+		margin: 10px auto;
+		text-align: left;
+	}
+	
+	#content {
+		font-size: 1.2em;
+		line-height: 1.8em;
+	}
+	
+	#content h1 {
+		font-size: 1.6em;
+		border-bottom: 1px solid #ccc;
+		padding: 5px 0 5px 0;
+	}
+
+	#content h2 {
+		font-size: 1.2em;
+		margin-top: 3em;
+	}
+
+
+
+
+
+
+
+
+	label
+	{
+		font-weight: bold;
+	}
+
+
+
+
+
+
+
+
+	
+</style>
+
+
+</head>
+<body>
+
+<div id="wrapper">
+<div id="content">
+
+<div>
+<form action="/inc/scripts/search.php" name="topicForm" method="post">
+	<label for="testinput_xml">Person</label>
+	<input type="text" id="testinput_xml" name="q" value="" style="width:300px" /> 
+<input type="hidden" name="selecturl" id="keywords" value="keywords"  />
+	<br /><br /><input type="submit" value="submit" />
+</form>
+</div>
+
+
+
+
+
+<script type="text/javascript">
+	var options = {
+		script:"test.php?json=true&",
+		varname:"input",
+		json:true,
+		callback: function (obj) { document.getElementById('testid').value = obj.id; }
+	};
+	var as_json = new AutoSuggest('testinput', options);
+	
+	
+	var options_xml = {
+		script:"test.php?",
+		varname:"input"
+	};
+	var as_xml = new AutoSuggest('testinput_xml', options_xml);
+</script>
+
+
+
+
+
+
+
+</body>

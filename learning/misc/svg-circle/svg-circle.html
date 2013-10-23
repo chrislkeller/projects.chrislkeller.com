@@ -1,0 +1,38 @@
+
+<html>
+    <head>
+        <title>SVG Circles</title>
+
+        <style>
+            #svgContainer {width:600px; height:200px; background-color:#EEEEEE;}
+        </style>
+
+        <script>
+            window.onload = function() {
+                var container = document.getElementById("svgContainer");
+                var mySvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+
+                mySvg.setAttribute("version", "1.2");
+                mySvg.setAttribute("baseProfile", "tiny");
+                container.appendChild(mySvg);
+
+
+                var c1 = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                c1.setAttribute("cx", "100");
+                c1.setAttribute("cy", "100");
+                c1.setAttribute("r", "60");
+                c1.setAttribute("fill", "#336699");
+                mySvg.appendChild(c1);
+            };
+        </script>
+    </head>
+    <body>
+
+
+
+        <div id="svgContainer"></div>
+
+
+
+    </body>
+</html>

@@ -1,0 +1,23 @@
+
+
+jQuery.mb.scrollable
+©2002 - 2009 Matteo Bicocchi
+
+1.5.7 minor ISSUE:
+  added "goToPage" method. Allow to jump to a specific page.
+
+
+1.5.5 minor ISSUE:
+  added two callback functions: nextCallback and prevCallback.
+  solved an align problem. 
+
+1.5.2 minor fix for IE7:
+  added float left to elements in the component for the unsupported inline-block attr on display.
+
+1.5.1 minor fix:
+  changed "dir:orizontal" in "dir:horizontal".
+
+1.5 Major issue:
+  introduced the vertical scroll modality controlled by a new parameter "dir".
+
+1.0 First release

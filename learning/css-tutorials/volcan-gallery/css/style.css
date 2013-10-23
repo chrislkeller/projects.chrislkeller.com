@@ -1,0 +1,100 @@
+body {
+	background-color: #f1f1f2;
+}
+
+/*Nav Bar Links*/
+
+p.quote {
+	font-size: 6pt;	
+}
+
+
+p.link {
+	color: gray;
+	text-indent:40px;
+	line-height: 200%;
+	font-weight: bolder;	
+}
+
+p.link a:link { text-decoration: none;
+	color: gray;
+}
+	
+p.link a:visited { text-decoration: none;
+	font-weight: bolder;
+	color: gray;
+}
+
+p.link a:hover { text-decoration: none;
+	color: black;
+	font-weight: bolder;
+	letter-spacing: 2px;
+}
+
+.style1 {
+	font-size: 14px
+}
+
+body#about a#aboutnav,
+body#chandeliers a#chandeliersnav,
+body#art a#artnav,
+body#jewelry a#jewelrynav,
+body#music a#musicnav,
+body#news a#newsnav,
+body#contact a#contacnav
+{
+color: #000;
+font-weight: 900;
+}
+
+/*Old CSS that may not be needed*/
+.CONTAINER {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-style: normal;
+	line-height: 17px;
+	font-weight: 100;
+	color: #8F797C;
+	text-decoration: none;
+	background-color: f1f1f2;
+	background-image: none;
+	height: 600px;
+	width: 900px;
+	position: relative;
+	left: 50%;
+	margin-left: -450px;
+}
+
+#HomeNav {
+	position:relative;
+	left: 100px;
+}
+
+.SideNav {
+	position:relative;
+	top: 50px;
+	width:168px;
+}
+
+.bar {
+	position:relative;
+	top:-400px;
+	left:180px;
+	width:10px;
+}
+
+.CONTENT {
+	width:330px;
+	position:relative;
+	top:-868px;
+	left:250px;
+	color: #8F797C;
+}
+
+.aboutCONTENT {
+	width:330px;
+	position:relative;
+	top:-800px;
+	left:250px;
+	color: #8F797C;
+}

@@ -1,0 +1,52 @@
+<style type="text/css">
+
+/* ########## WIDGET STYLES ########## */
+#widget { background: #33ccff url('http://nwi.com/packages/widgets/images/widget_weather.jpg') no-repeat; height: 170px; width:980px; margin-bottom: 10px; color: #ffffff; }
+#widget .refers { color: #333; height: auto; width: inherit; padding-top: 60px; margin-bottom: 10px; }
+#widget .refers a { color: #fff; font-size: 11px; }
+#widget .refer1 { float: left; margin-left: 8px; margin-right: 8px; width: 632px; }
+#widget .refer2 { float: left; margin-right: 8px; width: 300px; }
+#widget .refer3 { float: right; width: 285px; }
+#widget .refer1 img, #widget .refer2 img, #widget .refer3 img { border:1px solid #bbb; float:left; margin-right: 8px; }
+#widget .refers li { height: 14px; list-style: none; }
+#widget .rss-item { display: none; }
+#widget .rss-list { color: #ffffff; }
+#widget h5 { font: 22px bold Georgia, "Times New Roman", Times, serif; color: #ffffff; line-height: 20px; }
+
+</style>
+
+<!--[if lte IE 6]>
+<style type="text/css">
+#widget .rss-item { display:none; }
+</style>
+<![endif]-->
+
+<body>
+<div id="widget">
+<div class="refers">
+<div class="refer1">
+<img src="/packages/widgets/images/snow.jpg" alt="Snow storm slams Porter County.">
+<p class="readmore"><a href="/special/weather">LATEST NEWS &raquo;</a></p>
+			[font:index:headline:<h5>:</h5>:0]
+			[rss:www.nwi.com/?searchrss=1&l=1&tags=weatherlead&d1=0%20days%20ago&d2=today:1:UTF-8:headlink:1]
+</div><!-- closes refer1 -->
+
+<div class="refer3">
+<p class="readmore"><a href="/special/weather">MORE COVERAGE &raquo;</a></p>
+			<!--[font:index:headline:<li>:</li>:0]
+			[rss:www.weather.gov/alerts/wwarssget.php?zone=INZ001:2:UTF-8:bullet-nolead:1]
+			[rss:www.weather.gov/alerts/wwarssget.php?zone=INZ002:2:UTF-8:bullet-nolead:1]
+			[rss:www.weather.gov/alerts/wwarssget.php?zone=ILZ014:1:UTF-8:bullet-nolead:1]-->
+				
+<ul>
+				<li><a href="/special/weather"><strong>WEATHER ALERTS:</strong> NWS watches and warnings.</a></li>
+				<li><a href="/special/weather"><strong>BREAKING NEWS:</strong> Latest weather news.</a></li>
+				<li><a href="/closings"><strong>CLOSINGS:</strong> School closings for your area.</a></li>
+				<li><a href="http://thetimesonline.com/airport/"><strong>AIRPORTS:</strong> Check for flight delays.</a></li>
+<li><a href="http://www.nwi.com/packages/slideshows/020309Snow/"><strong>PHOTOS:</strong> Lake effect snow slams Porter County.</a></li>	
+				</ul>
+
+</div><!-- closes refer3 -->
+
+</div><!-- closes refers -->
+</div><!-- closes widget -->

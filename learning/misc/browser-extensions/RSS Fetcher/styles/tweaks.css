@@ -1,0 +1,32 @@
+.read {
+/*	background:lightgray;*/
+/*	opacity:.6;*/
+	background:white !important;
+}
+
+ul.rightbar_list li.current.read {
+	opacity:1 !important;
+	border-top: 2px solid #CAD2A7 !important;
+	border-bottom: 2px solid #CAD2A7 !important;
+	background:white !important;
+}
+
+ul.rightbar_list li {
+	background:rgba(235, 238, 221, 1.0);
+}
+
+ul.rightbar_list li.read:hover {
+/*	opacity:1 !important;*/
+	background:white !important;
+}
+
+#rightcontainer .post:hover { background: white !important; }
+
+li.read .headline-txt {
+	color:#555;
+}
+
+li.read.current .headline-txt {
+	color:black;
+	font-weight:bold;
+}

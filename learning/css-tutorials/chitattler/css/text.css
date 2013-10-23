@@ -1,0 +1,39 @@
+body
+{font: 13px/1.6 Helvetica, Arial, FreeSans, sans-serif;}
+
+h1, h2, h3, h4, h5, h6
+{color:#333;}
+
+h1
+{color: #ffffff; font-size: 72px; text-shadow:1px 1px 0 #2b2c2c; font-family:arial black, arial}
+
+h2
+{font-size: 23px;}
+
+.post-it h2
+{color: #ffffff;}
+
+h3
+{font-size: 21px;}
+
+h4
+{font-size: 19px;}
+
+h5
+{font-size: 17px;}
+
+h6
+{font-size: 15px;}
+
+/*NAVIGATION TYPOGRAPHY*/
+#container > header ul li
+{font-size: 21px;}
+
+#container > footer ul li
+{font-size: 21px;}
+
+p, h1, h2, h3, h4, h5, h6, ul
+{margin-bottom: 20px;}
+
+article, aside, dialog, figure, footer, header, hgroup, menu, nav, section
+{display: block;}

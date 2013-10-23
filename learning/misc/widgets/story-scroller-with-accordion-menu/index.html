@@ -1,0 +1,247 @@
+<!doctype html>
+
+<?php ### BEGIN DOC ###?>
+<html lang="en">
+
+<?php ### BEGIN DOC HEADER ###?>
+<head>
+
+<?php ### BEGIN TITLE ###?>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<title>HTML5 Story Presentation</title>
+<?php ### END TITLE ###?>
+
+<?php ### BEGIN CSS ### ?>
+<link rel="stylesheet" href="#" type="text/css" media="screen" />
+<style type="text/css">
+<style type="text/css" media="screen">
+body { 
+    margin: 0; 
+    padding: 0 20px; 
+    font: 1em "Trebuchet MS", verdana, arial, sans-serif; 
+    font-size: 85%; 
+}
+
+div, ul, li {
+    zoom: 1;
+}
+
+ul ul,
+ul ul li {
+    zoom: 0;
+}
+
+#timeline {
+    height: 375px;
+    margin-top: 10px;
+    padding: 20px;
+    overflow: auto;
+    /*cursor: -moz-grab !important;*/ /* should this be applied with JS? */
+    border: 2px solid #D9E4FF;
+}
+
+.tl-events {
+    width: 11800px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tl-events li {
+    float: left;
+    width: 300px;
+    margin-right: 10px;
+}
+
+.tl-events ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.tl-events ul li a {
+    text-decoration: none;
+    color: #000;
+    background: #D9E4FF;
+    border: 1px solid #D9E4FF;
+    -moz-border-radius: 4px;
+    display: block;
+    margin: 5px 2px;
+    padding: 2px;
+}
+
+.tl-events ul li a:hover,
+.tl-events ul li a:focus {
+    outline: 0;
+    background: #C2CCE4;
+    border: 1px solid #B0BACF;
+}
+
+.doodle {
+    display: none;
+}
+
+h1 {
+    margin: 8px 0;
+}
+</style>
+<?php ### END CSS ### ?>
+
+<?php ### BEGIN SCRIPT ### ?>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="jquery.mousewheel.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function () {        
+        $('#timeline').mousedown(function (event) {
+            $(this)
+                .data('down', true)
+                .data('x', event.clientX)
+                .data('scrollLeft', this.scrollLeft);
+                
+            return false;
+        }).mouseup(function (event) {
+            $(this).data('down', false);
+        }).mousemove(function (event) {
+            if ($(this).data('down') == true) {
+                this.scrollLeft = $(this).data('scrollLeft') + $(this).data('x') - event.clientX;
+            }
+        }).mousewheel(function (event, delta) {
+            this.scrollLeft -= (delta * 30);
+        }).css({
+            'overflow' : 'hidden',
+            'cursor' : '-moz-grab'
+        });
+    });
+    
+    $(window).mouseout(function (event) {
+        if ($('#timeline').data('down')) {
+            try {
+                if (event.originalTarget.nodeName == 'BODY' || event.originalTarget.nodeName == 'HTML') {
+                    $('#timeline').data('down', false);
+                }                
+            } catch (e) {}
+        }
+    });
+</script>
+<?php ### END SCRIPT ### ?>
+
+</head>
+<?php ### END DOC HEADER ###?>
+
+<?php ### BEGIN BODY ###?>
+<body>
+<h1>Google 10 Year Timeline</h1>
+<div id="timeline">
+<ul class="tl-events">
+<li class="welcome">
+<h2>Welcome to the interactive timeline of Google history!</h2>
+<p>Travel through time by dragging the timeline or the slider below. Click on any event to see more information.</p>
+<p>
+
+</p>
+</li>
+<li class="first last">
+<h3>
+1995–1997</h3>
+<ul class="column">
+<li class="doodle" id="event-1997-1-doodle">
+<a href="#1997-1-doodle" hidefocus="">
+
+</a>
+</li>
+<li class="milestone" id="event-1995-when-larry-met-sergey">
+<a href="#1995-when-larry-met-sergey" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">When Larry met Sergey</span>
+
+</span>
+</a>
+</li>
+<li class="milestone" id="event-1996-new-search-tool-named-backrub">
+<a href="#1996-new-search-tool-named-backrub" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">New search tool named BackRub</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-1996-backrub-search-index-grows">
+<a href="#1996-backrub-search-index-grows" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">BackRub search index grows</span>
+
+</span>
+</a>
+</li>
+<li class="milestone" id="event-1997-google-com-registered-as-a-domain">
+<a href="#1997-google-com-registered-as-a-domain" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google.com registered as a domain</span>
+</span>
+</a>
+</li>
+</ul>
+</li>
+<li class="first last">
+<h3>
+1998</h3>
+
+<ul class="column">
+<li class="doodle" id="event-1998-1-doodle">
+<a href="#1998-1-doodle" hidefocus="">
+
+</a>
+</li>
+<li class="milestone" id="event-1998-andy-bechtolsheim-is-first-google-investor">
+<a href="#1998-andy-bechtolsheim-is-first-google-investor" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Andy Bechtolsheim is first Google investor</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-1998-danny-sullivan-s-early-review">
+<a href="#1998-danny-sullivan-s-early-review" hidefocus="">
+
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Danny Sullivan’s early review</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-1998-google-rents-a-silicon-valley-garage">
+<a href="#1998-google-rents-a-silicon-valley-garage" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google rents a Silicon Valley garage</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-1998-google-incorporates">
+
+<a href="#1998-google-incorporates" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Google incorporates</span>
+</span>
+</a>
+</li>
+<li class="milestone" id="event-1998-early-technical-specs-detailed">
+<a href="#1998-early-technical-specs-detailed" hidefocus="">
+<span title="Milestones" class="tl-icon"/>
+<span class="tl-msg">
+<span class="tl-msg-inside">Early technical specs detailed</span>
+</span>
+</a>
+</li>
+</ul>
+    </div>
+</body>
+<?### END BODY ###?>
+
+</html>
+<?### END DOC ###?>

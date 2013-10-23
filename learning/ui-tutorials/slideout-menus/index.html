@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <title>Fresh Bottom Slide Out Menu with jQuery</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="description" content="Fresh Bottom Slide Out Menu with jQuery" />
+        <meta name="keywords" content="jQuery, navigation, CSS3, menu" />
+        <link rel="stylesheet" href="css/style.css" type="text/css" media="screen"/>
+    </head>
+    <body>
+        <div class="container">
+            <ul id="menu">
+                <li>
+                    <a>
+                        <i class="icon_about"></i>
+                        <span class="title">About</span>
+                        <span class="description">Learn about us and our services</span>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <i class="icon_work"></i>
+                        <span class="title">Work</span>
+                        <span class="description">See our work and portfolio</span>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <i class="icon_help"></i>
+                        <span class="title">Help</span>
+                        <span class="description">Talk to our support</span>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <i class="icon_search"></i>
+                        <span class="title">Search</span>
+                        <span class="description">Search our website</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div><a class="back" href="http://tympanus.net/codrops/2010/03/09/a-fresh-bottom-slide-out-menu-with-jquery/"></a></div>
+        <div><a class="ref" href="http://dryicons.com">Icons by DryIcons</a></div>
+
+        <!-- The JavaScript -->
+        <script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+        <script type="text/javascript">
+        $(function() {
+            $('#menu > li').hover(
+                function () {
+                    var $this = $(this);
+                    $('a',$this).stop(true,true).animate({
+                            'bottom':'-15px'
+                        }, 300);
+                    $('i',$this).stop(true,true).animate({
+                            'top':'-10px'
+                        }, 400);
+                },
+                function () {
+                    var $this = $(this);
+                    $('a',$this).stop(true,true).animate({
+                            'bottom':'-95px'
+                        }, 300);
+                    $('i',$this).stop(true,true).animate({
+                            'top':'50px'
+                        }, 400);
+                }
+            );
+        });
+        </script>
+    </body>
+</html>

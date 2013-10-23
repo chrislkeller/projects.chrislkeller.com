@@ -1,0 +1,71 @@
+/*------------------------------
+NAVIGATION
+------------------------------*/
+/*Positions Navigation*/
+
+#navmenu{
+	position: absolute;
+	margin-top: 5px;
+	margin-left: 300px;
+	width: 960px;
+}
+
+/*Styles a tags*/
+#navmenu a {
+	font-family: sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	text-decoration: none;
+	display: block;
+	width: 100px;
+	text-align: center;
+	color: #fdee19;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background:url(../images/navimg.png) center -1000px no-repeat;
+
+}
+
+/*Arranges li Horizontally*/
+ul#navmenu li{
+	margin: 0;
+	border: 0 none;
+	padding: 0;
+	float: left;
+}
+
+/*Adds Hover Effect*/
+#navmenu a:hover {
+	color: #fdee19;
+	background-position: center center;
+}
+
+
+/*Media Buttons*/
+
+
+
+
+#navmenu li.rss{
+	width: 80px;
+	float: right;
+	margin-left: 20px;
+	padding-left: 0px;
+	background: url("../images/rss.png") left center no-repeat;
+}
+
+#navmenu li.facebook{
+	width: 80px;
+	float: right;
+	margin-left: 20px;
+	padding-left: 14px;
+	background: url("../images/facebook.png") left center no-repeat;
+}
+
+#navmenu li.twitter{
+	width: 80px;
+	float: right;
+	margin-left: 0px;
+	padding-left: 9px;
+	background: url("../images/twitter.png") left center no-repeat;
+}

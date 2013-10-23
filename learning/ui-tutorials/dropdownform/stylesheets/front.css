@@ -1,0 +1,212 @@
+a {
+	color: #1E608E;
+	text-decoration:none;
+	outline: none;
+}
+
+.tipsy {
+	opacity:.8;
+	filter:alpha(opacity=80);
+	background-repeat:no-repeat;
+	padding:5px;
+}
+.tipsy-inner {
+	padding:8px 8px;
+	max-width:200px;
+	font:11px 'Lucida Grande', sans-serif;
+	font-weight:bold;
+	-moz-border-radius:4px;
+	-khtml-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	background-color:#000;
+	color:white;
+	text-align:left;
+}
+.tipsy-north {
+	background-image:url(http://s.twimg.com/a/1249943174/images/tipsy/tipsy-north.gif);
+	background-position:top center;
+}
+.tipsy-south {
+	background-image:url(http://s.twimg.com/a/1249943174/images/tipsy/tipsy-south.gif);
+	background-position:bottom center;
+}
+.tipsy-east {
+	background-image:url(http://s.twimg.com/a/1249943174/images/tipsy/tipsy-east.gif);
+	background-position:right center;
+}
+.tipsy-west {
+	background-image:url(http://s.twimg.com/a/1249943174/images/tipsy/tipsy-west.gif);
+	background-position:left center;
+}
+body {
+	margin:0;
+	padding:0;
+	font:13px/16px "Lucida Grande", Arial, Sans-serif;
+	color:#789;
+	background-color: #ddeef6;
+	background-image: url(http://s.twimg.com/a/1249943174/images/front-bg.gif);
+	background-repeat: repeat;
+}
+#container {
+	width:780px;
+	margin:0 auto;
+}
+
+#content {
+	width:520px;
+	min-height:500px;
+}
+a:link, a:visited {
+	color:#27b;
+	text-decoration:none;
+}
+a:hover {
+	text-decoration:underline;
+}
+a img {
+	border-width:0;
+}
+#topnav {
+	padding:10px 25px 12px;
+	font-size:11px;
+	line-height:23px;
+	text-align:right;
+}
+#topnav a.signin {
+	background:#88bbd4;
+	padding:4px 6px 6px;
+	text-decoration:none;
+	font-weight:bold;
+	color:#fff;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	border-radius:4px;
+	*background:transparent url("http://s.twimg.com/a/1249943174/images/signin-nav-bg-ie.png") no-repeat 0 0;
+	*padding:4px 12px 6px;
+}
+#topnav a.signin:hover {
+	background:#59B;
+	*background:transparent url("http://s.twimg.com/a/1249943174/images/signin-nav-bg-hover-ie.png") no-repeat 0 0;
+	*padding:4px 12px 6px;
+}
+#topnav a.signin, #topnav a.signin:hover {
+	*background-position:0 3px!important;
+}
+
+a.signin {
+	position:relative;
+	margin-left:3px;
+}
+a.signin span {
+	background-image:url("http://s.twimg.com/a/1249943174/images/toggle_down_light.png");
+	background-repeat:no-repeat;
+	background-position:100% 50%;
+	padding:4px 16px 6px 0;
+}
+#topnav a.menu-open {
+	background:#ddeef6!important;
+	color:#666!important;
+	outline:none;
+}
+#small_signup {
+	display:inline;
+	float:none;
+	line-height:23px;
+	margin:25px 0 0;
+	width:170px;
+}
+a.signin.menu-open span {
+	background-image:url("http://s.twimg.com/a/1249943174/images/toggle_up_dark.png");
+	color:#789;
+}
+
+#signin_menu {
+	-moz-border-radius-topleft:5px;
+	-moz-border-radius-bottomleft:5px;
+	-moz-border-radius-bottomright:5px;
+	-webkit-border-top-left-radius:5px;
+	-webkit-border-bottom-left-radius:5px;
+	-webkit-border-bottom-right-radius:5px;
+	display:none;
+	background-color:#ddeef6;
+	position:absolute;
+	width:210px;
+	z-index:100;
+	border:1px transparent;
+	text-align:left;
+	padding:10px;
+	margin-left:-8px;
+	*margin-left:-15px;
+	margin-top:5px;
+	color:#789;
+	font-size:11px;
+}
+
+#signin_menu input[type=text], #signin_menu input[type=password] {
+	display:block;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border:1px solid #ACE;
+	font-size:13px;
+	margin:0 0 5px;
+	padding:5px;
+	width:203px;
+}
+#signin_menu p {
+	margin:0;
+}
+#signin_menu a {
+	color:#6AC;
+}
+#signin_menu label {
+	font-weight:normal;
+}
+#signin_menu p.remember {
+	padding:10px 0;
+}
+#signin_menu p.forgot, #signin_menu p.complete {
+	clear:both;
+	margin:5px 0;
+}
+#signin_menu p a {
+	color:#27B!important;
+}
+#signin_submit {
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	background:#39d url('http://s.twimg.com/a/1249943174/images/bg-btn-blue.png') repeat-x scroll 0 0;
+	border:1px solid #39D;
+	color:#fff;
+	text-shadow:0 -1px 0 #39d;
+	padding:4px 10px 5px;
+	font-size:11px;
+	margin:0 5px 0 0;
+	font-weight:bold;
+}
+#signin_submit::-moz-focus-inner {
+padding:0;
+border:0;
+}
+#signin_submit:hover, #signin_submit:focus {
+	background-position:0 -5px;
+	cursor:pointer;
+}
+
+.tipsy-inner {
+	padding:10px 15px;
+	line-height:1.5em;
+	font-weight:bold;
+}
+.ie6 .tipsy {
+	width:250px;
+}
+.signup-tip {
+	line-height:18px;
+	margin:30px 0;
+	color:#333;
+}
+.signup-tip a {
+	font-weight:bold;
+}
+}

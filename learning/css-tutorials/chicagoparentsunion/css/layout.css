@@ -1,0 +1,71 @@
+/*------------------------------
+=BASIC SETUP
+------------------------------*/
+
+/* Makeshift CSS Reset */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* Tell the browser to render HTML 5 elements as block */
+header, footer, section, aside, nav, article {
+	display: block;
+}
+
+body {
+	margin: 0 auto;
+	padding: 22px 0;
+	width: 940px;
+	font: 13px/22px Helvetica, Arial, sans-serif;
+	background: #00588C;
+}
+
+header {
+	margin-top: 50px;
+	margin-bottom: -7px;
+}
+
+#wrapper {
+	width: 940px;
+	margin: -30px auto;
+	background: #FFF;
+	padding-left: 60px;
+	padding-right: 60px;
+}
+
+
+#content {
+	display: table;
+}
+
+.video {
+	border: 1px solid #000;
+	padding: 0px 25px 25px 25px;
+	background: #333333;
+}
+
+#mainContent {
+	display: table-cell;
+	width: 620px;
+	padding: 20px 20px 30px 0px;
+}
+
+aside {
+	display: table-cell;
+	width: 300px;
+	background: url("images/sidebar_background.png") top left;
+}
+
+
+.leftPost {
+	float: left;
+	width: 300px;
+	padding-bottom: 50px;
+}
+
+.rightPost {
+	float: right;
+	width: 300px;
+	padding-bottom: 50px;
+}

@@ -1,0 +1,17 @@
+/*
+Theme Name: ChiTownTattler
+Theme URI: http://www.greenlogomedia.com
+Description: A theme by <a href="http://www.greenlogomedia.com">Green Logo Media</a>.
+Version: .9
+Author: Chris Keller
+Author URI: http://www.greenlogomedia.com
+Copyright 2010. All rights reserved.
+WP Framework is licensed under the terms of the GNU General Public License version 2.
+If you have any questions, comments, or concerns, 
+visit <http://www.greenlogomedia.com> for more information!
+*/
+
+/* These are the files. There are a lot */
+@import url( 'css/reset.css' );
+@import url( 'css/text.css' );
+@import url( 'css/styles.css' );

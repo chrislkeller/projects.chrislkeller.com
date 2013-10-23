@@ -1,0 +1,6 @@
+{
+  "name": "Hello World",
+  "version": "0.2",
+  "background_page": "background.html",
+	"permissions": ["tabs", "http://*/*"]
+}

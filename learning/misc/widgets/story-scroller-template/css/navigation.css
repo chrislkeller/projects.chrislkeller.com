@@ -1,0 +1,69 @@
+/*------------------------------
+=NAVIGATION
+------------------------------*/
+
+nav {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	background: #151517;
+	/*background: url("/framework/images/nav_background.png");*/
+}
+
+nav ul {
+	margin: 0 auto;
+	width: 940px;
+	list-style: none;
+}
+
+nav ul li {
+	float: left;
+}
+		
+nav ul li a {
+	display: block;
+	margin-right: 20px;
+	width: 140px;
+	font-size: 14px;
+	line-height: 44px;
+	text-align: center;
+	text-decoration: none;
+	color: #777;
+}
+			
+nav ul li a:hover {
+	color: #fff;
+}
+			
+nav ul li.selected a {
+	color: #fff;
+}
+			
+nav ul li.subscribe a {
+	margin-left: 22px;
+	padding-left: 33px;
+	text-align: left;
+	background: url("../images/rss.png") left center no-repeat;
+}
+
+nav ul li.twitter a {
+	margin-left: 22px;
+	padding-left: 33px;
+	text-align: left;
+	background: url("../images/twitter.png") left center no-repeat;
+}
+
+nav ul li.facebook a {
+	margin-left: 22px;
+	padding-left: 33px;
+	text-align: left;
+	background: url("../images/facebook.png") left center no-repeat;
+}
+
+nav ul li.youtube a {
+	margin-left: 22px;
+	padding-left: 65px;
+	text-align: left;
+	background: url("../images/youtube.png") left center no-repeat;
+}

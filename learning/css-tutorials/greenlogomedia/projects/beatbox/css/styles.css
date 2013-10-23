@@ -1,0 +1,216 @@
+/*BEGIN STRUCTURE*/
+body
+{background-color:#ebebdf; color:#000000; font-family: Helvetica,sans-serif;}
+
+#container
+{}
+
+header
+{height:auto; margin-bottom: 10px;}
+
+header h1
+{margin-bottom: 20px;}
+
+header img
+{margin-bottom: 10px;}
+
+header a
+{text-decoration: none;}
+
+#main
+{width: 300px; margin: auto; background-color:#ffffff; padding: 15px; border: 2px solid #000000;}
+
+textarea
+{width:200px; height:200px; padding:5px; border:1px solid #aaa;}
+
+/*BEGIN TYPOGRAPHY*/
+h1
+{font-size: 30px; margin: 10px 0 20px;}
+
+h2
+{font-size: 24px; margin: 10px 0 20px;}
+
+.text
+{font-size: 14px; display:block; margin-top:15px; margin-bottom:5px; font-weight:bold;}
+
+.menu
+{font-size: 14px; display:block; margin-top:15px; margin-bottom:5px; font-weight:bold;}
+
+.checkbox
+{display:block; margin-bottom:5px; font-weight:bold;}
+
+.tip
+{color:#000000; font-size:12px;}
+
+a, a:active, a:visited
+{text-decoration: none; color:#0d506e;}
+
+a:hover
+{color:#0D506E; text-decoration: underline;}
+
+/*BEGIN FORM STYLES*/
+input
+{margin:0; padding:0;}
+
+.body
+{width:200px; padding:5px; border:2px solid #0d506e;}
+
+#crime
+{border:2px solid #0d506e;}
+
+#location
+{border:2px solid #0d506e;}
+
+.btn
+{width:300px; margin: auto; margin-top: 15px; padding:10px 0; border:2px solid #000000; background-color:#0d506e; color:#fff; font-size:18px; font-weight:bold; -webkit-appearance: none;}
+
+.btn:hover
+{border:2px solid #0d506e; background-color:#000000; color:#fff;}
+
+.clear
+{clear:both;}
+
+/*BEGIN IMAGES*/
+header, footer
+{height:auto; margin-bottom: 10px;}
+
+header img, footer img
+{width: 300px;}
+
+
+
+
+
+/*BEGIN INCIDENT DATA RETURN*/
+#incident-item
+{width: 250px; padding: 5px; border-bottom: 1px solid #cccccc; margin: 10px 0 10px 0;}
+
+#incident-data .user-name
+{font-size: 14px; margin-top: 10px; font-weight: bold;}
+
+#incident-data .incident-name
+{font-size: 14px; text-indent:15px;}
+
+#incident-data .notify
+{width:250px; font-size: 14px; margin-top: 10px; margin-bottom: 10px; padding:1px; border:2px solid #000000; background-color:#0d506e; color:#fff; font-weight:bold; -webkit-appearance: none;}
+
+#incident-data .notify:hover
+{border:2px solid #0d506e; background-color:#000000; color:#fff;}
+
+
+
+
+
+
+
+
+
+#incident-data .votes
+{font-size: 12px; margin-top: 10px; font-weight: bold; text-align: center; border:1px solid #cccccc}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.incidents, .users
+{margin-top: 10px; list-style-type: none}
+
+.incident-return
+{margin-bottom: 10px;}
+
+
+
+
+
+.user-return
+{margin-top: 15px;}
+
+/*MISC*/
+footer
+{margin-top: 20px;}
+
+
+
+/*BEGIN VOTE*/
+
+#incident-vote
+{float: right; margin-right: 35px;}
+
+
+
+
+
+
+
+
+
+/*VOTING CSS*/
+.triangle-isosceles
+{position: relative;
+width: 75px;
+padding: 15px;
+margin: 20px 0 20px 0;
+color: #ffffff;
+float: right;
+
+/* default background for browsers without gradient support */
+background: #0D506E;
+
+/* css3 */
+-moz-border-radius:10px;
+-webkit-border-radius:10px;
+border-radius:10px;}
+
+
+
+
+/* creates triangle */
+.triangle-isosceles:after
+{content: "\00a0";
+display: block; /* reduce the damage in FF3.0 */
+position: absolute;
+z-index: -1;
+bottom: -30px; /* value = - border-top-width - border-bottom-width */
+left: 50px; /* controls horizontal position */
+width: 0;
+height: 0;
+border-width: 15px 15px; /* vary these values to change the angle of the vertex */
+border-style: solid;
+border-color: #0D506E transparent transparent;}
+
+
+
+
+
+
+
+
+
+
+
+.triangle-isosceles.top {float: left;}
+
+/* creates triangle */
+.triangle-isosceles.top:after 
+{top:-30px; /* value = - border-top-width - border-bottom-width */
+right:50px; /* controls horizontal position */
+bottom:auto;
+left:auto;
+border-color:transparent transparent #0D506E;}
+
+
+
+
+
+
+.triangle-isosceles a 
+{color: #ffffff;}

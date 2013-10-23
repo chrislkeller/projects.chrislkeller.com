@@ -1,0 +1,108 @@
+/*------------------------------
+TYPOGRAPHY
+------------------------------*/
+#postcontent a{
+	text-decoration: none;
+	color:#fff;
+}
+
+#postcontent a:visited{
+	color:#fff;
+}
+	
+#postcontent a:hover{
+	color:#000;
+}
+
+#sidebar h3{
+	color:#fdee19;
+	text-transform:uppercase;
+	text-align: center;
+	font-size:10pt;
+	font-family: georgia, new york, serif;
+	margin-bottom:0px;
+	line-height: 14px;
+}
+
+h3{		
+	color:#ffffff;
+	text-transform:uppercase;
+	font-size:15px;
+	font-family: georgia, new york, serif;
+	margin-bottom:3px;
+	line-height: 14px;	
+}
+
+.subhead{
+	font-size:11px;
+	color:#feffbd;
+	font-family: helvetica, arial, sans-serif;
+	margin:12px 0px;
+	text-transform:uppercase;
+}
+	
+.tags{
+	font-family: Helvetica, Arial, sans-serif;
+	font-size:13px;
+}
+
+ul, li{		
+	color:fff;
+	list-style-type:none; 	
+}
+
+#postcontent h2{
+	color:#ff0;
+	font-family:Georgia, New York, serif;
+	font-size:24px;
+	text-transform:uppercase;
+	line-height:.95em;
+	padding:3px;
+}
+
+#postcontent p{
+	color:#fff;
+	padding-bottom:4px;
+	font-family: sans-serif;
+	line-height:1.5em;
+	font-size:12px;
+	font-weight:normal;
+}	
+
+#blog_box h2{
+	color:#ff0;
+	font-family:Georgia, New York, serif;
+	font-size:24px;
+	text-transform:uppercase;
+	line-height:.95em;
+	padding:3px;
+}
+
+#blog_box p{
+	color:#fff;
+	padding-bottom:4px;
+	font-family: sans-serif;
+	line-height:1.5em;
+	font-size:12px;
+	font-weight:normal;
+}		
+
+#bio_box p, #bio_box a{		
+	font-size:12px;
+	color:#ffffff;
+	font-family: helvetica, arial, sans-serif;
+	padding: 6px 0px;
+	border-bottom: 1px dotted #555555;	
+}		
+	
+#bio_box a{
+	display:block;
+}
+	
+#bio_box a:hover{
+	color:#000;
+}
+	
+#bio_box strong{		
+	text-transform:uppercase;	
+}

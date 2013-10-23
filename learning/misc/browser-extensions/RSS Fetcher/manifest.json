@@ -1,0 +1,19 @@
+{
+  "name": "RSS Fetcher",
+  "version": "0.1",
+
+  "description": "Keep up with the latest from Lifehacker.",
+  "icons": { "16" : "images/icon.png",
+ 			"48" : "images/48.png",
+			"128" : "images/128.png"},
+  "homepage_url": "http://lifehacker.com/",
+	"background_page": "background.html",
+	"permissions": [
+	  "http://feeds.gawker.com/*"
+	],
+	"browser_action": {
+    "default_icon": "images/icon.png", 
+    "default_title": "Lifehacker Notifier",      
+    "default_popup": "popup.html"       
+  }
+}

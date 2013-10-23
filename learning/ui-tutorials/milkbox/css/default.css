@@ -1,0 +1,16 @@
+*{ margin:0; padding:0; }
+img{ border:none; }
+table, td{ border:none; margin:0; padding:0; }
+td{ text-align:left; vertical-align:top; }
+form{ margin:0; padding:0; }
+
+.spacer{ clear:both; margin:0; padding:0; height:0; font-size:0; overflow:hidden; }
+
+a{ color:#252525;  text-decoration:none; outline:none; }
+a:hover{ color:#C10000; }
+
+.leftImage, .rightImage{ border-color:#fff; border-style:solid; }
+.leftImage, .left{ float:left; }
+.rightImage, .right{ float:right; }
+
+.noborder{ border-bottom:none; }

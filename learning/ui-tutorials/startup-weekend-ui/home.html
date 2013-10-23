@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<!-- begin css -->
+<link rel="stylesheet" href="assets/css/defaltwithgreen.min.css" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile.structure-1.1.0.min.css" />
+<link rel="stylesheet" href="assets/css/styles.css" />
+
+<!-- begin scripts -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+<!-- end scripts -->
+
+</head>
+
+<!-- begin body -->
+<body>
+
+<!-- begin page -->
+<div data-role="page" id="login">
+
+<!-- begin content -->
+<div data-role="content">
+
+<% if (typeof name !== 'undefined'){%>
+    <h4>Hi <%- name %> Welcome to Bushwhack Apps</h4>
+<%}%>
+
+<ul data-role="listview" data-divider-theme="a" data-inset="true">
+<li data-role="list-divider" role="heading">Do you want to</li>
+<li data-theme="a"><a href="find.html" data-ajax='false' data-transition="slide">Find courses near you</a></li>
+<li data-theme="a"><a href="course-search.html" data-ajax='false' data-transition="slide">Search all courses</a></li>
+</ul>
+
+<% if (typeof name == 'undefined'){%>
+    <a data-theme="a" data-role="button" data-transition="fade" data-ajax='false' href="/auth/facebook/login">Log In with Facebook</a>    
+<%}
+else{%>
+    <a data-theme="a" data-role="button" data-transition="fade" data-ajax='false' href="/auth/facebook/logout">Log out of Facebook</a>
+<%}%>
+</div>
+<!-- end login page content -->
+
+<!-- begin page footer -->
+<div data-theme="a" data-role="footer">
+<img style="width: 100%;" src="assets/img/footer.jpg" />
+</div>
+<!-- end page footer -->
+
+</div>
+<!-- end page -->
+
+</body>
+
+</html>

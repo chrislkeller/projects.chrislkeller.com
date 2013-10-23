@@ -1,0 +1,326 @@
+/*
+ 
+ File: style.css
+ 
+ Abstract: Stylesheet for the HTML5VideoPlayer sample.
+ 
+ Version: 1.0
+ 
+ Disclaimer: IMPORTANT:  This Apple software is supplied to you by 
+ Apple Inc. ("Apple") in consideration of your agreement to the
+ following terms, and your use, installation, modification or
+ redistribution of this Apple software constitutes acceptance of these
+ terms.  If you do not agree with these terms, please do not use,
+ install, modify or redistribute this Apple software.
+ 
+ In consideration of your agreement to abide by the following terms, and
+ subject to these terms, Apple grants you a personal, non-exclusive
+ license, under Apple's copyrights in this original Apple software (the
+ "Apple Software"), to use, reproduce, modify and redistribute the Apple
+ Software, with or without modifications, in source and/or binary forms;
+ provided that if you redistribute the Apple Software in its entirety and
+ without modifications, you must retain this notice and the following
+ text and disclaimers in all such redistributions of the Apple Software. 
+ Neither the name, trademarks, service marks or logos of Apple Inc. 
+ may be used to endorse or promote products derived from the Apple
+ Software without specific prior written permission from Apple.  Except
+ as expressly stated in this notice, no other rights or licenses, express
+ or implied, are granted by Apple herein, including but not limited to
+ any patent rights that may be infringed by your derivative works or by
+ other works in which the Apple Software may be incorporated.
+ 
+ The Apple Software is provided by Apple on an "AS IS" basis.  APPLE
+ MAKES NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION
+ THE IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY AND FITNESS
+ FOR A PARTICULAR PURPOSE, REGARDING THE APPLE SOFTWARE OR ITS USE AND
+ OPERATION ALONE OR IN COMBINATION WITH YOUR PRODUCTS.
+ 
+ IN NO EVENT SHALL APPLE BE LIABLE FOR ANY SPECIAL, INDIRECT, INCIDENTAL
+ OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) ARISING IN ANY WAY OUT OF THE USE, REPRODUCTION,
+ MODIFICATION AND/OR DISTRIBUTION OF THE APPLE SOFTWARE, HOWEVER CAUSED
+ AND WHETHER UNDER THEORY OF CONTRACT, TORT (INCLUDING NEGLIGENCE),
+ STRICT LIABILITY OR OTHERWISE, EVEN IF APPLE HAS BEEN ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+ 
+ Copyright (C) 2009 Apple Inc. All Rights Reserved.
+ 
+*/
+
+body {
+  position: relative;
+  width: 1170px;
+  height: 780px;
+  overflow: hidden;
+  margin: 0;
+  /* set up the backdrop with the overlaid menu */
+  background-color: black;
+  background-image: url('menu.png'), url('backdrop.jpg');
+  background-position: 130px 152px, top left;
+  background-repeat: no-repeat;
+  /* make sure we turn off text selection */
+  -webkit-user-select: none;
+  /* and that we don't have a text cursor when hovering text */
+  cursor: default;
+}
+
+/* ==================== Video Container ==================== */
+
+.video-player {
+  position: absolute;
+  right: 119px;
+  top: 213px;
+  width: 640px;
+  height: 368px;
+  padding: 3px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#888), to(#222));
+  font-family: 'Helvetica Neue';
+  font-weight: bold;
+  text-shadow: rgba(0,0,0,0.8) 0px 0px 4px;
+  /* make sure the controls are clipped to the player bounds */
+  overflow: hidden;
+  /* allow position and size to be transitioned for enhanced playback mode */
+  -webkit-transition-property: width, height, top;
+  -webkit-transition-duration: 1s;
+}
+
+/* metrics when in enhanced playback mode */
+.enhanced-playback .video-player {
+  top: 129px;
+  width: 932px;
+  height: 536px;
+}
+
+/* video always uses full size of container */
+video {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(112,52,85,0.75);
+}
+
+/* ==================== Controls ==================== */
+
+.controls {
+  position: absolute;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  height: 100px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.8)), to(rgba(0,0,0,0.3)));
+  /* controls are invisible by default */
+  opacity: 0;
+  -webkit-transform: translateY(100%);
+  /* set up the opacity transition */
+  -webkit-transition-property: opacity, -webkit-transform;
+  -webkit-transition-duration: 0.5s;
+}
+
+/* make the controls visible on player hover */
+.video-player:hover .controls {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+}
+
+/* absolutely position any of the controls */
+.controls div {
+  position: absolute;
+}
+
+/* generic class shared by all text buttons */
+.button {
+  font-size: 36px;
+}
+
+/* text button hover style */
+.button:hover {
+  color: #EAEAEA !important;
+}
+
+/* ==================== Play / Pause Button ==================== */
+
+.button.play {
+  top: 33px;
+  width: 127px;
+  text-align: right;
+  color: #A7769b;
+}
+
+/* label when playing */
+.playing .button.play:before {
+  content: 'PAUSE';
+}
+
+/* label when paused */
+.paused .button.play:before {
+  content: 'PLAY';
+}
+
+/* ==================== Progress Bars ==================== */
+
+.progress-bar {
+  left: 136px;
+  right: 98px;
+  top: 50px;
+  height: 18px;
+  background-color: #D4D4D4;
+  -webkit-box-shadow: 0px 2px 4px rgba(0,0,0,0.8);
+}
+
+/* bars displayed on top of the progress bar background */
+.bar {
+  left: 0;
+  height: 100%;
+}
+
+.loaded {
+  background-color: #8E8CA1;
+}
+
+.played {
+  background-color: #703455;
+  /* we don't want the played bar to receive events,
+     letting them through to the loaded bar */
+  pointer-events: none;
+}
+
+/* ==================== Scrubber ==================== */
+
+/* the container for the scrubber, shorter from the overall
+   progress bar width by the width of the scrubber so that we
+   can use percentages to position the thumb */
+.scrubber-container {
+  left: 0;
+  right: 20px;
+}
+
+.scrubber {
+  top: -1px;
+  /* don't want the complete scrubber to receive events */
+  pointer-events: none;
+}
+
+.scrubber .thumb {
+  width: 20px;
+  height: 20px;
+  background-color: #D9CBE3;
+  -webkit-box-shadow: 0px 2px 4px rgba(0,0,0,0.8);
+  /* only the scrubber thumb should receive events */
+  pointer-events: auto;
+}
+
+.scrubber .thumb:hover {
+  background-color: #EAEAEA;
+}
+
+/* ==================== Time Displays ==================== */
+
+/* shared class for all time displays */
+.time {
+  color: rgb(150,150,150);
+  font-size: 14px;
+}
+
+/* matches the elapsed time display above the scrubber */
+.scrubber .time {
+  text-align: center;
+  -webkit-transform: translate(-15px, 21px);
+}
+
+/* matches the duration display below the progress bar */
+.duration {
+  top: -18px;
+  right: 0;
+  text-align: right;
+}
+
+/* ==================== Volume Control ==================== */
+
+.volume {
+  top: 25px;
+  right: 0px;
+  width: 89px;
+  padding-top: 8px;
+  color: #999999;
+}
+
+/* the muted state of the volume button */
+.muted .volume .button {
+  text-decoration: line-through;
+}
+
+/* container for the slider */
+.volume .slider {
+  top: -5px;
+  width: 62px;
+  height: 12px;
+  background-color: #808080;
+  -webkit-box-shadow: 0px 2px 4px rgba(0,0,0,0.8);
+  /* by default does not register for pointer events
+     so that only the VOL label acts as a hover trigger */
+  pointer-events: none;
+  /* volume slider is invisible by default */
+  opacity: 0;
+  -webkit-transform: translateX(80px);
+  /* set up the opacity transition */
+  -webkit-transition-property: opacity, -webkit-transform;
+  -webkit-transition-duration: 0.25s;
+}
+
+/* matches the slider when the volume button is hovered */
+.volume:hover .slider {
+  /* turn pointer events back on so that we now only
+     hide the slider when we exit the VOL label or the slider */
+  pointer-events: auto;
+  /* show the slider */
+  opacity: 1;
+  -webkit-transform: translateX(0);
+}
+
+/* the bar filling up to the thumb position */
+.slider .fill {
+  height: 100%;
+  background-color: #333;
+}
+
+/* the container for the thumb, shorter from the overall
+   slider width by the width of the thumb so that we can
+   use percentages to position the thumb */
+.slider .thumb {
+  left: 0;
+  right: 14px;
+}
+
+/* the actual thumb element */
+.slider .thumb > div {
+  top: -1px;
+  width: 14px;
+  height: 14px;
+  background-color: #CCCCCC;
+  -webkit-box-shadow: 0px 2px 4px rgba(0,0,0,0.8);
+}
+
+/* hover state for the thumb */
+.slider .thumb > div:hover {
+  background-color: #EAEAEA;
+}
+
+/* ==================== Dimmer ==================== */
+
+.dimmer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  /* dimmer is invisible by default */
+  opacity: 0;
+  /* set up the opacity transition */
+  -webkit-transition: opacity 1s;
+}
+
+/* dimmer shows up when in enchanced playback mode */
+.enhanced-playback .dimmer {
+  opacity: 0.9;
+}

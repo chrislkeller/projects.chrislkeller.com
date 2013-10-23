@@ -1,0 +1,44 @@
+body {
+	font-size: 80%;
+	color: gray;
+	font-family: Arial, sans-serif;
+	overflow-x:hidden;
+	overflow-y:auto;
+}
+
+ul {
+	list-style: none;
+}
+
+.wrapper {
+	width: 300px;
+}
+
+.tweets {
+	display: none;
+}
+
+.tweet {
+	margin-top: 10px;
+	padding-bottom: 10px;
+	width: 95%;
+	border-bottom:inset thin;
+}
+
+.date {
+	font-size: 75%;
+	margin-bottom: 10px;
+}
+
+.text {
+}
+
+.loading {
+	text-align: center;
+}
+
+.twitter_link {
+	color: #404040;
+	text-decoration: none;
+	font-weight: 400;
+}

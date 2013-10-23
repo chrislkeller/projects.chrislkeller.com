@@ -1,0 +1,55 @@
+<style type="text/css">
+
+/* ########## WIDGET STYLES ########## */
+#widget { background: url('http://nwi.com/packages/widgets/images/prepsheader_bg.gif') repeat-x; height: 140px; width:980px; margin-bottom: 10px; color: #ffffff; }
+#widget .refers { color: #fff; height: auto; width: inherit; padding-top: 10px; margin-bottom: 10px; }
+#widget .refers a { color: #fff; font-size: 11px; }
+#widget .refer1 { float: left; margin-left: 8px; margin-right: 8px; width: 300px; }
+#widget .refer2 { float: left; margin-right: 8px; width: 332px; }
+#widget .refer3 { float: right; margin-right: 8px; width: 285px; }
+#widget .refer1 img, #widget .refer2 img, #widget .refer3 img { border:1px solid #bbb; float:left; margin-right: 8px; }
+#widget .refers li { list-style: none; }
+#widget .rss-item { display: none; }
+#widget .rss-list { color: #ffffff; }
+#widget h5 { font: 22px bold Georgia, "Times New Roman", Times, serif; color: #ffffff; line-height: 20px; }
+#widget h5 a { font: 22px bold Georgia, "Times New Roman", Times, serif; color: #ffffff; line-height: 20px; }
+.readmore a:link, .readmore a:visited { color: #fff!important; background-color: #000; font-size: 10px; font-weight: bold; padding: 2px 4px; text-transform: uppercase; }
+#logo { float: left; margin-top: 10px; background: url("/images/preps/prepslogo.png") top left no-repeat; }
+</style>
+
+<!--[if lte IE 6]>
+<style type="text/css">
+#widget .rss-item { display:none; }
+</style>
+<![endif]-->
+
+<body>
+<div id="widget">
+<div class="refers">
+
+<div class="refer1">
+<h1 id="logo"><a href="http://www.nwi.com/sports/prepsports">Northwest Indiana and Illinois Times Prep Sports</a></h1>
+</div><!-- closes refer1 -->
+
+<div class="refer2">
+<a href="http://nwi.com/sports/prepsports/"><img src="/packages/widgets/images/gbbsect09.jpg" alt="Girls Basketball Sectional Results" /></a>
+<p class="readmore"><a href="http://www.nwi.com/football_test/scoreboard.php">GIRLS SECTIONAL RESULTS &raquo;</a></p>
+			<ul>
+			[font:index:headline:<li>:</li>]
+			[index:sports/indiana_prep_sports:inner-headline-only:4:::1:4]
+			</ul>
+</div><!-- closes refer2 -->
+
+<div class="refer3">
+<p class="readmore"><a href="/sports/prepsports/gbbsect09/">SECTIONAL PREVIEW &raquo;</a></p>
+	<ul>
+				<li><a href="http://nwi.com/articles/2009/02/06/sports/packages/docd73f632ad25c614686257554006ecb62.txt"><strong>FEATURE:</strong> Some of the Region's top guards might be small, but they sure play big</a></li>
+				<li><a href="http://nwi.com/articles/2009/02/09/columnists/steve_hanlon/doce1a0c472a12ef1d78625755400484062.txt"><strong>COMMENTARY:</strong> Here is your pick of the litter</a></li>
+				<li><a href="http://nwi.com/varsity/?sport_id=2&show=teams"><strong>STATS:</strong> Learn more about your favorite teams.</a></li>
+				<li><a href="http://nwi.com/sports/prepsports/gbbsect09/"><strong>POLLS:</strong> Vote who you think will win.</a></li>	
+				</ul>
+
+</div><!-- closes refer3 -->
+
+</div><!-- closes refers -->
+</div><!-- closes widget -->

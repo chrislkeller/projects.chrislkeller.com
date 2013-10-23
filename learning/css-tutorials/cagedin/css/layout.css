@@ -1,0 +1,185 @@
+/*------------------------------
+BASIC BLOCKS
+------------------------------*/
+
+*{
+	padding:0;
+	margin:0;
+}	
+
+body{
+	background: url("../images/caged-in.jpg") center top #000000 no-repeat;
+}	
+
+#wrapper{		
+	margin:50px auto 0px auto;
+	width:960px;
+	background-color: #262626;
+	padding-top: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+#bio_box{
+	width:130px;
+	padding:0px 0px 15px 15px;
+	float:left;	
+}		
+
+#postcontent{
+	width:630px;
+	margin-top: 15px;
+	padding:0px 0px 0px 0px;
+	float:left;	
+}
+
+/* Sub Blocks */
+#featured {
+	clear:both;
+	width:580px;
+}
+
+#col1 {
+	float:left;
+	width: 150px;
+	padding-right: 65px;
+}
+
+#col2 {
+	float:left;
+	width: 150px;
+}
+
+#col3 {
+	float:right;
+	width: 150px;
+	padding-left: 65px;
+}
+
+#blog_box{		
+	width:450px;
+	padding:0px 0px 15px 0px;
+	float:left;	
+}
+
+#sidebar{		
+	width:300px;
+	padding:0px 0px 15px 0px;
+	float:right;
+}
+
+#footer{
+	background: #fff;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+/*BEGIN TIMES BRANDING*/
+.branding{
+	border-bottom: 1px dotted #bbb;
+	height: 16px;
+	padding-bottom:6px;
+	width: inherit;
+	margin-bottom:5px;
+	font-family:arial;
+	padding-top:5px;
+}
+
+#footer p{
+	font-size:12px;
+	text-align: center;
+	color: #6d6d6d;
+}
+
+
+#footer a{
+	color: #6d6d6d;
+	font-weight:bold;
+	text-decoration:none
+}
+
+
+#footer a:hover{
+	text-decoration:none;
+	color:#4f78b1;
+}
+
+
+#classifieds{
+	float:right;
+	padding-top: 0px;
+	font-size:10px;
+}
+
+.classified a{
+	color: #6d6d6d;
+	padding: 0 0px;
+	height:14px;
+	line-height:14px;
+	vertical-align:top;
+	font-weight:bold;
+	text-decoration:none
+}
+
+.classified a:hover{
+	text-decoration:none;
+	color:#4f78b1;
+}
+
+.classified ul, .classified li{
+	list-style: none;
+	margin: 0px;
+}
+
+.classified li{
+	display: block;
+	float: left;
+	height: 14px;
+	line-height: 14px;
+}
+
+.classified .last{
+	border-right: 1px solid #bbb;
+}
+
+.classified .jobs{
+	background: url(http://nwi.com/app/images/new/logo_jobs.gif) no-repeat;
+	padding-left: 20px;
+}
+
+.classified .cars{
+	background: url(http://nwi.com/app/images/new/logo_cars.gif) no-repeat;
+	padding-left: 20px;
+}
+
+.classified .homes{
+	background: url(http://nwi.com/app/images/new/logo_homes.gif) no-repeat;
+	padding-left: 20px;
+}
+
+.classified .classifieds{
+	background: url(http://nwi.com/app/images/new/logo_classified.gif) no-repeat;
+	border-right: 1px solid #bbb;
+	padding-left: 20px;
+}
+
+.classified .links{
+	padding-left: 20px;
+}
+
+.classified .lastLink a{
+	color:#ab0001;
+	padding-left:20px
+}
+
+.ad{
+	width:300px;
+	margin-top: 15px;
+}
+
+.footerad{
+	padding-top: 15px;
+	padding-bottom: 15px;
+	margin-left: 100px;
+	margin-right: 100px;
+}

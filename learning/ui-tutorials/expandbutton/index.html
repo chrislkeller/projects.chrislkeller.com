@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<?php ### BEGIN DOC ###?>
+<html>
+
+<?php ### BEGIN DOC HEADER ###?>
+<head>
+
+<?php ### BEGIN TITLE ###?>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Page Title Here</title>
+<?php ### END TITLE ###?>
+
+<?php ### BEGIN CSS ### ?>
+<link rel="stylesheet" href="#" type="text/css" media="screen" />
+<style type="text/css">
+	.leftCol {
+	width: 295px;
+	overflow: hidden;
+	padding: 15px 0px 0px 0px;
+	margin: 0px 25px 0px 0px;
+	float: left;
+	clear: both;
+	}
+	.leftBoxHeading_Off {
+	width: 295px;
+	height: 19px;
+	background: url(images/left-box-heading-off.png) no-repeat;
+	color: #94c93d;
+	font-size: 100%;
+	padding: 8px 0px 0px 18px;
+	cursor: pointer;
+	}
+	.leftBoxExpander {
+	width: 295px;
+	overflow: hidden;
+	height: 0px;
+	background: url(images/left-box-expander-bg.png);
+	}
+	.leftBoxInnerPic {
+	width: 287px;
+	overflow: hidden;
+	background: url(images/left-box-inner-bg.png) bottom repeat-x;
+	margin: 0px 0px 0px 1px;
+	}
+	.leftBoxInnerPicImg {
+	width: 89px;
+	overflow: hidden;
+	float: left;
+	padding: 0px 0px 0px 18px;
+	}
+	
+.leftBoxInnerPicUlWrap {
+	width: 167px;
+	overflow: hidden;
+	float: left;
+	}
+	
+.leftBoxInnerPic ul {
+	width: 138px;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 9px;
+	list-style: none;
+	}
+	
+.leftBoxInnerPic ul li {
+	color: #6699cc;
+	font-size: 110%;
+	width: 266px;
+	}
+	
+.leftBoxInnerPic ul li a {
+	color: #6699cc;
+	text-decoration: none;
+	display: block;
+	padding: 3px 0px 3px 20px;
+	}
+	
+.leftBoxInnerPic ul li a:hover {
+	color: #6699cc;
+	}
+.leftBoxHeading_Off {
+	width: 295px;
+	height: 19px;
+	background: url(images/left-box-heading-off.png) no-repeat;
+	color: #6699cc;
+	font-size: 110%;
+	padding: 8px 0px 0px 18px;
+	cursor: pointer;
+	}
+	
+.leftBoxHeading_On {
+	width: 295px;
+	height: 19px;
+	background: url(images/left-box-heading-on.png) no-repeat;
+	color: #6699cc;
+	font-size: 110%;
+	padding: 8px 0px 0px 18px;
+	cursor: pointer;
+	}
+	
+.leftBoxFooter_Off {
+	width: 295px;
+	height: 12px;
+	background: url(images/left-box-footer-off.png) no-repeat;
+	cursor: pointer;
+	margin: 0px 0px 15px 0px;
+	}
+	
+.leftBoxFooter_On {
+	width: 295px;
+	height: 12px;
+	background: url(images/left-box-footer-on.png) no-repeat;
+	cursor: pointer;
+	margin: 0px 0px 15px 0px;
+	}
+	
+.leftBoxExpander {
+	width: 295px;
+	overflow: hidden;
+	height: 0px;
+	background: url(images/left-box-expander-bg.png);
+	}
+	
+.leftBoxInner {
+	width: 287px;
+	overflow: hidden;
+	margin: 0px 0px 0px 1px;
+	}
+	
+.leftBoxInner ul {
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 9px;
+	list-style:none;
+	}
+	
+.leftBoxInner ul li {
+	color: #6699cc;
+	font-size: 75%;
+	width: 266px;
+	}
+	
+.leftBoxInner ul li a {
+	text-decoration: none;
+	display: block;
+	padding: 3px 0px 3px 20px;
+	}
+	
+	
+.leftBoxInner ul li a:hover {
+	color: #6699cc;
+	}
+	
+.leftBoxInnerPic {
+	width: 287px;
+	overflow: hidden;
+	background: url(images/left-box-inner-bg.png) bottom repeat-x;
+	margin: 0px 0px 0px 1px;
+	}
+	#Layer1 {
+	position:absolute;
+	left:339px;
+	top:39px;
+	width:306px;
+	height:259px;
+	z-index:1;
+}
+h1 {
+	font: normal 310%/110% Garamond, Georgia, serif;
+	letter-spacing: -2px;
+	text-transform: uppercase;
+	text-align: center;
+	padding: 20px 0 0;
+	margin: 0;
+}
+.credits {
+	font: 130%/110% Garamond, Georgia, serif;
+	text-align: center;
+	color: #999;
+	width: 300px;
+	margin: .5em auto 1.5em;
+	padding-top: 8px;
+	border-top: 1px solid #ededed;
+	letter-spacing: 2px;
+}
+.credits em {
+	color: #999;
+}
+.credits a {
+	color: #333;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+.credits a:hover {
+	text-decoration: underline;
+}
+    #Layer2 {
+	position:absolute;
+	left:83px;
+	top:309px;
+	width:861px;
+	height:172px;
+	z-index:2;
+}
+</style>
+<?php ### END CSS ### ?>
+
+<?php ### BEGIN SCRIPT ### ?>
+<script type="text/javascript" src="Javascripts/yahoo-dom-event.js"></script>
+<script type="text/javascript" src="Javascripts/animation-min.js"></script>
+<script type="text/javascript" src="Javascripts/main-javascript.js"></script>
+<?php ### END SCRIPT ### ?>
+
+</head>
+<?php ### END DOC HEADER ###?>
+
+<?php ### BEGIN BODY ###?>
+<body>
+<div id="Layer1">
+<div class="leftCol"> 
+<div id="lhsHeader6" class="leftBoxHeading_Off" onclick="lhsAction('6',true,'T6_Effective_Behaviour_Change');">CSS Expandable Button</div>
+<div id="lhsExpander6" class="leftBoxExpander">
+<div id="lhsInner6" class="leftBoxInnerPic"> <img src="images/left-box-inner-img.png" alt="Left image" height="18" width="287" />
+<ul>
+<li><a href="">add your link here</a></li>
+<li><a href="">add your link here</a></li>
+<li><a href="">add your link here</a></li>
+<li><a href="">add your link here</a></li>
+<li><a href="">add your link here</a></li>
+<li><a href="">add your link here</a></li>
+<li><a href="">add your link here</a></li>
+</ul>
+</div>
+</div>
+<div id="lhsFooter6" class="leftBoxFooter_Off" onclick="lhsAction('6',true,'false');"></div>
+</div>
+</div>
+</div>
+</body>
+<?### END BODY ###?>
+
+</html>
+<?### END DOC ###?>

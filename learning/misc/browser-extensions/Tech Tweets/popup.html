@@ -1,0 +1,73 @@
+<!-- BEGIN CSS -->
+<style>
+body { font-size:80%; color:gray; font-family:Arial, sans-serif; overflow-x:hidden; overflow-y:auto; }
+ul { list-style:none; }
+.wrapper { width:300px; }
+.tweets { display:none; }
+.tweet { margin-top:10px; padding-bottom:10px; width:95%; border-bottom:inset thin; }
+.date { font-size:75%; margin-bottom:10px; }
+.text { }
+.loading { text-align:center; }
+.twitter_link { color:#404040; text-decoration:none; font-weight:400; }
+</style>
+<!-- END CSS -->
+
+<div class="wrapper">
+
+<div class='loading'>
+<span><img src='loader.gif' /> Loading Elijah's Tweets...</span>
+</div>
+<div class="tweets"></div>
+
+</div>
+
+
+<!-- BEGIN SCRIPTS -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+
+<script>
+
+	$.getJSON('https://api.twitter.com/1/statuses/user_timeline.json?screen_name=elijahmanor&count=50&exclude_replies=true&trim_user=true',
+		function(data)  {
+			$.each(data, function(data) {
+				$(".tweets").append("<div class='tweet'><div class='date'>" + convertDate(this.created_at) + "</div><div class='text'>" + scrubTweet(this.text) + "<div>");
+			});
+	
+		$(".tweets").toggle();
+		$(".loading").toggle();
+		}
+	);
+
+function scrubTweet(text) {
+  
+  // replace links with actual hyper links
+  text = text.replace(/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig,"<a href='$1' target='_blank'>$1</a>"); 
+  
+  // replace usernames with links to twitter profiles
+  text = text.replace(/(^|\s)@(\w+)/g, '$1<a class="twitter_link" target="_blank" href="http://www.twitter.com/$2">@$2</a>');
+  
+  // replace hashtags with link to a search on that term
+  return text.replace(/(^|\s)#(\w+)/g, '$1<a class="twitter_link" target="_blank" href="http://search.twitter.com/search?q=%23$2">#$2</a>');
+}
+
+function convertDate(time){
+	var date = new Date(time),
+		diff = (((new Date()).getTime() - date.getTime()) / 1000),
+		day_diff = Math.floor(diff / 86400);
+ 
+	if ( isNaN(day_diff) || day_diff < 0 || day_diff >= 31 )
+		return;
+ 
+	return day_diff == 0 && (
+			diff < 60 && "just now" ||
+			diff < 120 && "1 minute ago" ||
+			diff < 3600 && Math.floor( diff / 60 ) + " minutes ago" ||
+			diff < 7200 && "1 hour ago" ||
+			diff < 86400 && Math.floor( diff / 3600 ) + " hours ago") ||
+		day_diff == 1 && "Yesterday" ||
+		day_diff < 7 && day_diff + " days ago" ||
+		day_diff < 31 && Math.ceil( day_diff / 7 ) + " weeks ago";
+}
+
+</script>
+<!-- END SCRIPTS -->

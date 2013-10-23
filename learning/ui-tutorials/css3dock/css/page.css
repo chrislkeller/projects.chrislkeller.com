@@ -1,0 +1,31 @@
+body
+{margin: 0; padding: 0; font: 14px/1.7 "PT Sans", sans-serif; background: rgb(30, 30, 30); color: rgb(240, 240, 240);}
+
+h1, h2
+{font-family: "Yanone Kaffeesatz";}
+
+h1
+{margin: 0; font-size: 46px; font-weight: normal; letter-spacing: 1px; text-shadow: 0 1px 7px rgba(0, 0, 0, .8); color: #FFF;}
+
+p
+{margin: 0 0 1.6em;}
+
+a
+{color: inherit;}
+
+footer p
+{font-size: .8em; text-align: right; color: rgb(100, 100, 100);}
+
+.wrapper
+{margin: 80px auto 50px; width: 660px;}
+
+.desktop
+{
+position: relative; overflow: hidden; width: 660px; height: 280px; margin-bottom: 50px; 
+background: url(http://localhost/1projects/css3dock/images/bg.jpg) no-repeat center bottom;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-box-shadow: 0 1px 10px rgb(20, 20, 20);
+	-webkit-box-shadow: 0 1px 10px rgb(20, 20, 20);
+	box-shadow: 0 1px 10px rgb(20, 20, 20);
+}

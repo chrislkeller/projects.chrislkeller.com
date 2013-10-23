@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+
+<title>Closing widget</title>
+
+<style type="text/css">
+#widget
+{width: 320px; height: 400px;}
+
+#widget h2
+{margin: 0px; background: #336699; color :#fff; padding: 3px 10px; 24px;}
+
+.widgetState
+{float: right; cursor: pointer; padding: 0 5px;}
+
+.widgetContent
+{color: #444; padding:12px 12px; text-align: justify; border:1px #aaa solid; border-top: 0px;}
+</style>
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js"></script> 
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+state = 1; 
+
+$(".widgetState").click(function() {
+
+if (state == 1)
+{
+$(".widgetState").html("+");
+state--;
+}
+else
+{
+$(".widgetState").html("-");
+state++;
+}
+
+
+$(".widgetContent").slideToggle();
+
+
+})
+
+
+})
+</script>
+
+
+</head>
+
+<body>
+
+<!-- BEGIN WIDGET -->
+<div id="widget">
+<h2>My Widget <span class="widgetState">-</span></h2>
+<div class="widgetContent">
+<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Sed posuere consectetur est at lobortis. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+</div>
+</div>
+<!-- END WIDGET -->
+
+</body>
+</html>

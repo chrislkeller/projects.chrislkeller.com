@@ -1,0 +1,152 @@
+<!-- BEGIN CSS -->
+<link rel="stylesheet" type="text/css" href="css/styles.css" media="screen" />
+
+<!--[if ! IE 9]>
+<style type="text/css" media="screen">
+
+</style>
+<![endif]-->
+<!-- END CSS -->
+
+<!-- BEGIN SCRIPTS -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&region=US"></script>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript" src="scripts/map.js"></script>
+<!-- END SCRIPTS -->
+
+
+<!-- BEGIN MAP CONTAINER -->
+<div id="map-container">
+
+<!-- BEGIN ACTION BAR -->
+<div id ="map-action-bar">
+
+<!-- THANKS JOHN KEEFE FOR THE LEGEND(ARY) INSPIRATION -->
+<table border="0" cellspacing="0" cellpadding="1" style="width:940px;">
+<tbody>
+<tr>
+<td style="width: 470; text-align: center;" id="legend-dem"><strong>Tom Barrett Margin</strong></td>
+<td style="width: 470; text-align: center;" id="legend-gop"><strong>Scott Walker Magrin</strong></td>
+</tr>
+
+<tr>
+<table id="legend" border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td id="map-legend" style="width: 94;" class="dem-highest"></td>
+<td id="map-legend" style="width: 94;" class="dem-second-highest"></td>
+<td id="map-legend" style="width: 94;" class="dem-median"></td>
+<td id="map-legend" style="width: 94;" class="dem-second-lowest"></td>
+<td id="map-legend" style="width: 94;" class="dem-lowest"></td>
+<td>&nbsp;</td>
+<td id="map-legend" style="width: 96;" class="gop-lowest"></td>
+<td id="map-legend" style="width: 94;" class="gop-second-lowest"></td>
+<td id="map-legend" style="width: 94;" class="gop-median"></td>
+<td id="map-legend" style="width: 94;" class="gop-second-highest"></td>
+<td id="map-legend" style="width: 94;" class="gop-highest"></td>
+</tr>
+
+<tr>
+<td>More than 10,000</td>
+<td>5,001-10,000</td>
+<td>1,001-5,000</td>
+<td>401-1,000</td>
+<td>0-400</td>
+<td>&nbsp;</td>
+<td>0-400</td>
+<td>401-1,000</td>
+<td>1,001-5,000</td>
+<td>5,001-10,000</td>
+<td>More than 10,000</td>
+</tr>
+</tbody>
+</table>		
+<!-- END TABLE -->
+
+<!-- BEGIN BUTTONS -->
+<!-- END BUTTONS -->
+
+</div>
+<!-- END ACTION BAR -->
+
+<!-- BEGIN MAP -->
+<div id="map_canvas"></div>
+<!-- END MAP -->
+
+<!-- BEGIN MAP EXPLAINER -->
+<div id="map-explainer">
+
+<!-- BEGIN MAP TITLE -->
+<div id="map-title">
+<h1>2010 Governor's Race</h1>
+</div>
+<!-- END MAP TITLE -->
+
+<!-- BEGIN FACEBOOK LIKE -->
+<!-- <div id="facebook-like">
+<div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=220916691286864&amp;xfbml=1"></script><fb:like href="http://bit.ly/nxeDmS" send="false" layout="button_count" width="100" show_faces="false" font="trebuchet ms"></fb:like>
+</div> -->
+<!-- END FACEBOOK LIKE -->
+
+<div id="submit-location">
+<input type="submit" id="trigger-2006" name="submit" value="2006" class="searchsubmit">
+<input type="submit" id="trigger-2002" name="submit" value="2002" class="searchsubmit">
+</div>
+
+<!-- BEGIN MAP NARRATION-->
+<div id="map-narration">
+<p class="body">Scott Walker's celebrated his 43rd birthday on Nov. 2, 2010 by beating back his Democratic challenger, Milwaukee Mayor Tom Barrett, and being elected as Wisconsin's 45th governor.</p>
+<p class="body">Walker earned 1,128,941 votes to Barrett's 1,004,303.</p>
+<p class="body">This map shows the county-by-county breakdown of the voting. See county vote totals for each candidate by clicking on a county.</p>
+<p class="small"><a href="https://docs.google.com/spreadsheet/ccc?key=0An8W63YKWOsxdDdNNk94ak5uRzVWMS1pWDlaX2VhUVE&hl=en_US#gid=0&amp;output=csv">Download the data used on this map.</a></p>
+<p class="small"><em>Vote totals via <a href="http://gab.wi.gov/sites/default/files/County_by_County_Final_November_12_16_10.pdf" target="_blank">GAB</a> and based on Nov. 2, 2010 balloting .</em></p>
+</div>
+<!-- END MAP NARRATION-->
+
+<!-- BEGIN CREDITS -->
+<p class="small"><em>Map by <a href="http://twitter.com/#!/ChrisLKeller" target="_blank">Chris Keller.</a></em></p>
+<!-- END CREDITS -->
+
+<hr></hr>
+
+<table border="0" cellspacing="0" cellpadding="1" style="width:310px; margin: 10px auto 0 auto;">
+<tbody>
+
+<!-- BEGIN WRITE DATA -->
+<tr>
+<td>
+<div id="dem-votes">
+<h3>Tom Barrett</h3>
+<img src="http://bloximages.chicago2.vip.townnews.com/host.madison.com/content/tncms/assets/v3/editorial/1/1d/11d0e254-df76-11df-b018-001cc4c002e0/4cc43a5a2b9f6.image.jpg" height="99px" alt="Tom Barrett" />
+<p><strong>Statewide Percent: </strong>46.47%
+<br><strong>Statewide votes: </strong>1,004,303
+<br><strong>Statewide Margin:</strong> FILL IN</p>
+</div>
+</td>
+
+<td>
+<div id="gop-votes">
+<h3>Scott Walker</h3>
+<img src="http://bloximages.chicago2.vip.townnews.com/host.madison.com/content/tncms/assets/v3/editorial/5/be/5bec4836-df73-11df-8fbf-001cc4c002e0/4cc435cd63162.image.jpg" height="99px" alt="Scott Walker" />
+<p><strong>Statewide Percent: </strong>52.25%
+<br><strong>Statewide votes: </strong>1,128,941
+<br><strong>Statewide Margin:</strong> FILL IN</p>
+</div></td>
+</tr>
+
+<tr>
+<td colspan="2"><div id="third-votes"></div></td>
+</tr>
+<!-- END WRITE DATA -->
+
+</tbody>
+</table>		
+
+</table>	
+
+</div>
+<!-- END MAP EXPLAINER -->
+
+</div>
+<!-- END MAP CONTAINER -->

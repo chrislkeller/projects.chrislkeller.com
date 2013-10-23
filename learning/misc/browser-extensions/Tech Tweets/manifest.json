@@ -1,0 +1,17 @@
+{
+  "name": "Elijah's Tech Tweets",
+  "version": "1.4",
+  "description": "Elijah Manor's most recent web dev tech tweets.",
+  "browser_action": {
+    "default_icon": "icon48.png",
+    "popup": "popup.html"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "permissions": [
+    "https://api.twitter.com/*"
+  ]
+}

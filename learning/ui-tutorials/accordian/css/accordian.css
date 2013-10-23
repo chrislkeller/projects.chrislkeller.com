@@ -1,0 +1,23 @@
+.pageContent
+{width: 600px;}
+
+.accordion 
+{list-style-type: none; padding: 0; margin: 0 0 30px; border: 1px solid #ffffff; border-top: none; border-left: none; }
+
+.accordion ul 
+{ padding: 0; margin: 0; float: left; display: block; width: 100%; }
+
+.accordion li 
+{ background: #e8e8e8; cursor: pointer; list-style-type: none; padding: 0; margin: 0; float: left; display: block; width: 100%;}
+
+.accordion li.active>a 
+{ background: #ffffff}
+
+.accordion li div 
+{ padding: 20px; background: #000000; color: #ffffff; display: block; clear: both; float: left; width: 360px;}
+
+.accordion a 
+{ text-decoration: none; border-bottom: 1px solid #4df; font: bold 1.1em/2em Arial, sans-serif; color: #222; padding: 0 10px; display: block; cursor: pointer; }
+	
+.accordion li ul li 
+{ background: #ffffff; font-size: 0.9em; }

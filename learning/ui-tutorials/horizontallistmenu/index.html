@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<?php ### BEGIN DOC ###?>
+<html>
+
+<?php ### BEGIN DOC HEADER ###?>
+<head>
+
+<?php ### BEGIN TITLE ###?>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Page Title Here</title>
+<?php ### END TITLE ###?>
+
+<?php ### BEGIN CSS ### ?>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<style type="text/css">
+.horizontalcssmenu ul{
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+
+/*Top level list items*/
+.horizontalcssmenu ul li{
+position: relative;
+display: inline;
+float: left;
+
+}
+
+/*Top level menu link items style*/
+.horizontalcssmenu ul li a{
+display: block;
+width: 120px; /*Width of top level menu link items*/
+padding: 2px 8px;
+border: 1px solid #202020;
+border-left-width: 0;
+text-decoration: none;
+background: url(images/menubg.gif) center center repeat-x;
+color: black;
+font: bold 13px Tahoma;
+}
+	
+/*Sub level menu*/
+.horizontalcssmenu ul li ul{
+left: 0;
+top: 0;
+border-top: 1px solid #202020;
+position: absolute;
+display: block;
+visibility: hidden;
+z-index: 100;
+}
+
+/*Sub level menu list items*/
+.horizontalcssmenu ul li ul li{
+display: inline;
+float: none;
+}
+
+
+/* Sub level menu links style */
+.horizontalcssmenu ul li ul li a{
+width: 160px; /*width of sub menu levels*/
+font-weight: normal;
+padding: 2px 5px;
+background: #e3f1bd;
+border-width: 0 1px 1px 1px;
+}
+
+.horizontalcssmenu ul li a:hover{
+background: url(images/menubgover.gif) center center repeat-x;
+}
+
+.horizontalcssmenu ul li ul li a:hover{
+background: #cde686;
+}
+
+.horizontalcssmenu .arrowdiv{
+position: absolute;
+right: 0;
+background: transparent url(images/menuarrow.gif) no-repeat center left;
+}
+
+* html p#iepara{ /*For a paragraph (if any) that immediately follows menu, add 1em top spacing between the two in IE*/
+padding-top: 1em;
+}
+	
+/* Holly Hack for IE \*/
+* html .horizontalcssmenu ul li { float: left; height: 1%; }
+* html .horizontalcssmenu ul li a { height: 1%; }
+/* End */
+</style>
+<?php ### END CSS ### ?>
+
+<?php ### BEGIN SCRIPT ### ?>
+<script type="text/javascript" src="script.js">
+</script>
+<?php ### END SCRIPT ### ?>
+
+</head>
+<?php ### END DOC HEADER ###?>
+
+<?php ### BEGIN BODY ###?>
+<body>
+<div class="horizontalcssmenu">
+<ul id="cssmenu1">
+<li style="border-left: 1px solid #202020;"><a href="http://www.javascriptkit.com/">Home</a></li>
+<li><a href="http://www.javascriptkit.com/cutpastejava.shtml" >Free JS</a></li>
+<li><a href="http://www.javascriptkit.com/">JS Tutorials</a></li>
+<li><a href="#">References</a>
+    <ul>
+    <li><a href="http://www.javascriptkit.com/jsref/">JS Reference</a></li>
+    <li><a href="http://www.javascriptkit.com/domref/">DOM Reference</a></li>
+    <li><a href="http://www.javascriptkit.com/dhtmltutors/cssreference.shtml">CSS Reference</a></li>
+    </ul>
+</li>
+<li><a href="http://www.javascriptkit.com/howto/">web Tutorials</a></li>
+<li><a href="#">Resources</a>
+    <ul>
+    <li><a href="http://www.dynamicdrive.com">Dynamic HTML</a></li>
+    <li><a href="http://www.codingforums.com">Coding Forums</a></li>
+    <li><a href="http://www.cssdrive.com">CSS Drive</a></li>
+    <li><a href="http://www.dynamicdrive.com/style/">CSS Library</a></li>
+    <li><a href="http://tools.dynamicdrive.com/imageoptimizer/">Image Optimizer</a></li>
+    <li><a href="http://tools.dynamicdrive.com/favicon/">Favicon Generator</a></li>
+    </ul>
+</li>
+</ul>
+<br style="clear: left;" />
+</div>
+
+<p id="iepara">Rest of content here</p>
+</body>
+<?### END BODY ###?>
+
+</html>
+<?### END DOC ###?>

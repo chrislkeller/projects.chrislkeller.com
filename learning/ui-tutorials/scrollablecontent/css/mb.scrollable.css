@@ -1,0 +1,80 @@
+body{
+	font-family:"Lucida Sans Unicode","Lucida Grande",Helvetica,Arial,sans-serif;
+	font-size:13px;
+}
+
+#wrapper{
+  margin-top:80px;
+  display:none;
+  margin:auto;
+  width:1000px;
+}
+
+#myScroll{
+/*display:none;*/
+}
+#myScroll .scrollEl{
+  display:none;
+  background:url("../elements/elBgnd.png") repeat-x;
+  border:1px solid #ddd;
+  font-family:sans-serif;
+  font-size:180%;
+  color:white;
+  height:100px;
+  padding:10px;
+  padding-top:60px;
+  text-shadow:#999 1px 1px 1px;
+  text-align:center;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+}
+#myScroll1 .scrollEl{
+  display:none;
+  background:url("../elements/elBgnd.png") repeat-x;
+  border:1px solid #ddd;
+  font-family:sans-serif;
+  font-size:180%;
+  padding:10px;
+  padding-top:40%;
+  color:white;
+  height:100%;
+  text-shadow:#999 1px 1px 1px;
+  text-align:center;
+  /*CSS3 properties*/
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;
+}
+
+
+#controls div, #controls1 div{
+  font-family:sans-serif;
+  margin-top:5px;
+  background:#fff;
+  display:inline-block;
+  padding:6px;
+  cursor:pointer;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-box-shadow:#999 2px 2px 2px;
+  -webkit-box-shadow:#999 2px 2px 2px;
+}
+
+#myScroll1{
+  float:left;
+  margin-right:20px;
+}
+
+#controls .sel, #controls1 .sel{
+  color:black !important;
+  font-weight:bold;
+}
+#controls .disabled, #controls1 .disabled{
+  color:gray;
+}
+#controls .page, #controls1 .page{
+  padding:5px;
+  color:gray;
+}

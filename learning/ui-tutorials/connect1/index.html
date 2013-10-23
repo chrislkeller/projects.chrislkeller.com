@@ -1,0 +1,104 @@
+<!-- BEGIN SCRIPTS -->
+<script type="text/javascript" src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php/en_US"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js"></script>
+<script>
+        jQuery(document).ready(function() {
+            jQuery("#ButtonAccept").attr("disabled", "disabled");
+
+            jQuery("#CheckBox").click(function() {
+                var checked_status = this.checked;
+                if (checked_status == true) {
+                    jQuery("#ButtonAccept").removeAttr("disabled");
+                }
+                else {
+                    jQuery("#ButtonAccept").attr("disabled", "disabled");
+                }
+            });
+        });
+</script>
+<!-- END SCRIPTS -->
+
+<!-- BEGIN BLOCK TITLE -->
+<h2>Connect With Us</h2>
+<!-- END BLOCK TITLE -->
+
+<!-- BEGIN BLOCK TABS DIV -->
+<div id="contact" class="init-blox-tabs">
+
+<!-- BEGIN TABS -->
+<ul class="blox-tabs">
+<li><a href="#tab-rss"><img src="http://www.siouxcityjournal.com/app/art/connect/rss.png"/></a></li>
+<li><a href="#tab-mobile"><img src="http://www.siouxcityjournal.com/app/art/connect/mobile.png"/></a></li>
+<li><a href="#tab-sms"><img src="http://www.siouxcityjournal.com/app/art/connect/sms.png"/></a></li>
+<li><a href="#tab-twitter"><img src="http://www.siouxcityjournal.com/app/art/connect/twitter.png"/></a></li>
+<li><a href="#tab-facebook"><img src="http://www.siouxcityjournal.com/app/art/connect/facebook.png"/></a></li>
+</ul>
+<!-- END TABS -->
+
+<!-- BEGIN RSS TAB -->
+<div id="tab-rss" class="tab-block tbConnect">
+<a href="http://www.siouxcityjournal.com/rss"><h3>Subscribe to a Journal RSS Feed</h3></a>
+<p>Use RSS feeds to get news delivered to your feed reader.</p>
+</div>
+<!-- END RSS TAB -->
+
+<!-- BEGIN MOBILE TAB -->
+<div id="tab-mobile" class="tab-block tbConnect">
+<a href="http://www.siouxcityjournal.com/mobile"><h3>Sign up for news on your phone.</h3></a>
+<p>Browse a light-weight, mobile-friendly version of SiouxCityJournal.com.</p>
+</div>
+<!-- END MOBILE TAB -->
+
+<!-- BEGIN TWITTER TAB -->
+<div id="tab-twitter" class="tab-block tbConnect overFlow">
+<h3>Follow the Journal on Twitter</h3>
+
+<!-- BEGIN RIGHT COLUMN -->
+<div class="grid_2 alpha">
+
+<p><strong>Journal headlines</strong><br />
+news and information:<br />
+<a href="http://www.twitter.com/scj">@SCJ</a></p>
+
+<p><strong>Journal Sports</strong><br />
+headlines, scores: <a href="http://www.twitter.com/SCJSports"><br />
+</a><a href="http://Twitter.com/SCJSports">@SCJSports</a></p>
+
+<p><strong>Dolly Butz</strong><br />
+cops reporter: <a href="http://www.twitter.com/SCJDollyB"><br />
+</a><a href="http://Twitter.com/SCJDollyB">@SCJDollyB</a></p>
+
+</div>
+<!-- END RIGHT COLUMN -->
+
+<!-- BEGIN LEFT COLUMN -->
+<div class="grid_2 omega">
+
+<p><strong>Journal headlines</strong><br />
+news and information:<br />
+<a href="http://www.twitter.com/scj">@SCJ</a></p>
+
+<p><strong>Journal Sports</strong><br />
+headlines, scores: <a href="http://www.twitter.com/SCJSports"><br />
+</a><a href="http://Twitter.com/SCJSports">@SCJSports</a></p>
+
+<p><strong>Dolly Butz</strong><br />
+cops reporter: <a href="http://www.twitter.com/SCJDollyB"><br />
+</a><a href="http://Twitter.com/SCJDollyB">@SCJDollyB</a></p>
+
+</div>
+<!-- END LEFT COLUMN -->
+
+</div>
+<!-- END TWITTER TAB -->
+
+<!-- BEGIN FACEBOOK TAB -->
+<div id="tab-facebook" class="tab-block tbConnect">
+<script type="text/javascript">FB.init("50e271f367ff11ecfe821c20e6b7cdc3");</script>
+<fb:like-box profile_id="91501294412" width="300" connections="20" stream="false"></fb:like-box>
+<div style="font-size:8px; padding-left:10px"><a href="http://www.facebook.com/pages/The-Times-of-Northwest-Indiana/91501294412">The Times is on Facebook</a></div>
+</div>
+<!-- END FACEBOOK TAB -->
+
+</div>
+<!-- END BLOCK TABS DIV -->

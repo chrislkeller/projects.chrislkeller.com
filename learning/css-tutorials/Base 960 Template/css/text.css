@@ -1,0 +1,83 @@
+/*
+Base 960 Grid Framework, Inspired by Baseline - Stephane Curzi, ProjetUrbain.com
+Creative Commons Attribution-Share Alike 3.0 License
+version 0.1
+*/
+
+body { font:14px/1.6 Helvetica, Arial, FreeSans, sans-serif; }
+
+#header, #footer, #menu, #section { display:block; }
+
+a { text-decoration:none; color:#474747; padding:1px; }
+
+a:hover { color:#000000; text-decoration:underline; }
+
+a:visited {text-decoration: none}
+
+a:active {text-decoration: none}
+
+p,h1,h2,h3,h4,h5,h6,ul { margin-bottom:10px; }
+
+h1,h2,h3,h4,h5,h6 { color:#333; }
+
+h1 a { color:#ffffff; font-size:72px; text-shadow:1px 1px 0 #2b2c2c; font-family:arial black, arial; text-align: center;}
+
+h1 a:hover {text-decoration: underline;}
+
+h1 { font-size:36px; }
+
+h2 { font-size:24px; }
+
+.post-it h2 { color:#ffffff; }
+
+.post-it a { color:#ffffff; }
+
+.post-it a:hover { text-decoration:underline; }
+
+.post-heading h2 { padding:5px; background:#2b2c2c; color:#ffffff;}
+
+.post-heading h2 a { color:#ffffff; }
+
+h3 { font-size:20px; }
+
+#side-box>.section h3 { margin-bottom:0px; }
+
+h4, h5, h6
+{font-weight: bold;}
+
+h4 { font-size:18px; }
+
+h5 { font-size:16px; }
+
+h6 { font-size:16px; }
+
+/*MISC*/
+.subtitle, .subtitle a { text-transform:uppercase; font-size:130%; font-weight:normal; letter-spacing:1px; color:#ffffff; text-shadow:1px 1px 0 #2b2c2c; margin-left: 35px;}
+
+p {hyphenate: auto; hyphenate-lines: 3;}
+
+strong {font-weight: bold;}
+
+em {font-style: italic;}
+
+ul, ol {margin-left: 1.5em;}
+
+ul {list-style: cirle;}
+
+ol {list-style: decimal outside;}
+
+select, button {cursor: pointer;}
+
+input {cursor: text;}
+
+table {font: inherit; width: 100%;}
+
+#topbar div a {font-size: 18px; color: #ffffff; text-decoration: none;}
+
+#topbar div a:hover {text-decoration: underline;}
+
+#header ul li, #footer ul li { font-size:16px; }
+
+#header ul li, #footer ul li a {color: #ffffff;}
+
+.post > .post-header > .date, .post > .post-header > .date a {color: #ffffff;}

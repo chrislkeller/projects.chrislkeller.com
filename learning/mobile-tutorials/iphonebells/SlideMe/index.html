@@ -1,0 +1,101 @@
+<!--
+File: index.html
+Abstract: Content layout for the SlideMe application.
+          Displays a red slider bar with a red knob and "iPhone" string.
+          Knob turns green when you touch it, yellow when you move it, 
+          and red when you lift your finger from it. The knob adjusts the
+          font size of "iPhone" and appearance of the bar. The font size of
+          "iPhone" increases if you move the knob to the right and decreases 
+          if you move it to the left. The bar gets filled with black when you
+          slide the knob.
+          
+          
+Version: <1.0>
+
+Disclaimer: IMPORTANT:  This Apple software is supplied to you by 
+Apple Inc. ("Apple") in consideration of your agreement to the
+following terms, and your use, installation, modification or
+redistribution of this Apple software constitutes acceptance of these
+terms.  If you do not agree with these terms, please do not use,
+install, modify or redistribute this Apple software.
+
+In consideration of your agreement to abide by the following terms, and
+subject to these terms, Apple grants you a personal, non-exclusive
+license, under Apple's copyrights in this original Apple software (the
+"Apple Software"), to use, reproduce, modify and redistribute the Apple
+Software, with or without modifications, in source and/or binary forms;
+provided that if you redistribute the Apple Software in its entirety and
+without modifications, you must retain this notice and the following
+text and disclaimers in all such redistributions of the Apple Software. 
+Neither the name, trademarks, service marks or logos of Apple Inc. 
+may be used to endorse or promote products derived from the Apple
+Software without specific prior written permission from Apple.  Except
+as expressly stated in this notice, no other rights or licenses, express
+or implied, are granted by Apple herein, including but not limited to
+any patent rights that may be infringed by your derivative works or by
+other works in which the Apple Software may be incorporated.
+
+The Apple Software is provided by Apple on an "AS IS" basis.  APPLE
+MAKES NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION
+THE IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY AND FITNESS
+FOR A PARTICULAR PURPOSE, REGARDING THE APPLE SOFTWARE OR ITS USE AND
+OPERATION ALONE OR IN COMBINATION WITH YOUR PRODUCTS.
+
+IN NO EVENT SHALL APPLE BE LIABLE FOR ANY SPECIAL, INDIRECT, INCIDENTAL
+OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) ARISING IN ANY WAY OUT OF THE USE, REPRODUCTION,
+MODIFICATION AND/OR DISTRIBUTION OF THE APPLE SOFTWARE, HOWEVER CAUSED
+AND WHETHER UNDER THEORY OF CONTRACT, TORT (INCLUDING NEGLIGENCE),
+STRICT LIABILITY OR OTHERWISE, EVEN IF APPLE HAS BEEN ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+
+Copyright (C) 2008 Apple Inc. All Rights Reserved.
+
+-->
+
+<?PHP ### BEGIN DOC ###?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<?PHP ### BEGIN HEADER ###?>
+<head>
+
+<?PHP ### BEGIN TITLE ###?>
+<title>Slide the Knob</title>
+
+<?PHP ### BEGIN META ###?>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, user-scalable=no"/>
+
+<?PHP ### BEGIN JAVASCRIPT ###?>
+<!-- SlideMe.js contains all required information for building the bar, magnifying "iPhone," and changing the color of the knob -->
+<script type="text/javascript" type="text/javascript" charset="utf-8" src="SlideMe.js"></script>
+<!-- Slider.js contains all functionalities needed to animate the knob -->
+<script type="text/javascript" type="text/javascript" charset="utf-8" src="Slider.js"></script>
+
+<?PHP ### BEGIN CSS ###?>
+<!-- SlideMe.css is used to style this page -->
+<link rel="stylesheet" href="SlideMe.css" type="text/css" media="screen" charset="utf-8"/>
+
+</head>
+<?PHP ### END HEADER ###?>
+
+<?PHP ### BEGIN BODY ###?>
+<body>
+
+<!-- Contains a string whose font size is controlled by the movements of a knob along a slider bar -->
+<div id="text" class="information">iPhone</div>
+<div id="container">
+<!-- Builds a slider bar -->
+<canvas id="canvas" width="303" height="140"></canvas>
+<!-- Shows a knob that moves along a slider bar -->
+<!-- knob, which is initially red, turns green when touched, yellow when moved, and red when released -->
+<div id="knob"></div>
+</div>
+<div id="message">Move the knob to magnify "iPhone."</div>
+</body>
+<?PHP ### BEGIN BODY ###?>
+
+</html>
+<?PHP ### BEGIN DOC ###?>

@@ -1,0 +1,48 @@
+/*------------------------------
+=INTRODUCTION
+------------------------------*/
+
+#intro {
+	position: relative;
+	margin-top: 10px;
+	padding: 44px;
+	background: #5098E0;
+	
+	/* Background-size not implemented yet */
+	-webkit-background-size: 100%;
+	-o-background-size: 100%;
+	-khtml-background-size: 100%;
+
+	
+	/* Border-radius not implemented yet */
+	-moz-border-radius: 22px;
+	-webkit-border-radius: 22px;
+}
+
+#intro h2, #intro p {
+	position: relative;
+	z-index: 9999;
+	width: 336px;
+}
+	
+#intro h2 {
+	padding: 0 0 22px 0;
+	font-weight: normal;
+	color: #fff;
+}
+	
+#intro p {
+	padding: 0;
+	color: #d9f499;
+}
+	
+#intro img {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 653px;
+	height: 100%;
+	/* Border-radius not implemented yet */
+	-moz-border-radius: 22px;
+	-webkit-border-radius: 22px;
+}

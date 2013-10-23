@@ -1,0 +1,116 @@
+
+
+
+
+/*TITLE BAR*/
+h6
+{background: #000000; padding: 2px; font-size: 14px; text-transform: uppercase; text-indent:10px; font-weight: bold; color: #ffffff; -moz-border-radius: 3px; -khtml-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px;}
+
+.about
+{background: #D51A21;}
+
+.read-more
+{background: #003366;}
+
+.nav
+{background: #222222;}
+
+
+/*RULES*/
+hr
+{border: none; background: #fff; width: 100%;}
+
+
+
+
+.ui-widget-content a
+{color:#000000; text-decoration: none;}
+
+.ui-widget-content a:hover
+{color:#3d454c; text-decoration: underline; color: #3d454c;}
+
+.ui-widget-content a:visited
+{text-decoration: none}
+
+.ui-widget-content a:active
+{text-decoration: none}
+
+
+
+
+
+
+
+
+/*SOCIAL LINKS*/
+#social-links
+{height: 45px; width: 100%; background-color: #7F423F;}
+
+#social-links ul
+{margin: 0 auto; width: 940px; list-style: none;}
+
+#social-links ul li
+{float: left;}
+
+#social-links ul li a
+{display: block; margin-right: 20px; width: 140px; font-size: 14px; line-height: 44px; text-align: center; text-decoration: none; color: #000000;}
+
+#social-links ul li a:hover
+{color: #ffffff;}
+			
+#social-links ul li.selected a
+{ color: #fff;}
+			
+#social-links ul li.subscribe a
+{margin-left: 22px; padding-left: 33px; text-align: left; background: url("../images/rss.png") left center no-repeat;}
+
+#social-links ul li.twitter a
+{margin-left: 22px; padding-left: 33px; text-align: left; background: url("../images/twitter.png") left center no-repeat;}
+
+#social-links ul li.facebook a
+{margin-left: 22px; padding-left: 33px; text-align: left; background: url("../images/facebook.png") left center no-repeat;}
+
+#social-links ul li.youtube a
+{margin-left: 22px; padding-left: 65px; text-align: left; background: url("../images/youtube.png") left center no-repeat;}
+
+#social-links ul li.foursquare a
+{margin-left: 22px; padding-left: 65px; text-align: left; background: url("../images/foursquare.png") left center no-repeat;}
+
+/*MENU*/
+#menu
+{/*CAN SET BACKGROUND COLOR HERE*/
+background-color: #7F423F;
+height: 45px; width: 100%; }
+
+#menu ul
+{margin: 0 auto; width: 940px; list-style: none;}
+
+#menu ul li
+{float: left;}
+
+#menu ul li a
+{display: block; margin: 0 30px 20px 0px;  width: 150px; font-size: 20px; line-height: 20px; text-align: center; text-decoration: none; background-color: #333333; color:#fff; font-weight:bold; padding: 5px 0 5px 0;  border:2px solid #000000; -moz-border-radius:15px; -webkit-border-radius:15px; border-radius: 15px;}
+
+#menu ul li a:hover
+{border:2px solid #333333; background-color:#ffffff; color:#000000;}
+
+#menu ul li.selected a
+{ color: #ffffff;}
+
+
+
+
+
+/*FROM PREVIOUS*/
+.selected { border-bottom:1px solid #474747; }
+
+li { padding-left:15px; background:url(../img/bullet.png) 0 5.9px no-repeat; }
+
+/*SIDEBAR*/
+.side-box { padding:20px 80px 20px 40px; }
+.side-box:not(:last-child) { border-bottom:1px solid #474747; }
+.side-box > header h3 { margin-bottom:0; }
+.side-box > header p { text-transform:uppercase; font-style:italic; font-size:90%; }
+.pop-out > section > * { display:block; background:#fefefe; border:1px solid #474747; padding:20px; position:relative; width:120%; left:20px; }
+
+.meta { font-size:75%; font-style:italic; }

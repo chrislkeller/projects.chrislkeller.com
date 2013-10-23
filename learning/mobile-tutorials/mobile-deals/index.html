@@ -1,0 +1,94 @@
+<!-- BEGIN DOCUMENT -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<!-- BEGIN DOC HEADER -->
+<head>
+ 
+<!--  <base href="http://www.nwitimes.com/content/tncms/live/"> -->
+
+<!-- BEGIN TITLE -->
+<title>Get It! Mobile Deals</title>
+
+<!-- BEGIN META -->
+<meta content="text/html; charset=UTF-8" http-equiv="Content-type"> 
+<meta content="width=320,user-scalable=false" name="viewport">
+
+<!-- BEGIN CSS -->
+<link type="text/css" media="all" rel="stylesheet" href="css/styles.css">
+
+<script type="text/javascript">
+function showPremiumListing(category,location,partnerURL)
+{document.getElementById('premium-listing').innerHTML='<IFRAME src="http://'+partnerURL+'/widget.aspx?'+'q='+escape(category)+'&p='+escape(partnerURL)+'&z='+escape(location)+'"   frameborder="0" scrolling="no" style="width:100%; height:115px; min-height:10px"></IFRAME>';}
+function searchLocal(keyword,location,partnerURL)
+{window.location="http://"+partnerURL+"/search.pg?q="+escape(keyword)+"&z="+escape(location);return false;}
+</script>
+
+</head>
+<!-- END DOC HEADER -->
+
+<!-- BEGIN BODY -->
+<body>
+
+<!-- BEGIN WRAPPER -->
+<div class="wrapper">
+
+<!-- BEGIN LOGO -->
+<a href="#"><img alt="#" src="http://dummyimage.com/310x75/336699/cccccc.png&text=LOGO" /></a>
+<!-- END LOGO -->
+
+<!--BEGIN NAVIGATION -->
+<!-- <div class="navigation">
+<ul>
+<a href="#"><li id="todays-deal"></li></a>
+<a href="#"><li id="coupons"></li></a>
+<a href="offers"><li id="offers"></li></a>
+</ul>
+<ul>
+<a href="#"><li id="dining"></li></a>
+<a href="#"><li id="shopping"></li></a>
+<a href="#"><li id="entertainment"></li></a>
+</ul>
+<ul>
+<a href="#"><li id="services"></li></a>
+<a href="#"><li id="cat1"></li></a>
+<a href="#"><li id="cat2"></li></a>
+</ul>
+</div> -->
+<!--END NAVIGATION -->
+
+<!-- BEGIN SEARCH WIDGET -->
+<div class="search-widget">
+<h1>Search businesses</h1>
+
+<!-- BEGIN FORM -->
+<form id="local-business-search">
+<div>
+<label>I'm looking for:</label>
+<input type="text" alt="Pizza, Ice Cream" id="txtwhat" />
+</div>
+<div>
+<label>Located near:</label>
+<input type="text" alt="ZIP, City &amp; State, Address" id="txtwhere" />
+</div>
+<p><em><strong>Hint:</strong> Enter a keyword that you are looking for like tires, pizza or doctors or browse the <a href="#">full business directory</a>, powered by <a href="#">Local.com</a></em></p>
+<div>
+<input type="submit" class="searchsubmit" value="Search!" onclick="return searchLocal(this.form['txtwhat'].value ,  this.form['txtwhere'].value, 'local.nwitimes.com' );"/>
+</div>
+</form>
+<!-- END FORM -->
+
+</div>
+<!-- END SEARCH WIDGET -->
+
+<!-- BEGIN LOGO -->
+<a href="#"><img alt="#" src="http://dummyimage.com/310x75/336699/cccccc.png&text=Newsletter" /></a>
+<!-- END LOGO -->
+
+</div>
+<!-- END WRAPPER -->
+
+</body>
+<!-- END BODY -->
+
+</html>
+<!-- END DOCUMENT -->

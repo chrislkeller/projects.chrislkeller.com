@@ -1,0 +1,398 @@
+html{
+	height:100%;
+	margin:0;
+	min-height:100%;
+	padding:0;
+	width:100%;
+}
+body{
+	height:100%;
+	margin:0 auto;
+	min-height:100%;
+	padding:0;
+	width:980px;
+}
+#container{
+	width:100%;
+	height:100%;
+	background:-moz-linear-gradient(center top , #FFFFFF, #efefef) repeat scroll 0 0 transparent;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0, #FFFFFF),color-stop(1, #efefef));
+}
+#icons{
+}
+.clearfix{
+	clear:both;
+	float:none;
+}
+#lable{
+	font-size:24px;
+	color:#777;
+	margin-top:20px;
+	text-align:center;
+}
+.common{
+	text-shadow:0 -2px 0 rgba(0, 0, 0, 0.5);
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	height:32px;
+	width:32px;	
+	text-align:center;
+	-moz-box-shadow:2px 2px 4px #ABABAB;
+	-webkit-box-shadow:2px 2px 4px #ABABAB;
+	cursor:pointer;
+	margin-left:55px;
+}
+/************** Linkedin Style ******************************/
+
+#linkedin{
+	background:-moz-linear-gradient(center top , #71B9D6, #0074A6) repeat scroll 0 0 transparent;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0, #71B9D6),color-stop(1, #0074A6));
+	border:2px solid #245B91;
+	color:#FEFEFE;
+	font-family:Century Gothic,arial,Times New Roman;
+	font-size:25px;
+	font-weight:bold;
+	padding:0px;
+	float:left;
+	display:block;
+}
+#linkedin:hover{
+	background:-moz-linear-gradient(center top , #77CDEF, #0B8CBF) repeat scroll 0 0 transparent;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0, #77CDEF),color-stop(1, #0B8CBF));
+}
+#linkedin:active{
+	background:-moz-linear-gradient(center top , #0074A6, #71B9D6) repeat scroll 0 0 transparent;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0, #0074A6),color-stop(1, #71B9D6));
+}
+/************** Twitter Style ******************************/
+
+#twitter{
+	
+	float:left;
+	background:-moz-linear-gradient(center top , #C0F0F2, #6FCFCE) repeat scroll 0 0 transparent;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0, #C0F0F2),color-stop(1, #6FCFCE));
+	border:2px solid #78D1D7;
+	color:#FEFEFE;
+	font-family:PicoWhiteRegular,arial,Times New Roman;
+	font-size:30px;
+}
+#twitter:hover{
+	background:-moz-linear-gradient(center top , #BFFDFF, #86EAEF) repeat scroll 0 0 transparent;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0, #BFFDFF),color-stop(1, #86EAEF));
+}
+#twitter:active{
+	background:-moz-linear-gradient(center top , #6FCFCE, #C0F0F2) repeat scroll 0 0 transparent;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0, #6FCFCE),color-stop(1, #C0F0F2));
+}
+/************** Facebook Style ******************************/
+
+#facebook{
+	
+	float:left;
+	background:-moz-linear-gradient(center top , #4AA9ED, #2E73B8) repeat scroll 0 0 transparent;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0, #4AA9ED),color-stop(1, #2E73B8));
+	border:2px solid #518EC4;
+	color:#FEFEFE;
+	font-family:arial,Times New Roman;
+	font-size:28px;
+	font-weight:bold;
+}
+#facebook span{
+	
+}
+#facebook:hover{
+	background:-moz-linear-gradient(center top , #4FB8FF, #378CDF) repeat scroll 0 0 transparent;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0, #4FB8FF),color-stop(1, #378CDF));
+}
+#facebook:active{
+	background:-moz-linear-gradient(center top , #378CDF, #4FB8FF) repeat scroll 0 0 transparent;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0, #378CDF),color-stop(1, #4FB8FF));
+}
+/************** RSS Style ******************************/
+#rss{
+	background:-moz-linear-gradient(center top , #F09141, #E36443) repeat scroll 0 0 transparent;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0, #F09141),color-stop(1, #E36443));
+	border:2px solid #E36443;
+	color:#FEFEFE;
+	float:left;
+	
+}
+#rssContainer{
+	height:25px;
+	margin:3px;
+	overflow:hidden;
+	width:25px;
+}
+#rssContainer #outer{
+	-moz-border-radius:50px 50px 50px 50px;
+	-webkit-border-radius:50px 50px 50px 50px;
+	border:4px solid #FFFFFF;
+	height:40px;
+	margin-left:-22px;
+	margin-top:0;
+	width:40px;
+}
+#rssContainer  #inner{
+	-moz-border-radius:16px 16px 16px 16px;
+	-webkit-border-radius:16px 16px 16px 16px;
+	border:4px solid #FFFFFF;
+	height:32px;
+	margin-left:-4px;
+	margin-top:4px;
+	width:32px;
+}
+
+#rssContainer  #center{
+	-moz-border-radius:5px 5px 5px 5px;
+	-webkit-border-radius:5px 5px 5px 5px;
+	border:4px solid #FFFFFF;
+	height:0;
+	margin-left:18px;
+	margin-top:5px;
+	width:0;
+}
+#rss:hover{
+	background:-moz-linear-gradient(center top , #FF994F, #EF7959) repeat scroll 0 0 transparent;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0, #FF994F),color-stop(1, #EF7959));
+}
+#rss:active{
+	background:-moz-linear-gradient(center top , #EF7959, #FF994F) repeat scroll 0 0 transparent;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0, #EF7959),color-stop(1, #FF994F));
+}
+/************** google Style ******************************/
+#google{
+	background:-moz-linear-gradient(center top , #4373DF, #243E81) repeat scroll 0 0 transparent;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0, #4373DF),color-stop(1, #243E81));
+	border:2px solid #243E81;
+	float:left;
+	
+	color:#FFFFFF;
+	font-family:Georgia,"Times New Roman",Times,serif;
+	font-size:29px;
+	font-weight:bold;
+	line-height:18px;
+	text-align:center;
+}
+#google:hover{
+	background:-moz-linear-gradient(center top , #4F87FF, #31519F) repeat scroll 0 0 transparent;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0, #4F87FF),color-stop(1, #31519F));
+}
+#google:active{
+	background:-moz-linear-gradient(center top , #31519F, #4F87FF) repeat scroll 0 0 transparent;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0, #31519F),color-stop(1, #4F87FF));
+}
+/************** netVibes Style ******************************/
+#netVibes{
+	background:-moz-linear-gradient(center top , #65D820, #138310) repeat scroll 0 0 transparent;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0, #65D820),color-stop(1, #138310));
+	border:2px solid #138310;
+	float:left;
+	
+	color:#fff;
+	font-family:Tahoma,arial,Georgia,"Time New Roman";
+	font-size:25px;
+	font-weight:bold;
+
+}
+#netVibes:hover{
+	background:-moz-linear-gradient(center top , #72EF2C, #219F1D) repeat scroll 0 0 transparent;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0, #72EF2C),color-stop(1, #219F1D));
+}
+#netVibes:active{
+	background:-moz-linear-gradient(center top , #219F1D, #72EF2C) repeat scroll 0 0 transparent;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0, #219F1D),color-stop(1, #72EF2C));
+}
+/************** orkut Style ******************************/
+#orkut{
+	background:-moz-linear-gradient(center top , #FFFFFF, #A09F9D) repeat scroll 0 0 transparent;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0, #FFFFFF),color-stop(1, #A09F9D));
+	border:2px solid #A09F9D;
+	float:left;
+	
+}
+#orkut #outerCircle{
+	-moz-border-radius:15px 15px 15px 15px;
+	-webkit-border-radius:15px 15px 15px 15px;
+	background:-moz-linear-gradient(center top , #D779C0, #B62B91) repeat scroll 0 0 transparent;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0, #D779C0),color-stop(1, #B62B91));
+	height:25px;
+	margin:3px 3px 0;
+	width:25px;
+	border:1px solid #B62B91;
+}
+#orkut #innerCircle{
+	-moz-border-radius:7px 7px 7px 7px;
+	-webkit-border-radius:7px 7px 7px 7px;
+	background:-moz-linear-gradient(center top , #D9D9D8, #C3C3C1) repeat scroll 0 0 transparent;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0, #D9D9D8),color-stop(1, #C3C3C1));
+	height:14px;
+	margin:5px;
+	width:14px;
+}
+
+#orkut:hover{
+	background:-moz-linear-gradient(center top , #FFFFFF, #BFBFBF) repeat scroll 0 0 transparent;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0, #FFFFFF),color-stop(1, #BFBFBF));
+}
+#orkut:active{
+	background:-moz-linear-gradient(center top , #BFBFBF, #FFFFFF) repeat scroll 0 0 transparent;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0, #BFBFBF),color-stop(1, #FFFFFF));
+}
+/************** Flickr Style ******************************/
+#flickr{
+	
+	float:left;
+	background:-moz-linear-gradient(center top , #FFFFFF, #A09F9D) repeat scroll 0 0 transparent;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0, #FFFFFF),color-stop(1, #A09F9D));
+	border:2px solid #A09F9D;
+}
+#flickr #leftCircle{
+	-moz-border-radius:5px 5px 5px 5px;
+	-webkit-border-radius:5px 5px 5px 5px;
+	background-color:#2E7BE3;
+	float:left;
+	height:10px;
+	margin-left:4px;
+	margin-top:11px;
+	width:10px;
+}
+#flickr #rightCircle{
+	-moz-border-radius:5px 5px 5px 5px;
+	-webkit-border-radius:5px 5px 5px 5px;
+	background-color:#EA3E94;
+	float:left;
+	height:10px;
+	margin-left:3px;
+	margin-top:11px;
+	width:10px;
+}
+#flickr:hover{
+	background:-moz-linear-gradient(center top , #FFFFFF, #BFBFBF) repeat scroll 0 0 transparent;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0, #FFFFFF),color-stop(1, #BFBFBF));
+}
+#flickr:active{
+	background:-moz-linear-gradient(center top , #BFBFBF, #FFFFFF) repeat scroll 0 0 transparent;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0, #BFBFBF),color-stop(1, #FFFFFF));
+}
+/************** delicious Style ******************************/
+
+#delicious{
+	
+	float:left;
+	background:-moz-linear-gradient(center top , #FFFFFF, #A09F9D) repeat scroll 0 0 transparent;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0, #FFFFFF),color-stop(1, #A09F9D));
+	border:2px solid #A09F9D;
+}
+#delicious #upperDiv{
+	width:50%;
+	height:50%;	
+	background-color:#123BF7;
+	-moz-border-radius:0 5px 0 0;
+	-webkit-border-radius:0 5px 0 0;
+	margin-left:16px;
+}
+#delicious #lowerDiv{
+	width:50%;
+	height:50%;	
+	background-color:#000;
+	-moz-border-radius:0 0 0 5px;
+	-webkit-border-radius:0 0 0 5px;
+}
+#delicious:hover{
+	background:-moz-linear-gradient(center top , #FFFFFF, #BFBFBF) repeat scroll 0 0 transparent;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0, #FFFFFF),color-stop(1, #BFBFBF));
+}
+#delicious:active{
+	background:-moz-linear-gradient(center top , #BFBFBF, #FFFFFF) repeat scroll 0 0 transparent;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0, #BFBFBF),color-stop(1, #FFFFFF));
+}
+/************** myspace Style ******************************/
+
+#myspace{
+	
+	float:left;
+	background-color:#005187;
+	border:2px solid #005187;
+}
+#myspace #lower{
+	float:left;
+	height:12px;
+	margin-left:3px;
+	margin-right:-2px;
+	margin-top:9px;
+	overflow:hidden;
+	width:8px;
+}
+#myspace #lower  #head{
+	-moz-border-radius:4px 4px 4px 4px;
+	-webkit-border-radius:4px 4px 4px 4px;
+	background-color:#FFFFFF;
+	height:6px;
+	margin-left:1px;
+	width:6px;
+}
+#myspace #lower  #body{
+	-moz-border-radius:3px 3px 3px 3px;
+	-webkit-border-radius:3px 3px 3px 3px;
+	background-color:#FFFFFF;
+	height:15px;
+	width:8px;
+}
+#myspace #middle{
+	float:left;
+	height:19px;
+	margin-right:-2px;
+	margin-top:6px;
+	overflow:hidden;
+	width:10px;
+}
+#myspace #middle  #head{
+	-moz-border-radius:4px 4px 4px 4px;
+	-webkit-border-radius:4px 4px 4px 4px;
+	background-color:#FFFFFF;
+	margin-left:1px;
+	height:8px;
+	width:8px;
+}
+#myspace #middle  #body{
+	-moz-border-radius:5px 5px 5px 5px;
+	-webkit-border-radius:5px 5px 5px 5px;
+	background-color:#FFFFFF;
+	height:20px;
+	width:10px;
+}
+
+#myspace #upper{
+	height:26px;
+	margin-top:3px;
+	overflow:hidden;
+	width:12px;
+}
+#myspace #upper #head{
+	width:10px;
+	height:10px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	margin-left:1px;
+	background-color:#fff;
+}
+#myspace #upper #body{
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	background-color:#FFFFFF;
+	height:25px;
+	width:12px;
+}
+#myspace:hover{
+	background-color:#0072BF;
+}
+#myspace:active{
+	background-color:#13679F;
+}
+@font-face {
+	font-family: 'PicoWhiteRegular';
+	src: url('font/picow__-webfont.eot');
+	src: local('?'), url('font/picow__-webfont.woff') format('font/woff'), url('font/picow__-webfont.ttf') format('truetype'), url('font/picow__-webfont.svg#webfont') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}

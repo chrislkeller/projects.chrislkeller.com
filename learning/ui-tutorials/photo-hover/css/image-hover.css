@@ -1,0 +1,81 @@
+
+.img{
+	-webkit-transform:scale(0.6);
+	-moz-transform:scale(0.6);
+	-o-transform:scale(0.6);
+	float:left;
+	margin-left:-50px;
+	margin-right:-50px;
+	margin-top:-10px;
+	-webkit-transition-duration: 0.5s;
+	-moz-transition-duration: 0.5s;
+	-o-transition-duration: 0.5s;
+	}
+.img img{
+		padding:10px;
+		border:1px solid #fff;
+}
+.img:hover{
+	-webkit-transform:scale(0.8);
+	-webkit-box-shadow:0px 0px 30px #ccc;
+	-moz-transform:scale(0.8);
+	-moz-box-shadow:0px 0px 30px #ccc;	
+	-o-transform:scale(0.8);
+	-o-box-shadow:0px 0px 30px #ccc;	
+}	 
+.img .mask{
+	width: 100%;
+	background-color: rgb(0, 0, 0);
+	position: absolute;
+	height: 100%; 
+	opacity:0.6;
+	cursor:pointer;
+	-webkit-transition-duration: 0.5s;
+	-moz-transition-duration: 0.5s;
+	-o-transition-duration:0.5s;
+}
+#img-1:hover .mask{
+	height:0%;	
+}
+#img-2:hover .mask{
+	height:0%;	
+	margin-top:130px;
+}
+#img-4:hover .mask{
+	margin-left:219px;
+	margin-top:135px;
+	height:0%;
+	width:0%;
+}
+#img-3 #mask-1 {
+	width:50%;
+}
+#img-3 #mask-2{
+	width:50%;
+	margin-left:211px;
+}
+#img-3:hover #mask-1{
+	width:0%;
+}
+#img-3:hover #mask-2{
+	margin-left:430px;
+	width:0%;
+}
+#img-5:hover .mask{
+	margin-left:219px;
+	margin-top:135px;
+	height:0%;
+	width:0%;
+	-webkit-transform: rotateX(360deg);
+	-moz-transform: rotate(360deg);
+	-o-transform: rotate(-360deg);
+}
+#img-6:hover .mask{
+	margin-left:219px;
+	margin-top:135px;
+	height:0%;
+	width:0%;
+	-webkit-transform: rotateZ(750deg);
+	-moz-transform: rotateZ(750deg);
+	-o-transform: rotat(750deg);
+}

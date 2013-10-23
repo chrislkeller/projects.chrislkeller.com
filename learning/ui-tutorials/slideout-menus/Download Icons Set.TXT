@@ -1,0 +1,4 @@
+Please download the icon set from 
+http://dryicons.com/free-icons/preview/luna-grey-icons/
+and put the 64x64 icons in a folder called images so that this tutorial works.
+

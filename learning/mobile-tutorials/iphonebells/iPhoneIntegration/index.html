@@ -1,0 +1,125 @@
+ <!--
+ 
+ File:index.html
+ 
+ Abstract: Describes how to build iPhone application (phone, maps, mail, YouTube, iTunes) links. 
+ 
+ Version: <1.1>
+ 
+ Disclaimer: IMPORTANT:  This Apple software is supplied to you by 
+ Apple Inc. ("Apple") in consideration of your agreement to the
+ following terms, and your use, installation, modification or
+ redistribution of this Apple software constitutes acceptance of these
+ terms.  If you do not agree with these terms, please do not use,
+ install, modify or redistribute this Apple software.
+ 
+ In consideration of your agreement to abide by the following terms, and
+ subject to these terms, Apple grants you a personal, non-exclusive
+ license, under Apple's copyrights in this original Apple software (the
+ "Apple Software"), to use, reproduce, modify and redistribute the Apple
+ Software, with or without modifications, in source and/or binary forms;
+ provided that if you redistribute the Apple Software in its entirety and
+ without modifications, you must retain this notice and the following
+ text and disclaimers in all such redistributions of the Apple Software. 
+ Neither the name, trademarks, service marks or logos of Apple Inc. 
+ may be used to endorse or promote products derived from the Apple
+ Software without specific prior written permission from Apple.  Except
+ as expressly stated in this notice, no other rights or licenses, express
+ or implied, are granted by Apple herein, including but not limited to
+ any patent rights that may be infringed by your derivative works or by
+ other works in which the Apple Software may be incorporated.
+ 
+ The Apple Software is provided by Apple on an "AS IS" basis.  APPLE
+ MAKES NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION
+ THE IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY AND FITNESS
+ FOR A PARTICULAR PURPOSE, REGARDING THE APPLE SOFTWARE OR ITS USE AND
+ OPERATION ALONE OR IN COMBINATION WITH YOUR PRODUCTS.
+ 
+ IN NO EVENT SHALL APPLE BE LIABLE FOR ANY SPECIAL, INDIRECT, INCIDENTAL
+ OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) ARISING IN ANY WAY OUT OF THE USE, REPRODUCTION,
+ MODIFICATION AND/OR DISTRIBUTION OF THE APPLE SOFTWARE, HOWEVER CAUSED
+ AND WHETHER UNDER THEORY OF CONTRACT, TORT (INCLUDING NEGLIGENCE),
+ STRICT LIABILITY OR OTHERWISE, EVEN IF APPLE HAS BEEN ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+ 
+ Copyright (C) 2008 Apple Inc. All Rights Reserved.
+ 
+ -->
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, user-scalable=no" />
+		<title>iPhone Integration Links</title>
+		
+		<!-- The iPhoneIntegration.css file is used to lay out content on this webpage -->
+		<link rel ="stylesheet" href = "iPhoneIntegration.css" />
+</head>
+<body>
+		<!--This file contains all required declarations to implement the iPhone mail, phone, map, YouTube, and iTunes links  -->
+		<!--You can browse this file in Safari 3 on the desktop, on iPhone, or iPod touch  -->
+
+		<!--Phone links displays a dialog that asks whether the user wants to dial a phone number on iPhone, and an error dialog on iPod touch -->
+		<h1>Phone</h1>
+		<!-- Each <ul></ul> pairing represents a group of related options as mentioned in the iPhoneListPatterns sample <http://developer.apple.com/samplecode/iPhoneListPatterns/index.html> -->
+		<ul>
+					<!-- Use the href and tel:link to build a phone link -->
+			<li><a href="tel:408-555-5555">Home <span class="secondary">408-555-5555</span></a></li>
+		</ul>
+		<h2>Displays a dialog to dial the number on iPhone, and an error dialog on iPod touch.</h2>
+	
+		
+		<!--Mail links open a built-in mail compose sheet on iPhone, and a new, blank Safari window on iPod touch. They use the standard mailto URL. -->
+		<h1>Mail</h1>
+		<ul>
+					<!-- iPhone opens an email message with the address field filled in -->
+			<li><a href="mailto:frank@wwdcdemo.com">Address Only <span class="secondary">frank@wwdcdemo.com</span></a></li>
+			
+					<!-- iPhone opens an email message with the address, subject field, and message fields filled in  -->
+			<li><a href="mailto:frank@wwdc.com?cc=tom@wwdc.com,lisa@wwdc.com&subject=Greetings from Santa Cruz!&body=Wish you were here!">Address Plus <span class="secondary">Frank, Tom, Lisa</span></a></li>		
+		</ul>
+		<h2>Opens a mail message compose dialog on iPhone, and a new, blank Safari window on iPod touch. "<strong>Address Only</strong>" fills in only the email To: field. "<strong>Address Plus</strong>" fills in the To:, CC:, Subject: and Body fields.</h2>
+	
+
+		<!-- Google maps links open a built-in Google client on iPhone, connect to the Google maps website on iPod touch -->
+		<h1>Map</h1>
+		<ul> 
+					<!-- This link points to Apple store locations in the San Francisco area on a map -->
+			<li><a href="http://maps.google.com/maps?q=apple+store+san+francisco">Query <span class="secondary">Apple Stores, San Francisco</span></a></li>
+			
+					<!-- This link opens to the 1 Infinite Loop Cupertino, CA 95014 address on a map -->
+			<li><a href="http://maps.google.com/maps?q=1+Infinite+Loop,+Cupertino,+CA+95014">Address <span class="secondary">1 Infinite Loop Cupertino, CA 95014</span></a></li>
+			
+					<!-- This link provides directions between two points, Santa Cruz and Cupertino on a map -->
+			<li><a href="http://maps.google.com/maps?daddr=Santa+Cruz,+CA&amp;saddr=1+infinite+loop,+cupertino,+ca">Directions <span class="secondary">From: 1 Infinite Loop Cupertino, CA To: Santa Cruz, CA</span></a></li>
+		</ul>	
+		<h2>Opens the built-in Google Maps client on iPhone, and the Google Maps website (in a new Safari window) on iPod touch. "<strong>Query</strong>" displays the results of a maps search. "<strong>Address</strong>" displays the designated address; "<strong>Directions</strong>" displays the route between two points.</h2>
+	
+
+		<!--Youtube links load the YouTube application and play the movie specified in a tapped URL -->
+		<h1>YouTube</h1>
+		<ul>	
+					<!-- This link points to a Mac Ad on Youtube whose URL format is as follows: http://youtube.com/watch?v<video identifier>. The <video identifier> represents your YouTube video identifier. -->
+			<li><a href="http://youtube.com/watch?v=1EbCyibkNB0"><span class="secondary">/watch?v&lt;video identifier&gt;</span></a></li>
+			
+					<!-- This link points to a Mac Ad on Youtube whose URL format is given as http://youtube.com/v/<video identifier>. The <video identifier> represents your YouTube video identifier. -->
+			<li><a href="http://youtube.com/v/pVPZHjPriWc"><span class="secondary">/v/&lt;video identifier&gt;</span></a></li>
+			</ul>
+		<h2>Opens the built-in YouTube client and plays the designated video. The two examples represent the two supported YouTube links formats.</h2>
+		
+		
+		<!--iTunes links connect users to the iTunes Music Store page -->
+		<h1>iTunes</h1>
+		<ul>
+					<!-- This link takes you to the iTunes Music Store. <iTunes store link> represents "phobos.apple.com/WebObjects/MZStore.woa/wa"; it is required to create links to the iTunes Music Store. -->
+			<li><a href="http://phobos.apple.com/WebObjects/MZStore.woa/wa/storeFront"><span class="secondary">http://&lt;iTunes store link&gt;/storeFront</span></a></li>
+			
+					<!-- This link points to an artist's album on the iTunes Music store. -->
+			<li><a href="http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewAlbum?playlistId=114688"><span class="secondary"> http://&lt;iTunes store link&gt;/viewAlbum?playlistId=&lt;album identifier&gt;</span></a></li>
+		</ul>
+		<h2>Opens an iTunes Music Store page within iTunes. "<strong>&lt;iTunes store link&gt;</strong>" represents "phobos.apple.com/WebObjects/MZStore.woa/wa", which is required to create links to the iTunes Music Store.
+		The first link takes you to the iTunes Music Store page; the second link opens to an artist's album on the iTunes Music Store.</h2>
+</body>
+</html>

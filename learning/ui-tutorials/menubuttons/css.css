@@ -1,0 +1,19 @@
+.hbuttons a{
+display: block;
+text-decoration: none;
+font: bold 13px Arial;
+color: #CC0000;
+width: 100px;
+height: 50px;
+float: left;
+display: inline;
+margin-right: 25px;
+background-image:url(../images/tabsquare.jpg);
+background-repeat: no-repeat;
+padding-top: 4px;
+text-align:center;
+}
+
+.hbuttons a:hover{
+background-image:url(../images/tabsquareover.jpg);
+}

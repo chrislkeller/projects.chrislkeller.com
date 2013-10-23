@@ -1,0 +1,482 @@
+<webalbum version="1.8.2">
+  <title>Volcan Gallery</title>
+  <description>
+    <line>Dupe-Design chanderliers </line>
+  </description>
+  <settings>
+    <photosize width="800" height="600">large</photosize>
+    <thumbsize width="100" height="75">medium</thumbsize>
+    <homeurl>http://www.volcangallery.com</homeurl>
+    <outputdirectory>C:\Users\SaTiVa\Desktop\volcanweb2\VolcanGallery\</outputdirectory>
+    <navigateinloop>False</navigateinloop>
+  </settings>
+  <layout>
+    <colourscheme>Slate</colourscheme>
+    <pagecolor>0</pagecolor>
+    <textcolor>12632256</textcolor>
+    <linkcolor>15000804</linkcolor>
+    <hotlinkcolor>16777215</hotlinkcolor>
+    <thumbnailrows>5</thumbnailrows>
+    <thumbnailcols>4</thumbnailcols>
+    <navigationbelowphoto>False</navigationbelowphoto>
+  </layout>
+  <photographs>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\cosmic ball twilight.jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\cosmic kegel .JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\cosmic kegel  (2).JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\cosmic kegel  (3).JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\cosmic kegel  (4).JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\cosmic trosluchter (2).JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\cosmic trosluchter (3).JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\cosmic trosluchter (4).JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\cosmic trosluchter (5).JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\cosmic trosluchter (6).JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\dunebugs 098.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\dunebugs 130.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\dunebugs 138.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\dupe176 044.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\dupe176 053.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\elegant.jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\elegant brons.jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\elegant brons (2).jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\elegantie (3).JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\elegantie (4).JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\gezichten (2).jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\gezichten (3).jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\IMG_3223.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\IMG_3225.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\IMG_3234.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\IMG_3898.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\IMG_3904.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\IMG_6199.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\IMG_6207.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\IMG_6439.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\IMG_6572.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\IMG_6573.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\IMG_6582.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\IMG_6583.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\keulen kristallen luchter jetske boerke 011.jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\keulen kristallen luchter jetske boerke 339.jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\keulen kristallen luchter jetske boerke 349.jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\te sorteren 018.jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\te sorteren 023.jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\trendy (2).jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\tros Eupen.jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\tros gravensteen.jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\tros gravensteen (3).jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\trosluchter.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\trosluchter 1 (2).JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\trosluchter (2).JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\trosluchter (3).JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\trosluchter oranje (8).jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\trosluchter roze (3).JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\tullip.jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\tullip (3).jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\tullip (5).jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\tullip (6).jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\high celing\wetstraat.jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\cosmic.jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\cosmic 1 (3).JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\cosmic 1 (4).JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\cosmic 2 (2).JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\cosmic 2.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\cosmic 3.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\cosmic 4 (4).jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\cosmic 4.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\cosmic 5 (2).JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\cosmic 5 (4).JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\cosmic 5 (5).jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\cosmic 5 (6).jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\cosmic (3).jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\cosmic (5).jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\cosmic (6).jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\cosmic (7).JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\cosmic customized (2).JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\cosmic ovaal.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\cosmic small.jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\DjC00106 (4).JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\DSC00074.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\DSC009031.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\dunebugs 001.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\dunebugs 004.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\dunebugs 088.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\dunebugs 112.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\dunebugs 125.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\dunebugs 153.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\dupe101 020.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\dupe101 023.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\dupe101 042.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\dupe176 025.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\flat2.jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\IMG_3002.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\IMG_3595.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\IMG_3597.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\IMG_3623.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\IMG_3643.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\IMG_3916.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\IMG_6475.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\IMG_6477.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\IMG_6485.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\IMG_6487.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\IMG_6494.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\IMG_6502.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\IMG_6506.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\IMG_6511.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\IMG_6513.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\IMG_6518.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\IMG_6519.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\IMG_6532.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\IMG_6547.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\IMG_6552.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\IMG_6555.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\IMG_6606.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\keulen kristallen luchter jetske boerke 025.jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\nieuw geplaatste luchters 004.jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\ocotpussy.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\ocotpussy (3).JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\ocotpussy (5).JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\oktopus (2).jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\organic 5 (2).jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\organic (5).jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\organic (6).jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\organic brons.jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\organic brons (2).jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\ovaal (2).jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\spiraal (2).JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\spiraal (4).JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\normal celing\te sorteren 031.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\tabellamps\IMG_3574.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\tabellamps\IMG_3585.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\tabellamps\IMG_3645.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\wallunits\dunebugs 116.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\wallunits\dunebugs 120.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\wallunits\dunebugs 142.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\wallunits\IMG_3575.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\wallunits\IMG_3580.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\wallunits\keulen kristallen luchter jetske boerke 344.jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\customized\IMG_6583.JPG</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\customized\river hotel Gent .jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\customized\river hotel Gent  (2).jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\customized\wandlamp.jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\customized\wandlamp (2).jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\customized\wandlamp (3).jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\customized\waterfall (2).jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\customized\waterfall (4).jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\customized\waterfall (6).jpg</filename>
+    </photo>
+    <photo>
+      <title>   </title>
+      <filename>C:\Users\SaTiVa\Pictures\customized\waterfall (8).jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\lusters\03_12.jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\lusters\dup 068.jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\lusters\02_20a.jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\lusters\02_13a.jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\lusters\02_16a.jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\lusters\02_01ax.jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\lusters\dup 016.jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\volcan web\dupe_eke_kris_001.jpg</filename>
+    </photo>
+    <photo>
+      <filename>C:\Users\SaTiVa\Pictures\volcan web\dupe_eke_kris_041.jpg</filename>
+    </photo>
+  </photographs>
+</webalbum>

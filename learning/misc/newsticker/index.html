@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<?php ### BEGIN DOC ###?>
+<html>
+
+<?php ### BEGIN DOC HEADER ###?>
+<head>
+
+<?php ### BEGIN TITLE ###?>
+<title>News Ticker with jQuery</title>
+<?php ### END TITLE ###?>
+
+<?php ### BEGIN CSS ### ?>
+<link rel="stylesheet" href="#" type="text/css" media="screen" />
+<style type="text/css">
+body{
+	font-family:"Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+
+#listticker{
+	height:200px;
+	width:400px;
+	overflow:hidden;
+	border:solid 1px #DEDEDE;
+	padding:6px 10px 14px 10px;;
+}
+
+#listticker li{
+	border:0;
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+
+#listticker li{
+	height:60px;
+	padding:5px;
+	list-style:none;
+}
+
+#listticker a{
+	color:#000000;
+	margin-bottom:
+	}
+#listticker .news-title{
+	display:block;
+	font-weight:bold;
+	margin-bottom:4px;
+	font-size:11px;
+}
+
+#listticker .news-text{
+	display:block;
+	font-size:11px;
+	color:#666666;
+}
+
+#listticker img{
+	float:left;
+	margin-right:14px;
+	padding:4px;
+	border:solid 1px #DEDEDE;
+}
+</style>
+<?php ### END CSS ### ?>
+
+<?php ### BEGIN SCRIPT ### ?>
+<script type="text/javascript" src="jquery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+var speed = 700;
+var pause = 3500;
+function removeFirst(){
+$('ul#listticker li:first').fadeOut('slow', function() {addLast(this);});
+}
+function addLast(first){
+$(first).insertAfter('ul#listticker li:last').fadeIn('slow');
+}
+interval = setInterval(removeFirst, pause);
+}); 
+</script>
+<?php ### END SCRIPT ### ?>
+
+</head>
+<?php ### END DOC HEADER ###?>
+
+<?php ### BEGIN BODY ###?>
+<body>
+
+<ul id="listticker">
+<li>
+<img src="images/1.png" />
+<a href="" class="news-title">Health care reform</a>
+<span class="news-text">President Obama has announced three bedrock requirements for real health care reform</span>
+</li>
+<li>
+<img src="images/2.png" />
+<a href="" class="news-title">National Geographic Animals</a>
+<span class="news-text">Killer whales, Bengal tigers, crocs, more</span>
+</li>
+<li>
+<img src="images/3.png" />
+<a href="" class="news-title">Spotlight stars</a>
+<span class="news-text">Marilyn Manson is not exactly a conformist. From his music — a meat-grinder...</span>
+</li>
+<li>
+<img src="images/4.png" />
+<a href="" class="news-title">Lost: the new serie is coming</a>
+<span class="news-text">Watch full episodes online. The final season begins early 2010</span>
+</li>
+</ul>
+
+</body>
+<?### END BODY ###?>
+
+</html>
+<?### END DOC ###?>

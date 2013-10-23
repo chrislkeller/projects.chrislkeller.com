@@ -1,0 +1,730 @@
+/*  
+Theme Name: Mumrik
+Theme URI: http://neewee.com/wordpress/mumrik-wordpress-theme/
+Tags: fixed-width, three-columns, blue, white, custom-header, right-sidebar
+Description: Mumrik Theme is a WordPress Theme built on W3C standards brought to you by <a href="http://frontendbook.com">Front-end Book</a>
+Version: 1.0.4
+Author: Mattias Hising
+Author URI: http://frontendbook.com/
+
+	Mumrik 1.0.4
+	http://neewee.com/wordpress/mumrik-wordpress-theme/
+
+	This theme was designed and built by Mattias Hising,
+	whose blog you will find at http://frontendbook.com/
+
+	The CSS, XHTML and design is released under GPL:
+	http://www.opensource.org/licenses/gpl-license.php
+
+*/
+
+
+
+/*Begin CSS that I have tweaked and incorporated Existing Styles*/
+
+/* Style for body */
+body{
+	font-size: 11px;
+	font-style: normal;
+	line-height: 17px;
+	font-weight: 100;
+	color: #8F797C;
+	margin:0;
+	padding:0;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	background-color: #f1f1f2;
+
+}
+
+/* Style for left navigation */
+li.link:hover {
+	text-decoration: none;
+	color: #8F797C;
+	font-weight: bolder;
+	letter-spacing: 2px;
+	text-indent:5px;
+}
+
+/* Style for individual posts */
+.Post {
+	margin:10px 0;
+}
+
+
+/* Style for Headline */
+.Post h3 {
+	margin:0;
+	padding:0;
+	letter-spacing: -1px;
+}
+
+/* Style for Headline Link */
+.Post h3 a {
+	color:#000;
+	font-size:22px;
+	line-height: 28px;
+	
+}
+
+/* Style for Post Image */
+.PostImage {
+	border:1px solid #000;
+}
+
+/* Style for Post Info*/
+.PostInfo em {
+	font-style:normal;
+}
+
+/* Style for Author */
+.author {
+	color:#999;
+}
+
+/* Style for Comments */
+.comments {
+	float:right;
+}
+
+/* Style for Images */
+.LeftImage {
+	float:left;
+	margin:0 20px 15px 0;
+}
+
+.RightImage {
+	float:right;
+	margin:0 0 20px 20px;
+}
+
+/* Style for Post Category */
+.Post .PostInfo {
+display: block;
+	padding:4px 0;
+	margin:0;
+	font-size:0.9em;
+	color:#B3B3B3;
+}
+
+/* Style for Post Body */
+.PostContent {
+	clear:both;
+	/* line-height:1em; */
+	font-size:13px;
+	line-height: 17px;
+}
+
+/* Style for Paragraph Class Quote */
+p.quote {
+	font-size: 6pt;	
+}
+
+/* Style for a tag */
+a {
+	text-decoration:none;
+	color:#000;
+}
+
+hr {background:#ddd;color:#ddd;clear:both;float:none;width:100%;height:.1em;margin:0 0 1.45em;border:none;}
+
+/* Style for a img tag */
+a img {
+	border:0px;
+}
+
+/* Style for a tag */
+a.link:hover {
+	text-decoration: none;
+	color: black;
+	font-weight: bolder;
+	letter-spacing: 2px;	
+}
+
+/* Style for a block quote */
+blockquote {
+	margin:0;
+	padding:10px 20px;
+	color:#666;
+	line-height:1.5em;
+	font-style:italic;
+}
+/* End CSS that I have tweaked and incorporated Existing Styles */
+
+
+
+
+/* Begin DIV CSS, etc */
+
+#Wrapper{
+	margin:10px auto;
+	width:938px;
+}
+#BigAd {
+	padding-bottom:10px;
+}
+
+#Header {
+	border-top:1px solid #000;
+	position:relative;
+	border-bottom:1px solid #000;
+}
+
+#HeaderText{
+	padding:24px 10px;
+	margin-right:270px;
+}
+
+#Subscription {
+	position:absolute;
+	z-index:10000;
+	right:0;
+	top:0;
+	background: #dbf1fb;
+	
+	
+	/*
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	*/
+}
+
+#RSSButton {
+	color:#000;
+	font-size:13px;
+	padding:4px 12px 4px 28px;
+	display: block;
+	background:transparent url("img/feed_small.png") no-repeat 8px 3px;
+}
+
+
+/* Begin Header CSS, etc */
+#HeaderText h1 {
+	padding:0;
+	margin:0;
+	font-size:1.6em;
+	font-weight:bold;
+}
+
+#HeaderText h1 a {
+	color:#000;
+	text-decoration:none;
+}
+
+#HeaderText h1 a:hover,
+
+/* Begin Nav Bar CSS, etc */
+#MainNavigation li a:hover {
+	text-decoration:underline;
+}
+
+#HeaderText h1 strong {
+	font-size:1.3em;
+	color:#000;
+}
+
+#HeaderText h2 {
+	padding:0;
+	margin:0;
+	font-size:0.9em;
+	font-weight:normal;
+	color:#999;
+}	
+	
+#MainNavigation {
+z-index:1;
+	/*background-color: #f1f1f2; */
+	background:#187CA7 url("img/bg_main_navigation.gif") repeat-x;
+	padding:10px;
+	position:relative;
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#MainNavigation ul,
+#MainNavigation li
+{
+	list-style:none;
+	padding:0;
+	margin:0;
+}
+
+#MainNavigation li
+{
+	display:inline;
+}
+
+#MainNavigation li a{
+	padding:6px 12px;
+	color:#FFF;
+	text-decoration:none;
+	font-size:0.9em;
+}
+
+#MainNavigation li:first-child a {
+	/*padding-left:0px;*/
+}
+
+
+#MainNavigation ul > li a.current, 
+#MainNavigation ul > li.current_page_parent a,
+#MainNavigation ul > li.current_page_item a,
+#MainNavigation ul > li.current_page_ancestor a
+{
+	background-color: #0b4761;
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#MainNavigation ul > li a.current:hover, 
+#MainNavigation ul > li.current_page_parent a:hover,
+#MainNavigation ul > li.current_page_item a:hover,
+#MainNavigation ul > li.current_page_ancestor a:hover {
+	text-decoration: none;
+	cursor: default;
+}
+
+#NavigationContent ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#NavigationContent li {
+	font-size:13px;
+	padding:4px 0 4px 12px;
+	background:transparent url("img/icon_list_arrow.gif") no-repeat 6px 8px;
+}
+
+#Search{
+	position:absolute;
+	right:10px;
+	top:8px;
+}
+
+#Search input[type='text'] {
+	border:1px solid #4cb4fc;
+	-moz-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	padding:2px;
+}
+
+#NavigationContent,
+#MainContent,
+#ContextualContent{
+	float:left;
+
+}
+
+#NavigationContent {
+	margin-top:10px;
+	width:170px;
+	margin-right:8px;
+}
+
+#NavigationContent ul ul {
+display:none;
+}
+
+#NavigationContent ul > li.current_page_parent > ul,
+#NavigationContent ul > li.current_page_item > ul,
+#NavigationContent ul > li.current_page_ancestor > ul {
+	display:block;
+}
+
+#MainContent {
+	width:468px;
+	margin:0 11px 0 0;
+	padding: 10px;
+}
+
+#ContextualContent {
+	margin-top:10px;
+	width:260px;
+
+}
+
+.widget {
+	background-color: #f1f1f2;
+	/*background-color: #effaff; */
+	padding:10px;
+	margin-bottom: 10px;
+	border-right: 1px solid #dbf1fb;
+	border-bottom: 1px solid #dbf1fb;
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.widget h4 {
+	margin: 0 0 10px 0;
+	padding: 0;
+}
+
+
+
+
+/* Contextual Content */
+
+.widget ul,
+.widget ul li
+{
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+
+.widget ul li
+{
+	padding:4px 0 4px 12px;
+	background:transparent url("img/icon_list_arrow.gif") no-repeat 4px 7px;
+	/*font-size: 0.9em;*/
+}
+
+
+.widget ul li ul {
+	/*display:none;*/
+}
+ 
+
+span.date {
+	color:#B3B3B3;
+}
+
+span.title a {
+	color:#2B9A09;
+}
+
+span.author_and_tags {
+	display:block;
+	color:#B3B3B3;
+}
+
+
+/* Footer */
+#Footer {
+	margin:10px 0;
+	/* Original Font Size
+	font-size: 0.9em; */
+	font-size: 12pt;
+	clear:both;
+	padding:20px;
+	color:#000;
+	text-align:center;
+}
+
+#Footer a {
+
+}
+
+/* Ads */
+#textads,
+#BigFooterAd {
+	margin-top:10px;
+	text-align:center;
+}
+
+#BigAd {
+ text-align:center;
+}
+
+/* WP Theme Requirements Classes */
+.aligncenter,
+.aligncenter,
+div.aligncenter {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.alignleft {
+   float: left;
+   margin: 5px 10px 10px 0;
+   /*border: 1px solid #333;*/
+}
+
+.alignright {
+   float: right;
+}
+
+.wp-caption {
+   border: 1px solid #ddd;
+   text-align: center;
+   background-color: #f3f3f3;
+   padding-top: 4px;
+   margin: 10px;
+   /* optional rounded corners for browsers that support it */
+   -moz-border-radius: 3px;
+   -khtml-border-radius: 3px;
+   -webkit-border-radius: 3px;
+   border-radius: 3px;
+}
+
+.wp-caption img {
+   margin: 0;
+   padding: 0;
+   border: 0 none;
+}
+
+.wp-caption p.wp-caption-text {
+   font-size: 11px;
+   line-height: 17px;
+   padding: 0 4px 5px;
+   margin: 0;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    }
+
+.clearfix {display: inline-block;}  /* for IE/Mac */
+
+#SubscriptionChooser {
+
+	
+	display: none;
+	padding:4px 12px 4px 6px;
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#SubscriptionChooser ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#SubscriptionChooser ul li {
+	padding:2px 4px;
+	margin:0;
+}
+
+.SearchResult {
+	list-style: none;
+	margin:0;
+	padding:0;
+
+}
+
+.SearchResult li {
+	border-bottom: 1px solid #eee;
+	margin-bottom: 10px;
+}
+
+.gravatar {
+	width:96px;
+	float:left;
+	padding:0 10px 0 0;
+}
+
+#contextual_ads {
+	list-style: none;
+	margin:0;
+	padding: 0;
+}
+
+#contextual_ads li {
+	display: block;
+	float:left;
+	width:125px;
+	height:125px;
+	border:1px solid #ccc;
+	margin-bottom: 6px;
+	text-align: center;
+	
+}
+
+
+#contextual_ads li.alt {
+	margin-right:6px;
+}
+
+/* jQuery UI Tabs */
+.ui-tabs-nav {
+	/*resets*/margin: 0; padding: 0; border: 0; outline: 0; line-height: 1.3; text-decoration: none; font-size: 100%; list-style: none;
+	float: left;
+	position: relative;
+	z-index: 1;
+	border-right: 1px solid #bed7f1;
+	bottom: -1px;
+}
+.ui-tabs-nav-item {
+	/*resets*/margin: 0; padding: 0; border: 0; outline: 0; line-height: 1.3; text-decoration: none; font-size: 100%; list-style: none;
+	float: left;
+	border: 1px solid #bed7f1;
+	border-right: none;
+}
+.ui-tabs-nav-item a {
+	/*resets*/margin: 0; padding: 0; border: 0; outline: 0; line-height: 1.3; text-decoration: none; font-size: 100%; list-style: none;
+	float: left;
+	font-size: 0.9em;
+	font-weight: normal;
+	text-decoration: none;
+	padding: .5em .9em;
+	color: #555555;
+	background-color: #effaff;
+}
+.ui-tabs-nav-item a:hover {
+	background-color: #b2d1ef;
+}
+.ui-tabs-selected {
+	border-bottom-color: #ffffff;
+}
+.ui-tabs-selected a, .ui-tabs-selected a:hover {
+	background-color: #ffffff;
+	color: #222222;
+}
+.ui-tabs-panel {
+	/*resets*/margin: 0; padding: 0; border: 0; outline: 0; line-height: 1.3; text-decoration: none; font-size: 100%; list-style: none;
+
+	clear:left;
+	border: 1px solid #bed7f1;
+	background-color: #ffffff;
+	color: #222222;
+	padding: .5em .7em;
+	margin-bottom: 15px;
+}
+.ui-tabs-hide {
+	display: none;/* for accessible hiding: position: absolute; left: -99999999px*/;
+}
+
+/* WP Core Classes */
+.aligncenter,
+div.aligncenter {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.alignleft {
+   float: left;
+}
+
+.alignright {
+   float: right;
+}
+
+.wp-caption {
+   border: 1px solid #ddd;
+   text-align: center;
+   background-color: #f3f3f3;
+   padding-top: 4px;
+   margin: 10px;
+   /* optional rounded corners for browsers that support it */
+   -moz-border-radius: 3px;
+   -khtml-border-radius: 3px;
+   -webkit-border-radius: 3px;
+   border-radius: 3px;
+}
+
+.wp-caption img {
+   margin: 0;
+   padding: 0;
+   border: 0 none;
+}
+
+.wp-caption p.wp-caption-text {
+   font-size: 11px;
+   line-height: 17px;
+   padding: 0 4px 5px;
+   margin: 0;
+}
+
+/* CommentLuv support */
+abbr em img { float: left !important; margin: 2px !important }
+
+/* templates */
+.full_image {
+	margin:10px 0 0 0;
+}
+
+/* Generic Classes */
+ul.links {
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+
+
+ul.links li
+{
+	padding:4px 0 4px 12px;
+	background:transparent url("img/icon_list_arrow.gif") no-repeat 4px 7px;
+	font-size: 0.9em;
+}
+
+/* Templates */
+#FullContent {
+	position:relative;
+}
+
+#rotator {
+	position:absolute;
+	width:938px;
+	bottom:0;
+	left:0;
+	
+}
+
+.puff {
+	padding:10px 20px;
+	color:#fff;
+	background:transparent url("img/pusher_bg.png");
+}
+
+.puff h4 {
+	margin:0;
+	color:#ff7800;
+}
+
+.puff p {
+	margin:0;
+	font-size:0.9em;
+	line-height:1.4em;
+
+}
+
+.puff a {
+	color:#ffea00;
+}
+
+.puff img {
+	float:left;
+	border:1px solid #fff; 
+	margin:0 15px 0 0;
+}
+
+.puff:after, .cols:after {
+	content: ".";
+	    display: block;
+	    height: 0;
+	    clear: both;
+	    visibility: hidden;
+}
+
+/* Plugin Specific Classes */
+
+/* NavXT */
+.breadcrumb {
+	margin:10px;
+}
+
+#AdsContext {
+	border:1px solid #bed7f1;
+	padding:5px;
+	margin-bottom:10px;
+}

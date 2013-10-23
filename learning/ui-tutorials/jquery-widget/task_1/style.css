@@ -1,0 +1,41 @@
+body
+{
+background:#fff;
+font-family:calibri, trebuchet ms, arial
+}
+
+p
+{
+margin:0px;	
+}
+
+.widget
+{
+margin: 40px auto 0 auto;
+width:300px;
+}
+
+.widget h2
+{
+margin:0px;
+background:#ff9900;
+color:#fff;
+padding:3px 10px;
+font-size:110%;
+}
+
+.widgetState
+{
+float:right;
+cursor:pointer;
+padding:0 5px;
+}
+
+.widgetContent
+{
+color:#444;
+padding:12px 12px;
+text-align:justify;
+border:1px #aaa solid;
+border-top:0px;
+}

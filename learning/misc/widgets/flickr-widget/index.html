@@ -1,0 +1,91 @@
+<html>
+<head>
+	<title>nwi.com</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+	<script src="http://nwitimes.com/content/tncms/live/global/resources/scripts/facebox.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" media="screen" href="http://nwitimes.com/content/tncms/live/global/resources/styles/skin.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="http://nwitimes.com/content/tncms/live/editorial/editorial-core-base-v0-4-1/resources/styles/print.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="http://nwitimes.com/content/tncms/live/global/resources/styles/site.css" />
+
+	<style type = "text/css">
+		body{margin:0; padding:0; background-color:#008; text-align:center;}
+		#main_wrapper{text-align:left;width:930px;padding:15px;background-color:#fff;margin:auto;}
+		#flickr_thumbs{display:table; /** FFOX HACK **/}
+		#thumbs_wrapper{}
+		.photo_wrapper_wrapper{
+			width:186px;
+			height:300px;
+			float:left;
+			overflow:hidden;
+			margin: 0px 0px 15px 0px;
+		}
+		.photo_wrapper_wrapper p{width:176px;margin:0px auto;}
+		.photo_wrapper{
+			height:150px;
+			width:176px;
+			overflow:hidden;
+			border:5px solid #fff;
+			display:block;
+			margin:0; 
+			padding:0;
+			filter:alpha(opacity=10);
+			-moz-opacity:0.1;
+			-khtml-opacity: 0.1;
+			opacity: 0.1;	
+			margin: 0px 0px 6px 0px;
+		}
+		.photo_wrapper:hover{border:5px solid #77f;}
+		.photo_wrapper img{width:250px;margin-top:-5px;margin-left:-5px;}
+		p.tags{text-transform:uppercase; font-size:.75em;line-height:1.65em;}
+		#loading_bg{position:fixed;width:100%;height:100%;background-color:#000;filter:alpha(opacity=80);-moz-opacity:0.8;-khtml-opacity: 0.8;opacity: 0.8;z-index:1000000;}
+		#loading_content{position:fixed;width:100%;height:100%;text-align:center;color:#fff;z-index:1000001;}
+		#loading_content img{padding-right:15px;}
+		#loading_content h2{color:#fff;display:block; margin: 125px auto;}
+	</style>
+	<script type ="text/javascript">
+		$(document).ready(function(){
+			/** INIT THINGS **/
+			var showCuts = true;
+			var feedURL = "http://api.flickr.com/services/feeds/photos_public.gne?tags=crownpoint&tagmode=any&format=json&jsoncallback=?";
+//			alert("Ready. Click to continue.");
+			//Flickr Integration
+			$.getJSON(feedURL, function(data){
+				$.each(data.items, function(i,item){
+					if(i<= 25){ // <— change this number to display more or less images
+						var authorName = item.author;
+						authorName = authorName.replace("nobody@flickr.com (","");
+						authorName = authorName.replace(")","");
+						var hiresURL = item.media.m;
+						hiresURL = hiresURL.replace("_m", "");
+						var tempHTML = "<div class = 'photo_wrapper_wrapper'><a class = 'photo_wrapper' href='" + hiresURL + "' target='_blank' rel='facebox' alt = '"+item.title+"' title = '"+item.title+"'><img src = '"+item.media.m+"' alt = '" + item.title + "' title = '" + item.title + "' /></a><p><a title = 'Visit " + authorName + " at Flickr ...' 'href = 'http://www.flickr.com/photos/" + item.author_id + "' target='_blank'>photo by " + authorName + "</a></p><p class = 'tags'>TAGS: " + item.tags + "</p></div>";						
+						$('#flickr_thumbs').prepend(tempHTML);
+					}
+				});
+				$('a[rel*=facebox]').facebox(); 
+				$('#loading_content h2').append(" done!");
+				$('#loading_content, #loading_bg').fadeOut('fast');
+				$('.photo_wrapper').animate({opacity:'1'}, { queue:false, duration:1000 });
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="loading_bg"></div><div id = "loading_content"><h2><img src = "ajax-loader.gif" alt = "loading" />Loading content ...</h2></div>
+	<div id="main_wrapper">
+		<h1>Cubs and Sox photos pulled dynamically from Flickr</h1>
+		<div id="main_image"></div>
+		<div id="flickr_thumbs">
+			<div id="thumbs_wrapper">
+			<!--	<div class = 'photo_wrapper_wrapper'><a class = 'photo_wrapper' href='http://farm4.static.flickr.com/3268/2884699121_c17966a45d.jpg' target='_blank' rel='facebox' alt = 'William Wrigley Jr's Living Room Clock' title = 'William Wrigley Jr's Living Room Clock'><img src = 'http://farm4.static.flickr.com/3268/2884699121_c17966a45d_m.jpg' alt = 'William Wrigley Jr's Living Room Clock' title = 'William Wrigley Jr's Living Room Clock' /></a><p><a title = 'Visit Elwood Photo at Flickr ...' 'href = 'http://www.flickr.com/photos/75838757@N00' target='_blank'>photo by Elwood Photo</a></p><p class = 'tags'>TAGS: chicago vintage illinois baseball stadium bears cubs wrigleyfield bleachers wrigley bleacher whitesox ballpark scoreboard chicagocubs cubbies mlb majorleague weeghmanpark williamwrigleyjr chicagowhales weeghman thenorthsiders</p></div>
+				<div class = 'photo_wrapper_wrapper'><a class = 'photo_wrapper' href='http://farm3.static.flickr.com/2667/3923827055_4f07fb4591.jpg' target='_blank' rel='facebox' alt = 'The Windup' title = 'The Windup'><img src = 'http://farm3.static.flickr.com/2667/3923827055_4f07fb4591_m.jpg' alt = 'The Windup' title = 'The Windup' /></a><p><a title = 'Visit lanskymob at Flickr ...' 'href = 'http://www.flickr.com/photos/62278819@N00' target='_blank'>photo by lanskymob</a></p><p class = 'tags'>TAGS: chicago grass ball baseball diamond dirt cubs wrigleyfield athlete mound pitcher dempster whitesox ryandempster</p></div>
+				<div class = 'photo_wrapper_wrapper'><a class = 'photo_wrapper' href='http://farm2.static.flickr.com/1271/1173764255_bbb31efeff.jpg' target='_blank' rel='facebox' alt = 'Harry Caray... or ... pinwheel?' title = 'Harry Caray... or ... pinwheel?'><img src = 'http://farm2.static.flickr.com/1271/1173764255_bbb31efeff_m.jpg' alt = 'Harry Caray... or ... pinwheel?' title = 'Harry Caray... or ... pinwheel?' /></a><p><a title = 'Visit sldownard at Flickr ...' 'href = 'http://www.flickr.com/photos/32705331@N00' target='_blank'>photo by sldownard</a></p><p class = 'tags'>TAGS: chicago baseball cubs wrigleyfield whitesox chicagocubs 2007 comiskeypark harrycaray</p></div>
+				<div class = 'photo_wrapper_wrapper'><a class = 'photo_wrapper' href='http://farm3.static.flickr.com/2291/2450057370_07cf945c84.jpg' target='_blank' rel='facebox' alt = 'quick amsterdam-1' title = 'quick amsterdam-1'><img src = 'http://farm3.static.flickr.com/2291/2450057370_07cf945c84_m.jpg' alt = 'quick amsterdam-1' title = 'quick amsterdam-1' /></a><p><a title = 'Visit David Wieland at Flickr ...' 'href = 'http://www.flickr.com/photos/7302769@N05' target='_blank'>photo by David Wieland</a></p><p class = 'tags'>TAGS: sf sanfrancisco california park nyc newyorkcity blue red people chicago ny newyork game sports field amsterdam boston night ball illinois baseball action stadium bronx massachusetts sox bat stlouis redsox nikond100 queens seats sfgiants giants cubs wrigleyfield fans fenway wrigley quick fenwaypark yankees mets shea buschstadium whitesox yankeestadium ballpark barrybonds chicagocubs bostonredsox newyorkyankees cardinals mlb newyorkmets sheastadium sanfranciscogiants majorleaguebaseball attpark quickamsterdam</p></div>
+				<div class = "photo_wrapper_wrapper"><a class = "photo_wrapper" href="typicalfavre.jpg" title = " a title" rel="facebox"><img src="typicalfavre2.jpg" /></a><p><strong>photo by this guy</strong></p><p class = "tags">TAGS: XXX, XXX, XXX, XXX, XXX, XXX, XXX< XXX</p></div>
+				<div class = "photo_wrapper_wrapper"><a class = "photo_wrapper" href="typicalfavre.jpg" title = " a title" rel="facebox"><img src="typicalfavre3.jpg" /></a><p><strong>photo by this guy</strong></p><p class = "tags">TAGS: XXX, XXX, XXX, XXX, XXX, XXX, XXX< XXX</p></div>
+				<div class = "photo_wrapper_wrapper"><a class = "photo_wrapper" href="typicalfavre.jpg" title = " a title" rel="facebox"><img src="typicalfavre4.jpg" /></a><p><strong>photo by this guy</strong></p><p class = "tags">TAGS: XXX, XXX, XXX, XXX, XXX, XXX, XXX< XXX</p></div>-->
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

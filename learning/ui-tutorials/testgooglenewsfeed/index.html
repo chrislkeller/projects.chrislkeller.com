@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<?php ### BEGIN DOC ###?>
+<html>
+
+<?php ### BEGIN DOC HEADER ###?>
+<head>
+
+<?php ### BEGIN TITLE ###?>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Google AJAX Feed API - AJAX Slide Show Sample</title>
+<?php ### END TITLE ###?>
+
+<?php ### BEGIN CSS ### ?>
+<link rel="stylesheet" href="#" type="text/css" media="screen" />
+<style type="text/css">
+@import url("http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.css");
+
+#feedControl { 
+	margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+	width: 440px;
+	font-size: 16px;
+	color: #9CADD0;
+}
+</style>
+<?php ### END CSS ### ?>
+
+<?php ### BEGIN SCRIPT ### ?>
+<script src="http://www.google.com/jsapi/?key=ABQIAAAAUQSnSMidwRQGbJjVK2dpuBSTPajBtBLoJBTA5Ip_foVnyub5qxS2cGBcPNBssf1t81XRazqSwcNnTQ"
+    type="text/javascript"></script>
+<script src="http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.js"
+    type="text/javascript"></script>
+
+<script type="text/javascript">
+    function load() {
+      var feed ="http://search.twitter.com/search.atom?q=chicago%20%26%20traffic";
+      new GFdynamicFeedControl(feed, "feedControl");
+
+    }
+    google.load("feeds", "1");
+    google.setOnLoadCallback(load);
+
+</script>
+
+<?php ### END SCRIPT ### ?>
+
+</head>
+<?php ### END DOC HEADER ###?>
+
+<?php ### BEGIN BODY ###?>
+<body>
+<div id="body">
+<div id="feedControl">Loading...</div>
+</div>
+</body>
+<?### END BODY ###?>
+
+</html>
+<?### END DOC ###?>

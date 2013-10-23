@@ -1,0 +1,37 @@
+/*TYPOGRAPHY*/
+
+body
+{font-family: Garamond, Georgia, "Times New Roman", Times, serif; color: #cccccc;}
+	
+p
+{font-size: 20px; text-indent:15px; line-height: 24px; text-transform: lowercase;}
+
+h2
+{color: #ffffff; font-size: 30px; text-transform: lowercase; margin: 5px 0 0 0;}
+	
+a
+{color: #99cc66; text-decoration: none; font-size: 24px; font-weight: bold;}
+
+a:hover
+{color: #ffffff; text-decoration:underline;}
+
+.port-image a
+{color: #000000;}
+	
+ul
+{margin: 0; padding:0;}
+
+li
+{margin: 10px 0 0 15px; padding: 0;}
+
+#navigation
+{width: 960px; margin-bottom: 20px;}
+
+#navigation ul
+{list-style: none; padding-top: 15px;}
+
+#navigation li
+{display: inline;  margin-right: 10px;}
+
+#footer p
+{color: #ffffff; font-weight: bold;}

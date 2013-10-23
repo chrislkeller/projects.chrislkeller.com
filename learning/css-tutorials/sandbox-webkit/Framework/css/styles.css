@@ -1,0 +1,92 @@
+/*BEGIN STRUCTURE*/
+body
+{background-color:#ebebdf; color:#000000; font-family: Helvetica,sans-serif;}
+
+#container
+{}
+
+#main
+{width: 300px; margin: auto; background-color:#ffffff; padding: 15px; border: 2px solid #0d506e;}
+
+
+
+
+
+
+
+
+
+
+
+
+textarea
+{width:200px; height:200px; padding:5px; border:1px solid #aaa;}
+
+#log-in
+{margin: auto;}
+
+/*BEGIN TYPOGRAPHY*/
+h1
+{font-size: 30px; margin: 10px 0 20px;}
+
+h2
+{font-size: 24px; margin: 10px 0 20px;}
+
+.text
+{font-size: 14px; display:block; margin-bottom:5px; font-weight:bold;}
+
+.menu
+{font-size: 14px; display:block; margin-bottom:5px; font-weight:bold;}
+
+.checkbox
+{display:block; margin-bottom:5px; font-weight:bold;}
+
+.tip
+{color:#888; font-size:12px;}
+
+/*BEGIN FORM STYLES*/
+input
+{margin:0; padding:0;}
+
+.body
+{width:200px; padding:5px; border:2px solid #0d506e;}
+
+#crime
+{border:2px solid #0d506e;}
+
+#location
+{border:2px solid #0d506e;}
+
+.pageitem ul 
+{margin: auto;} 
+
+.clear
+{clear:both;}
+
+/*OVERRIDE SUBMIT BUTTONS*/
+li.form input[type=submit]
+{width: 100%; background: none; border: 0px; color: #000000; margin-top: -5px; margin-bottom: -5px; font-weight: bold; font-size: 17px;}
+
+button, input[type=button], input[type=reset]
+{top: 0px!important; border: none; color: #000000; font-weight: bold; font-size: 17px; -webkit-appearance: none;}
+
+/*.form
+{background-color: #0d506e; color:#ffffff; font-weight:bold;}
+
+.form:hover
+{background-color:#000000; color:#ffffff;}*/
+
+
+
+
+
+
+
+
+
+/*BEGIN IMAGES*/
+header, footer
+{height:auto; margin-bottom: 10px;}
+
+header img, footer img
+{width: 300px;}

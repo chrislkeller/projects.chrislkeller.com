@@ -1,0 +1,66 @@
+html{
+	height:100%;
+	margin:0;
+	padding:0;
+	width:100%;
+	background-color:#242424;
+	font-family:arial;
+}
+body{
+	height:100%;
+	margin:0 auto;
+	padding:0;
+	width:980px;
+}
+#logo  {
+	background-color:#242424;
+	color:#F1F1F1;
+	font-size:43px;
+	padding:15px 0 6px;
+	text-shadow:0 0 2px #FFFFFF;
+}
+#logo a {
+	color:#F1F1F1;
+}
+#container{
+	width:100%;
+	min-height:800px;
+	background-color:#000;
+}
+a{
+color: rgb(0, 114, 191); text-decoration: none;	
+}
+.heading{
+	font-size:24px;
+	color:#dfdfdf;
+	text-align:center;
+	padding-top:20px;
+}
+.legal{
+	text-align:center;
+	color:5f5f5f;
+	font-size:16px;
+	margin-top:100px;
+	background:-moz-linear-gradient(center top , #000, #242424) repeat scroll 0 0 transparent;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0, #000),color-stop(1, #242424));
+	background:-o-gradient(linear,left top,left bottom,color-stop(0, #000),color-stop(1, #242424));
+
+}
+a{
+color: rgb(0, 114, 191); text-decoration: none;	
+}
+.warning{
+	color:#555;
+	text-align:center;
+	font-size:12px;
+}
+.msg{
+	color:#dfdfdf;
+	text-align:center;
+	font-size:14px;
+	line-height:1.5em;
+}
+.clearfix{
+	clear:both;
+	float:none;
+}

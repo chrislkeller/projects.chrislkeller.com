@@ -1,0 +1,94 @@
+/*STRUCTURE*/
+body { background:url(../img/background.png) no-repeat center top #0E0000; }
+.section {margin: 15px auto 25px auto;}
+
+#side-box>.section  {margin: 0px auto 5px auto;}
+#side-box>.section ul  {list-style: disc;}
+
+/*OVERLINE NAVIGATION*/
+#topbar {width: 100%; margin-bottom: 20px;}
+#topbar div {white-space: nowrap; overflow: hidden; text-align: center;}
+
+/*CONTAINER*/
+.container_12 {background-color: #fcfcfc; width: 960px; margin-left: auto; margin-right: auto; padding: 20px 10px 20px 10px;}
+
+/*HEADER & FOOTER*/
+#header, #footer {width: 980px; padding: 5px 0 10px 0; margin-left: auto; margin-right: auto; }
+
+#footer {background-color: #0E0000;}
+
+#header h1
+{text-indent: -9999px; height: 150px; background: url('../img/Wed-Logo-Test.gif') no-repeat;}
+
+#header h1 a {display: block; width: 960px;}
+
+/*SECTION HEADING*/
+.post-it {padding:10px; position:relative; background:#2b2c2c; color:#ffffff; transform:rotate(355deg); -moz-transform:rotate(355deg); -webkit-transform:rotate(355deg); z-index:10; top:10px; box-shadow:1px 1px 0 #333; -moz-box-shadow:1px 1px 0 #333; -webkit-box-shadow:1px 1px 0 #333; margin-bottom: 60px;}
+
+/*POST STYLES*/
+.post { margin: 10px:}
+.post > .post-header { margin:0 0 20px; position:relative; }
+.post > .post-header > .date { padding: 6px 10px; background:#2b2c2c; color:#ececec; font-weight:bold; transform:rotate(270deg); -moz-transform:rotate(270deg); -webkit-transform:rotate(270deg); position:absolute; top:35px; left:-75px; }
+
+.post > .post-section img {border:1px solid #474747; float: left; margin: 0 20px 0 0}
+
+.post > .post-section p a { color:#4e7499; font-weight:600; }
+.post > .post-section p a:hover { text-decoration:underline; }
+.post > .post-section #social-buttons ul { width:100%; height:25px; }
+.post > .post-section #social-buttons ul li { float:left; padding:0 5px 0 0; background:none; }
+.post > .post-footer { overflow:hidden; }
+.post > .post-footer li { float:left; background:none; margin-right: 25px; }
+.post > .post-footer p a { color:#4e7499; font-weight:600; }
+.post > .post-footer p a:hover { text-decoration:underline; }
+
+/*IMAGE CAPTIONS */
+.aligncenter,div.aligncenter { margin-left:auto; margin-right:auto; }
+.wp-caption {background-color:#e8e8e8; padding:10px; margin:15px; -moz-border-radius:6px; -khtml-border-radius:6px; -webkit-border-radius:6px; border-radius:6px; }
+.wp-caption img {float: none;}
+.wp-caption p.wp-caption-text { font-size:10px; line-height:18px; padding:0 4px 5px; margin:0; }
+
+/*MISC*/
+#twitter-widget { margin-top:0px; }
+.report { height:auto; margin:5px 0 40px; }
+.report .img { float:left; padding:1px; border:1px solid #c4c5c5; margin:4px 15px 4px 4px; }
+.report p { float:right; padding:5px; }
+.gas-table {margin-bottom: 25px;}
+.spacer {margin: 20px 0 20px 0;}
+
+/*PAGING*/
+#paging-link { margin-top:25px; }
+#paging-link>.alignleft { float:left; }
+#paging-link>.alignright { float:right; }
+#paging-link a { background:#474747; padding:5px 15px; text-align:center; color:#fcfcfc; -moz-border-radius:6px; -khtml-border-radius:6px; -webkit-border-radius:6px; border-radius:6px; }
+#paging-link a:hover { background:#507599; }
+
+/*ADS*/
+#side-ad { margin-top:20px; }
+
+/*BLOCKQUOTE*/
+.post > .post-section > blockquote { margin:25px 75px 25px 55px; padding:15px 20px; border-top:1px solid #1a2737; border-right:1px solid #1a2737; border-bottom:10px solid #1a2737; border-left:20px solid #1a2737; background-color:#ebebeb; color:#000000; line-height:26px; -moz-border-radius:6px; -khtml-border-radius:6px; -webkit-border-radius:6px; border-radius:6px; }
+
+/*BEGIN FORM FIELDS*/
+#search-box {margin: 0 auto 0 auto;}
+#search-box > #searchform > .field {display:inline; width:250px; height:25px; margin-bottom: 10px; background:#dddddd; border:2px solid #160100; font-size:14px; font-weight:600; color:#474747; -moz-border-radius:4px; -khtml-border-radius:4px; -webkit-border-radius:4px; border-radius:4px; }
+#search-box > #searchform > .field:focus {background-color:#fcfcfc; border:2px solid #160100;}
+#search-box > #searchform > .submit-button {width:auto; height:auto; background:#2B2C2C; padding: 3px; border:2px solid #2B2C2C; font-size:14px; color:#ffffff; -moz-border-radius:4px; -khtml-border-radius:4px; -webkit-border-radius:4px; border-radius:4px;}
+#search-box > #searchform > .submit-button:hover {background:#160100; border:2px solid #160100; cursor:pointer; }
+
+/*FEATURED CONTENT*/
+.hidden {display: none;}
+#prevNext {margin-bottom: -80px;}
+#prevNext img {position: relative; z-index: 2; cursor: pointer;}
+.jFlowPrev {position: relative; top: -155px; left: -15px; z-index: 2; cursor: pointer;}
+.jFlowNext {position: relative; top: -155px; left: 490px; z-index: 2; cursor: pointer;}
+p.featured {margin: 0; padding: 0 1em; font-size: 1.5em; position: relative; top: -310px; line-height: 30px; height:auto; background: black; opacity: .7; filter:alpha(opacity=70); color: white;}
+p.featured a {color: white; text-decoration: none;}
+p.featured a:hover {color: white; text-decoration: underline;}
+
+.post-heading{margin-top: 50px;}
+
+/*TICKER-SCROLLER*/
+div.horizontal_scroller, div.vertical_scroller {position:relative; width:620px; height:50px; display:block; overflow:hidden;}
+div.scrollingtext {position:absolute; margin-top: 15px; white-space:nowrap; font-size: 16px; color:#ccc;}
+div.scrollingtext a {text-decoration: none;}
+div.scrollingtext a:hover {text-decoration: underline;}

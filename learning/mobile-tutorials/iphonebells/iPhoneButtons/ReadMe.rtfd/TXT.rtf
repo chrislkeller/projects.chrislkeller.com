@@ -1,0 +1,86 @@
+{\rtf1\mac\ansicpg10000\cocoartf824\cocoasubrtf440
+{\fonttbl\f0\fswiss\fcharset77 Helvetica;\f1\fswiss\fcharset77 Helvetica-Bold;}
+{\colortbl;\red255\green255\blue255;}
+\vieww18820\viewh8460\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+
+\f0\fs24 \cf0 "iPhone Buttons" is a webpage that displays a set of iPhone styled buttons using HTML and CSS technologies.\
+This sample describes how to build five dynamic buttons that horizontally scale. They are 150 pixels wide. All text on the buttons is 20 pixels, Helvetica, black and bold. Each button was created using the -webkit-border-image property and a single PNG image in lieu of several images. Each PNG image is either 29x46 pixels or 18x30 pixels.\
+\
+The -webkit-border-image property divides an image into nine parts with two divisions on the vertical axis and two divisions on the horizontal axis (see Figure1). The -webkit-border-image property receives four values: first, second, third and fourth.\
+The first and third values set the height of the image's top and bottom parts. The second and fourth attributes define the width of the right and left sides of the image.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qc\pardirnatural
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\qc\pardirnatural
+\cf0 {{\NeXTGraphic borderimage.png \width6900 \height4460
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\qc\pardirnatural
+\cf0 \
+                                                Figure 1: Illustrates how -webkit-border-image  divides an image \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+
+\f1\b \cf0 How to build a button...
+\f0\b0 \
+In this sample, each image was broken into three parts instead of 9 pieces. The left and right parts were given fixed width values. Consider the whiteButton.png, a 29x46 PNG image that was used to build the "iPhone" button in this sample. The height of its top and bottom parts was set to 0. Thus, making the whiteButton.png image, a three-piece image. Its left and right sides are 14 pixels wide. Thus leaving 1 pixel for the body.\
+The result is a button whose body can horizontally scale while its left and right corners are stationary. The "blue," "white," "black," "blackLeft," and "blackRight" classes in the "iPhoneButtons.css" file are respectively used to build the "iPhone," "iPod classic," "iPod nano," "iPod shuffle," and "iPod touch" buttons. \
+\
+
+\f1\b How to style a button...
+\f0\b0 \
+The "button" class in the "iPhoneButton.css" illustrates how to style all the buttons. Set the display attribute to block so each button's height and width can be easily adjusted. The buttons will expand to the width of their parent cell unless their width is specified. The "line-height" attribute is used to vertically align text on each button.  \
+  \
+\
+
+\f1\b About the -webkit-border-image ...
+\f0\b0 \
+The -webkit-border-image is a WebKit extension that builds borders using images in Safari 3. It is based on the proposed W3C CSS3 border-image property. It divides an image into four corners, four edges and a middle part, which can expands horizontally. \
+Its syntax is:\
+	-webkit-border-image: url(image-path) first second third fourth shape shape\
+\
+The url(image-path) specifies the image to be used, first is the height of the top edge and of the two top corners, second is the width of the right edge and the two right corners, third is the height of the bottom edge and the two bottom corners and fourth is the width of the left edge and the two left corners.\
+shape, which is either "round" or "stretch", specifies how the image fits into the border. Both shape values are optional and may be omitted in a -webkit-border-image declaration. \
+The first, second, third, and fourth should be given in either numbers or percentage. The numbers are either pixels in an image (if the image is a raster image) or CSS px units (if not). The percentages values are relative to the size of an image.	 \
+Further documentation about the CSS3 border-image can be found at {\field{\*\fldinst{HYPERLINK "http://www.w3.org/TR/css3-border/#the-border-image"}}{\fldrslt http://www.w3.org/TR/css3-border/#the-border-image}} .\
+\
+Usage examples are given below:\
+    -webkit-border-image: url(example.png) 2 4 5 6 stretch \
+    -webkit-border-image: url(example.png) 20% 25% 30% 25% round round\
+\
+\
+
+\f1\b IMPORTANT...
+\f0\b0 \
+The following expression is invalid \
+			 -webkit-border-image: url(example.png) 2px 4px 5px 6px \
+\
+You cannot add "px" after the 2, 4, 5 and 6 numbers in this expression.  The 2, 4, 5 and 6 values represent pixels in the example.png  image (if example.png is a raster image) or CSS px units (if not). Thus, the above expression should be written as follows:\
+                             -webkit-border-image: url(example.png) 2 4 5 6\
+\
+\
+
+\f1\b Using the Sample
+\f0\b0 \
+Open index.html in Safari 3 on either Mac or PC.  If you have your own webserver (eg. Mac OS X Personal Web Server) and an iPhone or iPod touch, you can also place these files on your server and browse them using your iPhone. \
+\
+\
+
+\f1\b Changes from Previous Versions
+\f0\b0 \
+Corrected misspelling of Helvetica in the "iPhoneOrientation.css" file.\
+Corrected link  to the iPod touch webpage in the "index.html" file.\
+ \
+\
+
+\f1\b Feedback and Bug Reports
+\f0\b0 \
+\pard\pardeftab720\ql\qnatural
+\cf0 Please send all feedback about this sample by using the Feedback form on the bottom of the sample's webpage.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\qj\pardirnatural
+\cf0 Please submit any bug reports about this sample to the {\field{\*\fldinst{HYPERLINK "http://developer.apple.com/bugreporter"}}{\fldrslt Bug Reporting}} page.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+\cf0 \
+\pard\pardeftab720\sa200\qj
+\cf0 Copyright \'a9\'ca2007 Apple Inc. All rights reserved.}

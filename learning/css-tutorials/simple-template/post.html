@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8' />
+  <title>Object Oriented CSS</title>
+  <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link type="text/css" rel="stylesheet" href="css/reset.css" />
+  <link type="text/css" rel="stylesheet" href="css/text.css" />
+  <link type="text/css" rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+    <article id="container">
+      <header>
+        <h1>Object Oriented CSS</h1>
+        <p class="subtitle">(really just a bunch of best practices and patterns; not a new language)</p>
+        <nav>
+          <ul>
+             <li><a href="index.htm">Home</a></li>
+             <li><a href="#" class="selected">Archives</a></li>
+             <li><a href="#">About</a></li>
+             <li><a href="#">Contact Us</a></li>
+          </ul>
+        </nav>
+      </header>
+      <section>
+        <article class="post">
+          <header>
+            <span class="date">September 10, 2009</span>
+            <h2>Check out WorkAwesome!</h2>
+          </header>
+          <section>
+            <img src="img/wa.jpg" alt="Work Awesome" />
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis urna dui,
+            ut tempus tortor. Aliquam enim massa, porta a vehicula in, vehicula at lectus. Ut turpis
+            diam, porttitor a iaculis quis, bibendum non lectus. Nullam vitae erat a felis pulvinar
+            tempor ut id leo. Aenean accumsan feugiat ultrices. Duis rhoncus eros id odio faucibus
+            imperdiet. Nulla nibh mauris, placerat sagittis placerat sed, commodo in mi.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis urna dui,
+            ut tempus tortor. Aliquam enim massa, porta a vehicula in, vehicula at lectus. Ut turpis
+            diam, porttitor a iaculis quis, bibendum non lectus. Nullam vitae erat a felis pulvinar
+            tempor ut id leo. Aenean accumsan feugiat ultrices. Duis rhoncus eros id odio faucibus
+            imperdiet. Nulla nibh mauris, placerat sagittis placerat sed, commodo in mi.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis urna dui,
+            ut tempus tortor. Aliquam enim massa, porta a vehicula in, vehicula at lectus. Ut turpis
+            diam, porttitor a iaculis quis, bibendum non lectus. Nullam vitae erat a felis pulvinar
+            tempor ut id leo. Aenean accumsan feugiat ultrices. Duis rhoncus eros id odio faucibus
+            imperdiet. Nulla nibh mauris, placerat sagittis placerat sed, commodo in mi.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis urna dui,
+            ut tempus tortor. Aliquam enim massa, porta a vehicula in, vehicula at lectus. Ut turpis
+            diam, porttitor a iaculis quis, bibendum non lectus. Nullam vitae erat a felis pulvinar
+            tempor ut id leo. Aenean accumsan feugiat ultrices. Duis rhoncus eros id odio faucibus
+            imperdiet. Nulla nibh mauris, placerat sagittis placerat sed, commodo in mi.</p>
+          </section>
+          <footer>
+            <ul>
+              <li><a href="#">Digg!</a></li>
+              <li><a href="#">Share!</a></li>
+              <li><a href="#">Like!</a></li>
+            </ul>
+          </footer>
+        </article>
+        <article class="comments">
+          <header><h2>Comments</h2></header>
+          <section>
+            <article class="comment">
+              <header><p>First-commenter</p><p class="meta">Sept 10</p></header>
+              <section><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis urna dui,</p></section>
+            </article>
+            <article class="reply comment">
+                  <header><p>Reply-commenter</p><p class="meta">Sept 12</p></header>
+                  <section><p>diam, porttitor a iaculis quis, bibendum non lectus. Nullam vitae erat a felis pulvinar</p></section>
+                </article>
+            <article class="comment">
+              <header><p>Second-commenter</p><p class="meta">Sept 10</p></header>
+              <section><p>tempor ut id leo. Aenean accumsan feugiat ultrices. Duis rhoncus eros id odio faucibus </p></section>
+            </article>
+            <article class="author comment">
+              <header><p>The author</p><p class="meta">Sept 11</p></header>
+              <section><p>diam, porttitor a iaculis quis, bibendum non lectus. Nullam vitae erat a felis pulvinar</p></section>
+            </article>
+            <article class="comment">
+              <header><p>Fourth-commenter</p><p class="meta">Sept 12</p></header>
+              <section><p>imperdiet. Nulla nibh mauris, placerat sagittis placerat sed, commodo in mi</p></section>
+            </article>
+          </section>
+          <footer>
+          <h2>Leave a Comment</h2>
+          <form method="post" action="" class="comments-form">
+          <p><label>Name</label><input type="text" /></p>
+          <p><label>Email</label><input type="text" /></p>
+          <p><label>Website</label><input type="text" /></p>
+          <p><label>Comment</label><textarea></textarea></p>
+          <p><button type="submit">Submit</button></p>
+          </form>
+          </footer>
+        </article>
+      </section>
+
+
+        <aside> 
+          <article class="side-box">
+            <header>
+              <h3>Archives</h3>
+              <p>look into the past</p>
+            </header>
+            <section>
+              <ul>
+                <li><a href="#">August 2009</a></li>
+                <li><a href="#">July 2009</a></li>
+                <li><a href="#">June 2009</a></li>
+                <li><a href="#">May 2009</a></li>
+                <li><a href="#"> . . . </a></li>
+              </ul>
+            </section>
+          </article>
+          <article class="last pop-out side-box clearfix">
+            <header class="post-it"><h3>Recent Comments</h3><p>see what folks are saying</p></header>
+            <section>
+            
+            
+            
+            
+              <ul>
+                <li>
+                  <p>I think oocss is really cool!</p>
+                  <p class="meta">By J. Garret on Sept 12, about "The Intro Post"</p>
+                </li>              
+                <li>
+                  <p>Are you kidding? CSS can't ever be Object Oriented.</p>
+                  <p class="meta">By Joe Thomas on Sept 11, about "The Intro Post"</p>
+                </li>              
+                <li>
+                  <p>Envato has done it again; workAwesome is simply awesome!</p>
+                  <p class="meta">By GV on Sept 10, about "Check out WorkAwesome"</p>
+                </li>              
+                <li>
+                  <p>I really like the site's desing; another work of art from Collis.</p>
+                  <p class="meta">By Anonymous on Sept 10, about "Check out WorkAwesome"</p>
+                </li>            
+              </ul>
+            </section>
+          </article>
+        </aside>
+
+      <footer>
+        <ul>
+          <li>Standard</li>
+          <li>Footer</li>
+          <li>Information</li>
+          <li>Yada</li>
+          <li>Yada</li>
+          <li>&copy; 2009</li>
+        </ul>
+
+      </footer>
+    </article>
+</body>
+</html>

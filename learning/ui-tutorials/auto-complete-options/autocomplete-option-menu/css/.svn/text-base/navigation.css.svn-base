@@ -1,0 +1,29 @@
+#topnav
+{margin-bottom: 20px; text-align:right;}
+
+a.contact
+{position:relative; margin-left:3px;}
+
+a.contact span
+{padding:4px 16px 6px 0;}
+
+#topnav a.menu-open
+{color: #000000; outline: none;}
+
+#contact-menu
+{display:none; background-color: #99cc66; position: absolute; width: 300px; z-index: 100; border: 1px transparent; text-align: left; padding: 15px; top: 100px;  right: 350px;  margin-top: 5px; margin-right: 0px; *margin-right: -1px; color: #000000; border: 2px solid #000000; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;}
+
+#contact-menu input[type=text], #contact-menu .text-field 
+{display:block; width: 250px; font-size: 18px; margin:0 0 5px; padding:5px; background: #ffffff; border: 5px solid #666666; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;}
+
+#contact-menu input[type=text]:focus, #contact-menu .text-field:focus
+{background: #f5f5f5; border: 5px solid #2E3133;}
+
+#contact-menu label
+{font-weight: bold;}
+
+.form-submit-button
+{width: 270px; display: block; background-color: #2E3133; border: 1px solid #2e3133; font-size: 20px; font-weight: bold text-align: center; color: #ffffff; margin-top: 20px; padding: 10px; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; cursor: pointer;}
+
+.form-submit-button:hover
+{background-color: #666666; border: 1px solid #666666; color:#000000;}

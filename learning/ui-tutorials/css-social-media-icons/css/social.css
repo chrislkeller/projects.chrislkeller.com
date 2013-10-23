@@ -1,0 +1,559 @@
+/* ------------------------------------------
+PURE CSS SOCIAL MEDIA ICONS
+by Nicolas Gallagher
+- http://nicolasgallagher.com/pure-css-social-media-icons/
+
+http://nicolasgallagher.com
+http://twitter.com/necolas
+
+Created: 10 March 2010
+Version: 1.0
+
+Dual licensed under MIT and GNU GPLv2 © Nicolas Gallagher 
+------------------------------------------ */
+
+
+/* ------------------------------------------------------------------------------------
+-- GENERAL STYLES
+------------------------------------------------------------------------------------ */
+
+body {padding:0; margin:0; font:1em/1.4 Cambria, Georgia, sans-serif; color:#333; background:#fff;}
+
+h2 a:link,
+ h2 a:visited,
+ p a:link,
+ p a:visited {border-bottom:1px solid #c55500; color:#c55500; text-decoration:none;}
+h2 a:visited,
+ p a:visited {border-bottom:1px solid #730800; color:#730800;}
+
+h2 a:hover,
+ h2 a:focus,
+ h2 a:active,
+ p a:hover,
+ p a:focus,
+ p a:active {border:0; color:#fff; background:#c55500;}
+
+h2 a:visited:hover,
+ h2 a:visited:focus,
+ h2 a:visited:active,
+ p a:visited:hover,
+ p a:visited:focus,
+ p a:visited:active {color:#fff; background:#730800;}
+
+#container {width:500px; padding:0 0 100px; margin:0 auto;}
+
+h1 {margin:1em 0 0; font-size:2.5em; font-weight:normal; line-height:1.2; text-align:center;}
+h2 {margin:0.5em 0 1.5em; font-size:1.25em; font-weight:normal; font-style:italic; text-align:center;}
+p {margin:1em 0;}
+
+.follow {clear:both; margin-top:2em; font-size:1.125em;}
+.follow span {font-weight:bold;}
+
+
+/* ------------------------------------------------------------------------------------
+--  ICON SET
+------------------------------------------------------------------------------------ */
+
+ul {
+	list-style:none;
+	padding:0;
+	margin:0;
+	overflow:hidden;
+	font:0.875em/1 Arial, sans-serif;
+}
+
+ul li {
+	float:left;
+	width:66px;
+	height:66px;
+	margin:20px 20px 0 0;
+}
+
+ul li a {
+	display:block;
+	width:64px;
+	height:64px;
+	overflow:hidden;
+	border:1px solid transparent;
+	line-height:64px;
+	text-decoration:none;
+	
+	/* css3 */
+	text-shadow:0 -1px 0 rgba(0,0,0,0.5);
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px; /* standards version last */
+}
+
+ul li a:hover,
+ ul li a:focus,
+ ul li a:active {
+	opacity:0.8;
+	border-color:#000;
+}
+
+/* ------------------------------------------------------------------------------------
+--  FACEBOOK
+------------------------------------------------------------------------------------ */
+
+.facebook a {
+	position:relative;
+	border-color:#3c5a98;
+	text-transform:lowercase;
+	text-indent:34px;
+	letter-spacing:10px;
+	font-weight:bold;
+	font-size:64px;
+	line-height:66px;
+	color:#fff;
+	background:#3c5a98;
+
+	/* css3 */
+	/* NOTE: box-shadow is not currently in any CSS3 module. It may be reappear in a different form altogether */
+	-moz-box-shadow:0 0 4px rgba(0,0,0,0.4);
+	-webkit-box-shadow:0 0 4px rgba(0,0,0,0.4);
+	box-shadow:0 0 4px rgba(0,0,0,0.4); /* standards version last */
+}
+
+/* ------------------------------------------------------------------------------------
+--  TWITTER
+------------------------------------------------------------------------------------ */
+
+.twitter a {
+	position:relative;
+	border-color:#a8eaec;
+	text-transform:lowercase;
+	text-indent:20px;
+	letter-spacing:40px;
+	font:bold 60px/1 Tahoma, sans-serif;
+	line-height:60px;
+	color:#76DDF8;
+	background:#daf6f7;
+
+	/* css3 */
+	text-shadow: 3px 3px 1px #fff, -3px -3px 1px #fff, 3px -3px 1px #fff, -3px 3px 1px #fff;
+	/* NOTE: box-shadow is not currently in any CSS3 module. It may be reappear in a different form altogether */
+	-moz-box-shadow:0 0 4px rgba(0,0,0,0.4);
+	-webkit-box-shadow:0 0 4px rgba(0,0,0,0.4);
+	box-shadow:0 0 4px rgba(0,0,0,0.4); /* standards version last */
+	/* NOTE: webkit gradient implementation is not as per spec */
+	background:-webkit-gradient(linear, left top, left bottom, from(#dbf7f8), to(#88e1e6));
+	background:-moz-linear-gradient(top, #dbf7f8, #88e1e6);
+	background:linear-gradient(top, #dbf7f8, #88e1e6); /* standards version last */
+}
+
+/* ------------------------------------------------------------------------------------
+--  RSS
+------------------------------------------------------------------------------------ */
+
+.rss a {
+	position:relative;
+	width:60px;
+	padding:0 2px;
+	border-color:#ea6635;
+	text-transform:lowercase;
+	text-indent:-186px;
+	font-size:64px;
+	font-weight:bold;
+	color:#fff;
+	background:#e36443;
+	
+	/* css3 */
+	/* NOTE: box-shadow is not currently in any CSS3 module. It may be reappear in a different form altogether */
+	-moz-box-shadow:0 0 4px rgba(0,0,0,0.4);
+	-webkit-box-shadow:0 0 4px rgba(0,0,0,0.4);
+	box-shadow:0 0 4px rgba(0,0,0,0.4); /* standards version last */
+	/* NOTE: webkit gradient implementation is not as per spec */
+	background:-webkit-gradient(linear, left top, left bottom, from(#f19242), to(#e36443));
+	background:-moz-linear-gradient(top, #f19242, #e36443);
+	background:linear-gradient(top, #f19242, #e36443); /* standards version last */
+}
+
+/* create circle */
+.rss a:before {
+	content:"\00a0";
+	position:absolute;
+	bottom:10px;
+	left:10px;
+	width:12px;
+	height:12px;
+	background:#fff;
+	
+	/* css3 */
+	-moz-border-radius:12px;
+	-webkit-border-radius:12px;
+	border-radius:12px; /* standards version last */
+}
+
+/* create the two arcs */
+.rss a:after {
+	content:"\00a0";
+	position:absolute;
+	bottom:10px;
+	left:10px;
+	width:22px;
+	height:22px;
+	border-style:double;
+	border-width:24px 24px 0 0;
+	border-color:#fff;
+	
+	/* css3 */
+	-moz-border-radius:0 50px 0 0;
+    -webkit-border-top-right-radius: 50px;
+    border-radius:0 50px 0 0; /* standards version last */
+}
+
+/* ------------------------------------------------------------------------------------
+--  FLICKR
+------------------------------------------------------------------------------------ */
+
+.flickr a {
+	position:relative;
+	border-color:#d2d2d2;
+	text-indent:-9000px;
+	font-size:108px;
+	font-weight:bold;
+	color:#fff;
+	background:#fff;
+		
+	/* css3 */
+	/* NOTE: box-shadow is not currently in any CSS3 module. It may be reappear in a different form altogether */
+	-moz-box-shadow:0 0 4px rgba(0,0,0,0.4);
+	-webkit-box-shadow:0 0 4px rgba(0,0,0,0.4);  	
+	box-shadow:0 0 4px rgba(0,0,0,0.4); /* standards version last */
+	/* NOTE: webkit gradient implementation is not as per spec */
+	background:-webkit-gradient(linear, left top, left bottom, from(#fff), to(#d2d2d2));
+	background:-moz-linear-gradient(top, #fff, #d2d2d2);
+	background:linear-gradient(top, #fff, #d2d2d2); /* standards version last */
+}
+
+/* create blue circle */
+.flickr a:before {
+	content:"\00a0";
+	position:absolute;
+	top:50%;
+	left:30%;
+	width:20px;
+	height:20px;
+	margin:-10px 0 0 -10px;
+	background:#085ec5;
+	border:1px solid #003c84;
+		
+	/* css3 */
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px; /* standards version last */
+	/* NOTE: webkit gradient implementation is not as per spec */
+	background:-webkit-gradient(linear, left top, left bottom, from(#005cc6), to(#003d83));
+	background:-moz-linear-gradient(top, #005cc6, #003d83);
+	background:linear-gradient(top, #005cc6, #003d83); /* standards version last */
+}
+
+/* create pink circle */
+.flickr a:after {
+	content:"\00a0";
+	position:absolute;
+	top:50%;
+	right:30%;
+	width:20px;
+	height:20px;
+	margin:-10px -10px 0 0;
+	border:1px solid #ba0060;
+	background:#fd1e93;
+	
+	/* css3 */
+	-moz-border-radius:20px;
+	-webkit-border-radius:20px;
+	border-radius:20px; /* standards version last */
+	/* NOTE: webkit gradient implementation is not as per spec */
+	background:-webkit-gradient(linear, left top, left bottom, from(#fd1e93), to(#cb026c));
+	background:-moz-linear-gradient(top, #fd1e93, #cb026c);
+	background:linear-gradient(top, #fd1e93, #cb026c); /* standards version last */
+}
+
+/* ------------------------------------------------------------------------------------
+--  DELICIOUS
+------------------------------------------------------------------------------------ */
+
+.delicious a {
+	position:relative;
+	border-color:#d2d2d2;	
+	text-align:center;
+	text-indent:-9000px;
+	font-size:108px;
+	font-weight:bold;
+	color:#fff;
+	background:#fff;
+
+	/* css3 */
+	/* NOTE: box-shadow is not currently in any CSS3 module. It may be reappear in a different form altogether */
+	-moz-box-shadow:0 0 4px rgba(0,0,0,0.4);
+	-webkit-box-shadow:0 0 4px rgba(0,0,0,0.4);  	
+	box-shadow:0 0 4px rgba(0,0,0,0.4); /* standards version last */
+	/* NOTE: webkit gradient implementation is not as per spec */
+	background:-webkit-gradient(linear, left top, left bottom, from(#fff), to(#d1d1d1));
+	background:-moz-linear-gradient(top, #fff, #d1d1d1);
+	background:linear-gradient(top, #fff, #d1d1d1); /* standards version last */
+}
+
+/* create top right square */
+.delicious a:before {
+	content:"\00a0";
+	position:absolute;
+	top:0;
+	right:0;
+	width:30px;
+	height:30px;
+	border:1px solid #0060ce;
+	background:#085ec5;
+
+	/* css3 */
+	-moz-border-radius-topright:4px;
+	-webkit-border-top-right-radius:4px;
+	border-top-right-radius:4px; /* standards version last */
+	/* NOTE: webkit gradient implementation is not as per spec */
+	background:-webkit-gradient(linear, left top, left bottom, from(#0060ce)), to(#003b7f));
+	background:-moz-linear-gradient(top, #0060ce, #003b7f);
+	background:linear-gradient(top, #0060ce, #003b7f); /* standards version last */
+}
+
+/* create bottom left square */
+.delicious a:after {
+	content:"\00a0";
+	position:absolute;
+	bottom:0;
+	left:0;
+	width:30px;
+	height:30px;
+	border:1px solid #000;
+	background:#000;
+
+	/* css3 */
+	-moz-border-radius-bottomleft:4px;
+	-webkit-border-bottom-left-radius:4px;
+	border-bottom-left-radius:4px; /* standards version last */
+	/* NOTE: webkit gradient implementation is not as per spec */
+	background:-webkit-gradient(linear, left top, left bottom, from(#212121), to(#000));
+	background:-moz-linear-gradient(top, #212121, #000);
+	background:linear-gradient(top, #212121, #000); /* standards version last */
+}
+
+/* ------------------------------------------------------------------------------------
+--  LINKEDIN
+------------------------------------------------------------------------------------ */
+
+.linkedin a {
+	position:relative;
+	width:60px;
+	overflow:hidden;
+	padding:0 2px;
+	border-color:#185c80;
+	text-transform:lowercase;
+	text-indent:-185px;
+	font-size:64px;
+	font-weight:bold;
+	color:#fff;
+	background:#0c6596;
+
+	/* css3 */
+	/* NOTE: box-shadow is not currently in any CSS3 module. It may be reappear in a different form altogether */
+	-moz-box-shadow:0 0 4px rgba(0,0,0,0.4);
+	-webkit-box-shadow:0 0 4px rgba(0,0,0,0.4);
+	box-shadow:0 0 4px rgba(0,0,0,0.4); /* standards version last */
+	/* NOTE: webkit gradient implementation is not as per spec */
+	background:-webkit-gradient(linear, left top, left bottom, from(#5babcb), to(#0c6596));
+	background:-moz-linear-gradient(top, #5babcb, #0c6596);
+	background:linear-gradient(top, #5babcb, #0c6596); /* standards version last */
+}
+
+/* ------------------------------------------------------------------------------------
+--  GOOGLE
+------------------------------------------------------------------------------------ */
+
+.google a {
+	position:relative;
+	border-color:#26478d;
+	text-transform:lowercase;
+	text-indent:16px;
+	letter-spacing:40px;
+	font: 65px/44px Georgia, Times New Roman, Times, serif;
+	color:#fff;
+	background:#1e3c7f;
+
+	/* css3 */
+	/* NOTE: box-shadow is not currently in any CSS3 module. It may be reappear in a different form altogether */
+	-moz-box-shadow:0 0 4px rgba(0,0,0,0.4);
+	-webkit-box-shadow:0 0 4px rgba(0,0,0,0.4);
+	box-shadow:0 0 4px rgba(0,0,0,0.4); /* standards version last */
+	/* NOTE: webkit gradient implementation is not as per spec */
+    background:-webkit-gradient(linear, left top, left bottom, from(#447aec), to(#1e3c7f));
+    background:-moz-linear-gradient(top, #447aec, #1e3c7f);
+    background:linear-gradient(top, #447aec, #1e3c7f); /* standards version last */
+}
+
+/* ------------------------------------------------------------------------------------
+--  ORKUT
+------------------------------------------------------------------------------------ */
+
+.orkut a {
+	position:relative;
+	border-color:#b4c4dd;
+	text-indent:-9000px;
+	font-size:108px;
+	color:#b62b91;
+	background:#fff;
+
+	/* css3 */
+	/* NOTE: box-shadow is not currently in any CSS3 module. It may be reappear in a different form altogether */
+	-moz-box-shadow:0 0 4px rgba(0,0,0,0.4);
+	-webkit-box-shadow:0 0 4px rgba(0,0,0,0.4);  	
+	box-shadow:0 0 4px rgba(0,0,0,0.4); /* standards version last */
+	/* NOTE: webkit gradient implementation is not as per spec */
+	background:-webkit-gradient(linear, left top, left bottom, from(#fff), to(#ceddf6));
+	background:-moz-linear-gradient(top, #fff, #ceddf6);
+	background:linear-gradient(top, #fff, #ceddf6); /* standards version last */
+}
+
+/* create the larger circle */
+.orkut a:before {
+	content:"\00a0";
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:40px;
+	height:40px;
+	border:1px solid #b0699e;
+	margin:-21px 0 0 -21px;
+	background:#d779c0;
+   
+	/* css3 */
+	-moz-border-radius:40px;
+	-webkit-border-radius:40px;
+	border-radius:40px; /* standards version last */
+	/* NOTE: box-shadow is not currently in any CSS3 module. It may be reappear in a different form altogether */
+	-moz-box-shadow:0 0 2px rgba(0,0,0,0.6);
+	-webkit-box-shadow:0 0 2px rgba(0,0,0,0.6);
+	box-shadow:0 0 2px rgba(0,0,0,0.6); /* standards version last */
+}
+
+/* create the smaller circle */
+.orkut a:after {
+	content:"\00a0";
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:26px;
+	height:26px;
+	margin:-13px 0 0 -13px;
+	background:#fff;
+
+	/* css3 */
+	-moz-border-radius:26px;
+	-webkit-border-radius:26px;
+	border-radius:26px; /* standards version last */
+	/* NOTE: box-shadow is not currently in any CSS3 module. It may be reappear in a different form altogether */
+	-moz-box-shadow: 0 0 2px rgba(0,0,0,0.6);
+	-webkit-box-shadow: 0 0 2px rgba(0,0,0,0.6);
+	box-shadow: 0 0 2px rgba(0,0,0,0.6); /* standards version last */
+	/* NOTE: webkit gradient implementation is not as per spec */
+	background:-webkit-gradient(linear, left top, left bottom, from(#eff4fc), to(#dce6f8));
+	background:-moz-linear-gradient(top, #eff4fc, #dce6f8);
+	background:linear-gradient(top, #eff4fc, #dce6f8); /* standards version last */
+}
+
+/* ------------------------------------------------------------------------------------
+--  TECHNORATI
+------------------------------------------------------------------------------------ */
+
+.technorati a {
+	position:relative;
+	border-color:#266F12;
+	text-indent:-9000px;
+	font-size:108px;
+	color:#b62b91;
+	background:#086B04;
+
+	/* css3 */
+	/* NOTE: box-shadow is not currently in any CSS3 module. It may be reappear in a different form altogether */
+	-moz-box-shadow:0 0 4px rgba(0,0,0,0.4);
+	-webkit-box-shadow:0 0 4px rgba(0,0,0,0.4);  	
+	box-shadow:0 0 4px rgba(0,0,0,0.4); /* standards version last */
+	/* NOTE: webkit gradient implementation is not as per spec */
+	background:-webkit-gradient(linear, left top, left bottom, from(#a3d679), to(#086b04));
+	background:-moz-linear-gradient(top, #a3d679, #086b04);
+	background:linear-gradient(top, #a3d679, #086b04); /* standards version last */
+}
+
+/* create the oval */
+.technorati a:before {
+	content:"\00a0";
+	position:absolute;
+	top:5px;
+	right:-5px;
+	width:40px;
+	height:25px;
+	border:8px solid #f5f5f5;
+   
+	/* css3 */
+	-moz-border-radius:45px / 35px;
+	-webkit-border-top-left-radius:45px 35px;
+	-webkit-border-top-right-radius:45px 35px;
+	-webkit-border-bottom-right-radius:45px 35px;
+	-webkit-border-bottom-left-radius:45px 35px;
+	border-radius:45px / 35px; /* standards version last */
+	/* NOTE: box-shadow is not currently in any CSS3 module. It may be reappear in a different form altogether */
+	-moz-box-shadow:0 0 2px rgba(0,0,0,0.6);
+	-webkit-box-shadow:0 0 2px rgba(0,0,0,0.6);
+	box-shadow:0 0 2px rgba(0,0,0,0.6); /* standards version last */
+}
+
+/* creat the triangle */
+.technorati a:after {
+	content:"\00a0";
+	position:absolute;
+	top:40px;
+	left:20px;
+	width:0;
+	height:0;
+	border-width:0 0 18px 13px;
+	border-style:solid;
+	border-color:transparent #f5f5f5;
+}
+
+/* ------------------------------------------------------------------------------------
+--  NETVIBES
+------------------------------------------------------------------------------------ */
+
+.netvibes a {
+	position:relative;
+	border-color:#0c5f0c;
+	text-align:center;
+	text-indent:-9000px;
+	font-size: 178px;
+	font-weight:bold;
+	color:#fff;
+	background:#138210;
+	
+	/* css3 */
+	/* NOTE: box-shadow is not currently in any CSS3 module. It may be reappear in a different form altogether */
+	-moz-box-shadow:0 0 4px rgba(0,0,0,0.4);
+	-webkit-box-shadow:0 0 4px rgba(0,0,0,0.4);
+	box-shadow:0 0 4px rgba(0,0,0,0.4); /* standards version last */
+	/* NOTE: webkit gradient implementation is not as per spec */
+	background:-webkit-gradient(linear, left top, left bottom, from(#68db21), to(#138210));
+	background:-moz-linear-gradient(top, #68db21, #138210);
+	background:linear-gradient(top, #68db21, #138210); /* standards version last */
+}
+
+/* create the + symbol */
+.netvibes a:after {
+	content:"+";
+	position:absolute;
+	left:0;
+	top:0;
+	width:64px;
+	text-indent:0;
+	text-align:center;	
+	font-size:88px;
+	color:#fff;
+}

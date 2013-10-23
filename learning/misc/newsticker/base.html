@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>News Ticker with jQuery</title>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	var first = 0;
+	var speed = 700;
+	var pause = 3000;
+	
+		function removeFirst(){
+			first = $('ul#listticker li:first').html();
+			$('ul#listticker li:first')
+			.animate({opacity: 0}, speed)
+			.fadeOut('slow', function() {$(this).remove();});
+			addLast(first);
+		}
+		
+		function addLast(first){
+			last = '<li style="display:none">'+first+'</li>';
+			$('ul#listticker').append(last)
+			$('ul#listticker li:last')
+			.animate({opacity: 1}, speed)
+			.fadeIn('slow')
+		}
+	
+	interval = setInterval(removeFirst, pause);
+});
+</script>
+</head>
+
+<body>
+<ul id="listticker">
+	<li>News 1</li>
+	<li>News 2</li>
+	<li>News 3</li>
+	<li>News 4</li>
+</ul>
+<p>
+More tutorials on <a href="http://woork.blogspot.com/">Woork.blogspot.com</a></p>
+</body>
+</html>

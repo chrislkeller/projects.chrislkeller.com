@@ -1,0 +1,34 @@
+.subnav {
+	position: absolute;
+	margin: auto;
+	width: 1060px;
+	height: 30px;
+	background: #D5001B;
+}
+
+.menu a{
+display: block;
+text-decoration: none;
+font: Helvetica, Arial, sans-serif;
+font-size: 18px;
+color: #000;
+width: 100px;
+height: 50px;
+float: left;
+display: inline;
+margin-right: 25px;
+background-image:url(images/redtabsquare.png);
+background-repeat: no-repeat;
+padding-top: 4px;
+text-align:center;
+}
+
+menu ul {
+	margin: 0 auto;
+	width: 940px;
+	list-style: none;
+}
+
+.menu a:hover{
+background-image:url(images/redtabsquareover.png);
+}

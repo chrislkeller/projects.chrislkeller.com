@@ -1,0 +1,51 @@
+/*GLOBAL*/
+
+
+/*SCROLL*/
+#slideshow
+{width: 300px; border: 1px solid #ddd;}
+
+#slideshow ul
+{margin: 0; padding: 0; list-style-type: none; height: 1%; /* IE fix */}
+
+#slideshow ul:after
+{content: "."; clear: both; display: block; height: 0; visibility: hidden;} 
+
+/*SLIDESHOW > SLIDES*/
+#slideshow .slides
+{overflow: hidden; width: 300px;}
+
+#slideshow .slides ul
+{/* total width of all slides -
+960px multiplied by 3 in this case */
+width: 300px;}
+
+#slideshow .slides li
+{width: 300px; float: left; padding: 20px;}
+
+#slideshow .slides h2
+{margin-top: 0;}
+
+/*NAVIGATION*/
+#slideshow .slides-nav
+{background-color: #0D506E;}
+
+#slideshow .slides-nav li
+{float: left; width: 150px;}
+
+#slideshow .slides-nav li a
+{display: block; padding: 15px 20px; outline: none; font-size: 16px; font-weight:bold; color: #000000; text-decoration: none;}
+
+/*ACTIVE TAB*/
+#slideshow .slides-nav li.on, #slideshow .slides-nav li.on a
+{background-color: #cccccc; text-decoration: none;}
+
+#slideshow .slides-nav li.on a
+{position: relative; top: -4px; text-decoration: none;}
+
+.js #slideshow .slides-nav li.on,
+.js #slideshow .slides-nav li.on a
+{background-color: #cccccc; text-decoration: none;}
+
+.js #slideshow .slides-nav li.on a
+{position: relative; top: -4px; text-decoration: none;}

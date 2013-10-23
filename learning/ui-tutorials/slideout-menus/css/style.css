@@ -1,0 +1,120 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    color:#999;
+    background:#f0f0f0 url(../title.png) no-repeat center center;
+    height:600px;
+}
+a.ref{
+    color:#888;
+    text-decoration:none;
+    text-shadow:1px 1px 1px #000;
+    position:absolute;
+    bottom:10px;
+    right:10px;
+}
+a.ref:hover{
+    color:#000;
+}
+a.back{
+    width:184px;
+    height:32px;
+    position:absolute;
+    bottom:10px;
+    left:10px;
+    background:transparent url(../back.png) no-repeat top left;
+}
+.container{
+    width:900px;
+    height:130px;
+    margin:0 auto;
+    position:relative;
+    overflow:hidden;
+    border:3px solid #fff;
+    background-color:#fff;
+    -moz-box-shadow:1px 1px 6px #000;
+    -webkit-box-shadow:1px 1px 6px #000;
+    -moz-border-radius:0px 0px 20px 20px;
+    -webkit-border-bottom-left-radius:20px;
+    -webkit-border-bottom-right-radius:20px;
+    border-radius:0px 0px 20px 20px;
+}
+ul#menu{
+    list-style:none;
+    position:absolute;
+    bottom:0px;
+    left:20px;
+    font-size:36px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    color:#999;
+    letter-spacing:-2px;
+}
+ul#menu li{
+    float:left;
+    margin:0px 10px 0px 0px;
+}
+ul#menu a{
+    cursor:pointer;
+    position:relative;
+    float:left;
+    bottom:-95px;
+    line-height:20px;
+    width:210px;
+}
+.icon_about,
+.icon_work,
+.icon_help,
+.icon_search{
+    width:64px;
+    height:64px;
+    display:block;
+    left:140px;
+    top:50px;
+    position:absolute;
+}
+.icon_about{
+    background:transparent url(../images/id_card.png) no-repeat top left;
+}
+.icon_work{
+    background:transparent url(../images/globe.png) no-repeat top left;
+}
+.icon_help{
+    background:transparent url(../images/help.png) no-repeat top left;
+}
+.icon_search{
+    background:transparent url(../images/find.png) no-repeat top left;
+}
+ul#menu span.title{
+    display:block;
+    height:26px;
+    text-shadow:1px 1px 1px #000;
+    color:#B7B7B6;
+    text-indent:10px;
+}
+ul#menu span.description{
+    width:140px;
+	height:80px;
+    background-color:#B7B7B6;
+    border:3px solid #fff;
+    color:#fff;
+    display:block;
+    font-size:24px;
+    padding:10px;
+    -moz-box-shadow:1px 1px 6px #000;   
+    -webkit-box-shadow:1px 1px 6px #000;
+    box-shadow:1px 1px 6px #000;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    border-radius:10px;
+}
+ul#menu a:hover span.description{
+    background-color:#54504F;
+}
+ul#menu a:hover span.title{
+    color:#54504F;
+}

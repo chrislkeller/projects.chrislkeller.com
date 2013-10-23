@@ -1,0 +1,89 @@
+/*------------------------------
+=COMMENTS
+------------------------------*/
+
+#comments {
+	margin-top: 21px;
+	padding-top: 22px;
+	border-top: 1px solid #d7d7d7;
+}
+
+#comments article {
+		display: table;
+		background: #fff;
+		padding: 22px;
+		border: 1px solid #000;
+		-moz-border-radius: 11px;
+		-webkit-border-radius: 11px;
+}
+	
+#comments article:nth-child(odd) {
+		padding: 21px;
+		background: #DC676D;
+		border: 1px solid #000;
+		-moz-border-radius: 11px;
+		-webkit-border-radius: 11px;
+}
+	
+#comments article header {
+	display: table-cell;
+	width: 220px;
+	padding-right: 22px;
+}
+		
+#comments article header a {
+	display: block;
+	font-weight: bold;
+	color: #000;
+}
+			
+#comments article header a:hover {
+	text-decoration: none;
+}
+		
+#comments article p {
+	padding: 0;
+}
+
+
+
+/*------------------------------
+=COMMENT FORM
+------------------------------*/
+form {
+	margin-top: 21px;
+	padding-top: 22px;
+	border-top: 1px solid #d7d7d7;
+}
+
+form p {
+	display: table;
+	margin-bottom: 22px;
+	padding: 0 22px;
+}
+
+form label {
+	display: table-cell;
+	width: 140px;
+	padding-right: 20px;
+	text-align: right;
+	font-weight: bold;
+	vertical-align: top;
+}
+	
+form input[type="text"], form input[type="email"], form input[type="url"] {
+	display: table-cell;
+	width: 300px;
+	height: 20px;
+	border: 1px solid #d7d7d7;
+}
+		
+form textarea {
+	width: 300px;
+	height: 100px;
+	border: 1px solid #d7d7d7;
+}
+		
+form input[type="submit"] {
+	margin-left: 162px;
+}

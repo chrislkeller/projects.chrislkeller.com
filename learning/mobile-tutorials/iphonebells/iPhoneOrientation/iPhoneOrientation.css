@@ -1,0 +1,221 @@
+/*
+ 
+ File: iPhoneOrientation.css
+ 
+ Abstract: Defines CSS properties for the iPhoneOrientation sample.
+           Adjusts styling on the "Handling iPhone or iPod touch Orientation Events" page
+           according to the current orientation of iPhone.
+		
+ 
+ Version: <1.0>
+
+ Disclaimer: IMPORTANT:  This Apple software is supplied to you by 
+ Apple Inc. ("Apple") in consideration of your agreement to the
+ following terms, and your use, installation, modification or
+ redistribution of this Apple software constitutes acceptance of these
+ terms.  If you do not agree with these terms, please do not use,
+ install, modify or redistribute this Apple software.
+ 
+ In consideration of your agreement to abide by the following terms, and
+ subject to these terms, Apple grants you a personal, non-exclusive
+ license, under Apple's copyrights in this original Apple software (the
+ "Apple Software"), to use, reproduce, modify and redistribute the Apple
+ Software, with or without modifications, in source and/or binary forms;
+ provided that if you redistribute the Apple Software in its entirety and
+ without modifications, you must retain this notice and the following
+ text and disclaimers in all such redistributions of the Apple Software. 
+ Neither the name, trademarks, service marks or logos of Apple Inc. 
+ may be used to endorse or promote products derived from the Apple
+ Software without specific prior written permission from Apple.  Except
+ as expressly stated in this notice, no other rights or licenses, express
+ or implied, are granted by Apple herein, including but not limited to
+ any patent rights that may be infringed by your derivative works or by
+ other works in which the Apple Software may be incorporated.
+ 
+ The Apple Software is provided by Apple on an "AS IS" basis.  APPLE
+ MAKES NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION
+ THE IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY AND FITNESS
+ FOR A PARTICULAR PURPOSE, REGARDING THE APPLE SOFTWARE OR ITS USE AND
+ OPERATION ALONE OR IN COMBINATION WITH YOUR PRODUCTS.
+ 
+ IN NO EVENT SHALL APPLE BE LIABLE FOR ANY SPECIAL, INDIRECT, INCIDENTAL
+ OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) ARISING IN ANY WAY OUT OF THE USE, REPRODUCTION,
+ MODIFICATION AND/OR DISTRIBUTION OF THE APPLE SOFTWARE, HOWEVER CAUSED
+ AND WHETHER UNDER THEORY OF CONTRACT, TORT (INCLUDING NEGLIGENCE),
+ STRICT LIABILITY OR OTHERWISE, EVEN IF APPLE HAS BEEN ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+ 
+ Copyright (C) 2007 Apple Inc. All Rights Reserved.
+ 
+ */
+body 
+{
+		margin: 0px;
+		padding: 0px;
+		font-size: 12px;
+		font-family: 'Lucida Grande', Verdana, sans-serif;
+		font-weight: bold;
+		/* Turn off font resizing */
+		-webkit-text-size-adjust: none;   
+}
+
+
+
+/* Set the background color of the page when the body tag's class attribute is equal to portrait. 
+   The expression body[class="value"] is a CSS attribute selector where "body" is the html element to be styled, "class" the body's attribute to be
+   manipulated, and "value" the class attribute's value, which is either portrait, landscapeLeft, or landscapeRight.
+   This expression is used to dynamically select a body style according to the class attribute value. For instance, if the body's class attribute is set
+   to landscapeLeft, then all style declarations matching body[class="landscapeLeft"] will be used to style "Handling iPhone or iPod touch Orientation Events". 
+   The JavaScript updateOrientation function in the iPhoneOrientation.js file is used to set the body's class attribute to one of these values.
+   Further information about CSS attribute selectors can be found at  http://www.w3.org/TR/css3-selectors/#attribute-selectors.
+ */
+body[class="portrait"] 
+{
+		background: white;    	
+}
+
+
+/* Adjust a button when the body's class attribute is equal to portrait */
+body[class="portrait"] .button    
+{	
+		background: white;
+		width: 210px;
+		height: 13px;
+		
+		padding: 10px 0px;
+		margin: 10px auto;
+		
+		font-size: 15px;
+		
+		/* text is black on the button */
+		color: black;
+}
+
+
+/* The leftContainer and rightContainer div elements are stacked up one after the other when the body's class attribute is equal to portrait. 
+   They are both 200 pixels wide. */
+body[class="portrait"] #leftContainer
+{
+		width: 200px;
+		margin: auto auto;
+}
+
+
+body[class="portrait"] #rightContainer
+{
+		width: 200px;
+		margin: auto auto;
+}
+
+
+/* Set the background color of the page when the body's class attribute is set to landscapeLeft */
+body[class="landscapeLeft"] 
+{
+		background: lightgrey;
+}
+
+
+/* Adjust a button when the body's class attribute is set to landscapeLeft */
+body[class="landscapeLeft"] .button  
+{
+		background: black;
+}
+
+
+/* The container div is evenly split between leftContainer and rightContainer when the body's class attribute is set to landscapeLeft.
+   leftContainer and rightContainer are stacked side by side. leftContainer aligns buttons to the left side of the page; 
+   rightContainer aligns buttons to the right side of the page. */
+body[class="landscapeLeft"] #leftContainer
+{
+		width: 50%;
+		/* Align the div to the left of the page  */
+		float: left;
+}
+
+
+body[class="landscapeLeft"] #rightContainer
+{
+		width: 50%;
+		/* Align the div to the right of the page  */
+		float: right;
+}
+
+
+
+/* Set the background color of the page when the body's class attribute is equal to landscapeRight */
+body[class="landscapeRight"] 
+{
+		background: tan;
+}
+
+
+/* Adjust a button when the body's class attribute is equal to landscapeRight */
+body[class="landscapeRight"] .button  
+{
+		background: darkred;
+}
+
+
+/* The container div is evenly split between leftContainer and rightContainer when the body's class attribute is set to landscapeRight.
+   leftContainer aligns buttons to the left side of the page; rightContainer aligns buttons to the right side of the page. */
+body[class="landscapeRight"] #leftContainer
+{
+		width: 50%;
+		float: left;
+}
+
+body[class="landscapeRight"] #rightContainer
+{
+		width: 50%;
+		float: right;
+}
+
+
+/* Draw a rounded rectangle around a text */
+ .button    
+{
+		font-weight: bold;
+		text-align: center;
+		
+		width: 130px;
+		height: 13px;
+		font-size: 10px;
+		
+		/* text is white on the button */
+		color: white;	
+	
+		/* Draw a rectangle around a text */
+		border: 1px solid black;    
+		
+		/* Round each corner of the generated rectangle */
+		-webkit-border-radius: 5px;   
+		padding: 5px 0px;
+		margin: 5px auto;
+}
+
+
+/* Defines styling properties for the currentOrientation div, which shows a message that indicates iPhone's current orientation after rotation */
+#currentOrientation
+{		
+		width: 280px;
+		text-align: center;
+		margin: 10px auto;
+}
+
+
+a
+{
+		text-decoration: none;
+}
+
+
+/* The container div contains four buttons that are evenly divided between the inner leftContainer and rightContainer div elements.
+   Its width does not change when iPhone switches between portrait and landscape orientations. */
+#container
+{
+		/* fixed width across all iPhone orientation changes */
+		width: 300px;
+		margin: 10px auto;
+}

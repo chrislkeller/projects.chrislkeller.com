@@ -1,0 +1,16 @@
+/* desktop home page */
+#content { padding-top:75px; }
+section { padding-top:20px; }
+.subhead h1 { font-size:54px; }
+.jumbotron h1 { font-size:81px; font-weight:bold; letter-spacing:-1px; line-height:1; margin-bottom:9px; }
+
+/*structure*/
+#map_canvas { display:block; width:95%; height:350px; margin:0 auto; }
+
+
+/*styles*/
+#home-image { width:70%; margin:0 auto; }
+
+a { text-decoration:none; }
+
+/*header-footer nav icons*/

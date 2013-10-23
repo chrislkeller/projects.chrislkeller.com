@@ -1,0 +1,62 @@
+div, ul, li {
+    zoom: 1;
+}
+
+ul ul,
+ul ul li {
+    zoom: 0;
+}
+
+#timeline {
+    height: auto;
+    margin-top: 10px;
+    padding: 20px;
+    overflow: auto;
+    /*cursor: -moz-grab !important;*/ /* should this be applied with JS? */
+    border: 2px solid #D9E4FF;
+}
+
+.tl-events {
+    width: 11800px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tl-events li {
+    float: left;
+    width: 300px;
+    margin-right: 10px;
+}
+
+.tl-events ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.tl-events ul li a {
+    text-decoration: none;
+    color: #000;
+    background: #D9E4FF;
+    border: 1px solid #D9E4FF;
+    -moz-border-radius: 4px;
+    display: block;
+    margin: 5px 2px;
+    padding: 2px;
+}
+
+.tl-events ul li a:hover,
+.tl-events ul li a:focus {
+    outline: 0;
+    background: #C2CCE4;
+    border: 1px solid #B0BACF;
+}
+
+.doodle {
+    display: none;
+}
+
+h1 {
+    margin: 8px 0;
+}
