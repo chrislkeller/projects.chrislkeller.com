@@ -1,0 +1,10 @@
+.container {margin-top: 35px;}
+.form-inline {margin-bottom: 35px;}
+.table {width: 100%; height: auto;}
+.table th {text-align: center; font-weight: bold}
+.table td {text-align: center;}
+.table-striped thead th {background-color: #2B2B2B; color: #fdfdfd;}
+.table-striped tbody > tr:nth-child(even) > td,
+.table-striped tbody > tr:nth-child(even) > th {background-color: #aaaaaa;}
+.table-striped tbody > tr:nth-child(odd) > td,
+.table-striped tbody > tr:nth-child(odd) > th {background-color: #fdfdfd;}

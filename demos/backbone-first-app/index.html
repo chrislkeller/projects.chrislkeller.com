@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>My first backbone.js "application"</title>
+        <meta charset="utf-8">
+
+        <!-- begin css -->
+        <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/style.css" rel="stylesheet" />
+        <!--[if lt IE 9]>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js"></script>
+        <![endif]-->
+        <!-- end css -->
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>My first backbone.js "application"</h1>
+                    <p>Learning how to use <a href="http://backbonejs.org/" target="blank">backbone.js</a> has been on my wishlist for some time. I found a really <a href="http://www.codebeerstartups.com/2012/12/introduction-to-backbone-js-and-setting-up-an-working-environment/" target="blank">splendid tutorial</a> the other night and went through the steps. I also picked up some much needed skills on using the console to inspect my JavaScript.</p>
+                    <p>At the end, I felt comfortable enough to try to extend the <a href="http://listen-dom-events-backbone.herokuapp.com/" target="blank">original demo</a>. Here's what I added to the demo below:</p>
+                    <ul>
+                        <li><strong>Changed the model to show Pearl Jam songs I've seen live!!!</strong></li>
+                        <li>Pulling collection data from an external file</li>
+                        <li>Displaying data in a table instead of an unordered list</li>
+                        <li>Input fields for all three keys in the model</li>
+                        <li>Inline editing and save function instead of an alert prompt</li>
+                        <li>Added sortable tables using jquery.tablesorter</li>
+                    </ul>
+                    <form class="form-inline pull-right" role="form" id="addSong" action="">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="song" placeholder="Song">
+                        </div>
+                        <div class="form-group">
+                            <input type="date" class="form-control" id="date" placeholder="Date">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="venue" placeholder="Venue">
+                        </div>
+                        <button type="submit" class="btn btn-success">Add Song</button>
+                    </form>
+                    <div>
+                        <table id="data-table" class="table table-hover table-striped table-bordered tablesorter">
+                            <thead>
+                                <tr>
+                                    <th>Song</th>
+                                    <th>Date</th>
+                                    <th>Venue</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script id="song_template" type="text/template">
+            <td class="editable"><%= song %></td>
+            <td class="editable"><%= date %></td>
+            <td class="editable"><%= venue %></td>
+            <td>
+                <button type="button" class="btn btn-success edit">Edit</button>
+                <button type="submit" class="btn btn-success save hidden">Save</button>
+                <button class="btn btn-danger delete">Delete</button>
+            </td>
+        </script>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.4.0/moment.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/js/bootstrap.min.js"></script>
+        <script src="scripts/data.js"></script>
+        <script src="scripts/new-app.js"></script>
+    </body>
+</html>
