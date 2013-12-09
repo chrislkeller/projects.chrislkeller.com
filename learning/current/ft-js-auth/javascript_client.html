@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<!--
+Copyright 2011 Google Inc. All Rights Reserved. Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.
+
+You may obtain a copy of the License at http://www.apache.orglicenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+-->
+
+<html>
+<head>
+
+<title>JavaScript API Example</title>
+
+<style type="text/css">
+body { font-family: Arial; }
+</style>
+
+<script type="text/javascript">
+
+/* The clientId and apiKey are available at https://code.google.com/apis/console
+For more information, see http://code.google.com/p/google-api-javascript-client/wiki/Authentication */
+var clientId = '1082729071991.apps.googleusercontent.com';
+var apiKey = 'AIzaSyBFx_TgkqvwHaVY8y19vaRc7Ia2G0Fdgww';
+var scopes = 'https://www.googleapis.com/auth/fusiontables';
+var tableId;
+
+    // Initialize the client, set onclick listeners.
+    function initialize() {
+        gapi.client.setApiKey(apiKey);
+        document.getElementById('create-table').onclick = createTable;
+        document.getElementById('insert-data').onclick = insertData;
+        document.getElementById('select-data').onclick = selectData;
+        window.setTimeout(function() { auth(true); }, 1);
+    }
+
+    
+    // Run OAuth 2.0 authorization.
+    function auth(immediate) {
+        gapi.auth.authorize({
+            client_id: clientId,
+            scope: scopes,
+            immediate: immediate
+        }, handleAuthResult);
+    }
+
+    // Handle the results of the OAuth 2.0 flow.
+    function handleAuthResult(authResult) {
+        var authorizeButton = document.getElementById('authorize-button');
+        var createTableButton = document.getElementById('create-table');
+            if (authResult) {
+                authorizeButton.disabled = true;
+                createTableButton.disabled = false;
+            } else {
+                authorizeButton.disabled = false;
+                authorizeButton.onclick = function() { auth(false); return false; };
+            }
+    }
+
+
+    // Run a request to create a new Fusion Table.
+    function createTable() {
+        var tableResource = [];
+            tableResource.push('{');
+            tableResource.push('"name": "People",');
+            tableResource.push('"columns": [');
+            tableResource.push('{ "name": "Name", "type": "STRING" },');
+            tableResource.push('{ "name": "Age", "type": "NUMBER" }');
+            tableResource.push('],')
+            tableResource.push('"isExportable": true');
+            tableResource.push('}');
+
+        runClientRequest({
+            path: '/fusiontables/v1/tables',
+            body: tableResource.join(''),
+            method: 'POST'
+                }, function(resp) {
+                    var output = JSON.stringify(resp);
+                    document.getElementById('create-table-output').innerHTML = output;
+                    tableId = resp['tableId'];
+                    document.getElementById('select-data').disabled = false;
+                    document.getElementById('insert-data').disabled = false;
+                    document.getElementById('create-table').disabled = true;
+                });
+        }
+
+    // Run a request to INSERT data.
+    function insertData() {
+        var name = document.getElementById('name').value;
+        var age = document.getElementById('age').value;
+        var insert = [];
+            insert.push('INSERT INTO ');
+            insert.push(tableId);
+            insert.push(' (Name, Age) VALUES (');
+            insert.push("'" + name + "', ");
+            insert.push(age);
+            insert.push(')');
+            query(insert.join(''));
+        }
+
+    // Run a request to SELECT data.
+    function selectData() {
+        query('SELECT * FROM ' + tableId);
+    }
+
+    // Send an SQL query to Fusion Tables.
+    function query(query) {
+        var lowerCaseQuery = query.toLowerCase();
+        var path = '/fusiontables/v1/query';
+        var callback = function(element) {
+            return function(resp) {
+                var output = JSON.stringify(resp);
+                    document.getElementById(element).innerHTML = output;
+            };
+        }
+
+        if (lowerCaseQuery.indexOf('select') != 0 &&
+            lowerCaseQuery.indexOf('show') != 0 &&
+                lowerCaseQuery.indexOf('describe') != 0) {
+                
+                    var body = 'sql=' + encodeURIComponent(query);
+                        runClientRequest({
+                            path: path,
+                            body: body,
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded',
+                                'Content-Length': body.length
+                            },
+                        method: 'POST'
+                        }, callback('insert-data-output'));
+            } else {
+
+                runClientRequest({
+                    path: path,
+                    params: { 'sql': query }
+                }, callback('select-data-output'));
+            }
+        }
+
+
+    // Execute the client request.
+    function runClientRequest(request, callback) {
+        var restRequest = gapi.client.request(request);
+        restRequest.execute(callback);
+    }
+
+</script>
+<script src="https://apis.google.com/js/client.js?onload=initialize"></script>
+</head>
+
+<body>
+<h1>Fusion Tables JavaScript Example</h1>
+
+<h2>Authorize using OAuth 2.0</h2>
+
+<p>Click Authorize to start the OAuth 2.0 authorization flow. If you have already authorized, the button will be disabled.</p>
+
+<input type="button" id="authorize-button" value="Authorize"><br>
+
+<h2>Create Table</h2>
+
+<p>Click "Create Table" to create an exportable Fusion Table called "People" with columns "Name" with type "STRING" and "Age" with type "NUMBER".
+
+<pre>
+{
+  "name": "People",
+  "columns": [
+    {
+      "name": "Name",
+      "type": "STRING"
+    }, {
+      "name": "Age",
+      "type": "NUMBER"
+    }
+  ],
+  "isExportable": true
+}</pre>
+
+</p>
+
+<input type="button" id="create-table" value="Create Table" disabled="disabled">
+<p id="create-table-output"><i>table response goes here...</i></p>
+
+<br />
+
+<h2>Insert data</h2>
+
+<p>Insert data into the newly created table.</p>
+<pre>INSERT INTO [table] (Name, Age) VALUES ([name], [age])</pre>
+
+<label>Name:</label>
+<input type="text" id="name">
+
+<label>Age:</label>
+<input type="age" id="age">
+
+<input type="button" id="insert-data" value="Insert data" disabled="disabled">
+
+<p id="insert-data-output"><i>insert response goes here...</i></p>
+
+<br />
+
+<h2>Select all the rows from the table</h2>
+
+<p>Select the data that has been inserted into the newly created table.</p>
+
+<pre>SELECT * FROM [table]</pre>
+
+<input type="button" id="select-data" value="Select data" disabled="disabled">
+<p id="select-data-output"><i>select response goes here...</i></p>
+
+</body>
+
+</html>

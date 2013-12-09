@@ -1,0 +1,37 @@
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+var jqueryNoConflict = jQuery;
+
+    //begin main function
+    jqueryNoConflict(document).ready(function(){
+
+        try_it();
+
+    });
+    //end main function
+
+
+    var add = function(a, b) {
+        if (typeof a !== 'number' || typeof b !== 'number') {
+            throw {
+                name: 'TypeError',
+                message: 'add needs numbers'
+            };
+        };
+        return a+b;
+    };
+
+    var try_it = function() {
+
+        try {
+            add(13, 23);
+        } catch (e) {
+            document.writeln(e.name + ': ' + e.message);
+        };
+
+    };
+
+
+</script>

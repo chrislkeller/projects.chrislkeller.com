@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+
+<!-- begin doc -->
+<html lang="en">
+
+    <!-- begin header -->
+    <head>
+        <title>Backbone.js Web App</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" id="meta-viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+        <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+        <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Varela+Round" />
+        <link rel="stylesheet" type="text/css" href="static-files/css/styles.css" />
+        <link href="http://projects.scpr.org/static/static-files/bootstrap-v222/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" media="all" />
+
+        <!-- begin scripts -->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <!-- end scripts -->
+
+    </head>
+    <!-- end header -->
+
+    <!-- begin body -->
+    <body>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div id="contacts">
+                        <header>
+                            <div id="filter"><label>Show me:</label></div>
+                            <a id="showForm" href="#">Add new contact</a>
+                        </header>
+                        <section>
+                            <form id="addContact" action="#">
+                            <label for="photo">photo:</label><input id="photo" type="file" />
+                            <label for="type">Type:</label><input id="type" />
+                            <label for="name">Name:</label><input id="name" />
+                            <label for="address">Address:</label><input id="address" />
+                            <label for="tel">Tel:</label><input id="tel" />
+                            <label for="email">Email:</label><input id="email" />
+                            <button id="add">Add</button>
+                            </form>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script id="PersonTemplate" type="text/x-handlebars-template">
+            <img src="{{photo}}" alt="{{name}}" />
+            <h1>{{name}}<span>{{type}}</span></h1>
+            <div>{{address}}</div>
+            <dl>
+                <dt>Tel:</dt><dd>{{tel}}</dd>
+                <dt>Email:</dt><dd><a href="mailto:{{email}}">{{email}}</a></dd>
+            </dl>
+            <button class="delete">Delete</button>
+        </script>
+
+        <script src="static-files/scripts/json2.js"></script>
+        <script src="http://projects.scpr.org/static/static-files/scripts/underscore-min.js"></script>
+        <script src="http://projects.scpr.org/static/static-files/scripts/backbone-min-v1.0.js"></script>
+        <script src="http://projects.scpr.org/static/static-files/scripts/handlebars-1.0.rc.1.js"></script>
+        <script src="http://projects.scpr.org/static/static-files/scripts/handlebars-ajax.js"></script>
+        <script src="http://projects.scpr.org/static/static-files/scripts/swag.js"></script>
+        <script src="http://projects.scpr.org/static/static-files/scripts/backbone.tabletopSync.js"></script>
+        <script src="http://projects.scpr.org/static/static-files/scripts/tabletop-vApril13.js"></script>
+        <script src="static-files/scripts/working-index.js"></script>
+    </body>
+</html>

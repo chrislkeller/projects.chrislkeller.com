@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<!-- begin doc -->
+<html lang="en">
+
+    <!-- begin header -->
+    <head>
+        <title>Backbone.js Web App</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" id="meta-viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+        <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+        <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Varela+Round" />
+        <link rel="stylesheet" type="text/css" href="static-files/css/styles.css" />
+        <link href="http://projects.scpr.org/static/static-files/bootstrap-v222/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" media="all" />
+
+        <!-- begin scripts -->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <!-- end scripts -->
+
+    </head>
+    <!-- end header -->
+
+    <!-- begin body -->
+    <body>
+
+        <div id="personContainer"></div>
+        <hr>
+        <div id="peopleContainer"></div>
+
+        <!-- Setup our templates -->
+
+        <script id="PersonTemplate" type="text/x-handlebars-template">
+            <div>
+                <p>Person: {{name}} {{age}}</p>
+            </div>
+        </script>
+
+        <!--
+            Note the []  this is important
+        because handlebars and backbone collections
+        dont play well with each other in regards
+        to naming JSON groups
+        -->
+        <script id="PeopleTemplate" type="text/x-handlebars-template">
+            <div>
+                People:<br>
+                {{#each []}}
+                    {{this.name}}
+                    {{this.age}}
+                    <br/>
+                {{/each}}
+            </div>
+        </script>
+        <!-- End templates setup -->
+
+        <script src="static-files/scripts/json2.js"></script>
+        <script src="http://projects.scpr.org/static/static-files/scripts/underscore-min.js"></script>
+        <script src="http://projects.scpr.org/static/static-files/scripts/backbone-min-v1.0.js"></script>
+        <script src="http://projects.scpr.org/static/static-files/scripts/handlebars-1.0.rc.1.js"></script>
+        <script src="http://projects.scpr.org/static/static-files/scripts/handlebars-ajax.js"></script>
+        <script src="http://projects.scpr.org/static/static-files/scripts/swag.js"></script>
+        <script src="http://projects.scpr.org/static/static-files/scripts/backbone.tabletopSync.js"></script>
+        <script src="http://projects.scpr.org/static/static-files/scripts/tabletop-vApril13.js"></script>
+        <script src="static-files/scripts/test-index.js"></script>
+    </body>
+</html>
