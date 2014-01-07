@@ -102,6 +102,7 @@ var dataTablesConfig = {
             'sLengthMenu': '_MENU_ records per page'
             },
         'bProcessing': true,
+        'bDeferRender': true,
         'sPaginationType': 'bootstrap',
         'iDisplayLength': defaultTableOptions.displayLength,
 
