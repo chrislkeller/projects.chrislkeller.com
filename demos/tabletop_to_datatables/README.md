@@ -1,6 +1,6 @@
 # Demo: tabletop to datatables
 
-Use [Tabletop.js](http://builtbybalance.com/Tabletop/) to pull json from Google Spreadsheet and feed it to the [DataTables](http://datatables.net/) jQuery plugin.
+Use [Tabletop.js](https://github.com/jsoma/tabletop) to pull json from Google Spreadsheet and feed it to the [DataTables](http://datatables.net/) jQuery plugin.
 
 Demo by [Chris Essig](https://twitter.com/CourierEssig) &amp; [Chris Keller](https://twitter.com/ChrisLKeller) made possible thanks to the Open Source work of [Built By Balance](http://builtbybalance.com) &amp; [Allan Jardine](https://github.com/DataTables).
 
@@ -13,7 +13,7 @@ If interested in an enhanced version that allows you to choose between using a f
 
 ----
 
-**Step 1** - [Prepare Google Spreadsheet data](http://builtbybalance.com/Tabletop/#tabletop-instructions).
+**Step 1** - [Prepare Google Spreadsheet data](https://github.com/jsoma/tabletop).
 
 **Step 2** - Add your spreadsheet key as an argument to the initializeTabletopObject function that is fired on document ready.
 
@@ -41,6 +41,6 @@ If interested in an enhanced version that allows you to choose between using a f
 
 ## Links & Resources
 
-* [Tabletop.js](http://builtbybalance.com/Tabletop/)
+* [Tabletop.js](https://github.com/jsoma/tabletop)
 * [Datatables](http://datatables.net/index)
 * [The Absurdly Illustrated Guide to Sortable, Searchable Online Data Tables](http://dataforradicals.com/the-absurdly-illustrated-guide-to-sortable-searchable-online-data-tables/)
