@@ -1,0 +1,10 @@
+#controls {width: 94%; height: auto; margin: 15px 3% 15px 3%;}
+#controls .indicator {vertical-align: top; display: inline-block; *display: inline; zoom: 1; border: 2px solid #bbbbbb; font-size: 12px; line-height: 30px; cursor: pointer; border-radius: 7px; -webkit-border-radius: 7px; -moz-border-radius: 7px; max-width: 200px; max-height: 200px;}
+#controls .indicator {opacity: .5;}
+#controls .indicator.active {border: 2px solid #007FA6; opacity: 1;}
+#images-container {width: 100%; margin: 0 0 0 0;}
+#images-container img {width: 100%; margin: 0 0 0 0; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;}
+#before-after-links {height: 40px;}
+#before-after-links .balinks a {font-size: 16px; font-weight: 700; overflow: hidden;}
+#captions-container {width: 94%; height: auto; margin: 15px 3% 15px 3%;}
+#captions-container #photo-credits {height: 25px; margin: 0px 0 10px 0;}
