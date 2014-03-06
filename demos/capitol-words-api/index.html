@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Search the Congressional Record using Capitol Words API</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" id="meta-viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link rel="apple-touch-icon" href="http://media.scpr.org/assets/images/icon.png">
+        <meta name="format-detection" content="telephone=no"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+        <meta name="description" content="#" />
+        <meta name="keywords" content="#" />
+
+        <!-- begin css -->
+        <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+        <!-- end css -->
+
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="jumbotron">
+                <h1>Search the Congressional Record using Capitol Words API</h1>
+                <p class="lead">Using the <a href="http://capitolwords.org/api/1/" target="blank">Capitol Words API</a>, we will search the Congressional Record for a word or phrase and return the results of California Congressional representatives.</p>
+                <p>For class, you will need to register for a <a href="http://sunlightfoundation.com/" target="blank">Sunlight Foundation</a> API key <a href="http://sunlightfoundation.com/api/" target="blank">here</a>. The documentation is <a href="http://sunlightlabs.github.io/Capitol-Words/" target="blank">here</a>.</p>
+                <div id="search-form">
+                    <form class="form-inline" role="form">
+                        <div class="form-group">
+                            <!-- we need to have somewhere for the user to input text -->
+                            <input type="text" class="form-control" id="searchTerm" placeholder="Enter a term to search for">
+                        </div>
+                        <!-- we need a way for the user to submit information -->
+                        <a class="btn btn-success" href="javascript:void(0)" id="submitSearchTerm">Submit</a>
+                    </form>
+                </div>
+            </div>
+            <div class="row marketing">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <h4 id="resultsCount">You will see your results here:</h4>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <!-- we will display our results here -->
+                        <div id="display-text"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- begin scripts -->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script src="http://projects.scpr.org/static/static-files/scripts/modernizr-2.5.3.min.js"></script>
+        <script>
+            var fn = fn || {};
+
+            // begin function that runs when the page loads
+            $(document).ready(function() {
+
+                // this function kicks things off
+                fn.retrievePhraseToQuery();
+
+            });
+
+            // begin configuration object
+            var fn = {
+
+                // get the value from the search box
+                retrievePhraseToQuery: function(){
+
+                    // when are button is clicked
+                    $('#submitSearchTerm').click(function(){
+
+                        /*
+                        $("#display-text").empty();
+                        */
+
+                        // create a variable to store
+                        // whatever is typed into text box
+                        // replace spaces with a plus symbol
+                        var searchTerm = $("input[id='searchTerm']").val().replace(/ /g, '+');
+
+                        /*
+                        if (searchTerm === ""){
+                            alert("Please enter a search term");
+                        }
+                        */
+
+                        // output the search term to the console
+                        console.log(searchTerm);
+
+                        // pass the search term to our function to build the url we will submit
+                        fn.constructCapitolWordsQuery(searchTerm);
+                    });
+
+                },
+
+                // construct the url to query for data
+                constructCapitolWordsQuery: function(searchTerm){
+
+                    // documentation for constructing api request here:
+                    // http://capitolwords.org/api/1/
+
+                    var urlPhrasesPrefix = 'http://capitolwords.org/api/1/text.json?';
+
+                    var apiKey = 'apikey=b717252e9bc44d4ea57321c49e7dd5e8';
+
+                    // when do we want to start searching
+                    var urlStartDate = '&start_date=2014-01-01';
+
+                    // when do we want to end searching
+                    var urlEndDate = '&end_date=2014-03-04';
+
+                    // which state should we search
+                    var urlState = '&state=CA';
+
+                    // what should we search for
+                    var urlPhrase = '&phrase=' + searchTerm;
+
+                    // we append this to deal with cross-site requests
+                    var urlCallback = '&callback=?';
+
+                    // lets combine all of our variables into a request
+                    var targetPhrasesUrl = urlPhrasesPrefix + apiKey + urlStartDate + urlEndDate + urlState + urlPhrase + urlCallback;
+
+                    // lets see what the url looks like
+                    console.log(targetPhrasesUrl);
+
+                    // pass the url to a function that will make the api request
+                    fn.retriveCapitolWordsData(targetPhrasesUrl);
+
+                },
+
+                // function that will make the api request
+                // the response is passed to the processCapitolWordsData function
+                retriveCapitolWordsData: function(targetPhrasesUrl){
+                    $.getJSON(targetPhrasesUrl, fn.processCapitolWordsData);
+                },
+
+                // lets process the response
+                processCapitolWordsData: function(data){
+
+                    // lets see what our data is
+                    console.log(data);
+
+                    /*
+                    $("#resultsCount").html("Found " + data.results.length + " results");
+                    */
+
+                    // loop through our data
+                    for(var x=0; x<data.results.length; x++){
+
+                        // and create an object for each instance of our search term
+                        var speakerInstance = {
+
+                            // we set a key: speaker_state
+                            // and give it a value: the state from our data
+                            speaker_state: data.results[x].speaker_state,
+                            speaker_first: data.results[x].speaker_first,
+                            speaker_last: data.results[x].speaker_last,
+                            speaker_party: data.results[x].speaker_party,
+                            speaker_title: fn.toTitleCase(data.results[x].title),
+                            origin_url: data.results[x].origin_url,
+                            date: data.results[x].date,
+                            chamber: data.results[x].chamber,
+                            speaking: data.results[x].speaking
+                        };
+
+                        // create the html we will use for each instance
+                        var html =
+                            "<p>" + speakerInstance.speaker_state + "</p>" +
+                            "<p>" + speakerInstance.speaker_first + "</p>" +
+                            "<p>" + speakerInstance.speaker_last + "</p>" +
+                            "<p>" + speakerInstance.speaker_party + "</p>" +
+                            "<p>" + speakerInstance.speaker_title + "</p>" +
+                            "<p>" + speakerInstance.origin_url + "</p>" +
+                            "<p>" + speakerInstance.date + "</p>" +
+                            "<p>" + speakerInstance.chamber + "</p>" +
+                            "<p>" + speakerInstance.speaking + "</p>" +
+                            "<hr><br />";
+
+                            // and display each of them here on
+                            // our page in a div with the id of display_text
+                            $("#display-text").append(html);
+                    };
+                },
+
+                // here's a handy function to make a string Title Case
+                toTitleCase: function(str){
+                    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+                }
+
+            };
+            // end configuration object
+        </script>
+        <!-- end scripts -->
+
+    </body>
+</html>
