@@ -69,20 +69,16 @@
                     // when are button is clicked
                     $('#submitSearchTerm').click(function(){
 
-                        /*
                         $("#display-text").empty();
-                        */
 
                         // create a variable to store
                         // whatever is typed into text box
                         // replace spaces with a plus symbol
                         var searchTerm = $("input[id='searchTerm']").val().replace(/ /g, '+');
 
-                        /*
                         if (searchTerm === ""){
                             alert("Please enter a search term");
                         }
-                        */
 
                         // output the search term to the console
                         console.log(searchTerm);
