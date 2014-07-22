@@ -1,45 +1,14 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/styles.css" media="screen" />
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highcharts/4.0.3/highcharts.js"></script>
+        <script type="text/javascript" src="scripts/tabletop.js"></script>
+        <script type="text/javascript" src="scripts/data-feed.js"></script>
+    </head>
 
-<!-- BEGIN HEAD -->
-<head>
-
-<!-- BEGIN CSS -->
-<link rel="stylesheet" type="text/css" href="css/styles.css" media="screen" />
-<!-- END CSS -->
-
-<!-- BEGIN SCRIPTS -->
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-<script type="text/javascript" src="http://highcharts.com/js/highcharts.js"></script>
-<script type="text/javascript" src="scripts/data-feed.js"></script>
-<!-- END SCRIPTS -->
-
-</head>
-<!-- END HEADER -->
-
-<!-- BEGIN BODY -->
-<body>
-
-<!-- BEGIN MAP CONTAINER -->
-<div id="map-container">
-
-<!-- working on change chart type via select menu -->
-<!-- <select id="chartType">
-<option value="column">Column</option>
-<option value="bar">Bar</option>
-<option value="line">Line</option>
-</select> -->
-
-<!-- BEGIN CHART -->
-<div id="hc-ouput" style="width: 600px; margin: 0 auto;">
-</div>
-<!-- END CHART -->
-
-</div>
-<!-- END MAP CONTAINER -->
-
-</body>
-<!-- END BODY -->
-
+    <body>
+        <div id="chart-container" style="width: 600px; margin: 0 auto;"></div>
+    </body>
 </html>
-<!-- END DOCUMENT -->
