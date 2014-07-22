@@ -3,13 +3,13 @@
 
 #map-action-bar {display: block; width: 100%; height: auto; background:#ffffff; text-align: center; margin: 25px auto 0 auto;}
 
-#map_canvas {display: block; width: 600px; height: 350px; margin: 0 auto 0 auto;}
+#map-canvas {display: block; width: 600px; height: 350px; margin: 0 auto 0 auto;}
 
 #map-explainer {margin: 25px 0 15px 0;}
 
 #ft-ouput {display: block; float: left; width: 295px; height:300px; margin: 10px auto 0 auto;}
 
-#hc-ouput {display: block; float: right; width: 295px; height:300px; margin: 10px auto 0 auto;}
+#chart-container {display: block; float: right; width: 295px; height:300px; margin: 10px auto 0 auto;}
 
 /*STYLES*/
 .small {font-size: 10px; line-height: 14px; clear: both;}
