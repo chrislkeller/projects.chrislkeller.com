@@ -64,15 +64,8 @@ App.Views.ApplicationVisuals = Backbone.View.extend({
     searchObjects: function (){
         $(".data-display").empty();
         var termToQuery = $("#search-term").val().toLowerCase();
-
-        console.log(termToQuery);
-
-
         var myFilteredCollection = this.exemptionCollection.filter(function(model){
             return _.any(model.attributes, function(val, attr) {
-
-                console.log(val);
-
                 if (val != null){
                     var test = ~val.indexOf(termToQuery);
                         console.log(test);
@@ -92,7 +85,7 @@ App.Views.ApplicationVisuals = Backbone.View.extend({
 
     appendToView: function(myFilteredCollection){
 
-        $(".data-display").append("<h3>Displaying " + myFilteredCollection.length + " results</h3>");
+        $(".data-display").append("<h3>We found " + myFilteredCollection.length + " possible exemptions.</h3>");
 
         for (var i=0; i<myFilteredCollection.length; i++) {
 
@@ -100,16 +93,16 @@ App.Views.ApplicationVisuals = Backbone.View.extend({
 
             $(".data-display").append(
                 "<div class='content'>" +
-                    "<p>" + data.agency + "</p>" +
-                    "<p>" + data.chapter + "</p>" +
-                    "<p>" + data.orsnumber + "</p>" +
-                    "<p>" + data.penalty + "</p>" +
-                    "<p>" + data.protectedmaterial + "</p>" +
-                    "<p>" + data.recorddescription + "</p>" +
-                    "<p>" + data.relatedsubject + "</p>" +
-                    "<p>" + data.text + "</p>" +
-                    "<p>" + data.topic + "</p>" +
-                    "<p>" + data.type + "</p>" +
+                    "<p><b>Agency:</b> " + data.agency + "</p>" +
+                    "<p><b>Legal Chapter:</b> " + data.chapter + "</p>" +
+                    "<p><b>Statute Number:</b> " + data.orsnumber + "</p>" +
+                    "<p><b>Penalty for Release:</b> " + data.penalty + "</p>" +
+                    "<p><b>Protected Material:</b> " + data.protectedmaterial + "</p>" +
+                    "<p><b>Records Exempted:</b> " + data.recorddescription + "</p>" +
+                    "<p><b>Exemption Type:</b> " + data.relatedsubject + "</p>" +
+                    "<p><b>Exemption Text:</b> " + data.text + "</p>" +
+                    "<p><b>Record Type:</b> " + data.topic + "</p>" +
+                    "<p><b>Data Type:</b> " + data.type + "</p>" +
                 "</div>" +
                 "<hr></hr>"
             );
