@@ -1,3 +1,18 @@
+App.Utils.filterCollection = function(collection, filterValue){
+    if (filterValue == "") return [];
+    return collection.filter(function(data) {
+        return _.some(_.values(data.toJSON()), function(value) {
+           if (_.isNumber(value)) value = value.toString();
+           if (_.isString(value)) return value.indexOf(filterValue) != -1;
+           return false;
+        });
+    });
+};
+
+Backbone.Collection.prototype.filterValues = function(filterValues) {
+    return App.Utils.filterCollection(this, filterValues);
+}
+
 App.Models.Exemption = Backbone.Model.extend({
     defaults: {
         agencyname: null,
@@ -9,7 +24,6 @@ App.Models.Exemption = Backbone.Model.extend({
         recordsexempted: null,
         recordtype: null,
         statutenumber: null,
-        type: null,
         uid: null,
     }
 });
@@ -18,7 +32,7 @@ App.Collections.Exemptions = Backbone.Collection.extend({
     model: App.Models.Exemption,
     url: "data/exemption-data.json",
     comparator: function(model) {
-        return model.get("text");
+        return model.get("uid");
     }
 });
 
@@ -53,13 +67,12 @@ App.Views.ApplicationVisuals = Backbone.View.extend({
         this.exemptionCollection.fetch({
             async: false
         });
-
         this.render(viewObject);
     },
 
     events: {
         "keyup :input": "queryEnteredIntoSearch",
-        "click #submit": "searchObjects",
+        "click #submit": "filterObjects",
     },
 
     queryEnteredIntoSearch: function(event){
@@ -68,63 +81,70 @@ App.Views.ApplicationVisuals = Backbone.View.extend({
         } else if (event.keyCode === 13) {
             return false;
         } else {
-            this.searchObjects();
+            this.filterObjects();
         }
     },
 
-    searchObjects: function (){
-        $(".data-display").empty();
+    filterObjects: function (){
         var termToQuery = $("#search-term").val().toLowerCase();
-        var myFilteredCollection = this.exemptionCollection.filter(function(model){
-            return _.any(model.attributes, function(val, attr) {
-                if (val != null){
-                    var test = ~val.indexOf(termToQuery);
-                        console.log(test);
-                    if (test < 0){
-                        console.log(val);
-                        return val;
-                    }
-                } else {
-                    return false;
-                }
-            });
-        });
-
-        this.appendToView(myFilteredCollection);
-
+        this.applicationResults = new App.Views.ApplicationResults();
+        this.applicationResults.collection = this.exemptionCollection.filterValues(termToQuery);
+        this.applicationResults.render();
     },
-
-    appendToView: function(myFilteredCollection){
-
-        $(".data-display").append("<h3>We found " + myFilteredCollection.length + " possible exemptions.</h3>");
-
-        for (var i=0; i<myFilteredCollection.length; i++) {
-
-            var data = myFilteredCollection[i].attributes;
-
-            $(".data-display").append(
-                "<div class='content'>" +
-                    "<p><b>Agency:</b> " + data.agency + "</p>" +
-                    "<p><b>Legal Chapter:</b> " + data.chapter + "</p>" +
-                    "<p><b>Statute Number:</b> " + data.orsnumber + "</p>" +
-                    "<p><b>Penalty for Release:</b> " + data.penalty + "</p>" +
-                    "<p><b>Protected Material:</b> " + data.protectedmaterial + "</p>" +
-                    "<p><b>Records Exempted:</b> " + data.recorddescription + "</p>" +
-                    "<p><b>Exemption Type:</b> " + data.relatedsubject + "</p>" +
-                    "<p><b>Exemption Text:</b> " + data.text + "</p>" +
-                    "<p><b>Record Type:</b> " + data.topic + "</p>" +
-                    "<p><b>Data Type:</b> " + data.type + "</p>" +
-                "</div>" +
-                "<hr></hr>"
-            );
-
-        };
-
-    },
-
 
     render: function(viewObject){
         $(viewObject.container).html(_.template(this.template));
     }
 
+});
+
+App.Views.ApplicationResults = Backbone.View.extend({
+
+    template: template("templates/data-results.html"),
+
+    tagName: "div",
+
+    className: "item-content",
+
+    el: ".data-display",
+
+    initialize: function(){
+        _.bindAll(this, "render");
+    },
+
+    render: function(){
+        this.$el.empty();
+
+        /*
+        var self = this;
+        _.each(this.collection, function(model){
+            var content = _.template(self.template, model.toJSON());
+            console.log(content);
+            $(".data-display").append(content);
+        });
+        */
+
+
+        $(".data-display").append("<h3>We found " + this.collection.length + " possible exemptions.</h3>");
+        for (var i=0; i<this.collection.length; i++) {
+            var data = this.collection[i].attributes;
+            $(".data-display").append(
+                "<div class='content'>" +
+                    "<p><strong>Agency name:</strong> " + data.agencyname + "</p>" +
+                    "<p><strong>Exemption text:</strong> " + data.exemptiontext + "</p>" +
+                    "<p><strong>Exemption type:</strong> " + data.exemptiontype + "</p>" +
+                    "<p><strong>Legal chapter:</strong> " + data.legalchapter + "</p>" +
+                    "<p><strong>Penalty for release:</strong> " + data.penaltyforrelease + "</p>" +
+                    "<p><strong>Protected material:</strong> " + data.protectedmaterial + "</p>" +
+                    "<p><strong>Records exempted:</strong> " + data.recordsexempted + "</p>" +
+                    "<p><strong>Record type:</strong> " + data.recordtype + "</p>" +
+                    "<p><strong>Statute number:</strong> " + data.statutenumber + "</p>" +
+                    "<p><strong>UID:</strong> " + data.uid + "</p>" +
+                "</div>" +
+                "<hr></hr>"
+            );
+        };
+
+
+    }
 });

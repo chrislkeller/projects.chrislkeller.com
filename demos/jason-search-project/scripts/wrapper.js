@@ -4,7 +4,8 @@
         Models: {},
         Collections: {},
         Views: {},
-        Router: {}
+        Router: {},
+        Utils: {}
     };
 
     // load external templates via ajax
