@@ -1,6 +1,16 @@
 App.Models.Exemption = Backbone.Model.extend({
     defaults: {
+        agencyname: null,
+        exemptiontext: null,
+        exemptiontype: null,
+        legalchapter: null,
+        penaltyforrelease: null,
+        protectedmaterial: null,
+        recordsexempted: null,
+        recordtype: null,
+        statutenumber: null,
         type: null,
+        uid: null,
     }
 });
 
@@ -43,6 +53,7 @@ App.Views.ApplicationVisuals = Backbone.View.extend({
         this.exemptionCollection.fetch({
             async: false
         });
+
         this.render(viewObject);
     },
 
