@@ -64,8 +64,15 @@ App.Views.ApplicationVisuals = Backbone.View.extend({
     searchObjects: function (){
         $(".data-display").empty();
         var termToQuery = $("#search-term").val().toLowerCase();
+
+        console.log(termToQuery);
+
+
         var myFilteredCollection = this.exemptionCollection.filter(function(model){
             return _.any(model.attributes, function(val, attr) {
+
+                console.log(val);
+
                 if (val != null){
                     var test = ~val.indexOf(termToQuery);
                         console.log(test);
