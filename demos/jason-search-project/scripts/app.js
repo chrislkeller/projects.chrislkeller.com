@@ -14,21 +14,22 @@ App.Models.Exemption = Backbone.Model.extend({
 });
 
 App.Collections.Exemptions = Backbone.Collection.extend({
+
     model: App.Models.Exemption,
 
     url: "data/exemption-data.json",
 
     initialize: function() {
         this.index = lunr(function(){
-            this.field("agencyname")
             this.field("exemptiontext", {boost: 10})
-            //this.field("exemptiontype")
-            //this.field("legalchapter")
-            //this.field("penaltyforrelease")
-            this.field("protectedmaterial")
-            //this.field("recordsexempted")
             this.field("recordtype", {boost: 10})
-            //this.field("statutenumber")
+            this.field("agencyname", {boost: 5})
+            this.field("exemptiontype")
+            this.field("legalchapter")
+            this.field("penaltyforrelease")
+            this.field("protectedmaterial")
+            this.field("recordsexempted")
+            this.field("statutenumber")
             this.ref("id")
         });
     },
@@ -37,22 +38,18 @@ App.Collections.Exemptions = Backbone.Collection.extend({
         var self = this;
         _(items).each(function(item){
             self.index.add(item);
-            console.log(item);
         });
         return items;
     },
 
     filter: function(term){
         var self = this;
-
         // lunr returns an array of objects, we map over them and replace the lunr ref with the actual model
         var results = _(this.index.search(term)).map(function(r){
             return self.get(r.ref);
         });
-
         // return the matching models from our collection
         return results;
-
     },
 
     comparator: function(model) {
@@ -63,8 +60,6 @@ App.Collections.Exemptions = Backbone.Collection.extend({
 
 App.Router = Backbone.Router.extend({
 
-    initialize: function(){},
-
     routes: {
         "": "renderApplicationVisuals",
     },
@@ -73,9 +68,7 @@ App.Router = Backbone.Router.extend({
         if (this.applicationVisuals){
             this.applicationVisuals.remove();
         };
-        this.applicationVisuals = new App.Views.ApplicationVisuals({
-            container: ".data-visuals"
-        });
+        this.applicationVisuals = new App.Views.ApplicationVisuals();
         return this.applicationVisuals;
     }
 
@@ -83,51 +76,34 @@ App.Router = Backbone.Router.extend({
 
 App.Views.ApplicationVisuals = Backbone.View.extend({
 
-    template: template("templates/data-visuals.html"),
-
     el: ".data-visuals",
 
-    initialize: function(viewObject){
+    initialize: function(){
         this.exemptionCollection = new App.Collections.Exemptions();
         this.exemptionCollection.fetch({
             async: false
         });
-        this.render(viewObject);
     },
 
     events: {
         "keyup :input": "queryEnteredIntoSearch",
-        "click #submit": "filterObjects",
+        "click #submit": "filterAndDisplayObjects",
     },
 
     queryEnteredIntoSearch: function(event){
-        if(event.keyCode != 13) {
-            return false;
-        } else if (event.keyCode === 13) {
-            return false;
+        if(event.keyCode === 13) {
+            this.filterAndDisplayObjects();
         } else {
-            this.filterObjects();
+            return false;
         }
     },
 
-    render: function(viewObject){
-        $(viewObject.container).html(_.template(this.template));
-    },
-
-    filterObjects: function(){
-
+    filterAndDisplayObjects: function(){
         $(".data-display").empty();
-
         var termToQuery = $("#search-term").val().toLowerCase();
-
         var results = this.exemptionCollection.filter(termToQuery);
-
         $(".data-display").append("<h3>We found " + results.length + " possible exemptions.</h3>");
-
         _(results).each(function(r) {
-
-            console.log(r);
-
             $(".data-display").append(
                 "<div class='content'>" +
                     "<p><strong>Agency name:</strong> " + r.attributes.agencyname + "</p>" +
