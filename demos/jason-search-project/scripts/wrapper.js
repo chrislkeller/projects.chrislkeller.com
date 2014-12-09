@@ -5,7 +5,6 @@
         Collections: {},
         Views: {},
         Router: {},
-        Utils: {}
     };
 
     // load external templates via ajax

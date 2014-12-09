@@ -1,6 +1,12 @@
+/* DATA DISPLAY */
+
+.data-container { margin-top: 15px; }
+
 .data-display { margin: 25px 0 25px 0; }
 
 .data-display .content { margin: 20px 0 5px 0; }
+
+/* FIXED FOOTER */
 
 html,
 body {
@@ -39,5 +45,39 @@ body {
 }
 
 .container .credit { margin: 20px 0; }
+.record-container { background-color: #EDD782; border-radius: 4px; }
 
 #wrap { background-color: #F5F5F5; }
+
+
+/* BOOTSTRAP */
+
+.pull-left {
+  float: left !important;
+}
+.pull-right {
+  float: right !important;
+}
+.btn {
+  margin-right: 3px;
+}
+.list-inline li { padding: 3px 9px 3px 3px; color: #666; }
+
+
+
+/* MAILCHIMP */
+
+#mc_embed_signup { clear:left; font:14px Helvetica,Arial,sans-serif; background-color: #c4c4c4; padding: 3%; border-radius: 4px;}
+
+#mc_embed_signup form { padding: 0 0 9% 0; }
+
+#mc_embed_signup #mce-success-response {
+  font-weight: 400;
+  color: #666666;
+  margin-left: 3%;
+  margin-bottom: 3%;
+}
+
+#mc_embed_signup div.response {
+  width: 100%;
+}
