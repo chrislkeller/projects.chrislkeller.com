@@ -72,54 +72,88 @@ App.Collections.Exemptions = Backbone.Collection.extend({
     },
 
     comparator: function(model) {
-        return model.get("uid");
-    }
+        return model.get("recordtype");
+    },
 
+    unique: function(collection, value){
+        var results = _.uniq(collection.pluck(value));
+        return results;
+    }
 });
 
 App.Router = Backbone.Router.extend({
 
     routes: {
-        "": "renderApplicationVisuals",
+        "": "renderApplicationIndex",
     },
 
-    renderApplicationVisuals: function(){
-        if (this.applicationVisuals){
-            this.applicationVisuals.remove();
+    renderApplicationIndex: function(){
+        if (this.ApplicationIndex){
+            this.ApplicationIndex.remove();
         };
-        this.applicationVisuals = new App.Views.ApplicationVisuals();
-        return this.applicationVisuals;
+        this.ApplicationIndex = new App.Views.ApplicationIndex();
+        return this.ApplicationIndex;
     }
 
 });
 
-App.Views.ApplicationVisuals = Backbone.View.extend({
+App.Views.ApplicationIndex = Backbone.View.extend({
 
-    el: ".data-visuals",
+    el: ".search-terms",
+
+    template: _.template("\
+        <div class='row'>\
+            <div class='col-md-12'>\
+                <h1>State Secrets <small>Try these in the box above!</small></h1>\
+                <ul class='list-inline'>\
+                    <% _.each(collection, function(item) { %>\
+                        <% if (item != '') { %>\
+                            <li><a href='javascript:void(0)'><%= item %></a></li>\
+                        <% } %>\
+                    <% }); %>\
+                </ul>\
+            </div>\
+        </div>\
+    "),
 
     initialize: function(){
         this.exemptionCollection = new App.Collections.Exemptions();
         this.exemptionCollection.fetch({
             async: false
         });
+        this.render();
     },
 
     events: {
-        "keyup :input": "queryEnteredIntoSearch",
+        "click .list-inline li a": "queryClickedSearchTerm",
+        "keyup :input": "queryUserSearchTerm",
         "click #submit": "filterAndDisplayObjects",
     },
 
-    queryEnteredIntoSearch: function(event){
+    render: function(){
+        var uniqueRecords = this.exemptionCollection.unique(this.exemptionCollection, "recordtype");
+        $(".search-terms").html(this.template({
+            collection: uniqueRecords
+        }));
+    },
+
+    queryClickedSearchTerm: function(event){
+        var termToQuery = event.target.innerText;
+        $("#search-term").val(termToQuery);
+        this.filterAndDisplayObjects(termToQuery);
+    },
+
+    queryUserSearchTerm: function(event){
         if(event.keyCode === 13) {
-            this.filterAndDisplayObjects();
+            var termToQuery = $("#search-term").val().toLowerCase();
+            this.filterAndDisplayObjects(termToQuery);
         } else {
             return false;
         }
     },
 
-    filterAndDisplayObjects: function(){
+    filterAndDisplayObjects: function(termToQuery){
         $(".data-display").empty();
-        var termToQuery = $("#search-term").val().toLowerCase();
         var results = this.exemptionCollection.filter(termToQuery);
         $(".data-display").append("<h3>We found " + results.length + " possible exemptions.</h3>");
         _(results).each(function(r) {
@@ -134,11 +168,10 @@ App.Views.ApplicationVisuals = Backbone.View.extend({
                     "<p><strong>Records exempted:</strong> " + r.attributes.recordsexempted + "</p>" +
                     "<p><strong>Record type:</strong> " + r.attributes.recordtype + "</p>" +
                     "<p><strong>Statute number:</strong> " + r.attributes.statutenumber + "</p>" +
-                    "<p><strong>UID:</strong> " + r.attributes.id + "</p>" +
+                    "<p><strong>ID:</strong> " + r.attributes.id + "</p>" +
                 "</div>" +
                 "<hr></hr>"
             );
         });
-    },
-
+    }
 });
