@@ -20,31 +20,15 @@
 
             $("#init").html("Running");
 
-            $.getJSON("https://parking.api.smgov.net/lots", app.accept_data);
-
-            /*
             $.ajax({
-
                 url: "https://parking.api.smgov.net/lots",
-
                 type: "GET",
-
-                crossDomain: true,
-
-                //contentType: "application/json",
-
-                //dataType: "json",
-
-                headers: {
-                    Accept: "application/json; charset=utf-8",
-                    "Content-Type": "text/plain; charset=utf-8"
-                },
-
+                dataType: "json",
                 success: app.accept_data,
-
+                error: function(data){
+                    console.log("ERROR");
+                }
             });
-            */
-
         },
 
         accept_data: function(data){
