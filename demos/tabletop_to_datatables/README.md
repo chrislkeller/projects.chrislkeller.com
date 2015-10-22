@@ -1,5 +1,9 @@
 # Demo: tabletop to datatables
 
+**[Scott Pham](http://www.scottpham.com/) has created a version of this [project](https://github.com/scottpham/tabletop-to-datatables) that uses the latest version of DataTables and removes a lot of deprecated code.**
+
+----
+
 Use [Tabletop.js](https://github.com/jsoma/tabletop) to pull json from Google Spreadsheet and feed it to the [DataTables](http://datatables.net/) jQuery plugin.
 
 Demo by [Chris Essig](https://twitter.com/CourierEssig) &amp; [Chris Keller](https://twitter.com/ChrisLKeller) made possible thanks to the Open Source work of [Built By Balance](http://builtbybalance.com) &amp; [Allan Jardine](https://github.com/DataTables).
