@@ -1,14 +1,10 @@
 <!DOCTYPE html>
-
-<!-- begin doc -->
 <html lang="en">
 
-    <!-- begin header -->
     <head>
-
-        <!-- begin meta -->
         <title>Featured Projects | Chris L Keller...</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" id="meta-viewport" content="width=device-width,minimum-scale=1,maximum-scale=1" />
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
         <meta name="description" content="My name is Chris Keller. I tinker. Too much. So right now these are in different states of done. At some point, I will make them more done. Until then,  I continue to tinker." />
@@ -26,41 +22,145 @@
         <meta name="twitter:title" content="Featured Projects | Chris L Keller...">
         <meta name="twitter:description" content="My name is Chris Keller. I tinker. Too much. So right now these are in different states of done. At some point, I will make them more done. Until then,  I continue to tinker.">
         <meta name="twitter:image:src" content="http://projects.chrislkeller.com/icon.png">
-        <!-- end meta -->
 
         <!-- begin css -->
-        <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/css/bootstrap.min.css" />
-        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Varela+Round" />
-        <link rel="stylesheet" type="text/css" href="static-files/css/project-styles.css" />
-        <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/css/bootstrap-responsive.min.css" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+        <style>
+            body { padding-top: 70px; }
+            #featured { height: auto; }
+            .portfolio-item { height: 390px; margin-bottom: 15px; overflow: hidden; }
+            .portfolio-item .image-block { position: relative; background-color: #ffffff; height: 150px; padding: 2px 0 2px 0; overflow: hidden; }
+            .portfolio-item .image-block img { width: 92%; margin: auto 4% auto 4%; position: absolute; margin: auto; top: 0; left: 0; right: 0; bottom: 0; }
+            footer { margin: 50px 0; }
+        </style>
         <!-- end css -->
 
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
         <!-- begin base scripts -->
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
         <!-- end base scripts -->
 
     </head>
-    <!-- end header -->
 
-    <!-- begin body -->
     <body>
 
-        <div id="projects-header"></div>
-            <div class="container-fluid">
-                <div id="featured-projects-content"></div>
-                <div id="other-projects-content"></div>
+        <!-- begin navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="http://projects.chrislkeller.com/">Chris L Keller ...</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="github"><a href="https://github.com/chrislkeller">GitHub</a></li>
+                        <li class="blog"><a href="http://www.chrislkeller.com">Blog</a></li>
+                        <li class="twitter"><a href="http://twitter.com/ChrisLKeller">Twitter</a></li>
+                    </ul>
+                </div>
             </div>
-        <div id="projects-footer"></div>
+        </nav>
+        <!-- end navigation -->
+
+        <!-- begin page content -->
+        <div class="container">
+            <!-- begin page header -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Projects &amp; Demos</h1>
+                </div>
+            </div>
+            <!-- end page header -->
+
+            <!-- projects row -->
+            <div id="featured"></div>
+            <!-- end projects row -->
+
+            <!-- begin projects row -->
+            <div class="row">
+                <div class="col-md-3 portfolio-item">
+                    <h3>Projects</h3>
+                    <ul id="projects"></ul>
+                </div>
+                <div class="col-md-3 portfolio-item">
+                    <h3>Demos</h3>
+                    <ul id="demos"></ul>
+                </div>
+                <div class="col-md-3 portfolio-item">
+                    <h3>Code Snippets</h3>
+                    <ul id="code-snippets"></ul>
+                </div>
+                <div class="col-md-3 portfolio-item">
+                    <h3>Published Work</h3>
+                    <ul id="published-work"></ul>
+                </div>
+            </div>
+            <!-- end projects row -->
+
+            <!-- begin pagination -->
+            <!--
+            <div class="row text-center">
+                <div class="col-lg-12">
+                    <ul class="pagination">
+                        <li>
+                            <a href="#">&laquo;</a>
+                        </li>
+                        <li class="active">
+                            <a href="#">1</a>
+                        </li>
+                        <li>
+                            <a href="#">2</a>
+                        </li>
+                        <li>
+                            <a href="#">3</a>
+                        </li>
+                        <li>
+                            <a href="#">4</a>
+                        </li>
+                        <li>
+                            <a href="#">5</a>
+                        </li>
+                        <li>
+                            <a href="#">&raquo;</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            -->
+            <!-- end pagination -->
+
+            <hr>
+
+            <!-- begin footer -->
+            <footer>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p>Copyright &copy; Chris Keller 2016</p>
+                    </div>
+                </div>
+            </footer>
+            <!-- end footer -->
+
+        </div>
+        <!-- end page content -->
 
         <!-- begin scripts -->
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.min.js"></script>
-        <script src="static-files/scripts/handlebars-ajax.js"></script>
-        <script src="static-files/scripts/swag.js"></script>
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.1.0/tabletop.min.js"></script>
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-        <script src="static-files/scripts/template-scripts.js"></script>
-        <script src="static-files/scripts/data-script.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="static-files/scripts/tabletop-vJan16.js"></script>
+        <script src="static-files/scripts/projects-script.js"></script>
         <!-- end scripts -->
 
         <!-- begin analytics -->
@@ -78,7 +178,4 @@
         <!-- end analytics -->
 
     </body>
-    <!-- end body -->
-
 </html>
-<!-- end document -->
