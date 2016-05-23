@@ -1,0 +1,263 @@
+<!doctype html>
+<html>
+<head>
+  <title>Sample gmap-features code</title>
+  <style type="text/css">
+    html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    }
+</style>
+</head>
+<body>
+
+<ul class="maps">
+  <li>
+    <p>Parsing JSON data file</p>
+    <div id="map1" style="width:500px;height:300px;"></div>
+  </li>
+  <li>
+    <p>Parsing KML data file</p>
+    <div id="map2" style="width:500px;height:300px;"></div>
+  </li>
+  <li>
+    <p>Supports features with holes and multiple parts</p>
+    <div id="map3" style="width:500px;height:300px;"></div>
+  </li>
+  <li>
+    <p>Highlighting/selecting/unselecting colors are based on feature data, via responsive_*_opts callbacks</p>
+    <div id="map4" style="width:500px;height:300px;"></div>
+  </li>
+</ul>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+<script src="geom.js"></script>
+<script src="feature.js"></script>
+<script src="gmap-loadpolygons.js"></script>
+
+
+<script type="text/javascript">
+var map,features,map2,features2,map3,features3,map4,features4;
+
+// example using json data
+function map1() {
+    map = new google.maps.Map(document.getElementById("map1"), {
+	center: new google.maps.LatLng(40.731368,-73.975071),
+	zoom: 15,
+	mapTypeId: google.maps.MapTypeId.ROADMAP,
+	mapTypeControl: false,
+	streetViewControl: false
+    });
+    $.getJSON("../sampledata/data.json", function(data) {
+        var BLUES = ["#E9F6FF", "#B3D6FF", "#7BB1FF", "#4C89E0", "#4073BC", "#284A72"];
+        /*
+         * invoke load_polygons
+         */
+	features = gmap.load_polygons({
+	    map: map,
+	    data: data, //required. all other params are optional
+            data_type: "json", // 'json' is default. can also use 'kml' in which case pass the kml document as data as a string 
+            getColor: function(data) {
+                // runs in the scope of each feature. returns the color to set it to
+                // has access to the data in this.fields
+                var perc;
+                if (data.totpop != 0) {
+                    perc = Number(data.totpop_wnh)/Number(data.totpop);
+                } else { perc = 0; }
+                return BLUES[(Math.floor(perc * 5)) % 5]; // maps [0,1) into 0 to 4. buckets of .2
+            },
+	    unselected_opts: {
+                "fillOpacity": .75
+            },
+	    highlighted_opts: {
+                strokeWeight: 3.0,
+                strokeColor: "#FF0000"
+            },
+	    selected_opts: {
+                strokeWeight: 2.0,
+                strokeColor: "#0000FF"
+            },
+	    highlightCallback: function(e) {
+		console.log("highlighted "+this.id);
+	    },
+	    selectCallback: function(e) {
+		console.log(this.fields);
+	    }
+	});
+    });
+}
+
+// example using KML data
+function map2() {
+    map2 = new google.maps.Map(document.getElementById("map2"), {
+        center: new google.maps.LatLng(40.8765,-73.9095),
+	zoom: 15,
+	mapTypeId: google.maps.MapTypeId.ROADMAP,
+	mapTypeControl: false,
+	streetViewControl: false
+    });
+    $.get("../sampledata/data.kml", function(data) {
+
+        var BLUES = ["#E9F6FF", "#B3D6FF", "#7BB1FF", "#4C89E0", "#4073BC", "#284A72"];
+
+	features2 = gmap.load_polygons({
+	    map: map2,
+	    data: data, //required. all other params are optional
+            data_type: "kml", // 'json' is default. can also use 'kml' in which case pass the kml document as data as a string 
+            getColor: function(data) {
+                // runs in the scope of each feature. returns the color to set it to
+                // has access to the data in this.fields
+                var perc;
+                if (data.totpop != 0) {
+                    perc = Number(data.totpop_wnh)/Number(data.totpop);
+                } else { perc = 0; }
+                return BLUES[(Math.floor(perc * 5)) % 5]; // maps [0,1) into 0 to 4. buckets of .2
+            },
+	    unselected_opts: {
+                "fillOpacity": .75
+            },
+	    highlighted_opts: {
+                strokeWeight: 3.0,
+                strokeColor: "#FF0000"
+            },
+	    selected_opts: {
+                strokeWeight: 2.0,
+                strokeColor: "#0000FF"
+            },
+	    highlightCallback: function(e) {
+		console.log("highlighted "+this.id);
+	    },
+	    selectCallback: function(e) {
+		console.log(this.fields);
+	    }
+	});
+    });
+}
+
+// example using KML data
+function map3() {
+    map3 = new google.maps.Map(document.getElementById("map3"), {
+        center: new google.maps.LatLng(40.8765,-73.9095),
+	zoom: 15,
+	mapTypeId: google.maps.MapTypeId.ROADMAP,
+	mapTypeControl: false,
+	streetViewControl: false
+    });
+    $.get("../sampledata/data2.kml", function(data) {
+
+        var BLUES = ["#E9F6FF", "#B3D6FF", "#7BB1FF", "#4C89E0", "#4073BC", "#284A72"];
+
+	features3 = gmap.load_polygons({
+	    map: map3,
+	    data: data, //required. all other params are optional
+            data_type: "kml", // 'json' is default. can also use 'kml' in which case pass the kml document as data as a string 
+            getColor: function(data) {
+                // runs in the scope of each feature. returns the color to set it to
+                // has access to the data in this.fields
+                var perc;
+                if (data.totpop != 0) {
+                    perc = Number(data.totpop_wnh)/Number(data.totpop);
+                } else { perc = 0; }
+                return BLUES[(Math.floor(perc * 5)) % 5]; // maps [0,1) into 0 to 4. buckets of .2
+            },
+	    unselected_opts: {
+                "fillOpacity": .75
+            },
+	    highlighted_opts: {
+                strokeWeight: 3.0,
+                strokeColor: "#FF0000"
+            },
+	    selected_opts: {
+                strokeWeight: 2.0,
+                strokeColor: "#0000FF"
+            },
+	    highlightCallback: function(e) {
+		console.log("highlighted "+this.id);
+	    },
+	    selectCallback: function(e) {
+		console.log(this.fields);
+	    }
+	});
+
+    });
+}
+// example using json data and responsive callbacks for highlighted/selected/unselected states
+function map4() {
+    map4 = new google.maps.Map(document.getElementById("map4"), {
+        center: new google.maps.LatLng(40.731368,-73.975071),
+        zoom: 15,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        mapTypeControl: false,
+        streetViewControl: false
+    });
+
+    $.getJSON("../sampledata/data.json", function(data) {
+        var BLUES = ["#E9F6FF", "#B3D6FF", "#7BB1FF", "#4C89E0", "#4073BC", "#284A72"];
+        /*
+         * invoke load_polygons
+         */
+        features4 = gmap.load_polygons({
+            map: map4,
+            data: data, //required. all other params are optional
+            data_type: "json", // 'json' is default. can also use 'kml' in which case pass the kml document as data as a string 
+            unselected_opts: {
+                "fillOpacity": .75
+            },
+            highlighted_opts: {
+                strokeWeight: 2.0,
+                strokeColor: "#000000"
+            },
+            selected_opts: {
+                strokeWeight: 2.0,
+                strokeColor: "#000000"
+            },
+            responsive_unselected_opts: function() {
+                if(this.fields.totpop_wnh > 100) {
+                    return { fillColor: "#8DEEEE" };
+                } else {
+                    return { fillColor: "#EE1289" };
+                }
+            },
+            responsive_highlighted_opts: function() {
+                if(this.fields.totpop_wnh > 100) {
+                    return { fillColor: "#8DEE00" };
+                } else {
+                    return { fillColor: "#EE1200" };
+                }
+            },
+            responsive_selected_opts: function() {
+                if(this.fields.totpop_wnh > 100) {
+                    return { strokeWeight: 5, strokeColor: "#00EE00" };
+                } else {
+                    // You can also just let it inherit the default
+                    return { };
+                }
+            },
+            
+            highlightCallback: function(e) {
+                console.log("highlighted "+this.id);
+            },
+            selectCallback: function(e) {
+                console.log(this.fields);
+            }
+        });
+    });
+}
+
+
+function initialize() {
+    map1();
+    map2();
+    map3();
+    map4();
+}
+
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<!-- BEGIN DOCUMENT HEADER -->
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<title>Map With Legend Demo</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<!-- END DOCUMENT HEADER -->
+
+<!-- BEGIN BODY -->
+<body onload="initialize()">
+
+<!--BEGIN MAP -->
+<div id="map_canvas" style="width:100%; height:100%"></div>
+
+<!--BEGIN LOGO -->
+<div id="flag"><img src="logo.png" alt="Chicago Tribune" /></div>
+
+<!--BEGIN LEGEND -->
+<div id="legend">
+<h1>Legend H1<br/></h1>
+<h2>Legend H2</h2>
+<p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+            
+<div class="colors">
+<span class="less-than-five"></span>Fewer than 5<br/>
+<span class="less-than-ten"></span>5 or more<br/>
+<span class="less-than-twenty-five"></span>10 or more<br/>
+<span class="less-than-fifty"></span>25 or more<br/>
+<span class="less-than-one-hundred"></span>50 or more<br/>
+<span class="less-than-five-hundred"></span>100 or more<br/>
+<span class="five-hundred-or-more"></span>500 or more<br/>
+</div>
+            
+<p>Zoom in or search to see population of each county.</p>
+
+<!-- BEGIN SEARCH -->
+<form id="search">
+<label for="query">Search for your address</label>
+<input id="query" type="text" />
+<input type="submit" value="Go" />
+<div id="alt-addresses"></div>
+</form>
+
+<!-- BEGIN CREDITS -->
+<div id="credits">
+<p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+<p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</a></p>
+</div>
+<!--END CREDITS -->
+
+</div>
+<!-- END LEGEND -->
+
+<!-- BEGIN SCRIPTS -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="map.js"></script>
+
+</body>
+<!-- END BODY -->
+
+</html>
+<!-- END DOCUMENT -->

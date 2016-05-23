@@ -1,0 +1,90 @@
+<!DOCTYPE html> 
+<!--
+  copyright (c) 2011 Google inc.
+
+  You are free to copy and use this sample.
+  License can be found here: http://code.google.com/apis/ajaxsearch/faq/#license
+
+-->
+<html> 
+<head> 
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
+
+<title>Google Maps JavaScript API v3 Example: Fusion Tables Layer</title> 
+
+<style>
+  body { font-family: Arial, sans-serif; }
+  #map_canvas { height: 500px; width:850px; }
+</style>
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> 
+<script type="text/javascript" id="script">
+var layer;
+var tableid = 497450;
+var center = new google.maps.LatLng(10, 10);
+var zoom = 2;
+var map;
+var geocoder = new google.maps.Geocoder();
+
+function initialize() {
+
+  // Initialize the map
+  map = new google.maps.Map(document.getElementById('map_canvas'), {
+    center: center,
+    zoom: zoom,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  });
+  
+  // Initialize the layer
+  layer = new google.maps.FusionTablesLayer(tableid);
+  layer.setMap(map);
+}
+
+function zoomtoaddress() {
+
+  // Use the geocoder to geocode the address
+  geocoder.geocode( { 'address': document.getElementById("address").value }, function(results, status) {
+    // If the status of the geocode is OK
+    if (status == google.maps.GeocoderStatus.OK) {
+      // Change the center and zoom of the map
+      map.setCenter(results[0].geometry.location);
+      map.setZoom(10);
+      
+      // OPTIONAL: find the new map bounds, and run a spatial query to return
+      // Fusion Tables results within those bounds. 
+      sw = map.getBounds().getSouthWest();
+      ne = map.getBounds().getNorthEast();
+      layer.setQuery("SELECT lat FROM " + tableid + " WHERE ST_INTERSECTS(lat, RECTANGLE(LATLNG(" + sw.lat() + "," + sw.lng() + "), LATLNG(" + ne.lat() + "," + ne.lng() + ")))") 
+    } 
+  });
+}
+
+// Reset the zoom, center, and FusionTablesLayer query
+function reset() {
+  map.setCenter(center);
+  map.setZoom(zoom);
+  layer.setQuery("SELECT lat FROM " + tableid);
+}
+
+// Register Enter key press to submit form
+window.onkeypress = enterSubmit;
+function enterSubmit() {
+  if(event.keyCode==13) {
+    zoomtoaddress();
+  }
+}
+
+</script> 
+</head> 
+<body onload="initialize();"> 
+
+Enter an address: <input type="text" id="address" />
+<input type="button" onclick="zoomtoaddress()" value="Search!" />
+<input type="button" onclick="reset()" value="Reset" />
+<div id="map_canvas"></div>
+
+<div id="code"></div>
+<script type="text/javascript" src="script/script.js"></script>
+</body> 
+</html> 

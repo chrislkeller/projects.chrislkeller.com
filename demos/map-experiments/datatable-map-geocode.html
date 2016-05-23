@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--
+  copyright (c) 2011 Google inc.
+
+  You are free to copy and use this sample.
+  License can be found here: http://code.google.com/apis/ajaxsearch/faq/#license
+-->
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+<title>GViz API Example: Fusion Tables Data Source</title>
+
+<style>
+  body { font-family: Arial, sans-serif; }
+  #map_canvas { height: 500px; width: 500px; }
+</style>
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> 
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript" id="script">
+
+var layer; // Fusion Tables layer
+var tableid = 966665; // Fusion Tables table id
+var map; // Google Map
+var geocoder = new google.maps.Geocoder();
+var table; // GViz Table visualization
+var datatable; // Fusion Tables data in GViz Data Table object
+var infowindow; // InfoWindow
+
+var infoWindowContent = "";
+
+google.load('visualization', '1', {'packages':['table']});
+
+function initialize() {
+  // Initialize the map
+  map = new google.maps.Map(document.getElementById('map_canvas'), {
+    center: new google.maps.LatLng(37.3930730147692, -122.01416015625),
+    zoom: 10,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  });
+  
+  // Initialize the Fusion Tables Layer
+  layer = new google.maps.FusionTablesLayer(tableid);
+  layer.setQuery("SELECT Location FROM " + tableid);
+  layer.setMap(map);
+  layer.set("suppressInfoWindows", true);
+  
+  // Initiate the GViz query to display Table visualization
+  var queryText = encodeURIComponent("SELECT Text, Location FROM " + tableid);
+  var query = new google.visualization.Query('http://www.google.com/fusiontables/gvizdata?tq='  + queryText);
+  query.send(getData);
+}
+
+function getData(response) {
+  table = new google.visualization.Table(document.getElementById('visualization'));
+  datatable = response.getDataTable();
+  table.draw(datatable);
+  // Add a select listener to the table. When someone clicks a row, 
+  // the selectHandler function is called
+  google.visualization.events.addListener(table, 'select', selectHandler);
+}
+
+function selectHandler() {
+  // Get the values from the Fusion Tables data table
+  var selection = table.getSelection();
+  var location = datatable.getValue(selection[0].row, 1);
+  infoWindowContent = datatable.getValue(selection[0].row, 0);
+  
+  // Geocode the address
+  geocoder.geocode({ 'address': location }, generateInfoWindow);
+}
+
+function generateInfoWindow(results, status) {
+  if (status == google.maps.GeocoderStatus.OK) {
+    var coordinate = results[0].geometry.location;
+    
+    // Display the info window at the geocoded location
+    if(infowindow) { infowindow.close(); }
+    else infowindow = new google.maps.InfoWindow();
+    infowindow.setContent(infoWindowContent);
+    infowindow.setPosition(coordinate);
+    infowindow.open(map);
+  } else {
+    alert('sorry! error');
+  }
+}
+
+</script>
+</head>
+<body onload="initialize();">
+
+<div id="map_canvas"></div>
+<div id="visualization" style="width: 500px"></div>
+
+</body>
+</html>

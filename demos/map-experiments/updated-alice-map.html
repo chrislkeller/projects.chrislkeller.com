@@ -1,0 +1,103 @@
+<!-- begin css  -->
+<style type="text/css">
+#map_canvas {width: 900px; height: 600px;}
+</style>
+<!-- end css  -->
+
+<!-- begin scripts -->
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&region=us"></script>
+<script type="text/javascript">
+
+    var jqueryNoConflict = jQuery;
+    var map;
+    var defaultCenter = new google.maps.LatLng(43.09605690123904, -89.39695358276367);
+    var defaultZoom = 12;
+
+    //begin main function
+    jqueryNoConflict(document).ready(function(){
+        createMap();
+    });
+
+    // begin function
+    function createMap() {
+
+        // encrypted table id
+        var tableID = '1nsgSp3jNmPIdcy602joFVQMTtuZHfHIeDvaHnQ';
+        var locationColumn =  'geometry';
+        var supressWindow = false;
+
+        var map = new google.maps.Map(document.getElementById('map_canvas'), {
+            center: defaultCenter,
+            zoom: defaultZoom,
+            scrollwheel: false,
+            draggable: true,
+            mapTypeControl: false,
+            navigationControl: true,
+            streetViewControl: false,
+            panControl: false,
+            scaleControl: false,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            navigationControlOptions: {
+                style: google.maps.NavigationControlStyle.SMALL,
+                position: google.maps.ControlPosition.RIGHT_TOP}
+        });
+
+        // Initialize ft layer
+        var shapeLayer = new google.maps.FusionTablesLayer({
+            query: {
+                select: locationColumn,
+                from: tableID
+            },
+            map: map,
+            suppressInfoWindows: supressWindow
+        });
+    }
+
+    function zoomToAddress() {
+
+        // pull values from option menu
+        var searchString = document.getElementById('searchString').value;
+
+        // if string is empty, use the default zoom and center values
+        if(searchString == "") {
+            map.setCenter(defaultCenter);
+            map.setZoom(defaultZoom);
+            return;
+
+        } else {
+
+            // determine position of comma
+            // we'll use this to split the searchString value
+            var commaPos = searchString.indexOf(',');
+
+            // parse searchString for Lat value
+            var coordinatesLat = parseFloat(searchString.substring(0, commaPos));
+
+            // parse searchString for Long value
+            var coordinatesLong = parseFloat(searchString.substring(commaPos + 1, searchString.length));
+
+            // create Lat/Long pair as google maps LatLng
+            var centerPoint = new google.maps.LatLng(coordinatesLat, coordinatesLong);
+
+            console.log(centerPoint);
+
+            map.setCenter(centerPoint);
+            map.setZoom(10);
+        }
+    }
+
+
+// end function
+
+</script>
+
+<div style="margin-top: 15px;">
+	<select id="searchString" onchange="zoomToAddress(this.value);">
+	<option value="">--Select All--</option>
+	<option value="43.138092,-89.747988">Luckenbooth Cafe</option>
+	<option value="43.017218,-89.831479">Aunt Mary's Hooterville Inn</option>
+	</select>
+<div>
+
+<div id="map_canvas"></div>

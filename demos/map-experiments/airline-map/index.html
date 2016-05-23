@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+<title>Air Commuters Map | WNYC</title>
+
+<link rel="stylesheet" href="css/style.css" type="text/css">
+<link rel="stylesheet" href="css/dropdown.css" type="text/css" media="screen" title="no title" charset="utf-8">
+<link rel="stylesheet" href="css/jquery.alerts.css" type="text/css" media="screen" title="no title" charset="utf-8">
+<link rel="stylesheet" href="css/loading.css" type="text/css" media="screen" title="no title" charset="utf-8">
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3.7&sensor=false"></script>
+<script src="js/jquery-1.6.4.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- This is Albert Sun's code, modified by Jonathan Soma, to make rollovers  -->
+<script src="js/gmap-features-polyline-geod-strokecolor.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- adds ability to parse variables from the URL done with jquery.url.js
+See http://ajaxcssblog.com/jquery/url-read-get-variables/  -->
+<script type="text/javascript" src="js/jquery.url.min.js"></script>
+
+<!-- Share/Embed 'alert' box generated with jquery.alerts.js.
+See http://abeautifulsite.net/blog/2008/12/jquery-alert-dialogs/ -->
+<script src="js/jquery.alerts.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Core mapping javascript is here -->
+<script type="text/javascript" src="js/map.js"></script>
+
+<!-- Address Box JavaScript -->
+<script src="js/wnyclabs.addressbox.js" type="text/javascript" charset="utf-8"></script>
+
+
+</head>
+
+<body style="background:white">
+
+<!-- MAP TOP -->
+
+<header>
+	<table border="0" cellspacing="0" cellpadding="0" style="height: 30px;">
+		<tr>
+			<td style="width: 266px;"><a href="http://www.transportationnation.org/" target="_blank"><img src="images/transportation_nation_logo.jpg" width="266" height="30" alt="Transportation Nation Logo" style="border: 0;"></a>
+		  </td>
+		</tr>
+	</table>
+
+	<div id="headertext">
+<strong>Air Commuters:</strong> The routes people fly to work in the top 12 air-commuter destinations, based on 2006-2008 U.S. Census estimates. &nbsp;&nbsp; <span id="embed" style="cursor:pointer;" onclick="embedBox()"> Embed Map</span> | <span id="expand" style="cursor:pointer;" onclick="expandWindow()">Full Screen</span>
+	</div>
+</header>
+
+
+<!-- THE MAP -->
+<div id="map_canvas"></div>
+
+<!-- BEGIN Drop Down Code -->
+<!-- END Drop Down Code -->
+
+<!-- put in the twitter button -->
+<div class="twitter_share" id="twitter_button">
+<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://project.wnyc.org/news-maps/air-commuting/index.html" data-count="none" data-text="MAP: People who #aircommute to cities across the US, by @WNYC and @transportnation">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+</div>
+
+<!-- Create a spot for popup boxes -->
+<div id="loadingIndicator"></div>
+
+<!-- Create a spot for the topper text  -->
+<div id="mapTopperInfo"></div>
+
+
+<!-- MAP FOOTER -->
+
+<!-- BEGIN Credits Box -->
+		  <div id="footer">
+			<strong>Map: </strong>
+			<a href="mailto:jkeefe@wnyc.org?subject=Commuter_Map_Feedback" target="_blank">John Keefe</a> / WNYC &nbsp;&nbsp;<br>
+			<strong>Data:</strong> US Census &amp; <a href="http://www.fhwa.dot.gov/planning/census_issues/ctpp/" target="_blank">US DOT</a>  via <a href="http://wagner.nyu.edu/rudincenter/" target="_blank">Rudin Center for Transp.</a> at NYU Wagner. <span id="infobox" style="cursor:pointer;" onclick="infoBox()">Data details</span>&nbsp;&nbsp;
+		  </div>
+<!-- END Credits Box -->
+
+<!-- END MAP FOOTER -->
+
+</body>
+</html>

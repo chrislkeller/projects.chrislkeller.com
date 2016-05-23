@@ -1,0 +1,52 @@
+<!-- begin scripts -->
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <script type="text/javascript">
+    var jqueryNoConflict = jQuery;
+
+    // begin main function
+    jqueryNoConflict(document).ready(function() {
+        getFusionTableData();
+    });
+    // end
+
+    // retrieve json from Fusion Table
+    function getFusionTableData() {
+        var tableID = '1WtjKEpnQsp_o1dlYiTnlhiV7Q94ELF-3JUpdvg8';
+        var query = 'SELECT * FROM ' + tableID;
+        var encodedQuery = encodeURIComponent(query);
+        var urlPrefix = 'https://www.googleapis.com/fusiontables/v1/query?key=';
+        var apiKey = 'AIzaSyBRs68D8JTAbrLy6R_zsYABLMgOV6zxC-4';
+        var urlSuffix = '&sql=' + encodedQuery + '&callback=?';
+        var url = urlPrefix + apiKey + urlSuffix
+        jqueryNoConflict.getJSON(url, createArrayFrom);
+    };
+    // end
+
+    // organize json data
+    function createArrayFrom(data){
+
+        console.log(data);
+
+        // begin loop
+        for (var i = 0; i < data.rows.length; i++) {
+
+            var row = data.rows[i];
+
+            var Resource = row[0];
+            var Image = row[1];
+            var Description = row[2];
+            var URL = row[3];
+
+            // write data to div
+            jqueryNoConflict('#resource-data').append(
+                '<h2><img src=\"' + Image + ' /"/> ' + Resource + '</h2>' +
+                '<p><a href="' + URL + '">' + Description + '</a></p>');
+
+        };
+        // end loop
+
+    };
+    // end
+</script>
+
+<div id="resource-data">

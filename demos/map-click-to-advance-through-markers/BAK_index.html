@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script type="text/javascript" src="//use.typekit.net/air8rql.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0-rc.3/handlebars.min.js"></script>
+	<title>Farmers Market</title>
+
+
+
+  	<style>
+		/* sets map size  */
+	    #map-canvas { width:100%; height:400px; }
+
+		p {font-size: 14px;
+	font-family: "Trebuchet MS", Verdana, sans-serif;
+	}
+
+
+    </style>
+
+
+
+</head>
+<body>
+	<div id="map-canvas"></div>
+	<div id="markets"></div>
+	<script id="market-list-template" type="text/x-handlebars-template">
+		{{#each days}}
+			<ul class="day">
+				<li class="header">{{title}}</li>
+				{{#each markets}}
+	  			<li class="market" onclick="clickMarker({{id}})">{{title}}</li>
+	  			{{/each}}
+	  		</ul>
+  		{{/each}}
+	</script>
+
+
+
+<!-- controls the tear drop clicks -->
+	<script id="market-template" type="text/x-handlebars-template">
+		{{market.col0}}<br />
+		{{market.col1}}<br />
+		{{market.col2}}<br />
+		{{market.col3}}<br />
+		{{market.col4}}<br />
+		{{market.col5}}<br />
+		{{market.col6}}<br />
+		{{market.col7}}<br />
+		{{market.col8}}<br />
+		{{market.col9}}<br />
+		{{market.col10}}<br />
+	</script>
+
+
+
+
+	<script>
+		// for google api key - https://code.google.com/apis/console
+		var fusionTableId = '1NGzuu5dqgLArroqoUmyX4hMVHD-fID4yT1yNGso',
+			googleApiKey = 'AIzaSyDgLghAMg6_hs4LLcqV4R36-NcAq8cRrg8',
+
+			map = false, markers = [], markets = false, infowindow;
+
+		function initializeGoogleMap() {
+			map = new google.maps.Map(document.getElementById('map-canvas'), {
+				center: new google.maps.LatLng(43.07823286611988, -89.37721896562499),
+			    mapTypeControl: true,
+			    mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+				zoom: 10,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			});
+			infowindow = new google.maps.InfoWindow({
+				size: new google.maps.Size(150,50)
+			});
+			google.maps.event.addListener(map, 'click', function() {
+		        infowindow.close();
+	        });
+			createMarkers();
+		}
+
+		function getFusionTableData() {
+			var url = 'https://www.googleapis.com/fusiontables/v1/query?callback=?',
+				params = {
+					sql: 'SELECT * FROM ' + fusionTableId,
+					key: googleApiKey
+				};
+
+			$.getJSON(url, params).done(function (data) {
+				markets = data.rows;
+				createMarkers();
+			});
+		}
+
+		function makeMarkerClickHandler(marker, map, market) {
+			var marketTmpl = Handlebars.compile($("#market-template").html()),
+				content, clickedMarker, myMap, data = {}, i;
+
+			for (i = 0; i < market.length; i++) {
+				data['col' + i] = market[i];
+			}
+
+			content = marketTmpl({market: data});
+			clickedMarker = marker;
+			myMap = map;
+
+			return function () {
+		        infowindow.setContent(content);
+		        infowindow.open(myMap, clickedMarker);
+			};
+		}
+
+		function createMarkers() {
+			if (map && markets) {
+				var market, m, marker, latlng;
+
+				for (m = 0; m < markets.length; m++) {
+					market = markets[m];
+
+					latlng = market[11].split(', ');
+					latlng = new google.maps.LatLng(
+						parseFloat(latlng[0]),
+						parseFloat(latlng[1])
+					);
+
+					marker = new google.maps.Marker({
+						position: latlng,
+						map: map,
+						zIndex: Math.round(latlng.lat()*-100000)<<5
+			        });
+			        google.maps.event.addListener(marker, 'click', makeMarkerClickHandler(marker, map, market));
+			        markers.push(marker);
+				};
+
+				createMarketListView();
+			}
+		}
+
+		function createMarketListView() {
+			var marketListTmpl = Handlebars.compile($("#market-list-template").html()),
+				daysOfWeek = 'Sun Mon Tues Wed Thurs Fri Sat'.split(' '),
+				days = [], day, obj, market, i, m;
+
+			for (i = 0; i < daysOfWeek.length; i++) {
+				day = daysOfWeek[i];
+				obj = {
+					title : day + '.',
+					markets : []
+				};
+				for (m = 0; m < markets.length; m++) {
+					market = markets[m]
+					if (market[0].indexOf(day) !== -1) {
+						obj.markets.push({
+							id: m,
+							title: market[2],
+						});
+					}
+				};
+				days.push(obj);
+			}
+			$('#markets').html(
+				marketListTmpl({
+					days: days
+				})
+			);
+		}
+
+		// This function picks up the click and opens the corresponding info window
+		function clickMarker(i) {
+			google.maps.event.trigger(markers[i], "click");
+		}
+
+		$(document).ready(function () {
+			initializeGoogleMap();
+			getFusionTableData();
+		});
+	</script>
+
+
+
+
+
+</body>
+</html>

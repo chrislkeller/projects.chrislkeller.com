@@ -1,0 +1,62 @@
+<!DOCTYPE html> 
+
+<!--
+  copyright (c) 2011 Google inc.
+
+  You are free to copy and use this sample.
+  License can be found here: http://code.google.com/apis/ajaxsearch/faq/#license
+-->
+
+<html> 
+<head> 
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
+
+<title>Google Maps JavaScript API v3 Example: Fusion Tables Layer</title> 
+
+<style>
+  body { font-family: Arial, sans-serif; }
+  #map_canvas { height: 600px; width:700px; }
+</style>
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> 
+<script type="text/javascript" id="script"> 
+var tableid = 297050;
+var zoom = 10;
+var center = new google.maps.LatLng(37.4, -122.1);
+ 
+function initialize() {
+  map = new google.maps.Map(document.getElementById('map_canvas'), {
+    center: center,
+    zoom: zoom,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  });
+  
+  layer = new google.maps.FusionTablesLayer(tableid);
+  layer.setMap(map);
+}
+
+// The following function updates the query to the layer, which
+// in turn updates the data displayed on the map
+function changeMap(store_name) {
+  // Since some of the store names contain single quotes, we need to escape 
+  // the single quotes before adding them to the query
+  store_name = store_name.replace("'", "\\'");
+  
+  // Change the query
+  layer.setQuery("SELECT Address FROM " + tableid + " WHERE 'Store Name' LIKE '" + store_name + "'");
+}
+
+</script> 
+</head> 
+<body onload="initialize();"> 
+
+Store name: <input type="text" id="store_name" />
+<input type="button" value="Search!" onclick="changeMap(document.getElementById('store_name').value);" />
+<small>Possible values: John's Pizza, JJs Express, John Paul's Pizzeria</small><br />
+<div id="map_canvas"></div>
+  
+<div id="code"></div> 
+<script type="text/javascript" src="script/script.js"></script>
+</body> 
+</html> 

@@ -1,0 +1,21 @@
+body { font-family:Arial, sans-serif; padding-left:10px; }
+
+h2 { font-size:18px; clear:both; }
+
+#formelement { clear:both; margin-bottom:15px; }
+
+#specifics { clear:both; }
+
+.right { float:right; }
+
+.left { float:left; }
+
+label { clear:both; }
+
+.selected { border-top:1px solid; border-left:1px solid; border-right:1px solid; }
+
+.notselected { border-bottom:1px solid; }
+
+.goog-slider { border:solid 1px #CCCCCC; background-color:white; position:relative; overflow:hidden; width:150px; height:15px;}
+
+.goog-slider-thumb { position:absolute; background-color:#3399CC; overflow:hidden; width:10px; height:100%; top:0; }

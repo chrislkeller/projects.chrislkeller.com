@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<Folder id="Fusiontables">
+<name>Fusiontables folder</name>
+<Style id="BasicStyle">
+<BalloonStyle>
+<text>$[description]</text>
+</BalloonStyle>
+<IconStyle>
+<color>FFFFFFFF</color>
+<scale>1.1</scale>
+<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/><Icon>
+<href>http://maps.google.com/mapfiles/kml/paddle/red-blank_maps.png</href>
+</Icon>
+</IconStyle>
+</Style>
+<Placemark>
+<name><![CDATA[Simi Valley, Ca]]></name>
+<styleUrl>#BasicStyle</styleUrl>
+<description>
+<![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
+<b>home:</b> Simi Valley, Ca<br>
+<b>home_code:</b> <br>
+<b>home_latitude:</b> 34.2694474<br>
+<b>home_longitude:</b> -118.781482<br>
+<b>served:</b> Vietnam<br>
+<b>served_latitude:</b> 14.058324<br>
+<b>served_longitude:</b> 108.277199<br>
+<b>kml:</b> 108.277199,14.058324,0.0 -118.781482,34.2694474,0.0
+</div>]]>
+</description>
+<LineString><coordinates>108.277199,14.058324,0.0 -118.781482,34.269447,0.0</coordinates></LineString>
+<ExtendedData>
+<Data name="home">
+<value>Simi Valley, Ca</value>
+</Data>
+<Data name="home_code">
+<value></value>
+</Data>
+<Data name="home_latitude">
+<value>34.2694474</value>
+</Data>
+<Data name="home_longitude">
+<value>-118.781482</value>
+</Data>
+<Data name="served">
+<value>Vietnam</value>
+</Data>
+<Data name="served_latitude">
+<value>14.058324</value>
+</Data>
+<Data name="served_longitude">
+<value>108.277199</value>
+</Data>
+</ExtendedData>
+</Placemark>
+<Placemark>
+<name><![CDATA[Los Angeles, Ca]]></name>
+<styleUrl>#BasicStyle</styleUrl>
+<description>
+<![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
+<b>home:</b> Los Angeles, Ca<br>
+<b>home_code:</b> <br>
+<b>home_latitude:</b> 34.0522342<br>
+<b>home_longitude:</b> -118.2436849<br>
+<b>served:</b> Iraq<br>
+<b>served_latitude:</b> 33.223191<br>
+<b>served_longitude:</b> 43.679291<br>
+<b>kml:</b> 43.679291,33.223191,0.0 -118.2436849,34.0522342,0.0
+</div>]]>
+</description>
+<LineString><coordinates>43.679291,33.223191,0.0 -118.243685,34.052234,0.0</coordinates></LineString>
+<ExtendedData>
+<Data name="home">
+<value>Los Angeles, Ca</value>
+</Data>
+<Data name="home_code">
+<value></value>
+</Data>
+<Data name="home_latitude">
+<value>34.0522342</value>
+</Data>
+<Data name="home_longitude">
+<value>-118.2436849</value>
+</Data>
+<Data name="served">
+<value>Iraq</value>
+</Data>
+<Data name="served_latitude">
+<value>33.223191</value>
+</Data>
+<Data name="served_longitude">
+<value>43.679291</value>
+</Data>
+</ExtendedData>
+</Placemark>
+<Placemark>
+<name><![CDATA[Altoona, PA]]></name>
+<styleUrl>#BasicStyle</styleUrl>
+<description>
+<![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
+<b>home:</b> Altoona, PA<br>
+<b>home_code:</b> <br>
+<b>home_latitude:</b> 40.5186809<br>
+<b>home_longitude:</b> -78.3947359<br>
+<b>served:</b> Khe Sanh, Vietnam<br>
+<b>served_latitude:</b> 16.6192703<br>
+<b>served_longitude:</b> 106.7323097<br>
+<b>kml:</b> 106.7323097,16.6192703,0.0 -78.3947359,40.5186809,0.0
+</div>]]>
+</description>
+<LineString><coordinates>106.73231,16.61927,0.0 -78.394736,40.518681,0.0</coordinates></LineString>
+<ExtendedData>
+<Data name="home">
+<value>Altoona, PA</value>
+</Data>
+<Data name="home_code">
+<value></value>
+</Data>
+<Data name="home_latitude">
+<value>40.5186809</value>
+</Data>
+<Data name="home_longitude">
+<value>-78.3947359</value>
+</Data>
+<Data name="served">
+<value>Khe Sanh, Vietnam</value>
+</Data>
+<Data name="served_latitude">
+<value>16.6192703</value>
+</Data>
+<Data name="served_longitude">
+<value>106.7323097</value>
+</Data>
+</ExtendedData>
+</Placemark>
+<Placemark>
+<name><![CDATA[Riverside, Ca]]></name>
+<styleUrl>#BasicStyle</styleUrl>
+<description>
+<![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
+<b>home:</b> Riverside, Ca<br>
+<b>home_code:</b> <br>
+<b>home_latitude:</b> 33.9533487<br>
+<b>home_longitude:</b> -117.3961564<br>
+<b>served:</b> Korea<br>
+<b>served_latitude:</b> 35.907757<br>
+<b>served_longitude:</b> 127.766922<br>
+<b>kml:</b> 127.766922,35.907757,0.0 -117.3961564,33.9533487,0.0
+</div>]]>
+</description>
+<LineString><coordinates>127.766922,35.907757,0.0 -117.396156,33.953349,0.0</coordinates></LineString>
+<ExtendedData>
+<Data name="home">
+<value>Riverside, Ca</value>
+</Data>
+<Data name="home_code">
+<value></value>
+</Data>
+<Data name="home_latitude">
+<value>33.9533487</value>
+</Data>
+<Data name="home_longitude">
+<value>-117.3961564</value>
+</Data>
+<Data name="served">
+<value>Korea</value>
+</Data>
+<Data name="served_latitude">
+<value>35.907757</value>
+</Data>
+<Data name="served_longitude">
+<value>127.766922</value>
+</Data>
+</ExtendedData>
+</Placemark>
+<Placemark>
+<name><![CDATA[San Jose, Ca]]></name>
+<styleUrl>#BasicStyle</styleUrl>
+<description>
+<![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
+<b>home:</b> San Jose, Ca<br>
+<b>home_code:</b> <br>
+<b>home_latitude:</b> 37.3393857<br>
+<b>home_longitude:</b> -121.8949555<br>
+<b>served:</b> Europe<br>
+<b>served_latitude:</b> 54.5259614<br>
+<b>served_longitude:</b> 15.2551187<br>
+<b>kml:</b> 15.2551187,54.5259614,0.0 -121.8949555,37.3393857,0.0
+</div>]]>
+</description>
+<LineString><coordinates>15.255119,54.525961,0.0 -121.894955,37.339386,0.0</coordinates></LineString>
+<ExtendedData>
+<Data name="home">
+<value>San Jose, Ca</value>
+</Data>
+<Data name="home_code">
+<value></value>
+</Data>
+<Data name="home_latitude">
+<value>37.3393857</value>
+</Data>
+<Data name="home_longitude">
+<value>-121.8949555</value>
+</Data>
+<Data name="served">
+<value>Europe</value>
+</Data>
+<Data name="served_latitude">
+<value>54.5259614</value>
+</Data>
+<Data name="served_longitude">
+<value>15.2551187</value>
+</Data>
+</ExtendedData>
+</Placemark>
+<Placemark>
+<name><![CDATA[Hawthorne, Ca]]></name>
+<styleUrl>#BasicStyle</styleUrl>
+<description>
+<![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
+<b>home:</b> Hawthorne, Ca<br>
+<b>home_code:</b> <br>
+<b>home_latitude:</b> 33.9164032<br>
+<b>home_longitude:</b> -118.3525748<br>
+<b>served:</b> Korea<br>
+<b>served_latitude:</b> 35.907757<br>
+<b>served_longitude:</b> 127.766922<br>
+<b>kml:</b> 127.766922,35.907757,0.0 -118.3525748,33.9164032,0.0
+</div>]]>
+</description>
+<LineString><coordinates>127.766922,35.907757,0.0 -118.352575,33.916403,0.0</coordinates></LineString>
+<ExtendedData>
+<Data name="home">
+<value>Hawthorne, Ca</value>
+</Data>
+<Data name="home_code">
+<value></value>
+</Data>
+<Data name="home_latitude">
+<value>33.9164032</value>
+</Data>
+<Data name="home_longitude">
+<value>-118.3525748</value>
+</Data>
+<Data name="served">
+<value>Korea</value>
+</Data>
+<Data name="served_latitude">
+<value>35.907757</value>
+</Data>
+<Data name="served_longitude">
+<value>127.766922</value>
+</Data>
+</ExtendedData>
+</Placemark>
+<Placemark>
+<name><![CDATA[Davis, Ca]]></name>
+<styleUrl>#BasicStyle</styleUrl>
+<description>
+<![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
+<b>home:</b> Davis, Ca<br>
+<b>home_code:</b> <br>
+<b>home_latitude:</b> 38.5449065<br>
+<b>home_longitude:</b> -121.7405167<br>
+<b>served:</b> Mogadishu, Somalia<br>
+<b>served_latitude:</b> 2.0333333<br>
+<b>served_longitude:</b> 45.35<br>
+<b>kml:</b> 45.35,2.0333333,0.0 -121.7405167,38.5449065,0.0
+</div>]]>
+</description>
+<LineString><coordinates>45.35,2.033333,0.0 -121.740517,38.544907,0.0</coordinates></LineString>
+<ExtendedData>
+<Data name="home">
+<value>Davis, Ca</value>
+</Data>
+<Data name="home_code">
+<value></value>
+</Data>
+<Data name="home_latitude">
+<value>38.5449065</value>
+</Data>
+<Data name="home_longitude">
+<value>-121.7405167</value>
+</Data>
+<Data name="served">
+<value>Mogadishu, Somalia</value>
+</Data>
+<Data name="served_latitude">
+<value>2.0333333</value>
+</Data>
+<Data name="served_longitude">
+<value>45.35</value>
+</Data>
+</ExtendedData>
+</Placemark>
+<Placemark>
+<name><![CDATA[Redwood City, Ca]]></name>
+<styleUrl>#BasicStyle</styleUrl>
+<description>
+<![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
+<b>home:</b> Redwood City, Ca<br>
+<b>home_code:</b> <br>
+<b>home_latitude:</b> 37.4852152<br>
+<b>home_longitude:</b> -122.2363548<br>
+<b>served:</b> Korea<br>
+<b>served_latitude:</b> 35.907757<br>
+<b>served_longitude:</b> 127.766922<br>
+<b>kml:</b> 127.766922,35.907757,0.0 -122.2363548,37.4852152,0.0
+</div>]]>
+</description>
+<LineString><coordinates>127.766922,35.907757,0.0 -122.236355,37.485215,0.0</coordinates></LineString>
+<ExtendedData>
+<Data name="home">
+<value>Redwood City, Ca</value>
+</Data>
+<Data name="home_code">
+<value></value>
+</Data>
+<Data name="home_latitude">
+<value>37.4852152</value>
+</Data>
+<Data name="home_longitude">
+<value>-122.2363548</value>
+</Data>
+<Data name="served">
+<value>Korea</value>
+</Data>
+<Data name="served_latitude">
+<value>35.907757</value>
+</Data>
+<Data name="served_longitude">
+<value>127.766922</value>
+</Data>
+</ExtendedData>
+</Placemark>
+<Placemark>
+<name><![CDATA[Fullerton, Ca]]></name>
+<styleUrl>#BasicStyle</styleUrl>
+<description>
+<![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
+<b>home:</b> Fullerton, Ca<br>
+<b>home_code:</b> <br>
+<b>home_latitude:</b> 33.8702923<br>
+<b>home_longitude:</b> -117.925338<br>
+<b>served:</b> Korea<br>
+<b>served_latitude:</b> 35.907757<br>
+<b>served_longitude:</b> 127.766922<br>
+<b>kml:</b> 127.766922,35.907757,0.0 -117.925338,33.8702923,0.0
+</div>]]>
+</description>
+<LineString><coordinates>127.766922,35.907757,0.0 -117.925338,33.870292,0.0</coordinates></LineString>
+<ExtendedData>
+<Data name="home">
+<value>Fullerton, Ca</value>
+</Data>
+<Data name="home_code">
+<value></value>
+</Data>
+<Data name="home_latitude">
+<value>33.8702923</value>
+</Data>
+<Data name="home_longitude">
+<value>-117.925338</value>
+</Data>
+<Data name="served">
+<value>Korea</value>
+</Data>
+<Data name="served_latitude">
+<value>35.907757</value>
+</Data>
+<Data name="served_longitude">
+<value>127.766922</value>
+</Data>
+</ExtendedData>
+</Placemark>
+<Placemark>
+<name><![CDATA[San Jacinto, Ca]]></name>
+<styleUrl>#BasicStyle</styleUrl>
+<description>
+<![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
+<b>home:</b> San Jacinto, Ca<br>
+<b>home_code:</b> <br>
+<b>home_latitude:</b> 33.7839084<br>
+<b>home_longitude:</b> -116.958635<br>
+<b>served:</b> Korea<br>
+<b>served_latitude:</b> 35.907757<br>
+<b>served_longitude:</b> 127.766922<br>
+<b>kml:</b> 127.766922,35.907757,0.0 -116.958635,33.7839084,0.0
+</div>]]>
+</description>
+<LineString><coordinates>127.766922,35.907757,0.0 -116.958635,33.783908,0.0</coordinates></LineString>
+<ExtendedData>
+<Data name="home">
+<value>San Jacinto, Ca</value>
+</Data>
+<Data name="home_code">
+<value></value>
+</Data>
+<Data name="home_latitude">
+<value>33.7839084</value>
+</Data>
+<Data name="home_longitude">
+<value>-116.958635</value>
+</Data>
+<Data name="served">
+<value>Korea</value>
+</Data>
+<Data name="served_latitude">
+<value>35.907757</value>
+</Data>
+<Data name="served_longitude">
+<value>127.766922</value>
+</Data>
+</ExtendedData>
+</Placemark>
+</Folder>
+</Document>
+</kml>

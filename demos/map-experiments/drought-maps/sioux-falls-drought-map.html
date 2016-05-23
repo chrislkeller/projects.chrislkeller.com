@@ -1,0 +1,176 @@
+<style type="text/css">
+
+  html { height: 100% }
+
+  body { height: 100%; width: 100%; margin: 0px; padding: 0 }
+
+  #map_canvas { width: 100%; height: 100% }
+
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+
+<!-- experiment maps api key -->
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBJj_v-VYk6V7vzOIlIj88DiteiuMfpdN4&sensor=false&region=us"></script>
+
+<script type="text/javascript">
+var geocoder;
+var map;
+var tableid1 = 4708975
+var layer1 = new google.maps.FusionTablesLayer(tableid1, {suppressInfoWindows: true});
+
+
+    $(document).ready(function(){
+        initialize()
+    });
+
+
+function initialize() {
+    geocoder = new google.maps.Geocoder();
+    var latlng = new google.maps.LatLng(43.70759350405301, -89.8681640625);
+    var myOptions = {
+        zoom: 4,
+        center: latlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    
+    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    layer1.setQuery("SELECT geometry FROM " + tableid1);
+    layer1.setMap(map);
+
+    // Toggles and legend
+    var CustomText = '<center><h3 style="color: red">Sure is dry out there</h3></center>' + '<em>How dry is it?</em> Worst in a half-century,<br/>' + 'says the <a href=http://droughtmonitor.unl.edu>U.S. Drought Monitor</a>,<br/>' + 'where this data is from. This<br/>' + 'interactive map shows conditions<br/>' + ' as of July 24, 2012. (Category<br/>' + 'explanations are <a href=http://droughtmonitor.unl.edu/classify.htm>here</a>.)<br/><br/>' + '<img src=http://dl.dropbox.com/u/38884522/null.png>   <b>No drought</b><br/>' + '<img src=http://dl.dropbox.com/u/38884522/d0.png>   <b>Abnormally dry</b><br/>' + '<img src=http://dl.dropbox.com/u/38884522/d1.png>   <b>Moderate drought</b><br/>' + '<img src=http://dl.dropbox.com/u/38884522/d2.png>   <b>Severe drought</b><br/>' + '<img src=http://dl.dropbox.com/u/38884522/d3.png>   <b>Extreme drought</b><br/>' + '<img src=http://dl.dropbox.com/u/38884522/d4.png>   <b>Exceptional drought</b><br/><br/>' + 'Enter your address below to see<br/>' + ' conditions in your area. Map will be <br/>' + 'updated every Thursday.<br/><br/>' + '<small>Map by <a href=mailto:cwincheste@argusleader.com>Cody Winchester</a></small><br/><hr><center><input id="address" type="text"><br/><input type="button" value="Locate an Address" onclick="codeAddress()"></center>'
+    
+    
+    var customControlDiv = document.createElement('DIV');
+    var customControl = new LegendControl(customControlDiv, CustomText, map);
+    customControlDiv.index = 1;
+    //customControlDiv.controlUI.style.backgroundColor = 'blue';
+    map.controls[google.maps.ControlPosition.RIGHT_TOP].push(customControlDiv);
+}
+
+
+
+function LegendControl(controlDiv, LegendText, map) {
+    // Set CSS styles for the DIV containing the control
+    // Setting padding to 5 px will offset the control
+    // from the edge of the map
+    controlDiv.style.padding = '5px';
+    
+    // Set CSS for the control border
+    var controlUI = document.createElement('DIV');
+    controlUI.style.backgroundColor = 'white';
+    controlUI.style.borderStyle = 'solid';
+    controlUI.style.borderWidth = '2px';
+    controlUI.style.cursor = 'pointer';
+    controlUI.style.textAlign = 'left';
+    // controlUI.title = 'legend';
+    controlDiv.appendChild(controlUI);
+    
+    // Set CSS for the control interior
+    var controlText = document.createElement('DIV');
+    controlText.style.fontFamily = 'Arial,sans-serif';
+    controlText.style.fontSize = '12px';
+    controlText.style.padding = '4px';
+    controlText.innerHTML = LegendText;
+    controlUI.appendChild(controlText);
+}
+
+var coordinate
+
+
+function codeAddress() {
+    var address = document.getElementById("address").value;
+    geocoder.geocode( {'address': address}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+
+        coordinate = results[0].geometry.location;
+        map.setCenter(coordinate);
+            var marker = new google.maps.Marker({
+                map: map, 
+                position: coordinate
+            });
+
+            
+            var script = document.createElement("script");
+        
+            script.setAttribute("src","https://www.google.com/fusiontables/api/query?sql=SELECT * FROM " + tableid1 + " WHERE ST_INTERSECTS(geometry, CIRCLE(LATLNG(" + coordinate.lat() + "," + coordinate.lng() + "), 0.1))&jsonCallback=addInfoWindow");
+        
+            document.getElementsByTagName("head")[0].appendChild(script);
+            
+        } else {
+            alert("Geocode was not successful for the following reason: " + status);
+        }
+    });
+}
+
+
+
+
+
+
+
+function addInfoWindow(response) {
+    if(response.table.rows.length) {
+        if(infowindow) { infowindow.close(); }
+            else infowindow = new google.maps.InfoWindow();
+            
+            infowindow.setContent();
+            map.setCenter(coordinate);
+            marker.setMap(map);
+        
+        $("#display-blox").html(
+            '<p class="table">You Live in Ward ' + response.table.rows[0][0] + ' in Aldermanic District ' + response.table.rows[0][1] + '</p>' + 
+            '<p class="table">You vote at ' + response.table.rows[0][2] + '<br />'  + response.table.rows[0][7] + '</p>' +
+            '<p class="table">Your city council representative is:</p>' +
+            '<table>' +
+            '<tbody>' +
+            '<tr>' +
+            '<td><img src="' + response.table.rows[0][16] + '" width="100" alt="' + response.table.rows[0][12] + '" /></td>' +
+            '<td><span class="table">' + response.table.rows[0][12] + '</span><br>' + response.table.rows[0][13] + 
+            '<br><a href="mailto:' + response.table.rows[0][14] + '">Email</a><br>' +
+            '<a href="' + response.table.rows[0][15] + '" target="_blank">Website</a></td>' +
+            '</tr>' +
+            '</tbody>' +
+            '</table>' +
+            '<p>About Ward ' + response.table.rows[0][0] + '</p>' + 
+            '<table>' +
+            '<tbody>' +
+            '<tr>' +
+            '<th>2010 Population</td>' +
+            '<th>2000 Population</td>' +
+            '<th>Change in Population</td>' +
+            '</tr>' +
+            '<tr>' +
+            '<td>' + response.table.rows[0][17] + '</td>' +
+            '<td>' + response.table.rows[0][19] + '</td>' +
+            '<td>' + response.table.rows[0][20] + '</td>' +
+            '</tr>' +	
+            '</tbody>' +
+            '</table>');
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+<html>
+
+<body>
+
+<div id="map_canvas"></div>
+
+</body>
+</html>

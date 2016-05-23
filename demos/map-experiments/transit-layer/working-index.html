@@ -1,0 +1,39 @@
+<title>Los Angeles Traffic</title>
+
+
+
+
+
+<script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAHV0UCBQOYnYz-obdyscQOhQcbuf_XMSdHJ8mZ_bhAAtm6fhD-xREAR8G7Ejh2EXeajZXOsyaBCkgLA"></script>
+
+
+
+
+<script type="text/javascript">
+
+    var map;
+    var trafficInfo;
+
+    function initialize() {
+      if (GBrowserIsCompatible()) {
+        map = new GMap2(document.getElementById("map_canvas"));
+		map.setMapType(G_NORMAL_MAP);
+        map.setCenter(new GLatLng(34.078219,-118.265183), 10);
+        map.setUIToDefault();
+        var trafficOptions = {incidents:true};
+        trafficInfo = new GTrafficOverlay(trafficOptions);
+        map.addOverlay(trafficInfo);
+      }
+    }
+
+
+
+    </script>
+
+</head>
+
+
+<body onload="initialize()" storify-loaded="true">
+<div id="map_canvas" style="width: 100%; height: 100%;"></div>
+</body>
+</html>

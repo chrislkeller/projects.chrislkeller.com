@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Governor election results map</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="http://host.madison.com/app/interactive/gov-margin-map-2014/results-total.css">
+        <style type="text/css" media="screen">
+            * :focus { outline: 0; }
+
+            body { margin: 0; padding: 0; color: #333; font-family: "Trebuchet MS", Arial, Helvetica, sans-serif; }
+
+            /* set image max width to 100% */
+            img,
+            fieldset { border: 0; }
+
+            /* set html5 elements to block */
+            article,
+            aside,
+            details,
+            figcaption,
+            figure,
+            footer,
+            header,
+            hgroup,
+            menu,
+            nav,
+            section { display: block; }
+
+            #intro { font-size: 20px; font-weight: bold; line-height: 20px; margin: 0px 0px 5px 0px; display: block; float: left; width: 100%; }
+            #clickhere { display: block; float: left; margin: 5px 0px 10px 3px; }
+            .keytext2 { font-size: 15px; line-height: 22px; display: block; float: left; margin: 5px 10px 10px 3px; }
+            .keytext { font-size: 15px; line-height: 22px; display: block; float: left; margin: 5px 10px 10px 3px; }
+            .burkecircle { width: 25px; height: 25px; background: #0b5394; opacity: .7; float: left; margin-top: 3px; }
+            .walkercircle { width: 25px; height: 25px; background: #cc0000; opacity: .7; float: left; margin-top: 3px; }
+            .circleBase { -moz-border-radius: 999px; /* Firefox */ -webkit-border-radius: 999px; /* Safari and Chrome */ border-radius: 999px; /* Opera 10.5+, future browsers, and now also Internet Explorer 6+ using IE-CSS3 */ behavior: url(ie-css3.htc); /* This lets IE know to call the script on all elements which get the 'box' class */ float: left; }
+            #map-canvas { width: 100%; height: 620px; float: left; }
+            table,
+            td,
+            th { font-family: "Trebuchet MS", Verdana, sans-serif; text-align: center; vertical-align: middle; margin-bottom: 10px; }
+            td.colors { width: 25%; font-size: 15px; font-weight: bold; color: #ffffff; padding-right: 5px; padding-left: 5px; border-right-width: 8px; border-left-width: 8px; border-right-style: solid; border-left-style: solid; border-right-color: #FFFFFF; border-left-color: #FFFFFF; }
+            .headerCell { border: 1px solid #cecece; font-size: 13px; line-height: 20px; font-family: "Trebuchet MS", Verdana, sans-serif; font-weight: bold; color: #555; background-color: #f3f3f3; text-align: center; line-height: 20px; }
+            .tableCell { font-family: "Trebuchet MS", Verdana, sans-serif; color: #666; font-size: 13px; line-height: 20px; border-bottom: 1px solid #cecece; border-right: 1px solid #d3d3d3; text-align: left; }
+            #tablehead { font-size: 20px; font-weight: bold; line-height: 20px; margin: 15px 0px 10px 0px; }
+            #graphic_credit { font-family: "Trebuchet MS", Verdana, sans-serif; color: #555; width: 100%; font-size: 11px; line-height: 14px; margin: 10px 0 0 0; float: left; }
+        </style>
+
+        <!-- begin scripts -->
+        <script type='text/javascript' src='http://stats.townnews.com/shared-content/stats/common/tracker.js'></script>
+        <script type='text/javascript'>
+        <!--
+         if (typeof(TNStats_Tracker) !== 'undefined' && typeof(TNTracker) === 'undefined') { TNTracker = new TNStats_Tracker('host.madison.com'); TNTracker.setTrackerDomain('stats.townnews.com'); TNTracker.trackPageView(); }
+        // -->
+        </script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyDgLghAMg6_hs4LLcqV4R36-NcAq8cRrg8&sensor=false&region=us"></script>
+        <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+        <script type="text/javascript">
+
+            google.load('visualization', '1', {
+                packages: ['table']
+            });
+
+            var fn = fn || {};
+
+            // begin main function
+            $(document).ready(function() {
+                // construct the json query url
+                var query = "SELECT * FROM 17w_kXk17fqrDQvb3m6s13pVAZBVJp9wXqKG75EHo";
+                var encodedQuery = encodeURIComponent(query);
+
+                // go get the json
+                fn.retrieveData(encodedQuery, "wisco-results-map", fn.processData);
+            });
+
+            // begin data configuration object
+            var fn = {
+
+                // array to hold our circle objects
+                countyMap: [],
+
+                // array to hold info windows we construct
+                infoWindows: [],
+
+                // retrieve json from fusion table
+                retrieveData: function(encodedQuery, callbackName, success){
+
+                    var url = ['https://www.googleapis.com/fusiontables/v1/query'];
+                    url.push('?sql=' + encodedQuery);
+                    url.push('&key=AIzaSyDgLghAMg6_hs4LLcqV4R36-NcAq8cRrg8');
+                    url.push('&typed=false');
+                    url.push('&jsonCallback=' + callbackName);
+
+                    // send the jsonp request using jquery
+                    $.ajax({
+                        url: url.join(''),
+                        dataType: 'json',
+                        success: success
+                    });
+
+                },
+
+                /*
+                process json from fusion table
+                this retrieves everything once
+                and from there you parse it to
+                where you need it
+                */
+                processData: function(data){
+
+                    console.log(data);
+
+                    // run the function to construct the results box
+                    fn.constructResultsBox(data);
+
+                    // run the function to construct the map
+                    fn.buildMapData(data);
+
+                    // run the function to construct the table
+                    fn.constructResultsTable(data);
+
+                },
+
+                // construct the results box
+                constructResultsBox: function(data){
+
+                    // works is state-level info is always
+                    // in the first row of the table
+                    var stateResults = data['rows'][0];
+                    var burke = stateResults[6];
+                    var burkepct = stateResults[9];
+                    var walker = stateResults[7];
+                    var walkerpct = stateResults[10];
+                    var precincts = stateResults[5];
+
+                    // setup variables for containers
+                    var LeftData = document.getElementById('left-data');
+                    var MiddleData = document.getElementById('middle-data');
+                    var RightData = document.getElementById('right-data');
+
+                    // burke results
+                    var dataElementLeft = document.createElement('div');
+                    var burkeElement = document.createElement('div');
+                    burkeElement.innerHTML =
+                    '<span class="nameburke">MARY BURKE</span>' +
+                    '<span class="burke-total">' + burke  + '</span>' +
+                    '<span class="nameburke">' + burkepct + '%</span>';
+                    dataElementLeft.appendChild(burkeElement);
+                    LeftData.appendChild(dataElementLeft);
+
+                    // precint results
+                    var dataElementMiddle = document.createElement('div');
+                    var precinctsElement = document.createElement('div');
+                    precinctsElement.innerHTML =
+                    '<span class="precincts">Precincts reporting<br/>' +
+                    precincts +'</span>';
+                    dataElementMiddle.appendChild(precinctsElement);
+                    MiddleData.appendChild(dataElementMiddle);
+
+                    // walker results
+                    var dataElementRight = document.createElement('div');
+                    var walkerElement = document.createElement('div');
+                    walkerElement.innerHTML =
+                    '<span class="namewalker">SCOTT WALKER</span>' +
+                    '<span class="walker-total">' + walker  + '</span>' +
+                    '<span class="namewalker">' + walkerpct + '%</span>';
+                    dataElementRight.appendChild(walkerElement);
+                    RightData.appendChild(dataElementRight);
+                },
+
+                buildMapData: function(data){
+
+                    // shortcuts for accessing columns
+                    var countyLatLngColumn = 3;
+                    var countyNameColumn = 4;
+                    var precinctsColumn = 5;
+                    var walkerVotesColumn = 7;
+                    var walkerPctColumn = 10;
+                    var burkeVotesColumn = 6;
+                    var burkePctColumn = 9;
+                    var countyFormulaColumn = 13;
+                    var marginColumn = 12;
+                    var countyColorColumn = 16;
+
+                    // loop through the rows to build a circle object for each
+                    for (var i = 0; i < data.rows.length; i++) {
+                        var row = data.rows[i];
+
+                        // json source has lat/lng in a single column. split it on comma
+                        var countyLatLngRaw = row[countyLatLngColumn];
+                        var commaPos = countyLatLngRaw.indexOf(',');
+                        var lat = parseFloat(countyLatLngRaw.substring(0, commaPos));
+                        var lng = parseFloat(countyLatLngRaw.substring(commaPos + 2, countyLatLngRaw.length));
+                        var countyLatLng = new google.maps.LatLng(lat, lng)
+
+                        // build our circle object
+                        fn.countyMap[parseInt(i)] = {
+                            'center': countyLatLng,
+                            'formula': parseFloat(row[countyFormulaColumn]),
+                            'name': row[countyNameColumn],
+                            'fillColor': row[countyColorColumn],
+                            'precincts': row[precinctsColumn],
+                            'walkerVotes': row[walkerVotesColumn],
+                            'walker': row[walkerPctColumn],
+                            'burkeVotes': row[burkeVotesColumn],
+                            'burke': row[burkePctColumn],
+                            'margin': row[marginColumn]
+                        }
+                    }
+
+                    // create the map based on the div id
+                    fn.createMap("map-canvas");
+                },
+
+                // create the map
+                createMap: function(mapDiv){
+
+                    var map = new google.maps.Map(document.getElementById(mapDiv), {
+                        center: new google.maps.LatLng(44.74648547505308, -89.84939737499997),
+                        zoom: 7,
+                        scrollwheel: false,
+                        zoomControl: true,
+                        zoomControlOptions: {
+                            style: google.maps.ZoomControlStyle.SMALL,
+                            position: google.maps.ControlPosition.LEFT_BOTTOM
+                        },
+                        draggable: true,
+                        mapTypeControl: false,
+                        navigationControl: true,
+                        streetViewControl: false,
+                        panControl: true,
+                        panControlOptions: {
+                            style: google.maps.ZoomControlStyle.SMALL,
+                            position: google.maps.ControlPosition.LEFT_BOTTOM
+                        },
+                        scaleControl: true,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    });
+
+                    // map styles
+                    var style = [{
+                        featureType: 'all',
+                        elementType: 'all',
+                        stylers: [{
+                            saturation: -45
+                        }]
+                    }, {
+                        featureType: 'poi',
+                        elementType: 'all',
+                        stylers: [{
+                            visibility: 'off'
+                        }]
+                    }];
+
+                    var styledMapType = new google.maps.StyledMapType(style, {
+                        map: map,
+                        name: 'Styled Map'
+                    });
+
+                    map.mapTypes.set('map-style', styledMapType);
+                    map.setMapTypeId('map-style');
+
+                    layer_0 = new google.maps.FusionTablesLayer({
+                        query: {
+                            select: "col0>>0",
+                            from: "1Xvt7YnkYVcdmzw3-BTvCHo-2ZAIdcSu02Gb_5DMH"
+                        },
+                        map: map,
+                        styleId: 2,
+                        templateId: 2
+                    });
+
+                    // add our circles to our map
+                    fn.addCirclesToMap(map);
+                },
+
+                // function to add our circles to map
+                addCirclesToMap: function(map){
+
+                    //begin circle loop
+                    for (var i = 0; i < fn.countyMap.length; i++) {
+
+                        // construct the circle for each value in countyMap array
+                        var circleOptions = {
+                            strokeColor: "#fff",
+                            strokeOpacity: 1,
+                            strokeWeight: 1.5,
+                            fillColor: fn.countyMap[i].fillColor,
+                            fillOpacity: 0.7,
+                            map: map,
+                            clickable: true,
+                            center: fn.countyMap[i].center,
+                            radius: fn.countyMap[i].formula * .5
+                        };
+
+                        // create a google map circle
+                        var countyCircle = new google.maps.Circle(circleOptions);
+
+                        // add it to the map
+                        countyCircle.setMap(map);
+
+                        // create an info window based on this circle
+                        fn.createInfoWindowArray(countyCircle.center, fn.countyMap[i].precincts, fn.countyMap[i].walker, fn.countyMap[i].walkerVotes, fn.countyMap[i].burke, fn.countyMap[i].burkeVotes, fn.countyMap[i].margin, fn.countyMap[i].name, i);
+
+                        // add a click event
+                        fn.attachClick(countyCircle, i, map);
+
+                    }
+
+                },
+
+                // function to create an info window and push to an array
+                createInfoWindowArray: function(center, precincts, walker, walkerVotes, burke, burkeVotes, margin, name, iwIndex){
+
+                    // concatenating a whole lot of html
+                    recallInfoWindow =
+                    '<p style=\'font-family: \"Trebuchet MS\", Verdana, sans-serif; font-size: 13px; line-height: 16px; width: 180px; color: #666;\'>' +
+
+                    '<span class=\'googft-info-window\' style=\'font-family: \"Trebuchet MS\", Verdana, sans-serif; font-size: 18px;  font-weight: bold; color: #333; line-height: 24px;\'>' + name + ' County</span><br/>' +
+
+                    'Wards reporting: ' + precincts + '<br>' +
+
+                    '<hr style=\"background-color: #cecece; color: #cecece; text-align: center; height: 1px; width: auto;\" />' +
+
+                    '<span style=\'font-family: \"Trebuchet MS\", Verdana, sans-serif; font-size: 13px;  color: #666; line-height: 16px;\'>' +
+                    '<b>Burke votes: </b>' + burkeVotes + ' - ' + burke + '%<br />' +
+                    '<b>Walker votes: </b>' + walkerVotes + ' - ' + walker + '%<br>' +
+                    '</span>' +
+
+                    '<hr style=\"background-color: #cecece; color: #cecece; text-align: center; height: 1px; width: auto;\" />' +
+
+                    '<span class=\'googft-info-window\' style=\'font-family: \"Trebuchet MS\", Verdana, sans-serif; font-size: 18px;  font-weight: bold; color: #333; line-height: 24px;\'>Vote margin: ' + margin + '</span>' +
+
+                    '</p>';
+
+                    var iwOptions = {
+                        position: center,
+                        content: recallInfoWindow
+                    };
+
+                    fn.infoWindows[iwIndex] = new google.maps.InfoWindow(iwOptions);
+
+                },
+
+                // close an info window if one is open
+                closeExistingIWs: function(){
+                    for (var i = 0; i < fn.infoWindows.length; i++) {
+                        fn.infoWindows[i].close();
+                    }
+                },
+
+                // open a new info window
+                openIW: function(iwIndex, map){
+                    fn.infoWindows[iwIndex].open(map);
+                },
+
+                // add click event to the circle
+                attachClick: function(circle, iwIndex, map){
+                    google.maps.event.addListener (circle, 'click', function(evt) {
+                        fn.closeExistingIWs();
+                        fn.openIW(iwIndex, map);
+                    });
+                },
+
+                constructResultsTable: function(data){
+                    var table = new google.visualization.Table(document.getElementById('margin-chart'));
+                    var resultsTable = new google.visualization.DataTable();
+                    var countyNameColumn = 4;
+                    var precinctsColumn = 5;
+                    var burkeVotesColumn = 6;
+                    var burkePctColumn = 9;
+                    var walkerVotesColumn = 7;
+                    var walkerPctColumn = 10;
+                    var marginColumn = 12;
+
+                    resultsTable.addColumn('string', "County", data.columns[countyNameColumn]);
+                    resultsTable.addColumn('string', "Precincts", data.columns[precinctsColumn]);
+                    resultsTable.addColumn('number', "Burke", data.columns[burkeVotesColumn]);
+                    resultsTable.addColumn('number', "Burke pct.", data.columns[burkePctColumn]);
+                    resultsTable.addColumn('number', "Walker", data.columns[walkerVotesColumn]);
+                    resultsTable.addColumn('number', "Walker pct.", data.columns[walkerPctColumn]);
+                    resultsTable.addColumn('number', "Vote margin", data.columns[marginColumn]);
+
+                    for (var i=0; i<data.rows.length; i++) {
+                        var buildArray = [
+                            data.rows[i][countyNameColumn],
+                            data.rows[i][precinctsColumn],
+                            parseInt(data.rows[i][burkeVotesColumn].replace(/[^\d\.\-\ ]/g, '')),
+                            parseFloat(data.rows[i][burkePctColumn]),
+                            parseInt(data.rows[i][walkerVotesColumn].replace(/[^\d\.\-\ ]/g, '')),
+                            parseFloat(data.rows[i][walkerPctColumn]),
+                            parseInt(data.rows[i][marginColumn].replace(/[^\d\.\-\ ]/g, ''))
+                        ];
+                        resultsTable.addRow(buildArray);
+                    };
+
+                    var cssClassNames = {
+                        'headerCell': 'headerCell',
+                        'tableCell': 'tableCell'
+                    };
+
+                    var options = {
+                        'allowHtml': true,
+                        'cssClassNames': cssClassNames,
+                        'alternatingRowStyle': false,
+                        'sortColumn': 0,
+                        'sortAscending': true,
+                        'showRowNumber': false,
+                        'scrollLeftStartPosition': 2
+                    };
+
+                    var formatter = new google.visualization.NumberFormat({
+                        suffix: '%', fractionDigits: 1
+                    });
+                    formatter.format(resultsTable, 3);
+                    formatter.format(resultsTable, 5);
+
+                    var formatter = new google.visualization.NumberFormat({
+                        pattern: '#,###', fractionDigits: 1
+                    });
+
+                    formatter.format(resultsTable, 2);
+                    formatter.format(resultsTable, 4);
+                    formatter.format(resultsTable, 6);
+
+                    var formatter = new google.visualization.ColorFormat();
+                    formatter.addRange(-5000000, 5000000, '#0b5394', '');
+                    formatter.format(resultsTable, 2);
+                    formatter.format(resultsTable, 3);
+
+                    var formatter = new google.visualization.ColorFormat();
+                    formatter.addRange(-5000000, 5000000, '#cc0000', '');
+                    formatter.format(resultsTable, 4);
+                    formatter.format(resultsTable, 5);
+
+                    var formatter = new google.visualization.BarFormat({
+                        width: 40, colorPositive: 'blue'
+                    });
+                    formatter.format(resultsTable, 3);
+
+                    var formatter = new google.visualization.BarFormat({
+                        width: 40, colorPositive: 'red'
+                    });
+                    formatter.format(resultsTable, 5);
+
+                    table.draw(resultsTable, options);
+                }
+            }
+        </script>
+        <!-- end map scripts -->
+
+    </head>
+    <body>
+        <div id="greybox">
+            <div id="left-data"></div>
+            <div id="burkephoto"><img style="border-width: 0px;" src="burke-photo.jpg" width="100" height="100" /></div>
+            <div id="middle-data"></div>
+            <div id="walkerphoto"><img style="border-width: 0px;" src="walker-photo.jpg" width="100" height="100" /></div>
+            <div id="right-data"></div>
+        </div>
+
+        <!-- begin key -->
+            <div id="intro">Circle size shows number of votes over opponent:</div>
+            <div id="clickhere">
+                <img style="border-width: 0px; margin-top: 0px; float: left;" src="pointer-icon.png" width="29" height="25" />
+            </div>
+            <div class="keytext2">Click cirlces for details</div>
+            <div class="circleBase burkecircle"></div>
+            <div class="keytext"><b>BURKE</b></div>
+            <div class="circleBase walkercircle"></div>
+            <div class="keytext"><b>WALKER</b></div>
+            <div style="clear: both;">
+        <!-- end key -->
+
+        <div id="map-canvas"></div>
+        <div style="clear: both;"></div>
+        <div id="tablehead">County vote totals and margin</div>
+
+        <!-- begin scroll table -->
+        <div id="margin-chart" style="width:100%; height:200px; float: left; margin-bottom: 10px; border: 1px solid #cecece;  color:#666;"></div>
+        <!-- end scroll table -->
+
+        <div id="graphic_credit">SOURCE: Associated Press<br />Map by Mike Schuette, Chris Keller and Laura Sparks</div>
+        <div style="clear: both;">
+    </body>
+</html>

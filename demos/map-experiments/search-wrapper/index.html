@@ -1,0 +1,330 @@
+<!-- BEGIN CSS -->
+<style type="text/css" media="screen">
+/*EXPLAINER*/
+#map-explainer {position: absolute; top:15px; left:15px; width:205px; background-color:#ffffff; padding:10px; font-family: Arial, sans-serif; font-size:12px; line-height: 16px; border: 3px solid #cccccc; line-height: 16px;}
+#map-explainer h1 {font-size:24px; line-height: 28px; margin:0 0 10px 0;}
+#map-explainer h2 {font-size:20px; line-height: 24px; margin:0 0 5px 0;}
+#map-explainer h3 {font-size:16px; line-height: 20px; margin:0 0 5px 0;}
+#map-explainer .map-legend {float:left;line-height:20px; width:200px; margin: 10px 0;}
+#map-explainer .map-legend span {height:20px; width:20px; margin-right:10px; display:block; float:left; clear:left; opacity: .75;}
+#map-explainer .lowest {background-color: #361000;}
+#map-explainer .second-lowest {background-color: #C23900;}
+#map-explainer .median {background-color: #e8e8e8;}
+#map-explainer .second-highest {background-color: #41C204;}
+#map-explainer .highest {background-color: #123601;}
+#map-explainer p {clear:both; margin:5px 0 0 0;}
+#map-explainer #smalltype {font-size:10px; line-height:14px;}
+
+.submit-button {margin: 7px 0 7px 0;}
+
+/*INFO WINDOW STYLES*/
+table,th,tr,td {border-width: 1px; border-style: solid; border-color: gray; border-collapse: collapse; background-color: white;}
+table {font-size: 12px; width: 100%;}
+th {color: #fff; background-color: #aaa; padding: 10px 5px; border-top: 4px solid #555; font-weight: bold}
+th a {color: #fff;}
+td {padding: 3px; text-align: center;}
+</style>
+<!-- END CSS -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script> 
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script> 
+<script src="source/jquery.ezpz_hint.min.js" type="text/javascript"></script> 
+
+<!-- BEGIN VIZ & MAP SCRIPTS -->
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3.2&sensor=false&region=US"></script>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript"> 
+
+	//global variables
+	var map;
+	var geocoder;
+	var addrMarker;
+	var addrMarkerImage = 'http://derekeder.com/images/icons/blue-pushpin.png';
+	
+	//fusion table layers
+	var Boundaries2011Id = 869277;
+	var searchBoundaries2011;
+	var Boundaries2011 = new google.maps.FusionTablesLayer(Boundaries2011Id);
+
+	var Boundaries2001Id = 870071;
+	var searchBoundaries2001;
+	var Boundaries2001 = new google.maps.FusionTablesLayer(Boundaries2001Id);
+	
+	//built in search radius in meters ~ 1/2 mile
+	var searchRadius = 805;
+	
+	var searchStr;
+	var searchStr2;
+
+	//used for custom SQL call to get count
+	google.load('visualization', '1', {});
+
+//begin map function
+function initialize() {
+	$(".hint").ezpz_hint();
+	
+	geocoder = new google.maps.Geocoder();
+    
+	//center initial map
+	var chicago = new google.maps.LatLng(40.148377, -89.364818);
+
+	//set map options
+    var myOptions = {
+      zoom: 7,
+      center: chicago,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+	  scrollwheel: false,
+	  disableDragging: true,
+	  mapTypeControl: false,
+	  navigationControl: true,
+	  streetViewControl: false,
+	  scaleControl: false,
+	  navigationControlOptions: {
+		style: google.maps.NavigationControlStyle.LARGE,
+		position: google.maps.ControlPosition.RIGHT_TOP
+		}
+    };
+
+	//write the map
+	map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
+
+
+	searchBoundaries2011 = null;
+	searchBoundaries2001 = null;
+	
+	Boundaries2011.setMap(map);
+	document.getElementById("txtSearchAddress").value = "";
+	
+	document.getElementById("districts-2011").checked = true;
+	document.getElementById("districts-2001").checked = false;
+}
+
+
+
+//function to toggle 2011 boundaries
+function toggle2011() {
+		if (document.getElementById("districts-2011").checked )
+		{
+			if (searchBoundaries2011 != null)
+				searchBoundaries2011.setMap(map);
+			else
+				Boundaries2011.setMap(map);
+		}
+
+		else
+
+		{
+			if (searchBoundaries2011 != null)
+				searchBoundaries2011.setMap(null);				
+			Boundaries2011.setMap(null);
+		}
+}
+
+
+
+
+//function to toggle 2001 boundaries
+function toggle2001() {
+		if (document.getElementById("districts-2001").checked )
+		{
+			if (searchBoundaries2001 != null)
+				searchBoundaries2001.setMap(map);
+			else
+				Boundaries2001.setMap(map);
+		}
+
+		else
+
+		{
+			if (searchBoundaries2001 != null)
+				searchBoundaries2001.setMap(null);
+				
+			Boundaries2001.setMap(null);
+		}
+}
+
+
+
+
+
+
+//search function
+function doSearch() {
+	clearSearch();
+		var address = document.getElementById("txtSearchAddress").value;
+		searchRadius = document.getElementById("ddlRadius").value;
+
+		//SQL SELECT query on the Fusion Tables column with geocoded location.
+		//can be address or kml point
+		//if 2 column lat/long, choose longitue col
+		searchStr = "SELECT geometry FROM " + Boundaries2011Id + " WHERE geometry not equal to ''";
+
+
+		//because the geocode function does a callback, we have to handle it in both cases
+		//when they search for and address and when they dont
+		if (address != "") {
+			if (address.toLowerCase().indexOf("IL") == -1)
+				address = address + " IL";
+			
+			//geocode searched address
+			geocoder.geocode( { 'address': address}, function(results, status) 
+			
+				{
+				if (status == google.maps.GeocoderStatus.OK) 
+					
+					{
+					//alert("found address: " + results[0].geometry.location.toString());
+					map.setCenter(results[0].geometry.location);
+					map.setZoom(10);
+
+					//add custom marker to map
+					addrMarker = new google.maps.Marker({
+					position: results[0].geometry.location, 
+					map: map, 
+					icon: addrMarkerImage,
+					animation: google.maps.Animation.DROP,
+					title:address
+		});
+
+
+				//search for points within a circle based on the searchRadius value
+				searchStr += " AND ST_INTERSECTS(geometry, CIRCLE(LATLNG" + results[0].geometry.location.toString() + "," + searchRadius + "))";
+				
+				//get using all filters
+				searchBoundaries2011 = new google.maps.FusionTablesLayer(Boundaries2011Id, {
+					query: searchStr}
+					);
+					
+				searchBoundaries2001 = new google.maps.FusionTablesLayer(Boundaries2001Id, {
+					query: searchStr.replace(Boundaries2011Id, Boundaries2001Id)}
+					);	
+				
+				if (document.getElementById("districts-2011").checked )
+					searchBoundaries2011.setMap(map);
+				if (document.getElementById("districts-2001").checked )
+					searchBoundaries2001.setMap(map);
+			  }
+			  
+			  else 
+			  
+			  {
+				alert("We could not find your address: " + status);
+			  }
+			});
+		}
+
+		else
+		
+		{
+			//get using all filters
+			searchBoundaries2011 = new google.maps.FusionTablesLayer(Boundaries2011Id, {
+				query: searchStr}
+				);
+				
+			searchBoundaries2001 = new google.maps.FusionTablesLayer(Boundaries2001Id, {
+				query: searchStr.replace(Boundaries2011Id, Boundaries2001Id)}
+				);
+		
+			if (document.getElementById("districts-2011").checked )
+					searchBoundaries2011.setMap(map);
+			if (document.getElementById("districts-2001").checked )
+				searchBoundaries2001.setMap(map);
+		}
+}
+
+//function to reset the map
+function clearSearch() {
+	if (searchBoundaries2011 != null)
+		searchBoundaries2011.setMap(null);
+	if (searchBoundaries2001 != null)
+		searchBoundaries2001.setMap(null);
+	if (addrMarker != null)
+		addrMarker.setMap(null);	
+		Boundaries2011.setMap(null);
+		Boundaries2001.setMap(null);
+}
+
+//write the map
+setTimeout('initialize()', 500); 
+
+
+</script>
+<!-- END SCRIPTS -->
+
+<!-- BEGIN MAP -->
+<div id="map_canvas" style="width:955px; height:850px"></div>
+
+<!--BEGIN EXPLAINER -->
+<div id="map-explainer">
+<h1>2011 Madison Mayoral Voting</h1>
+<p>On April 5, 2011, Madison voters choose former Mayor Paul Soglin over two-term incumbent Mayor Dave Cieslewicz.</p>
+<p>The election marked the fourth time Cieslewicz and Soglin appeared on a ballot together, and capped an energetic campaign featuring two of the city's political heavyweights that nonetheless was overshadowed by issues at the state Capitol.</p>
+<p>This map displays a ward-by-ward breakdown of the voting, which ended with Soglin getting 49.77 percent of the vote (44,542 total votes), compared to Cieslewicz's 48.97 percent (43,829 total votes). Some 1,133 write-in votes are not reflected on this map.</p>
+
+<strong>Show layers</strong><br /> 
+<label id="layer-districts-2011" for="districts-2011"><input id="districts-2011" name="districts-2011" type="checkbox" onclick="toggle2011();" /> <span id='label-green'>2011 Senate Redistricting Plan</span></label><br /> 
+<label id="layer-districts-2001" for="districts-2001"><input id="districts-2001" name="districts-2001" type="checkbox" onclick="toggle2001();" /> <span id='label-blue'>2001 Senate Boundaries</span></label><br /> 
+
+<div class="map-legend">
+<span class="lowest"></span>Strong Cieslewicz win<br/>
+<span class="second-lowest"></span>Close Cieslewicz win<br/>
+<span class="median"></span>Even voting margin<br/>
+<span class="second-highest"></span>Close Soglin win<br/>
+<span class="highest"></span>Strong Soglin win<br/>
+</div>
+
+<p><a href="http://host.madison.com/search/?f=html&t=article&l=25&s=start_time&sd=desc&sForm=false&k=%22paul%20soglin%22&sHeading=Paul%20Soglin%20Re-elected%20Mayor&c=news%2Flocal%2Fgovt-and-politics*" target="_blank">Follow Paul Soglin's latest term as Madison's mayor</a></p>
+
+<!-- BEGIN ADDRESS SEARCH -->
+<div id='search'> 
+<p>Search below to see where you fall in the new IL senate redistricting plan.</p> 
+<div class='input-addr'> 
+<h4>Address</h4> 
+<p><input class='txt hint' type="text" title="Enter an address or an intersection &hellip;" id="txtSearchAddress" onkeydown="if (event.keyCode == 13) document.getElementById('btnSearch').click()"/></p> 
+</div> 
+<!-- END ADDRESS SEARCH -->
+
+<!-- BEGIN RADIUS SEARCH -->
+<div class='input-radius'> 
+<h4>&nbsp;<span class='mute'>within &hellip;</span></h4>
+<p> 
+<select id='ddlRadius'> 
+<option value='400'>2 blocks</option> 
+<option value='805'>1/2 mile</option> 
+<option value='1610'>1 mile</option> 
+<option value='3220'>2 miles</option> 
+<option value='8046'>5 miles</option> 
+</select> 
+</p> 
+</div> 
+<!-- END RADIUS SEARCH -->
+
+
+<!-- BEGIN SEARCH & RESET BUTTONS -->
+<input class="btn" type="button" id="btnSearch" value="Search" onclick="doSearch();" /> 
+<span class='mute'><a href='#' onclick="initialize();">reset map</a></span> 
+<!-- END SEARCH & RESET BUTTONS -->
+
+<!-- BEGIN BUTTONS -->
+<input type="submit" class="submit-button moz-border small-submit" value="Reset Map" id="resetLayer" />
+<!-- END BUTTONS -->
+
+<div id="smalltype">
+<p>Vote tally courtesy of the <a href="http://www.countyofdane.com/clerk/elect2011b.html#race14">Dane County Clerk</a></br>
+Map by Chris Keller with assistance from <a href="http://twitter.com/#!/jondavenport1">Jon Davenport</a>, <a href="http://twitter.com/jfkeefe">John Keefe</a>, <a href="http://twitter.com/#!/brianboyer">Brian Boyer</a> &amp; <a href="http://twitter.com/#!/onyxfish">Christopher Groskopf</a>.</p>
+</div>
+
+</div>
+<!-- END EXPLAINER -->

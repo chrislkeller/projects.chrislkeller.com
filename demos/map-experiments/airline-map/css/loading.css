@@ -1,0 +1,11 @@
+#loadingIndicator strong {
+    position: absolute;
+    top:30%;
+    left:40%;
+    background-color:#FFF;
+    padding:4px;
+    font-family: Arial, sans-serif;
+    font-size:14px;
+    border: 2px ridge #DFF2FF;
+    line-height:1.3em;
+}

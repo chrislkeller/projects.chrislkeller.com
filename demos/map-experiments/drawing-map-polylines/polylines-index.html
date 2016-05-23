@@ -1,0 +1,41 @@
+<!-- begin css  -->
+<style type="text/css">
+#map_container {width: 700px; height: 300px;}
+#map_data {width: 100%; height: 50px; margin: 0 5% 50px 5%;}
+#mapTopperInfo {display: none; width: 80%; height:60px; padding:4px; line-height:1.3em;}
+#map_canvas {width: 80%; height: 400px; margin: 0 5% 50px 5%;}
+</style>
+<!-- end css -->
+
+<!-- begin scripts -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3.7&sensor=false"></script>
+
+<!-- Albert Sun's code, modified by Jonathan Soma, to make rollovers -->
+<script type="text/javascript" src="js/gmap-features-polyline-geod-strokecolor.js"></script>
+
+<!-- Core mapping javascript is here -->
+<script type="text/javascript" src="js/map.js"></script>
+
+<!-- begin map container -->
+<div id="map_container">
+
+<h4>Using the map</h4>
+
+<!-- begin map data -->
+<div id="map_data">
+
+<p id="intro-text">Intro Text goes here and will be hidden on click.</p>
+
+<!-- Create a spot for the topper text -->
+<div id="mapTopperInfo"></div>
+
+</div>
+<!-- end map data -->
+
+<!-- begin map -->
+<div id="map_canvas"></div>
+<!-- end map -->
+
+</div>
+<!-- end map container -->

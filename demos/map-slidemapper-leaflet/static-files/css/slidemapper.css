@@ -1,0 +1,139 @@
+/* ==========================================================
+ * slidemapper.js v0.1.1
+ * A jQuery plugin to create an animated slideshow tied to a Leaflet map.
+ * http://github.com/cavis/slidemapper
+ * ==========================================================
+ * Copyright (c) 2012 Ryan Cavis
+ * Licensed under http://en.wikipedia.org/wiki/MIT_License
+ * ========================================================== */
+
+/* slideshow element */
+.smapp {}
+.smapp-show {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.smapp-slides-ct {}
+
+/* slides */
+.smapp-show .slide {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  left: 100%;
+}
+.smapp-show .slide.active { left: 0; display: block; }
+.smapp-show .slide-inner { position: relative; overflow: hidden; }
+
+/* side controls */
+.ctrl-side {
+  display: none;
+  position: absolute;
+  height:100px;
+  line-height: 80px;
+  margin-top:-50px;
+  top:50%;
+  width: 30px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 100px;
+  font-weight: 100;
+  text-align: center;
+  color: #fff;
+  background: #6c0;
+  cursor: pointer;
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -ms-user-select: none;
+}
+.ctrl-side.active { display: block; }
+.ctrl-side.ctrl-left {
+  left: 0;
+  -webkit-border-top-right-radius: 2px;
+  -webkit-border-bottom-right-radius: 2px;
+  -moz-border-radius-topright: 2px;
+  -moz-border-radius-bottomright: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+.ctrl-side.ctrl-right {
+  right: 0;
+  -webkit-border-top-left-radius: 2px;
+  -webkit-border-bottom-left-radius: 2px;
+  -moz-border-radius-topleft: 2px;
+  -moz-border-radius-bottomleft: 2px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+.ctrl-side:hover {
+  color: #ffffff;
+  text-decoration: none;
+  opacity: 1.0;
+  filter: alpha(opacity=100);
+}
+
+/* top controls */
+.ctrl-top {
+  position: absolute;
+  top:10px;
+  right: 10px;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -ms-user-select: none;
+}
+.ctrl-top span {
+  display: inline-block;
+  line-height: 20px;
+  vertical-align: bottom;
+  position: relative;
+  font-weight: normal;
+  text-shadow: none;
+  text-align: center;
+}
+.ctrl-top .ctrl-count {
+  padding: 7px 7px 5px;
+  font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 13px;
+  color: #ccc;
+  background: #444;
+}
+.ctrl-top .ctrl-left, .ctrl-top .ctrl-right {
+  padding: 3px 10px 9px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 40px;
+  font-weight: 100;
+  color: #fff;
+  background: #6c0;
+  cursor: pointer;
+}
+.ctrl-top .ctrl-left:hover, .ctrl-top .ctrl-right:hover {
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+}
+.ctrl-top .ctrl-left {
+  -webkit-border-top-left-radius: 2px;
+  -webkit-border-bottom-left-radius: 2px;
+  -moz-border-radius-topleft: 2px;
+  -moz-border-radius-bottomleft: 2px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+.ctrl-top .ctrl-right {
+  -webkit-border-top-right-radius: 2px;
+  -webkit-border-bottom-right-radius: 2px;
+  -moz-border-radius-topright: 2px;
+  -moz-border-radius-bottomright: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+/* leaflet map */
+.smapp-map { width: 100%; }

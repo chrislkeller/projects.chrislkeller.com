@@ -1,0 +1,76 @@
+<!DOCTYPE html> 
+<!--
+  copyright (c) 2011 Google inc.
+
+  You are free to copy and use this sample.
+  License can be found here: http://code.google.com/apis/ajaxsearch/faq/#license
+
+-->
+<html> 
+<head> 
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
+
+<title>Google Maps JavaScript API v3 Example: Fusion Tables Layer</title> 
+
+<style>
+  body { font-family: Arial, sans-serif; }
+  #map_canvas { height: 500px; width:600px; }
+</style>
+
+<!-- Google Maps API javascript -->
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> 
+
+<script type="text/javascript" id="script"> 
+var tableid = 250464;
+var center = new google.maps.LatLng(37.4, -122.1);
+var initialZoom = 12;
+var coarseZoom = 11;
+var fineZoom = 15;
+
+function initialize() {
+
+  // Initialize the map
+  var map = new google.maps.Map(document.getElementById('map_canvas'), {
+    center: center,
+    zoom: initialZoom,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  });
+  
+  // Initialize the layer
+  var layer = new google.maps.FusionTablesLayer(tableid);
+  layer.setQuery("SELECT middleLocation FROM " + tableid);
+  layer.setMap(map);
+  
+  // Add a listener to listen for zoom changed events
+  google.maps.event.addListener(map, 'zoom_changed', function() {
+    zoomLevel = map.getZoom();
+    
+    // Show a coarser geometry when the map is zoomed out
+    if (zoomLevel <= coarseZoom) {
+      layer.setQuery("SELECT coarseLocation FROM " + tableid);
+      
+    // Show a finer geometry when the map is zoomed in
+    } else if (zoomLevel >= fineZoom) {
+      layer.setQuery("SELECT fineLocation FROM " + tableid);
+    
+    // Otherwise, show a medium geometry
+    } else {
+      layer.setQuery("SELECT middleLocation FROM " + tableid);
+    }
+
+    // Change the zoom level value in the HTML page
+    document.getElementById("zoom").innerHTML = zoomLevel;
+  });
+}
+
+</script> 
+</head> 
+<body onload="initialize();"> 
+Zoom level: <span id="zoom">12</span><br /><br />
+<div id="map_canvas"></div>
+
+<div id="code"></div>
+<script type="text/javascript" src="script/script.js"></script>
+</body> 
+</html> 

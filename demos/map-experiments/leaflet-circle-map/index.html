@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Leaflet Quick Start Guide Example</title>
+	<meta charset="utf-8" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="leaflet.css" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="../dist/leaflet.ie.css" /><![endif]-->
+</head>
+
+<body>
+	<div id="map" style="width: 600px; height: 550px"></div>
+
+	<script src="leaflet.js"></script>
+	<script>
+		var map = new L.Map('map');
+
+		var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/1ab2662b74e14ecebc3a5d2e4c61f37e/22677/256/{z}/{x}/{y}.png',
+			cloudmadeAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade',
+			cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 10, attribution: cloudmadeAttribution});
+
+		map.setView(new L.LatLng(44.32384, -89.91210), 7).addLayer(cloudmade);
+
+		// dane//
+		var circleLocation = new L.LatLng(43.08092, -89.39575),
+			circleOptions = {color: 'blue', opacity: 0.7, stroke: true, weight: 1.5},
+			circle = new L.Circle(circleLocation, 40000, circleOptions);
+
+		circle.bindPopup("Dane: XXXXXXX");
+		map.addLayer(circle);
+		
+		// milwaukee//
+		var circleLocation = new L.LatLng(43.04480, -87.93182),
+			circleOptions = {color: 'blue', opacity: 0.7, stroke: true, weight: 1.5},
+			circle = new L.Circle(circleLocation, 35000, circleOptions);
+
+		circle.bindPopup("Milwaukee: XXXXXXX");
+		map.addLayer(circle);
+		
+		// waukesha//
+		var circleLocation = new L.LatLng(43.04279, -88.31634),
+			circleOptions = {color: 'red', opacity: 0.7, stroke: true, weight: 1.5},
+			circle = new L.Circle(circleLocation, 35000, circleOptions);
+
+		circle.bindPopup("Waukesha: XXXXXXX");
+		map.addLayer(circle);
+		
+		// brown//
+		var circleLocation = new L.LatLng(44.46123, -88.06091),
+			circleOptions = {color: 'red', opacity: 0.7, stroke: true, weight: 1.5},
+			circle = new L.Circle(circleLocation, 15000, circleOptions);
+
+		circle.bindPopup("Brown: XXXXXXX");
+		map.addLayer(circle);
+
+
+		map.on('click', onMapClick);
+
+		var popup = new L.Popup();
+
+
+	</script>
+</body>
+</html>

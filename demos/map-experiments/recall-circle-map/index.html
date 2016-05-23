@@ -1,0 +1,200 @@
+<!-- begin css -->
+<style type="text/css" media="screen">
+#map-container {margin: 0 0 20px 0;}
+#map_canvas {width: 620px; height: 600px; margin: 10px 0 0 0;}
+.keytext {font-family: "Trebuchet MS", Verdana, sans-serif; font-size: 14px;  color: #555535; line-height: 2px; display:block; float:left; padding: 10px 10px 20px 3px;}
+.introtext {font-family: "Trebuchet MS", Verdana, sans-serif; font-size: 14px;  color: #555535; line-height: 2px; display:block; float:left; padding: 10px 50px 8px 2px;}
+.footnote {font-family: "Trebuchet MS", Verdana, sans-serif; font-size: 11px;  color: #555535; line-height: 2px; display:block; float:left; padding: 0px 0px 15px 0px;}
+.circleBase {
+	-moz-border-radius: 999px; /* Firefox */
+	-webkit-border-radius: 999px; /* Safari and Chrome */
+	border-radius: 999px; /* Opera 10.5+, future browsers, and now also Internet Explorer 6+ using IE-CSS3 */
+	behavior: url(ie-css3.htc); /* This lets IE know to call the script on all elements which get the 'box' class */
+	float: left;
+	}
+.barrettcircle {width: 20px; height: 20px; margin-right: 1px;}
+.walkercircle {width: 20px; height: 20px; margin-right: 1px;}
+
+</style>
+<!-- end css -->
+
+<!-- begin scripts -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
+<script type="text/javascript"src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+<script type="text/javascript">
+var mapNoConflict = jQuery;
+var map;
+var mapCenter= new google.maps.LatLng(44.74648547505308, -89.84939737499997);
+var citymap = [];
+var infoWindows = [];
+var tableLayer = 3752130;
+var layer;
+var recallInfoWindow = '';
+
+//begin main function
+mapNoConflict(document).ready(function() {
+    getCityData();
+});
+//end main function
+
+//begin data function
+function getCityData() {
+    mapNoConflict.getJSON('http://tables.googlelabs.com/api/query?sql=SELECT * FROM 4159616 &jsonCallback=?', function(data) {
+        var cityLatLngColumn = 3;
+        var cityNameColumn = 5;
+        var walkerVotesColumn = 6;
+        var walkerPercentColumn = 7;
+        var barrettVotesColumn = 8;
+        var barrettPercentColumn = 9;
+        var cityFormulaColumn = 13;
+		var marginColumn = 12;
+        var cityColorColumn = 16;
+        var precinctsColumn = 4;
+
+        for (var i = 0; i < data.table.rows.length; i++) {
+            var row = data.table.rows[i];
+
+            //json source has lat/lng in a single column.  Split it on comma.
+            var cityLatLngRaw = row[cityLatLngColumn];
+            var commaPos = cityLatLngRaw.indexOf(',');
+            var lat = parseFloat(cityLatLngRaw.substring(0, commaPos));
+            var lng = parseFloat(cityLatLngRaw.substring(commaPos + 2, cityLatLngRaw.length));
+            var cityLatLng = new google.maps.LatLng(lat, lng)
+
+            citymap[parseInt(i)] = {
+                'center': cityLatLng,
+                'formula': parseFloat(row[cityFormulaColumn]),
+                'name': row[cityNameColumn],
+                'fillColor': row[cityColorColumn],
+                'walkerVotes': row[walkerVotesColumn],
+                'walkerPercent': row[walkerPercentColumn],
+                'barrettVotes': row[barrettVotesColumn],
+                'barrettPercent': row[barrettPercentColumn],
+                'margin': row[marginColumn],
+                'precincts': row[precinctsColumn]
+            }
+
+        }
+        createMap();
+    });
+    //end json query
+}
+//end data function
+
+//begin map function
+function createMap() {
+    var options = {
+        zoom: 7,
+        center: mapCenter,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        scrollwheel: false,
+        draggable: true,
+        mapTypeControl: false,
+        navigationControl: true,
+        streetViewControl: false,
+        panControl: true,
+        scaleControl: true,
+        navigationControlOptions: {
+            style: google.maps.NavigationControlStyle.SMALL,
+            position: google.maps.ControlPosition.RIGHT_TOP
+        }
+    };
+
+    //write the map
+    map = new google.maps.Map(document.getElementById('map_canvas'), options);
+
+    //set shapes fusion layer & supress info window
+    layer = new google.maps.FusionTablesLayer(tableLayer, {suppressInfoWindows: true});
+    layer.setQuery("SELECT geometry FROM " + tableLayer);
+    layer.setMap(map);
+
+    //begin circle loop
+    for (var i = 0; i < citymap.length; i++) {
+
+        // Construct the circle for each value in citymap.
+        var circleOptions = {
+            strokeColor: "#ffffff",
+            strokeOpacity: 0.8,
+            strokeWeight: 1,
+            fillColor: citymap[i].fillColor,
+            fillOpacity: 0.7,
+            map: map,
+            clickable: true,
+            center: citymap[i].center,
+            radius: citymap[i].formula * .25
+        };
+
+        var cityCircle = new google.maps.Circle(circleOptions);
+        cityCircle.setMap(map);
+
+        createInfoWindow(cityCircle.center, citymap[i].precincts, citymap[i].walkerVotes, citymap[i].walkerPercent, citymap[i].barrettVotes, citymap[i].barrettPercent, citymap[i].margin, citymap[i].name, i);
+
+        attachClick(cityCircle, i);
+
+        //end click listener
+
+    }
+    //end circle loop
+}
+//end map function
+
+function createInfoWindow(center, precincts, walkerVotes, walkerPercent, barrettVotes, barrettPercent, margin, name, iwIndex) {
+	recallInfoWindow =
+		'<p style=\'font-family: \"Trebuchet MS\", Verdana, sans-serif; font-size: 13px;  color: #555535;\'>' +
+		'<b>' + name + ' County</b><br>' +
+		'Wards reporting: ' + precincts + '<br>' +
+		'<hr style=\"display:block; margin-top: -5px; margin-bottom: 0px; background-color: #e6e6e6; color: #e6e6e6; text-align: center; height: 2px; width: auto;\" />' +
+		'<span style=\'font-family: \"Trebuchet MS\", Verdana, sans-serif; font-size: 13px;  color: #555535; line-height: 15px;\'>' +
+		'<b>Barrett votes: </b>' + barrettVotes + ' - ' + barrettPercent + '%<br />' +
+		'<b>Walker votes: </b>' + walkerVotes + ' - ' + walkerPercent + '%<br>' +
+		'</span>' +
+		'<hr style="display:block; margin-top: 5px; margin-bottom: 5px; background-color: #ebebeb; color: #ebebeb; text-align: center; height: 2px; width: auto;" />' +
+		'<span class=\'googft-info-window\' style=\'font-family: \"Trebuchet MS\", Verdana, sans-serif; font-size: 18px;  color: #555535; line-height: 15px;\'><b>Margin: </b>' + margin + ' votes</span>' +
+		'</p>';
+
+        var iwOptions = {
+            position: center,
+            content: recallInfoWindow,
+			};
+
+        infoWindows[iwIndex] = new google.maps.InfoWindow(iwOptions);
+}
+
+
+function closeExistingIWs() {
+    for (var i = 0; i < infoWindows.length; i++) {
+        infoWindows[i].close();
+    }
+}
+
+function openIW(iwIndex) {
+    infoWindows[iwIndex].open(map);
+}
+
+function attachClick(circle, iwIndex) {
+        //add click listener
+        google.maps.event.addListener (circle, 'click', function(evt) {
+            closeExistingIWs();
+            openIW(iwIndex);
+        });
+}
+</script>
+
+<!-- begin map container -->
+<div id="map-container">
+
+
+<!-- begin key -->
+<div class="keytext"><b>CIRCLE SIZE SHOWS NUMBER OF VOTES OVER OPPONENT:</b></div><div class="circleBase barrettcircle"><img style="border-width: 0px;" src="http://host.madison.com/app/interactive/gov_recall/images/blue_circle.jpg" width="20" height="20" />
+</div><div class="keytext"><b>BARRETT</b></div>
+<div class="circleBase walkercircle"><img style="border-width: 0px;" src="http://host.madison.com/app/interactive/gov_recall/images/red_circle.jpg" width="20" height="20" /></div><div class="keytext"><b>WALKER</b></div>	<br /><br />
+<div class="footnote">Results are unofficial</div><br />
+<!-- end key -->
+
+<div id="map_canvas"></div><br />
+<p class="footnote">Map by Laura Sparks, Mike Schuette and <a href="https://twitter.com/#!/ChrisLKeller" target="_blank">Chris Keller</a>.</p>
+
+</div>
+<!-- end map container -->

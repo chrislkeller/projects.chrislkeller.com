@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<!-- begin doc -->
+<html lang="en">
+
+<!-- begin header -->
+<head>
+
+<!-- begin meta -->
+<meta charset="utf-8"
+<!-- end meta -->
+
+<!-- begin css  -->
+<link rel="stylesheet" href="http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap.css" type="text/css" />
+
+<style type="text/css">
+body {background: #9e9e9e;}
+
+.container {background: #ffffff; padding: 10px; margin: 45px auto 0 auto;}
+
+/* overline nav */
+.navigation-buttons {width: 100%; height: 35px; margin: 20px auto 20px auto;}
+.navigation-buttons ul {list-style-type: none; text-align: center;}
+.navigation-buttons ul li {display: inline;}
+.navigation-buttons ul li a {height: auto; padding: .2em 1em; text-decoration: none; color: #ffffff;}
+.navigation-buttons ul li a:hover {color:#555555;}
+
+</style>
+<!-- end css  -->
+
+<!-- begin scripts -->
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+
+<!-- experiment maps api key -->
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBJj_v-VYk6V7vzOIlIj88DiteiuMfpdN4&sensor=false&region=us"></script>
+<script type="text/javascript">
+
+//global variables
+var mapNoConflict = jQuery;
+
+//begin main function
+mapNoConflict(document).ready(function(){
+    createMap();
+});
+//end main function
+
+//function
+function createMap() {
+
+	var map = new google.maps.Map(document.getElementById('map_canvas'), {
+		center: new google.maps.LatLng(43.083433,-89.403305),
+        zoom: 12,
+        scrollwheel: false,
+        draggable: true,
+        mapTypeControl: false,
+        navigationControl: false,
+        streetViewControl: false,
+        panControl: false,
+        scaleControl: false,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+		//navigationControlOptions: {
+            //style: google.maps.NavigationControlStyle.SMALL,
+            //position: google.maps.ControlPosition.RIGHT_TOP}
+        //};
+	});
+	
+	
+	var transitLayer = new google.maps.TransitLayer();
+	transitLayer.setMap(map);	
+
+	var trafficLayer = new google.maps.TrafficLayer();
+	trafficLayer.setMap(map);
+	
+	var bikeLayer = new google.maps.BicyclingLayer();
+	bikeLayer.setMap(map);
+
+}
+</script>
+<!-- end scripts -->
+
+</head>
+<!-- end header -->
+
+<!-- begin body -->
+<body>
+    <div class="container">
+
+    <!-- begin navigation -->
+    <div class="navigation-buttons">
+        <ul>
+        <li><a class="btn btn-large btn-primary" href="#"></i> All</a></li>
+        <li><a class="btn btn-large btn-danger" href="#"></i> Transit</a></li>
+        <li><a class="btn btn-large btn-warning" href="#"></i> Traffic</a></li>
+        <li><a class="btn btn-large btn-info" href="#"></i> Bike</a></li>
+        </ul>
+    </div>
+    <!-- end navigation -->
+
+        <div class="row">
+            <div class="span12">
+                <div id="map_canvas" style="width: 940px; height: 600px"></div>
+                
+                <div class="row">
+                    <div class="span6">
+                    </div>
+                    <div class="span6">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    <!-- begin navigation -->
+    <div class="navigation-buttons">
+        <ul>
+        <li><a class="btn btn-large btn-success" href="#"></i> Madison</a></li>
+        <li><a class="btn btn-large btn-success" href="#"></i> Chicago</a></li>
+        <li><a class="btn btn-large btn-success" href="#"></i> New York</a></li>
+        <li><a class="btn btn-large btn-success" href="#"></i> L.A.</a></li>
+        </ul>
+    </div>
+    <!-- end navigation -->
+
+    </div>
+</body>
+<!-- end body -->
+
+</html>
+<!-- end doc -->

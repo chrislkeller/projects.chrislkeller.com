@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<!-- begin doc -->
+<html lang="en">
+
+    <!-- begin header -->
+    <head>
+
+        <!-- begin meta -->
+        <title>What should LA's new mayor work on first? | scpr.org</title>
+        <link rel="shortcut icon" href="http://media.scpr.org/favicon.ico">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" id="meta-viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+        <meta name="description" content="With the election of L.A.'s new mayor only weeks away, we want to know what problems you want the mayor to tackle first. We'll be collecting your thoughts online and in person to present to the mayoral candidates." />
+        <meta name="keywords" content="la mayoral election, dear mayor" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:image" content="http://www.scpr.org/assets/logo-masthead.png" />
+        <meta property="og:title" content="What should LA's new mayor work on first?" />
+        <meta property="og:url" content="http://projects.scpr.org/static/maps/dear-mayor" />
+        <meta property="og:description" content="With the election of L.A.'s new mayor only weeks away, we want to know what problems you want the mayor to tackle first. We'll be collecting your thoughts online and in person to present to the mayoral candidates. " />
+        <!-- end meta -->
+
+        <!-- begin css -->
+        <link href="http://projects.scpr.org/static/static-files/css/reset/reset-styles.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="http://projects.scpr.org/static/static-files/bootstrap-v222/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="http://projects.scpr.org/static/static-files/css/interactive-project-shell/foundation-styles.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="static-files/css/leaflet.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="static-files/css/slidemapper.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="static-files/css/project-styles.css" rel="stylesheet" type="text/css" media="all" />
+
+        <!-- additional css files for projects -->
+        <!--
+        <link href="http://projects.scpr.org/static/static-files/css/tabletop-timelines/v3-styles.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="http://projects.scpr.org/static/static-files/css/highcharts-interactives/styles.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="http://projects.scpr.org/static/static-files/css/responsive-tables/responsive-tables.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="http://projects.scpr.org/static/static-files/css/tablestacker-tables/styles.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="http://projects.scpr.org/static/static-files/css/tabletop-timelines/styles.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" media="all" />
+        -->
+
+        <link href="http://projects.scpr.org/static/static-files/css/jquery-alerts/jquery.alerts.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="http://projects.scpr.org/static/static-files/bootstrap-v222/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" media="all" />
+
+        <!--[if lte IE 8]>
+            <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.ie.css" />
+        <![endif]-->
+
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <!-- end css -->
+
+        <!-- begin base scripts -->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script type="text/javascript" src="//use.typekit.net/air8rql.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
+        <script src="http://projects.scpr.org/static/static-files/scripts/modernizr-2.5.3.min.js"></script>
+        <!-- end base scripts -->
+
+        <script src="static-files/scripts/leaflet.js"></script>
+        <script src="static-files/scripts/leafpile-src.js"></script>
+        <!--
+        <script src="static-files/scripts/leaflet-google.js"></script>
+        -->
+        <script src="http://maps.stamen.com/js/tile.stamen.js?v1.2.1"></script>
+        <script src="static-files/scripts/slidemapper.js"></script>
+
+    </head>
+    <!-- end header -->
+
+    <!-- begin body -->
+    <body class="minimal">
+        <div id="kpcc-header"></div>
+            <div id="data-container" class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div id="data-details"></div>
+                        <div id="mapper" class="center"></div>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div id="data-footer"></div>
+                    </div>
+                </div>
+            </div>
+        <div id="kpcc-footer"></div>
+
+            <!-- begin scripts -->
+            <script src="http://projects.scpr.org/static/static-files/scripts/underscore-min.js"></script>
+            <script src="http://projects.scpr.org/static/static-files/scripts/handlebars-1.0.rc.1.js"></script>
+            <script src="http://projects.scpr.org/static/static-files/scripts/handlebars-ajax.js"></script>
+            <script src="http://projects.scpr.org/static/static-files/scripts/swag.js"></script>
+            <script src="http://projects.scpr.org/static/static-files/scripts/moment.min.js"></script>
+
+            <!-- additional js files for projects -->
+            <!--
+            <script src="http://projects.scpr.org/static/static-files/scripts/tabletop.js"></script>
+            <script src="http://projects.scpr.org/static/static-files/scripts/highcharts.js"></script>
+            <script src="http://projects.scpr.org/static/static-files/scripts/jquery.tablesorter.pager.js"></script>
+            <script src="http://projects.scpr.org/static/static-files/scripts/jquery.tablesorter.js"></script>
+            <script src="http://projects.scpr.org/static/static-files/scripts/jquery.tablesorter.multipagefilter.js"></script>
+            <script src="http://projects.scpr.org/static/static-files/scripts/responsive-tables.js"></script>
+            <script src="http://projects.scpr.org/static/static-files/scripts/timeline-plugins.js"></script>
+            <script src="http://projects.scpr.org/static/static-files/scripts/timeline-main-script.js"></script>
+            -->
+
+            <script src="http://projects.scpr.org/static/static-files/scripts/jquery.alerts.js"></script>
+            <script src="http://projects.scpr.org/static/static-files/bootstrap-v222/bootstrap.min.js"></script>
+            <script src="static-files/scripts/templates-script.js"></script>
+            <script src="static-files/scripts/data-script.js"></script>
+            <!-- end scripts -->
+
+            <!-- begin chartbeat -->
+            <script type="text/javascript">
+                var _sf_async_config = { uid: 33583, domain: 'projects.scpr.org', useCanonical:true };
+                (function() {
+                    function loadChartbeat() {
+                        window._sf_endpt = (new Date()).getTime();
+                        var e = document.createElement('script');
+                        e.setAttribute('language', 'javascript');
+                        e.setAttribute('type', 'text/javascript');
+                        e.setAttribute('src','//static.chartbeat.com/js/chartbeat.js');
+                        document.body.appendChild(e);
+                    };
+                    var oldonload = window.onload;
+                    window.onload = (typeof window.onload != 'function') ? loadChartbeat : function() { oldonload(); loadChartbeat(); };
+                })();
+            </script>
+            <!-- end chartbeat -->
+
+            <!-- begin google analytics -->
+            <script type="text/javascript">
+                var hostName = 'projects.scpr.org';
+                var _gaq = _gaq || [];
+                _gaq.push(
+                    ['_setAccount', 'UA-624724-1'],
+                    ['_setDomainName', hostName],
+                    ['_setCustomVar', 6, 'Station', 'Southern California Public Radio', 2],
+                    ['_setCustomVar', 7, 'PageType', 'Story', 3],
+                    ['_trackPageview'],
+                    ['b._setAccount', 'UA-18188937-11'],
+                    ['b._setDomainName', hostName],
+                    ['b._setCustomVar', 6, 'Station', 'Southern California Public Radio', 2],
+                    ['b._setCustomVar', 7, 'PageType', 'Story', 3],
+                    ['b._trackPageview']
+                );
+                (function() {
+                    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                })();
+            </script>
+            <!-- end google analytics -->
+
+            <!-- begin webtrends stats -->
+            <script src="http://media.scpr.org/assets/scripts/webtrends.v2.js"></script>
+            <script>
+                //<![CDATA[
+                    var _tag=new WebTrends();
+                    _tag.dcsGetId();
+                //]]>
+            </script>
+            <script>
+                //<![CDATA[
+                    _tag.dcsCustom=function(){
+                        // Add custom parameters here.
+                        //_tag.DCSext.param_name=param_value;
+                    }
+                _tag.dcsCollect();
+                //]]>
+            </script>
+            <noscript>
+                <div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="http://statse.webtrendslive.com/dcsyqctzwuz5bdsebpmwhwe8w_2p8d/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=9.3.0&amp;WT.dcssip=www.scpr.org"/></div>
+            </noscript>
+            <!-- end webtrends stats -->
+
+            <!-- begin comscore stats -->
+            <script>
+                var _comscore = _comscore || [];
+                _comscore.push({ c1: "2", c2: "6035974", c3: "", c4: "" });
+                (function() {
+                var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+                s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+                el.parentNode.insertBefore(s, el);
+                })();
+            </script>
+            <noscript>
+                <img src="http://b.scorecardresearch.com/p?c1=2&c2=6035974&c3=&c4=&c5=&c6=&c15=&cv=2.0&cj=1" />
+            </noscript>
+            <!-- end comscore stats -->
+    </body>
+    <!-- end body -->
+
+</html>
+<!-- end document -->

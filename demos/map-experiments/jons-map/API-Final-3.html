@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+
+<!-- BEGIN HEADER -->
+<head>
+
+<!-- BEGIN META -->
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<title>2010 Census</title>
+<!-- END META -->
+
+<!-- BEGIN CSS -->
+<link type="text/css" rel="stylesheet" href="../css/map-wrapper.css" media="screen">
+
+<style type="text/css">
+html, body {width: 100%; height: 100%;}
+body {margin: 0px;}
+#container {width: 700px; height: auto; position: relative;}
+#mapcontainer {width: 650px; height: 525px; position: relative;}
+#map {position: absolute; width: 610px; height: 500px;}
+#input[type="button"] {background: #C90; width: 115px;}
+#flag {position: absolute; top:13px; left:85px;}
+#legend {
+	position: absolute;
+	float:left;
+	right:2px;
+	width:150px;
+	height:429px;
+	background-color:#f3efe9;
+	padding:10px;
+	font-family: Arial, sans-serif;
+	font-size:12px;
+	border: 1px solid #000000;
+	line-height:1.3em;
+}
+#legend h1 {font-size:18px; margin:0 0 4px 0;}
+#legend h2 {font-size:14px; margin:0;}
+#legend h3 {font-size:11px; margin: 10px 0 0 0;}
+#legend #colors1 { display: block; }
+#legend #colors2, #colors3, #colors4 { display: none; } 
+#legend #colors1, #colors2, #colors3, #colors4 {float:left;line-height:20px; width:125px; margin: 10px 0;}
+#legend #colors1 span, #colors2 span, #colors3 span, #colors4 span {height:20px; width:20px; margin-right:5px; display:block; float:left; clear:left; opacity: .75;}
+#legend .less-than-five {background-color: #76a5af;}
+#legend .less-than-ten {background-color: #fce5cd;}
+#legend .less-than-twenty-five {background-color: #f9cb9c;}
+#legend .less-than-fifty {background-color: #f6b26b;}
+#legend .less-than-one-hundred {background-color: #e69138;}
+#legend .less-than-five-hundred {background-color: #b45f06;}
+#legend .five-hundred-or-more {background-color: #783f04;}
+#legend p {clear:both; margin:5px 0 0 0;}
+#legend form#search {margin:15px 0;}
+#legend form#search label {font-size:16px; font-weight:bold; display:block;}
+#legend form#search input {font-size:14px; margin-top:4px;}
+#legend form#search input[type=text] {width:150px;}
+#legend form#search #alt-addresses p {margin-bottom:2px; font-style:italic;}
+#legend form#search #alt-addresses a {display:block; margin-bottom:3px;}
+#legend form#layers {margin:0; padding-top:20px; padding-bottom: 10px;clear:both;}
+#legend form#layers input[type="checkbox"] {margin:0; display:inline;}
+#legend form#layers label {margin:0; display:inline; font-size:16px; cursor:hand; text-decoration:underline; font-weight:bold;}
+#legend #credits {font-size:10px; line-height:1.2em;}
+table,th,tr,td {border-width: 1px; border-style: solid; border-color: gray; border-collapse: collapse; background-color: white;}
+table {font-size: 12px; width: 100%;}
+th {color: #fff; background-color: #aaa; padding: 10px 5px; border-top: 4px solid #555; font-weight: bold}
+th a {color: #fff;}
+td {padding: 3px; text-align: center;}
+td a { text-decoration: none; font-weight: bold; color: #0A50A1; }
+td a:hover { border-bottom: 1px dotted #0A50A1; }
+#toolbar ul {margin: 0; padding: 10px; list-style-type: none; text-align: left;}
+#toolbar ul li { display: inline; }
+#toolbar ul li a{text-decoration: none; padding: .2em 1em; color: #fff; background-color: #AB6516;}
+#toolbar ul li a:hover {color: #fff; background-color: #76a5af;}
+/*
+#visualization{position: static; bottom:15px; right:15px; width: 610px; height: 400px; overflow: auto; background-color:#ffffff; font-family: Arial, sans-serif; font-size:12px; line-height: 16px; line-height: 16px;}
+*/
+</style>
+
+<!-- END CSS -->
+
+</head>
+<!-- END HEADER -->
+
+<!-- BEGIN BODY -->
+<body onload="initialize()" style="font-family: Arial;border: 0 none;">
+<div id="container">
+
+<!-- BEGIN TOOLBAR -->
+<div id ="toolbar" style="text-align:left;">
+
+
+<ul>
+<li><a href="#" onClick="update1" id="dem-town" />Towns</a></li>
+<li><a href="#" onClick="update2" id="dem-county" />Counties</a></li>
+<li><a href="#" onClick="update3" id="dem-tracts" />Census Tracts</a></li>
+<li><a href="#" onClick="update4" id="dem-districts" />School Districts</a></li>
+</ul> 
+
+<!--
+<input type="button" value="Towns"	onClick="update1" id="dem-town" />
+<input type="button" value="County"	onClick="update2" id="dem-county" />
+<input type="button" value="Census Tracts"	onClick="update3" id="dem-tracts" />
+<input type="button" value="School Districts" onClick="update4"	id="dem-districts" />
+-->
+
+</div>
+<!-- END TOOLBAR -->
+<div id="mapcontainer" style="width: 612px; height: 450px; float: left;">
+
+<div id="map" style="width: 438px; height: 449px; border: 1px solid #000000;">
+
+</div>
+
+<div id="legend">
+<h2>2010 Census Data</h2>
+<h3>This map shows population change between 2000 and 2010</h3>
+<div id="colors1">
+<span class="less-than-five"></span>Population loss<br/>
+
+<span class="less-than-ten"></span>0-500<br/>
+<span class="less-than-twenty-five"></span>501-1,000<br/>
+<span class="less-than-fifty"></span>1,001-1,500<br/>
+<span class="less-than-one-hundred"></span>1,501-2,000<br/>
+<span class="less-than-five-hundred"></span>2,001-2,500<br/>
+<span class="five-hundred-or-more"></span>More than 2,501<br/>
+</div>
+<div id="colors2">
+<span class="less-than-five"></span>Population loss<br/>
+<span class="less-than-ten"></span>0-1,000<br/>
+
+<span class="less-than-twenty-five"></span>1,001-2,000<br/>
+<span class="less-than-five-hundred"></span>2,001-3,000<br/>
+<span class="five-hundred-or-more"></span>More than 3,000<br/>
+</div>
+<div id="colors3">
+<span class="less-than-five"></span>Population loss<br/>
+<span class="less-than-twenty-five"></span>0-500<br/>
+<span class="less-than-fifty"></span>501-1,000<br/>
+<span class="less-than-five-hundred"></span>1,001-1,500<br/>
+<span class="five-hundred-or-more"></span>More than 1,501<br/>
+</div>
+<div id="colors4">
+<span class="less-than-five"></span>Population loss<br/>
+<span class="less-than-twenty-five"></span>0-500<br/>
+<span class="less-than-twenty-five"></span>501-1,000<br/>
+<span class="less-than-fifty"></span>1,001-1,500<br/>
+
+<span class="less-than-one-hundred"></span>1,501-2,000<br/>
+<span class="less-than-five-hundred"></span>2,001-2,500<br/>
+<span class="five-hundred-or-more"></span>More than 2,501<br/>
+</div>
+<p>Credits</p>
+<div id="credits">
+<p>Source: 2010 Census Data, IRE, USA Today</p>
+<p>Produced by: Jon Davenport with assistance from Chris Keller and Kevin Locke</p>
+</div>
+<!--END CREDITS -->
+
+</div>
+<!-- END LEGEND -->
+
+<!-- END MAP -->
+</div>
+<!--BEGIN DATA TABLE -->
+<div id="visualization"></div>
+
+<div id="datatable" style="width:610px; height:300px; overflow:auto; clear: both;"></div>
+</div>
+
+
+<!-- SCRIPTS -->
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3.2&sensor=false&region=US"></script>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+
+<script type="text/javascript">
+
+//sets global variables
+	var geocoder;
+	var map;
+	var layer;
+		
+	//Sets the fusion table ids to variables which will be called below
+	//Town Demographics
+	var tableid = 868383; 
+	//County Demographics
+	var tableid2 = 868493;
+	//Census tract Demographics
+	var tableid3 = 868666;
+	//CSchool Districts
+	var tableid4 = 868335;
+	
+	// Sets table viz
+	var table;
+	
+	var options = {
+		zoom: 8,
+		center: new google.maps.LatLng(43.64,-73.922),
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
+		scrollwheel: false,
+		scaleControl: true,
+		draggableCursor: 'move',
+		mapTypeControl: false,
+		navigationControl: true,
+		streetViewControl: false,
+		navigationControlOptions: {
+		style: google.maps.NavigationControlStyle.SMALL,
+		}
+		
+	};
+	// Sets map center
+
+	// Fusion Tables data in GViz Data Table object
+	var datatable;
+	
+	// infowindow
+	var infowindow;
+	
+	// Calls visualization API
+	google.load('visualization', '1', {'packages':['table']});
+
+//sets function
+function initialize() {
+
+	//Write the map
+	map = new google.maps.Map(document.getElementById('map'), options);	
+	
+	//this adds the intial fusion layer
+	layer = new google.maps.FusionTablesLayer(tableid, {suppressInfoWindows:true});
+	
+	// Finds location from Fusion Tables Town Data
+	layer.setQuery("SELECT 'geometry' FROM " + tableid);
+	
+	//sets layer on the map
+	layer.setMap(map);
+	
+	addClickHandler(layer);
+	infowindow = new google.maps.InfoWindow(); 
+		
+	// Pulls the data from the layer
+	var queryText = encodeURIComponent("SELECT 'NAME10', 'Pop 2010', 'Pop 2000', 'Raw Change', 'Percent Change', 'INTPTLAT10', 'INTPTLON10' FROM " + tableid);
+
+	// Queries the table?
+	var query = new google.visualization.Query('http://www.google.com/fusiontables/gvizdata?tq='  + queryText);
+	query.send(getData);
+	
+	
+	//THESE FUNCTIONS COMBINE THE MAP LAYER CHANGE AND DATA TABLE AS WELL***
+	
+	//using js to find ID of button up top and and add a 
+	//click function so onclick it will clear the layer and add new layer
+	//the alerts are there only so I know it's working
+	document.getElementById('dem-town').onclick = function() {
+		layer.setMap();
+		layer = new google.maps.FusionTablesLayer(tableid, {suppressInfoWindows:true});
+		layer.setQuery("SELECT 'geometry' FROM " + tableid);
+		layer.setMap(map);
+		addClickHandler(layer);
+			
+		// Pulls the data from the layer
+		var queryText = encodeURIComponent("SELECT 'NAME', 'Pop 2010', 'Pop 2000', 'Raw Change', 'Percent Change', 'INTPTLAT10', 'INTPTLON10' FROM " + tableid);
+
+		// Queries the table?
+		var query = new google.visualization.Query('http://www.google.com/fusiontables/gvizdata?tq='  + queryText);
+		query.send(getData);
+		toggleLegend('colors1');
+		}	
+
+	document.getElementById('dem-county').onclick = function() {
+		layer.setMap();
+		layer = new google.maps.FusionTablesLayer(tableid2, {suppressInfoWindows:true});
+		layer.setQuery("SELECT 'geometry' FROM " + tableid2);
+		layer.setMap(map);
+		addClickHandler(layer);
+			
+		// Pulls the data from the layer
+		var queryText = encodeURIComponent("SELECT 'NAME', 'Pop 2010', 'Pop 2000', 'Raw Change', 'Percent Change', 'INTPTLAT10', 'INTPTLON10' FROM " + tableid2);
+
+		// Queries the table?
+		var query = new google.visualization.Query('http://www.google.com/fusiontables/gvizdata?tq='  + queryText);
+		query.send(getData);
+		toggleLegend('colors2');
+		}	
+		
+	document.getElementById('dem-tracts').onclick = function() {
+		layer.setMap();
+		layer = new google.maps.FusionTablesLayer(tableid3, {suppressInfoWindows:true});
+		layer.setQuery("SELECT 'geometry' FROM " + tableid3);
+		layer.setMap(map);
+		addClickHandler(layer);
+		
+		// Pulls the data from the layer
+		var queryText = encodeURIComponent("SELECT 'NAME', 'Pop 2010', 'Pop 2000', 'Raw Change', 'Percent Change', 'INTPTLAT10', 'INTPTLON10' FROM " + tableid3);
+
+		// Queries the table?
+		var query = new google.visualization.Query('http://www.google.com/fusiontables/gvizdata?tq='  + queryText);
+		query.send(getData);
+		toggleLegend('colors3');
+		}
+		
+	document.getElementById('dem-districts').onclick = function() {
+		layer.setMap();
+		layer = new google.maps.FusionTablesLayer(tableid4, {suppressInfoWindows:true});
+		layer.setQuery("SELECT 'geometry' FROM " + tableid4);
+		layer.setMap(map);
+		addClickHandler(layer);
+			
+		// Pulls the data from the layer
+		var queryText = encodeURIComponent("SELECT 'NAME', 'Pop 2010', 'Pop 2000', 'Raw Change', 'Percent Change', 'INTPTLAT10', 'INTPTLON10' FROM " + tableid4);
+
+		// Queries the table?
+		var query = new google.visualization.Query('http://www.google.com/fusiontables/gvizdata?tq='  + queryText);
+		query.send(getData);
+		toggleLegend('colors4');
+		}
+}
+
+var FTresponse = null;
+
+//writes the datatable visialization
+function getData(response) {
+	//table = new google.visualization.Table(document.getElementById('visualization'));
+	datatable = response.getDataTable();
+	
+	FTresponse = response;
+
+	numRows = datatable.getNumberOfRows();
+
+	//concatenate the results into a string, you can build a table here
+	htmltable = "<table><tr>";
+	for(i = 0; i < 5; i++) {
+		htmltable += "<th>" + datatable.getColumnLabel(i) + "</th>";
+	}
+	htmltable += "</tr><tr class=\"google-visualization-table-tr-even\">";
+	
+	for(i = 0; i < numRows; i++) {
+		for(j = 0; j < 5; j++) {
+			htmltable += "<td><a href='javascript:myFTclick("+i+")'>"+datatable.getValue(i, j) + "</a></td>";
+		}
+		if (i%2) {
+			htmltable += "</tr><tr class=\"google-visualization-table-tr-odd\">";
+		} else {
+			htmltable += "</tr><tr class=\"google-visualization-table-tr-even\">";
+		}
+		
+	}
+	htmltable += "</table>"
+	
+	document.getElementById('datatable').innerHTML = htmltable;
+
+	//table.draw(datatable);
+	
+	// Add a select listener to the table. When someone clicks a row, 
+	// the selectHandler function is called
+	//google.visualization.events.addListener(table, 'select', selectHandler);
+}
+
+//datatable event handler
+/*
+function selectHandler() {
+  // Get the lat/lng values from the Fusion Tables data table
+  var selection = table.getSelection();
+  var lat = datatable.getValue(selection[0].row, 5);
+  var lng = datatable.getValue(selection[0].row, 6);
+  
+  // Create an infowindow at the lat/long coordinates
+  // Set the content and open on the map
+  if(infowindow) infowindow.close();
+  else infowindow = new google.maps.InfoWindow();
+  infowindow.setContent(datatable.getValue(selection[0].row, 0));
+  infowindow.setPosition(new google.maps.LatLng(lat, lng));
+  infowindow.open(map);
+}
+*/
+
+function openFtinfowindow(position, name, pop2010, pop2000, raw, percent) {
+     // Set up and create the infowindow
+     if (!infowindow) infowindow = new google.maps.InfoWindow({});
+     
+     var content = '<div class="FT_infowindow"><strong>Town: ' + name + '</strong>';
+     if (pop2010) content += '<br /><strong>2010 Population:</strong> ' + pop2010;
+     if (pop2000) content += '<br /><strong>2000 Population:</strong> ' + pop2000;
+     if (raw) content += '<br /><strong>Population change:</strong> ' + raw;
+     if (percent) content += '<br /><strong>Percent change 2000 - 2010:</strong> ' + percent;
+     
+     content += '<br />'+'<a href="javascript:map.setCenter(new google.maps.LatLng'+position+');map.setZoom(map.getZoom()+1);">zoom in</a>';
+     content += '</div>';
+     infowindow.setOptions({
+       content: content,
+       pixelOffset: null,
+       position: position
+     });
+     // infowindow-opening event handler
+     infowindow.open(map);
+}
+
+
+function myFTclick(row) {
+   var name = FTresponse.getDataTable().getValue(row,0);
+   var pop2010 = FTresponse.getDataTable().getValue(row,1);
+   var pop2000 = FTresponse.getDataTable().getValue(row,2);
+   var raw = FTresponse.getDataTable().getValue(row,3);
+   var percent = FTresponse.getDataTable().getValue(row,4);
+   var latlng =  FTresponse.getDataTable().getValue(row,5) + ',' + FTresponse.getDataTable().getValue(row,6);
+
+	var coords = latlng.split(',');
+	var lat = parseFloat(coords[0]);
+	var lng = parseFloat(coords[1]);
+	var position = new google.maps.LatLng(lat,lng);
+	openFtinfowindow(position, name, pop2010, pop2000, raw, percent);
+}
+ 
+function addClickHandler(FTLayer) {
+  google.maps.event.addListener(FTLayer, "click", function(event) {
+    if (infowindow) infowindow.close();
+    infowindow.setOptions({pixelOffset:null, 
+                           content:event.infoWindowHtml,
+                           position:event.latLng
+                          });
+    infowindow.open(map);
+  });
+}
+
+//hide/show legends for maps
+function toggleLegend(name) {
+	document.getElementById('' + name + '').style.display = 'block';
+	for (var i=1; i <= 4; i++) {
+		if (name != 'colors' + i) document.getElementById('colors' + i).style.display = 'none';
+	}
+	
+}
+
+
+</script> 
+<!-- END SCRIPTS -->
+
+</body>
+<!-- END BODY -->
+
+</html>
+<!-- END DOCUMENT -->

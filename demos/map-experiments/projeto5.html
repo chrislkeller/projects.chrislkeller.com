@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<meta charset="latin1_bin">
+<title>click no mapa</title>
+<style>
+    #map_canvas { width: 500px; height: 500px; }
+</style>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false">
+</script>
+<script type="text/javascript">
+
+var map;
+var infowindow;
+var geocoder;
+
+function initialize() {
+    var myLatlng = new google.maps.LatLng(-30.070, -51.190);
+    var myOptions = {
+        zoom: 10,
+        center: myLatlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    geocoder = new google.maps.Geocoder();
+    var windowData = "<table>" +
+                     "<tr>" +
+                     "<td>Tipo de reclamacao:</td>" + 
+                     "<td><select id='reclamacao'>" +
+                     "<option value='violencia'>violencia</option>" +
+                     "<option value='degradacao visual'>degradacao visual</option>" +
+                     "<option value='poluicao sonora'>poluicao sonora</option>" +
+                     "</select></td>" +
+                     "</tr>" +
+                     "<tr>" +
+                     "<td>Descreva sua reclamacao aqui (ate 150 caracteres):</td>" +
+                     "<td><textarea name = 'texto' id='texto' value='' cols='25' rows='4' /></textarea> </td>" +
+                     "<tr>" +
+                     "<td><input type='button' value='Salvar e Fechar' onclick='saveData()'/></td>"; +
+                     "</tr>" + 
+                     "</table>";
+    infowindow = new google.maps.InfoWindow({
+    content: windowData
+    });
+    google.maps.event.addListener(map, 'click', function(event) {
+        marker = new google.maps.Marker({
+        position: event.latLng,
+        map: map
+        });
+        google.maps.event.addListener(marker, 'click', function() {
+            infowindow.open(map, marker);
+        });
+    });
+}
+
+function geocodeAddresses() {
+    var address = document.getElementById("address").value;
+    geocoder.geocode( { 'address': address}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            map.setCenter(results[0].geometry.location);
+            var marker = new google.maps.Marker({
+                map: map,
+                position: results[0].geometry.location
+            });
+        } else {
+            alert("Geocode was not successful for the following reason: " + status);
+        }
+    });
+    
+}
+
+function saveData() {
+    var reclamacao = document.getElementById("reclamacao").value;
+    var texto = escape(document.getElementById("texto").value);
+    var sexo = document.getElementById("sexo").value;
+    var latlng = marker.getPosition();
+
+    var url = "gmap_adddata.php?reclamacao=" + reclamacao + "&texto=" + texto + "&sexo=" + sexo + "&lat=" + latlng.lat() + "&lng=" + latlng.lng();
+    downloadUrl(url, function(data, responseCode) {
+        if (responseCode == 200 && data.length <= 1) {
+            infowindow.close();
+            document.getElementById("message").innerHTML = "Reclamacao recebida!";
+        }
+    });
+}
+
+function downloadUrl(url, callback) {
+    var request = window.ActiveXObject ?
+        new ActiveXObject('Microsoft.XMLHTTP') :
+        new XMLHttpRequest;
+
+    request.onreadystatechange = function() {
+        if (request.readyState == 4) {
+            request.onreadystatechange = doNothing;
+            callback(request.responseText, request.status);
+        }
+    };
+
+    // Ajax request. See http://www.w3schools.com/ajax/ajax_xmlhttprequest_send.asp.
+
+    request.open('GET', url, true);
+    request.send(null);
+}
+
+function doNothing() {}
+
+</script>
+</head>
+<body>
+<body onload="initialize()">
+<div id="map_canvas"></div>
+<form id='geoc'>
+    <input type="textbox" id="address" value="">
+    <input type="button" onclick="geocodeAddresses()" value="Localizar Endereço">
+</form>
+</body>
+</html>   

@@ -1,0 +1,327 @@
+<html> 
+
+<head> 
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
+
+<title>London Teenage Murder 2005 - 2011</title> 
+
+<style type="text/css"> 
+body { font-family: Arial, sans-serif;}
+</style> 
+
+<!-- BEGIN MAP SCRIPTS -->
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> 
+<script type="text/javascript" src="http://www.google.com/jsapi"></script> 
+
+<script type="text/javascript" id="script"> 
+
+// Fusion Tables layer
+var layer;
+
+// Fusion Tables Homicide Data
+var tableid = 717511; 
+
+// Fusion Tables School Data
+var tableid_2 = 822883;
+
+// Sets map zoom
+var zoom = 10;
+
+// Sets map center
+var center = new google.maps.LatLng(51.517, -0.077);
+
+// Sets google map
+var map;
+
+// Sets table viz
+var table;
+
+// Fusion Tables data in GViz Data Table object
+var datatable;
+
+// InfoWindow
+var infowindow;
+
+// Calls visualization API
+google.load('visualization', '1', {'packages':['table']});
+
+// Initializes the map
+function initialize() {
+
+	// Write the map
+	map = new google.maps.Map(document.getElementById('map_canvas'), {
+		center: center,
+		zoom: zoom,
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+  });
+  
+	// Initialize the Fusion Tables Layer
+	layer = new google.maps.FusionTablesLayer(tableid);
+
+	// Finds location from Fusion Tables Homicide Data
+	layer.setQuery("SELECT LATITUDE FROM  " + tableid);
+
+	// Sets layer on the map
+	layer.setMap(map);
+
+	// Pulls the data from the layer
+	var queryText = encodeURIComponent("SELECT 'PHOTO','NAME','DATE-Committed-On','WOUNDING','LATITUDE', 'LONGITUDE','AGE'   FROM 717511");
+
+	// Queries the table?
+	var query = new google.visualization.Query('http://www.google.com/fusiontables/gvizdata?tq='  + queryText);
+  
+	query.send(getData);
+ 
+}
+
+
+//Start new function
+function changeData(scorer) {
+	layer.setQuery("SELECT LATITUDE FROM 717511 WHERE YEAR CONTAINS " + scorer + "");
+	
+	var whereClause = "";
+		if(scorer) {
+			whereClause =  " WHERE 'YEAR' = '" + scorer + "'";
+			}
+		if(infowindow) infowindow.close();
+	var queryText = encodeURIComponent("SELECT 'PHOTO','NAME','DATE-Committed-On','WOUNDING','LATITUDE', 'LONGITUDE','AGE'   FROM 717511" + whereClause);
+	var query = new google.visualization.Query('http://www.google.com/fusiontables/gvizdata?tq='  + queryText);
+	
+	query.send(getData);
+}
+
+
+//Start new function
+function getData(response) {
+	table = new google.visualization.Table(document.getElementById('visualization'));
+	datatable = response.getDataTable();
+	table.draw(datatable, {sortColumn:2,sortAscending:false,showRowNumber:true,allowHtml:true,scrollLeftStartPosition:5});
+ 
+ 
+// Add a select listener to the table. When someone clicks a row, 
+// the selectHandler function is called
+	google.visualization.events.addListener(table, 'select', selectHandler);
+}
+
+
+//Start new function 
+function selectHandler() {
+
+  // Get the lat/lng values from the Fusion Tables data table
+  var selection = table.getSelection();
+  var lat = datatable.getValue(selection[0].row, 4);
+  var lng = datatable.getValue(selection[0].row, 5);
+  var position = new google.maps.LatLng(lat, lng);
+  var name = datatable.getValue(selection[0].row, 1);
+  var wound = datatable.getValue(selection[0].row, 3);
+  var photo = datatable.getValue(selection[0].row, 0);
+  var dater = datatable.getValue(selection[0].row, 2);
+  var age = datatable.getValue(selection[0].row, 6);
+  
+  // Create an infowindow at the lat/long coordinates
+  // Set the content and open on the map
+  if(infowindow) infowindow.close();
+  else infowindow = new google.maps.InfoWindow();
+	infowindow.setContent(''+photo+'<BR>'+name+'<BR>Aged:'+age+'<br>Fatally '+wound+'<hr width=200px><a href="javascript:map.setCenter(new google.maps.LatLng'+position+');map.setZoom(map.getZoom()+5);">Zoom in</a>&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" onclick="reset()" value="Centralise">&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:map.setCenter(new google.maps.LatLng'+position+');map.setZoom(map.getZoom()-3);">Zoom Out</a><HR width=200px><FONT SIZE=-2><i>Zoom in and click on map marker for more details<BR>Locations are approximate</i></FONT><BR><A HREF=http://www.citizensreportuk.org/news/2011/02/20/teenage-murders-in-london/>Comment</A>');
+	
+	infowindow.setPosition(new google.maps.LatLng(lat, lng));
+	infowindow.open(map);
+}
+
+
+//function to search for ages
+function updateMap() {
+	layer.setQuery("SELECT LATITUDE FROM 717511 WHERE 'AGE' > 17");
+		if(infowindow) infowindow.close();
+			var queryText = encodeURIComponent("SELECT 'PHOTO','NAME','DATE-Committed-On','WOUNDING','LATITUDE', 'LONGITUDE','AGE' FROM 717511 WHERE 'AGE' > 17");
+			var query = new google.visualization.Query('http://www.google.com/fusiontables/gvizdata?tq='  + queryText);
+  
+	query.send(getData);
+}
+
+function update2() {
+	layer.setQuery("SELECT LATITUDE FROM 717511 WHERE 'AGE' < 18");
+	if(infowindow) infowindow.close();  
+		var queryText = encodeURIComponent("SELECT 'PHOTO','NAME','DATE-Committed-On','WOUNDING','LATITUDE', 'LONGITUDE','AGE' FROM 717511 WHERE 'AGE' < 18");
+		var query = new google.visualization.Query('http://www.google.com/fusiontables/gvizdata?tq='  + queryText);
+  
+	query.send(getData);
+}
+
+function update3() {
+	layer.setQuery("SELECT LATITUDE FROM 717511 WHERE 'AGE' < 16");
+	if(infowindow) infowindow.close();  
+		var queryText = encodeURIComponent("SELECT 'PHOTO','NAME','DATE-Committed-On','WOUNDING','LATITUDE', 'LONGITUDE','AGE' FROM 717511 WHERE 'AGE' < 16");
+		var query = new google.visualization.Query('http://www.google.com/fusiontables/gvizdata?tq='  + queryText);
+  
+	query.send(getData);
+}
+ 
+
+//function to search for gender
+function update4() {
+	layer.setQuery("SELECT LATITUDE FROM 717511 WHERE 'SEX' CONTAINS 'Male'");
+	if(infowindow) infowindow.close(); 
+		var queryText = encodeURIComponent("SELECT 'PHOTO','NAME','DATE-Committed-On','WOUNDING','LATITUDE', 'LONGITUDE','AGE' FROM 717511 WHERE 'SEX' = 'Male'");
+		var query = new google.visualization.Query('http://www.google.com/fusiontables/gvizdata?tq='  + queryText);
+  
+	query.send(getData);
+}
+
+function update5() {
+	layer.setQuery("SELECT LATITUDE FROM 717511 WHERE 'SEX' CONTAINS 'Female'");
+	if(infowindow) infowindow.close();
+		var queryText = encodeURIComponent("SELECT 'PHOTO','NAME','DATE-Committed-On','WOUNDING','LATITUDE', 'LONGITUDE','AGE' FROM 717511 WHERE 'SEX' = 'Female'");
+		var query = new google.visualization.Query('http://www.google.com/fusiontables/gvizdata?tq='  + queryText);
+  
+	query.send(getData);
+}
+ 
+//function to search for wounds
+function update6() {
+	layer.setQuery("SELECT LATITUDE FROM 717511 WHERE 'WOUNDING' CONTAINS 'shot'");
+    if(infowindow) infowindow.close();
+		var queryText = encodeURIComponent("SELECT 'PHOTO','NAME','DATE-Committed-On','WOUNDING','LATITUDE', 'LONGITUDE','AGE' FROM 717511 WHERE 'WOUNDING' = 'shot'");
+		var query = new google.visualization.Query('http://www.google.com/fusiontables/gvizdata?tq='  + queryText);
+  
+	query.send(getData);
+}
+
+function update7() {
+	layer.setQuery("SELECT LATITUDE FROM 717511 WHERE 'WOUNDING' CONTAINS 'stabbed'");
+	if(infowindow) infowindow.close();
+		var queryText = encodeURIComponent("SELECT 'PHOTO','NAME','DATE-Committed-On','WOUNDING','LATITUDE', 'LONGITUDE','AGE' FROM 717511 WHERE 'WOUNDING' = 'stabbed'");
+		var query = new google.visualization.Query('http://www.google.com/fusiontables/gvizdata?tq='  + queryText);
+  
+	query.send(getData);
+}
+
+function update8() {
+	layer.setQuery("SELECT LATITUDE FROM 717511 WHERE 'WOUNDING' CONTAINS 'beaten'");
+    if(infowindow) infowindow.close();
+		var queryText = encodeURIComponent("SELECT 'PHOTO','NAME','DATE-Committed-On','WOUNDING','LATITUDE', 'LONGITUDE','AGE' FROM 717511 WHERE 'WOUNDING' = 'beaten'");
+		var query = new google.visualization.Query('http://www.google.com/fusiontables/gvizdata?tq='  + queryText);
+  
+	query.send(getData);
+}
+ 
+//function to reset the map
+function update11() {
+	map.setCenter(center);
+		map.setZoom(zoom);
+		layer.setQuery("SELECT LATITUDE FROM  " + tableid);
+		layer_2.setMap(null);
+			if(infowindow) infowindow.close();
+			var queryText = encodeURIComponent("SELECT 'PHOTO','NAME','DATE-Committed-On','WOUNDING','LATITUDE', 'LONGITUDE','AGE'   FROM 717511");
+			var query = new google.visualization.Query('http://www.google.com/fusiontables/gvizdata?tq='  + queryText);
+  
+	query.send(getData); 
+}
+ 
+
+function altID3(id) {
+	layer.setQuery("SELECT LATITUDE FROM 717511 WHERE 'YEAR' CONTAINS " + id + "");
+}
+ 
+function reset() {
+	map.setCenter(center);
+	map.setZoom(zoom);
+} 
+
+//shows schools
+function schoolupdateMap() {
+	layer_2 = new google.maps.FusionTablesLayer(tableid_2 +"");
+	layer_2.setQuery("SELECT postcode from " + tableid_2 + " WHERE ST_INTERSECTS(postcode, CIRCLE(LATLNG(51.517, -0.077),25000))");
+	layer_2.setMap(map);  
+}
+
+function schooloffMap() {
+layer_2.setMap(null);  
+}
+</script> 
+
+
+</head> 
+
+<!-- BEGIN BODY -->
+<body onload="initialize();">
+<center> 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5"> 
+<tr> 
+
+<!-- BEGIN VICTIMS PHOTOS -->
+<td valign="top" width="240px" height=560px>
+<div id="map-container">
+<div id="visualization" style="width:240px;height:560px;overflow:auto"></div>
+</div>
+</td>
+<!-- END VICTIMS PHOTOS -->
+
+<!-- BEGIN MAP CANVAS -->
+<td valign="top">
+<div id="map-container">
+<div id="map_canvas" style="width: 100%; height: 565px; margin-top: 5px">
+</div>
+</div>
+</td>
+<!-- END MAP CANVAS -->
+
+<!-- BEGIN SEARCH QUERIES -->
+<td valign="top" width="140px" > 
+<p>Year</p>
+<select id="selections" onchange="changeData(this.value);"> 
+<option value="&">Select Year</option> 
+<option value="2011">2011</option> 
+<option value="2010">2010</option>  
+<option value="2009">2009</option>	
+<option value="2008">2008</option> 
+<option value="2007">2007</option> 
+<option value="2006">2006</option> 
+<option value="2005">2005</option> 
+<option value="">All Years</option> 
+</select> 
+ 
+<hr>
+<p>Age</p>
+<input type="button" onclick="update3()" value="Victims under 16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"/>
+<br> 
+<input type="button" onclick="update2()" value="Victims Under 18&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"/>
+<br> 
+<input type="button" onclick="updateMap()" value="18 years and above"/>
+<br> 
+
+<hr>
+<p>Gender</p>
+<input type="button" onclick="update4()" value="Male Victims&nbsp;&nbsp;&nbsp;&nbsp;"/> 
+<br> 
+<input type="button" onclick="update5()" value="Female Victims"/> 
+<br> 
+ 
+<hr>
+<p>Wounds</p>
+<input type="button" onclick="update6()" value="Victim Shot"/> 
+<br> 
+<input type="button" onclick="update7()" value="Victim Stabbed"/> 
+<br> 
+<input type="button" onclick="update8()" value="Victim Beaten"/> 
+
+<hr>
+<input type="button" class="button" onclick="update11()" value="reset map"/> 
+
+<hr>
+<p>Schools:</p>
+<input type="button" style="background-color:lightgreen" onclick="schoolupdateMap()" value="SHOW"/> 
+<input type="button" style="background-color:white" onclick="schooloffMap()" value="HIDE"/> 
+
+</td>
+</tr>
+</table> 
+
+</center> 
+
+</body>
+<!-- BEGIN BODY -->
+
+</html>

@@ -1,0 +1,39 @@
+bridge_id,county,facility_carried,year_built,age,maintenance_agency,location,latitude,longitude,length,lanes,type,avg_daily_traffic,avg_daily_traffic_year,status,nbi_sufficiency_rating,cbhi_rating
+53C0107,Los Angeles County,Colorado Blvd,Colorado Blvd,,City of Pasadena,Arroyo Blvd & Arroyo Seco,34.1445333333333,-118.164663888889,1463.25464,2,,16987,,SD,70.3,100
+53C0264,Los Angeles County,Prospect Blvd,Prospect Blvd,,City of Pasadena,Seco St,34.1588444444444,-118.16225,416.66668,2,,740,,SD,90.9,99.81
+53C0314,Los Angeles County,Metro Transit Auth,Metro Transit Auth,,City of Pasadena,Sierra Madre Villa Av Up,34.1477555555556,-118.082,173.88452,,,,,,,0
+53C0359,Los Angeles County,Metro Transit Auth,Metro Transit Auth,,City of Pasadena,Hill Ave Up,34.1522833333333,-118.121425,167.32284,,,,,,,0
+53C0360,Los Angeles County,Metro Transit Auth,Metro Transit Auth,,City of Pasadena,Sierra Bonita Ave Up,34.1523722222222,-118.117316666667,157.48032,,,,,,,0
+53C0361,Los Angeles County,Metro Transit Auth,Metro Transit Auth,,City of Pasadena,Allen Ave Up,34.1524416666667,-118.113188888889,183.72704,,,,,,,0
+53C0362,Los Angeles County,Metro Transit Auth,Metro Transit Auth,,City of Pasadena,Craig Ave Up,34.1524972222222,-118.106266666667,154.19948,,,,,,,0
+53C0363,Los Angeles County,Metro Transit Auth,Metro Transit Auth,,City of Pasadena,Altadena Dr Up,34.1525222222222,-118.098533333333,193.56956,,,,,,,0
+53C0364,Los Angeles County,Mta,Mta,,City of Pasadena,San Gabriel Boulevard,34.1524972222222,-118.094269444444,347.76904,,,,,,,0
+53C0365,Los Angeles County,Mta,Mta,,City of Pasadena,Sunnyslope Ave,34.1513611111111,-118.09045,203.41208,,,,,,,0
+53C0366,Los Angeles County,Mta,Mta,,City of Pasadena,Foothill Blvd Up,34.149975,-118.088391666667,252.62468,,,,,,,0
+53C0367,Los Angeles County,Walnut St,Walnut St,,City of Pasadena,Mta,34.1495388888889,-118.146875,39.37008,4,,18232,,SD,88.1,100
+53C0580,Los Angeles County,Del Mar Blvd,Del Mar Blvd,,City of Pasadena,Eaton Wash,34.1422222222222,-118.086269444444,75.45932,4,,11231,,,95.4,100
+53C0657L,Los Angeles County,Sierra Mdr Blvd W,Sierra Mdr Blvd W,,City of Pasadena,Eaton Wash,34.1616166666667,-118.089658333333,29.52756,3,,7383,,SD,74.1,100
+53C0657R,Los Angeles County,Sierra Mdre Blvd E,Sierra Mdre Blvd E,,City of Pasadena,Eaton Wash,34.1612944444444,-118.089555555556,26.24672,3,,8446,,SD,89.4,100
+53C0755,Los Angeles County,Washington Blvd,Washington Blvd,,City of Pasadena,Arroyo Seco Channel,34.1744611111111,-118.17075,85.30184,2,,1237,,,82.4,100
+53C0756,Los Angeles County,Seco St,Seco St,,City of Pasadena,Arroyo Seco Channel,34.1559944444444,-118.16805,68.89764,4,,1757,,,78.7,97.85
+53C0757,Los Angeles County,San Rafael Ave,San Rafael Ave,,City of Pasadena,Arroyo Seco Channel,34.1255305555556,-118.165561111111,354.33072,2,,373,,FO,75.9,99.49
+53C0758,Los Angeles County,Arroyo Boulevard,Arroyo Boulevard,,City of Pasadena,Arroyo Seco Channel ,34.146575,-118.163841666667,118.11024,2,,1926,,FO,86.7,74.55
+53C0759,Los Angeles County,La Loma Rd,La Loma Rd,,City of Pasadena,Arroyo Seco Channel,34.1338527777778,-118.167427777778,380.57744,2,,3500,,SD,55.2,91.95
+53C0765,Los Angeles County,Foothill Blvd,Foothill Blvd,,City of Pasadena,Eaton Wash,34.1498583333333,-118.088680555556,52.49344,4,,19637,,,81.6,100
+53C0785L,Los Angeles County,New York Dr Wb,New York Dr Wb,,City of Pasadena,Eaton Wash,34.1742138888889,-118.095469444444,154.19948,2,,8372,,SD,77.5,86.76
+53C0785R,Los Angeles County,New York Dr Eb,New York Dr Eb,,City of Pasadena,Eaton Wash,34.174025,-118.095425,154.19948,2,,7299,,SD,78.7,83.55
+53C0794,Los Angeles County,Orange Grove Ave,Orange Grove Ave,,City of Pasadena,Eaton Wash,34.1584166666667,-118.087719444444,39.37008,4,,8057,,,94.9,100
+53C0796,Los Angeles County,Maple St,Maple St,,City of Pasadena,Eaton Wash,34.1508777777778,-118.088686111111,52.49344,2,,1500,,,96.9,100
+53C0863,Los Angeles County,Fair Oaks Ave,Fair Oaks Ave,,City of Pasadena,Mta,34.1249138888889,-118.150116666667,170.60368,4,,24775,,SD,84.9,100
+53C1041,Los Angeles County,Holly Street,Holly Street,,City of Pasadena,Arroyo Bl & Arroyo Seco,34.1484333333333,-118.164913888889,410.105,2,,7236,,SD,47.6,86.21
+53C1438,Los Angeles County,Paloma St,Paloma St,,City of Pasadena,Eaton Wash,34.1593888888889,-118.088130555556,39.37008,2,,800,,,96.9,100
+53C1731,Los Angeles County,Pasadena Plaza Poc,Pasadena Plaza Poc,,City of Pasadena,Marengo Avenue,34.1451138888889,-118.146111111111,114.8294,,,,,,,0
+53C1732,Los Angeles County,Pasadena Plaza Poc,Pasadena Plaza Poc,,City of Pasadena,Green Street,34.1444444444444,-118.142216666667,88.58268,,,,,,,0
+53C1736,Los Angeles County,Chateau Rd,Chateau Rd,,City of Pasadena,Unnamed Wash,34.1476666666667,-118.172411111111,36.08924,2,,500,,,49.8,96.32
+53C1829,Los Angeles County,Oak Grove Dr,Oak Grove Dr,,City of Pasadena,Arroyo Seco,34.1850111111111,-118.175613888889,419.94752,4,,5952,,SD,77.8,90.24
+53C1841,Los Angeles County,Colorado Boulevard,Colorado Boulevard,,City of Pasadena,Linda Vista Avenue,34.1444333333333,-118.167694444444,52.49344,2,,16987,,FO,70.5,97.45
+53C1842,Los Angeles County,Colorado Blvd,Colorado Blvd,,City of Pasadena,Eaton Wash,34.1460777777778,-118.088316666667,55.77428,4,,19307,,,95.2,99.73
+53C1851,Los Angeles County,Oak Grove Drive,Oak Grove Drive,,City of Pasadena,Flint Canyon Wash,34.1858083333333,-118.177597222222,347.76904,4,,6162,,SD,74.7,99.61
+53C1898,Los Angeles County,Marengo Ave,Marengo Ave,,City of Pasadena,Mta,34.1514083333333,-118.145805555556,75.45932,5,,20335,,,78.6,94.5
+53C2225,Los Angeles County,Walnut Street,Walnut Street,,City of Pasadena,Eaton Wash,34.1479694444444,-118.088466666667,42.65092,3,,1500,,,99.9,
+53C2290,Los Angeles County,Union Street,Union Street,,City of Pasadena,Mta,34.1466666666667,-118.148055555556,26.24672,2,,6868,,FO,95.8,

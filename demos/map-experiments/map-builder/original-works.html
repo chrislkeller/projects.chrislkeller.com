@@ -1,0 +1,227 @@
+<!--
+copyright (c) 2011 Google inc.
+You are free to copy and use this sample.
+License can be found here: http://code.google.com/apis/ajaxsearch/faq/#license
+--> 
+
+<!-- BEGIN HEADER -->
+<head>
+
+<!-- BEGIN CSS -->
+<link rel="stylesheet" type="text/css" href="css/styles.css" media="screen" />
+<!-- END CSS -->
+ 
+<!-- BEGIN SCRIPTS -->
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> 
+<script type="text/javascript" src="http://gmaps-samples.googlecode.com/svn/trunk/fusiontables/script/closure/closure/goog/base.js"></script> 
+
+<script> 
+goog.require('goog.dom');
+goog.require('goog.ui.Slider');
+goog.require('goog.ui.Component');
+</script> 
+ 
+<script type="text/javascript" src="scripts/builder.js"></script> 
+<!-- END SCRIPTS -->
+
+</head> 
+<!-- END HEADER -->
+
+<!-- BEGIN BODY --> 
+<body onload="initialize(); initializeMap();">
+
+<h1>FusionTablesLayer Builder</h1>
+
+<p>This wizard helps you create the HTML for a map with a FusionTablesLayer and search element (either text-based search or select menu). After creating your map, you can copy and paste the HTML code in the textarea below to display the map on your own website!</p>
+
+<!-- BEGIN DATA COLUMN --> 
+<div style="float:left; width: 375px; margin: 0 50px 20px 0;">
+
+<!-- BEGIN SECTION -->
+<h2>Edit Map</h2>
+
+<div id="formelement">
+<label>Dimensions:</label>
+<div class="right">
+W: <input type="text" id="mapwidth" style="width: 35px;" /> px,
+H: <input type="text" id="mapheight" style="width: 35px;" /> px
+</div> 
+</div>
+
+<div id="formelement"> 
+<label>Map Center: </label><input type="text" id="mapCenter" class="right" /> 
+</div>
+
+<div id="formelement">
+<label>Zoom: </label> <input type="text" id="mapZoom" class="right" /> 
+</div>
+
+<div id="formelement"> 
+<input type="button" onclick="editMap();" value="Edit Map" class="right" /> 
+</div>
+<!-- END SECTION -->
+
+<!-- BEGIN SECTION -->
+<h2>Style Map</h2> 
+<div id="formelement"> 
+<label>Show: </label> 
+<div class="right" style="width: 200px;"> 
+<div class="right"> 
+<input type="checkbox" id="allfeatures" checked="checked" onclick="styleMapAll()" /> All features<br /> 
+<a href="javascript:specs();">More options</a> 
+</div> 
+</div> 
+
+<div id="specifics" style="display: none;">
+<br style="clear: both;" />
+<form name="specform">
+<div class="left" style="margin: 0px 5px 15px 0px;"> 
+<b>Roads</b><br /> 
+<input type="checkbox" name="specs" id="road.highway" checked="checked" onclick="styleMap()" /> Highways<br /> 
+<input type="checkbox" name="specs" id="road.arterial" checked="checked" onclick="styleMap()" /> Arterial<br /> 
+<input type="checkbox" name="specs" id="road.local" checked="checked" onclick="styleMap()" /> Local
+</div> 
+
+<div class="left" style="margin: 0px 5px 15px 0px;"> 
+<b>Administrative</b><br /> 
+<input type="checkbox" name="specs" id="administrative.country" checked="checked" onclick="styleMap()" /> Country<br /> 
+<input type="checkbox" name="specs" id="administrative.province" checked="checked" onclick="styleMap()" /> Province<br /> 
+<input type="checkbox" name="specs" id="administrative.locality" checked="checked" onclick="styleMap()" /> Locality<br /> 
+<input type="checkbox" name="specs" id="administrative.neighborhood" checked="checked" onclick="styleMap()" /> Neighborhood<br /> 
+<input type="checkbox" name="specs" id="administrative.land_parcel" checked="checked" onclick="styleMap()" /> Land parcel
+</div> 
+
+<div class="left" style="margin: 0px 5px 15px 0px;"> 
+<b>Other</b><br /> 
+<input type="checkbox" name="specs" id="poi" checked="checked" onclick="styleMap()" /> Point of Interest<br /> 
+<input type="checkbox" name="specs" id="transit" checked="checked" onclick="styleMap()" /> Transit
+</div> 
+</form> 
+</div> 
+</div><br /> 
+
+<div id="formelement"> 
+<label>Saturation:</label> 
+<div class="right">
+<div class="left">Gray&nbsp;</div>
+<div id="s1" class="goog-slider left">
+<div class="goog-slider-thumb"></div> 
+</div> 
+<div class="left">&nbsp;Bright</div> 
+</div> 
+</div>
+<!-- END SECTION -->
+
+<!-- BEGIN SECTION -->
+<h2>Add layer</h2> 
+<div id="formelement"> 
+<label>Your table id: </label><input type="text" id="tableid" class="right" onblur="fillSelectColumns();" /> 
+</div> 
+
+<div id="formelement"> 
+<label>Location Column: </label><select id="locationColumn" class="right" disabled="true"> 
+<option value="">--Select--</option> 
+</select> 
+</div> 
+
+<div id="formelement"> 
+<label>Filter (opt.): </label> 
+<div class="right">WHERE <input type="text" id="filter" /></div> 
+</div> 
+
+<div id="formelement"> 
+<input type="button" onclick="addLayer();" value="Add Layer" class="right" /> 
+</div>
+
+<!-- BEGIN SECTION -->
+<h2>Add another feature</h2> 
+<select id="addFeature" onchange="showDiv(this.value)"> 
+<option value="">--SELECT--</option> 
+<option value="layer">Another layer</option> 
+<option value="text">Text-based search</option> 
+<option value="select">Select-menu search</option> 
+</select>
+
+<br /><br /> 
+
+<div id="layer" style="display: none; clear: both;"> 
+<form> 
+<div id="formelement"> 
+<label>Second table id: </label><input type="text" id="anotherTableid" class="right" onblur="fillAnotherSelectColumns();" /> 
+</div> 
+
+<div id="formelement"> 
+<label>Location Column: </label><select id="anotherLocationColumn" class="right" disabled="true"> 
+<option value="">--Select--</option>
+</select> 
+</div> 
+
+<div id="formelement"> 
+<label>Filter (opt.): </label>WHERE <input type="text" id="anotherFilter" class="right" /> 
+</div> 
+
+<div id="formelement" style="text-align: right;"> 
+<input type="reset" value="Reset" onclick="resetAddFeature()" class="right" /> 
+<input type="button" onclick="addAnotherLayer();" value="Add Layer" class="right" /> 
+</div> 
+</form> 
+
+</div> 
+	
+<div id="text" style="display: none; clear: both;"> 
+<form> 
+<div id="formelement"> 
+<label>Text Label: </label><input type="text" id="textQueryLabel" class="right" /> 
+</div> 
+
+<div id="formelement"> 
+<label>Column to query: </label><select id="textQueryColumn" class="right" disabled="true"> 
+<option selected="selected" value="">--Select--</option> 
+</select> 
+</div> 
+
+<div id="formelement" style="text-align: right;"> 
+<input type="button" onclick="addQuery();" value="Add Search" /> 
+<input type="reset" value="Reset" onclick="resetAddFeature()" /> 
+</div> 
+</form> 
+
+</div> 
+	
+<div id="select" style="display: none; clear: both;"> 
+<form> 
+<div id="formelement"> 
+<label>Select Label: </label><input type="text" id="selectQueryLabel" class="right" />
+</div> 
+
+<div id="formelement"> 
+<label>Column to query: </label><select id="selectQueryColumn" class="right" disabled="true"> 
+<option selected="selected" value="">--Select--</option> 
+</select> 
+</div> 
+
+<div id="formelement" style="text-align: right;"> 
+<input type="button" onclick="addSelectQuery();" value="Add Search" /> 
+<input type="reset" value="Reset" onclick="resetAddFeature()" /> 
+</div> 
+</form> 
+</div> 
+<!-- END SECTION -->
+	
+</div>
+<!-- END DATA COLUMN --> 
+
+<!-- BEGIN PREVIEW AREA -->
+<div id="map_section" style="float: left;"> 
+<h2>Preview</h2> 
+<div id="map_canvas"></div> 
+</div>
+<!-- END PREVIEW AREA -->
+
+<div style="clear: both;"> 
+
+<!-- BEGIN HTML OUTPUT -->
+<h2>Your HTML</h2> 
+<textarea id="htmlCode" style="width: 900px; height: 600px;"></textarea> 
+</div>
+<!-- END HTML OUTPUT -->

@@ -1,0 +1,53 @@
+<!DOCTYPE html> 
+
+<!--
+  copyright (c) 2011 Google inc.
+
+  You are free to copy and use this sample.
+  License can be found here: http://code.google.com/apis/ajaxsearch/faq/#license
+-->
+
+<html> 
+<head> 
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
+
+<title>Google Maps JavaScript API v3 Example: Fusion Tables Layer</title> 
+
+<style>
+  body { font-family: Arial, sans-serif; }
+  #map_canvas { height: 600px; width:700px; }
+</style>
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> 
+<script type="text/javascript" id="script">
+var tableid_1 = 359908;
+var tableid_2 = 404027;
+var zoom = 5;
+var center = new google.maps.LatLng(37.4, -122.1);
+ 
+function initialize() {
+  map = new google.maps.Map(document.getElementById('map_canvas'), {
+    center: center,
+    zoom: zoom,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  });
+  
+  layer_1 = new google.maps.FusionTablesLayer(tableid_1);
+  layer_1.setQuery("SELECT geometry FROM " + tableid_1);
+  layer_1.setMap(map);
+  
+  layer_2 = new google.maps.FusionTablesLayer(tableid_2);
+  layer_2.setMap(map);
+}
+
+</script> 
+</head> 
+<body onload="initialize();"> 
+
+<div id="map_canvas"></div>
+  
+<div id="code"></div>
+<script type="text/javascript" src="script/script.js"></script>
+</body> 
+</html> 

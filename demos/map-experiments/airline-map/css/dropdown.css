@@ -1,0 +1,35 @@
+#dropdown {
+    position: absolute;
+    top: 65px;
+    right:10px;
+    background-color:#FFF;
+    padding:4px;
+    font-family: Arial, sans-serif;
+    font-size:.8em;
+    border: 0px outset #DFF2FF;
+    line-height:1.3em;
+}
+
+#dropdown h1 {font-size:18px; margin:0 0 4px 0;}
+#dropdown h2 {font-size:14px; margin:0 0 6px 0;}
+
+#dropdown dl {margin:10px 0; float:left;}
+#dropdown dt {clear:both; float:right; height:20px; margin-left:10px; width:110px;}
+#dropdown dd {float:left; height:19px; width:20px; opacity:.75; margin:0;}
+
+#dropdown form {margin: 6px 4px 4px 0px;}
+
+#dropdown td {clear:both; height:20px;}
+
+#dropdown .segment1 {background-color:#ff9900; float:left; height:19px; width:20px; opacity:.75; margin:0;}
+#dropdown .segment2 {background-color:#FFFF00; float:left; height:4px; width:20px; opacity:.75; margin:0;
+		margin-top:6px;
+		border-style:solid;
+		border-width:1px;
+		border-color:black;}
+#dropdown .segment3 {background-color:#FA9FB5; float:left; height:19px; width:20px; opacity:.75; margin:0;}
+#dropdown .segment4 {background-color:#F768A1; float:left; height:19px; width:20px; opacity:.75; margin:0;}
+#dropdown .segment5 {background-color:#C51B8A; float:left; height:19px; width:20px; opacity:.75; margin:0;}
+#dropdown .segment6 {background-color:#7A0177; float:left; height:19px; width:20px; opacity:.75; margin:0;}
+
+

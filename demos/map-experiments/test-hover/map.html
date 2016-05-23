@@ -1,0 +1,105 @@
+<!-- begin css  -->
+<style type="text/css">
+#map_canvas {width: 600px; height: 400px;}
+#my_map_data_div {width: 600px; height: 400px;}
+
+.current-listing {background: #e8e8e8;}
+
+</style>
+<!-- end css  -->
+
+<!-- begin scripts -->
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+
+<!-- experiment maps api key -->
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&region=us"></script>
+
+<script type="text/javascript">
+//global variables
+var jqueryNoConflict = jQuery;
+
+var marker;
+var myLatlng = new google.maps.LatLng(31.25, -99.84);
+
+//begin main function
+jqueryNoConflict(document).ready(function(){
+    createMap();
+});
+//end main function
+
+// begin function
+function createMap() {
+
+    var map = new google.maps.Map(document.getElementById('map_canvas'), {
+        center: myLatlng,
+        zoom: 2,
+        scrollwheel: false,
+        draggable: true,
+        mapTypeControl: false,
+        navigationControl: true,
+        streetViewControl: false,
+        panControl: false,
+        scaleControl: false,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        navigationControlOptions: {
+            style: google.maps.NavigationControlStyle.SMALL,
+            position: google.maps.ControlPosition.RIGHT_TOP}
+    });
+    
+    var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        title:"Hello World!"
+    });
+
+
+    google.maps.event.addListener(marker, 'click', function() {
+        console.log('Click');
+        $('tr.row').addClass('current-listing').focus();
+    });
+
+/*
+    google.maps.event.addListener(marker, 'mouseout', function() {
+        console.log('Hover');
+        $('tr.row').removeClass('current-listing').focus();
+    });
+*/
+    
+}
+// end function
+</script>
+
+<body>
+<div id="map_canvas"></div>
+<div id="my_map_data_div">
+    
+    <table id="incident-table" class="sortable table table-striped table-bordered table-condensed">
+		<thead>
+			<tr>
+				<th class="sorted">Date</th>
+				<th class="sorted">Incident</th>
+				<th class="sorted">Location</th>
+				<th class="sorttable_nosort">Details</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr class="row">
+				<td>Aug. 1, 2012, 2:15 a.m. </td>
+				<td>Battery</td>
+				<td>500 block University Ave., Madison, Wis.</td>
+				<td><a class="centered btn btn-large btn-primary" href="/incidents/548" data-bitly-type="bitly_hover_card">View</a></td>
+			</tr>
+
+			<tr>
+				<td>July 30, 2012, 4:32 p.m. </td>
+				<td>Intoxicated Driver</td>
+				<td>2800 block E. Washington Ave., Madison, Wis.</td>
+				<td><a class="centered btn btn-large btn-primary" href="/incidents/545" data-bitly-type="bitly_hover_card">View</a></td>
+			</tr>
+
+        </tbody>
+	<tfoot></tfoot></table>
+    
+</div>
+</body>

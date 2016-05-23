@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+#map_canvas { width: 375px; height: 575px; }
+
+dl dt {font-weight:bold; float: left; clear: left; width: 15px; height: 15px; display: inline-block; overflow: hidden; border: 1px solid #000; line-height: 15px; margin: 0 0 0.5em 0; }
+</style>
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+<script type="text/javascript">
+
+//update this tableid with your fusion table here
+var tableid = '180MVj6mct7yHYJ-qENgBvW9bWqBEke-pteUJKCs';
+
+var map;
+var layer;
+
+/* I moved these out into global variables so both the initial map
+and the zoomToAddress state can access the values */
+var defaultCenter = new google.maps.LatLng(40.173233,-74.547043);
+var defaultZoom = 8;
+
+function initialize() {
+    map = new google.maps.Map(document.getElementById('map_canvas'), {
+        center: defaultCenter,
+    	zoom: defaultZoom,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+    	streetViewControl: false,
+    });
+
+    var layer = new google.maps.FusionTablesLayer(tableid);
+    layer.setQuery("SELECT 'geometry' FROM " + tableid);
+    layer.setMap(map);
+
+
+    // Create the legend and display on the map
+    var legendDiv = document.createElement('DIV');
+    var legend = new Legend(legendDiv, map);
+    legendDiv.index = 1;
+    map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legendDiv);
+}
+
+
+function zoomToAddress() {
+
+    // pull values from option menu
+    var searchString = document.getElementById('searchString').value;
+
+    if(searchString == "") {
+        map.setCenter(defaultCenter);
+        map.setZoom(defaultZoom);
+        return;
+
+    } else {
+
+        // determine position of comma
+        // we'll use this to split the searchString value
+        var commaPos = searchString.indexOf(',');
+
+        // parse searchString for Lat value
+        var coordinatesLat = parseFloat(searchString.substring(0, commaPos));
+
+        // parse searchString for Long value
+        var coordinatesLong = parseFloat(searchString.substring(commaPos + 1, searchString.length));
+
+        // create Lat/Long pair as google maps LatLng
+        var centerPoint = new google.maps.LatLng(coordinatesLat, coordinatesLong);
+
+        map.setCenter(centerPoint);
+        map.setZoom(10);
+    }
+}
+
+function Legend(controlDiv, map) {
+  // Set CSS styles for the DIV containing the control
+  // Setting padding to 5 px will offset the control
+  // from the edge of the map
+  controlDiv.style.padding = '5px';
+
+  // Set CSS for the control border
+  var controlUI = document.createElement('DIV');
+  controlUI.style.backgroundColor = 'white';
+  controlUI.style.borderStyle = 'solid';
+  controlUI.style.borderWidth = '1px';
+  controlUI.title = 'Legend';
+  controlDiv.appendChild(controlUI);
+
+  // Set CSS for the control text
+  var controlText = document.createElement('DIV');
+  controlText.style.fontFamily = 'Arial,sans-serif';
+  controlText.style.fontSize = '12px';
+  controlText.style.paddingLeft = '4px';
+  controlText.style.paddingRight = '4px';
+
+  // Add the text; be sure to update the background-colors for your key
+  controlText.innerHTML = '<b>Percentage of households<br />struggling to make ends meet<br /> <hr>' +
+  	'<dl>' +
+	'<dt style="background-color: #cfe2f3; color: #ffffff"></dt><dd style=" float: left; clear: right; margin: 0 0 0 4%; line-height: 15px">0 to 9 percent</dd><br />' +
+	'<dt style="background-color: #cfe2f3; color: #cfe2f3"></dt><dd style=" float: left; clear: right; margin: 0 0 0 4%; line-height: 15px">10 to 19 percent</dd><br />' +
+	'<dt style="background-color: #6fa8dc; color: #6fa8dc"></dt><dd style=" float: left; clear: right; margin: 0 0 0 4%; line-height: 15px">20 to 29 percent</dd><br />' +
+	'<dt style="background-color: #0b5394; color: #0b5394"></dt><dd style=" float: left; clear: right; margin: 0 0 0 4%; line-height: 15px">30 to 39 percent</dd><br />' +
+	'<dt style="background-color: #073763; color: #073763"></dt><dd style=" float: left; clear: right; margin: 0 0 0 4%; line-height: 15px">40 percent and higher </dd><br /><br /></dl>' ;
+  controlUI.appendChild(controlText);
+  //+'<small><br />Source: United Way of Northern New Jersey'
+  }
+
+
+</script>
+
+</head>
+<body onload="initialize();">
+<div style="margin-top: 15px;">
+  <label>County </label>
+  <select id="searchString" onchange="zoomToAddress(this.value);">
+    <option value="">--Select All--</option>
+    <option value="39.423226,-74.573671
+">Atlantic</option>
+    <option value="40.919202,-74.057528
+">Bergen</option>
+    <option value="39.98027,-74.834223
+">Burlington</option>
+    <option value="39.865625,-75.029459
+">Camden</option>
+    <option value="39.100373,-74.79785
+">Cape May</option>
+    <option value="39.429365,-75.088756
+">Cumberland</option>
+    <option value="40.768569,-74.216753
+">Essex</option>
+    <option value="39.750163,-75.122017
+">Gloucester</option>
+    <option value="40.742858,-74.062722
+">Hudson</option>
+    <option value="40.574661,-74.89705
+">Hunterdon</option>
+    <option value="40.255412,-74.703674
+">Mercer</option>
+    <option value="40.488972,-74.385573
+">Middlesex</option>
+    <option value="40.292593,-74.139763
+">Monmouth</option>
+    <option value="40.859401,-74.500218
+">Morris</option>
+    <option value="39.970574,-74.207516
+">Ocean</option>
+    <option value="40.926466,-74.191793
+">Passaic</option>
+    <option value="39.624761,-75.379425
+">Salem</option>
+    <option value="40.56499,-74.579279
+">Somerset</option>
+    <option value="41.08912,-74.653273
+">Sussex</option>
+    <option value="40.659778,-74.294539
+">Union</option>
+    <option value="40.796063,-75.014526
+">Warren</option>
+ </select>
+<div>
+
+<div id="map_canvas"></div>
+
+
+</body>
+</html>

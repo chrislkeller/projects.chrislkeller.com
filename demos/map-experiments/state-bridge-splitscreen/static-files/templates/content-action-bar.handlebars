@@ -1,0 +1,35 @@
+<div class="row-fluid">
+    <h4>Enter address, intersection or <a id='find_me' href='#'>use your location</a> to find nearby natural gas pipelines</h4>
+    <div class="span12">
+        <div class='well'>
+            <form class="form-inline">
+                <input class='input-block-level' id='search_address' placeholder='Ex: Chevy Chase Dr.' type='text' />
+                    <label>within
+                        <select class='input-small' id='search_radius'>
+                            <option value='3218'>2 miles</option>
+                            <option value='8047'>5 miles</option>
+                            <option value='16093'>10 miles</option>
+                        </select>
+                    </label>
+                <input class='btn btn-success' id='search' type='button' value='Search' />
+                <button class='btn' id='reset'>Reset</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="row-fluid">
+    <div class="span12">
+        <h4>Legend</h4>
+        <div class="well">
+            <form class="form-inline">
+                <div id="data-legend">
+                    <ul id="data-legend-items">
+                        <li class="darkblue">Transmission Lines</li>
+                        <li class="lightblue">Distribution Lines</li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

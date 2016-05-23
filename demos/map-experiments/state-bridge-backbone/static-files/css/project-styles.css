@@ -1,0 +1,6 @@
+.overlay { position: fixed; background: rgba(255, 255, 255, 0.95); border: 1px solid #aaa; padding: 20px; z-index: 5; }
+#search-area { right: 40px; top: 40px; }
+#listing { left: 40px; bottom: 150px; }
+#listing li { list-style: none; border-bottom: 1px solid #ccc; padding: 10px; cursor: pointer; }
+#listing li:hover { background: #006; color: #fff; }
+button { background: #006; color: #fff; font-weight: bold; border: 1px solid rgba(0,0,0,.85); font-size: 14px; padding: 10px 15px; outline: none; }

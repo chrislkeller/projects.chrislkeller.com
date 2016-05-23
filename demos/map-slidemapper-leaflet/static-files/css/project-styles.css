@@ -1,0 +1,15 @@
+.center {width: 100%; margin: 0 auto;}
+.smapp {border: 0px solid #bbb;}
+#options {margin-bottom: 30px;}
+#options h1 {margin-bottom: 0;}
+#options p {margin-top: .5em;}
+#options label {display: inline-block; width: 130px; clear: both;}
+#options .column {display: inline-block; width: 390px; vertical-align: top;}
+#options .span1 {width: 80px;}
+#options .span2 {width: 170px;}
+.smapp-show .slide {margin-bottom: 20px;}
+.smapp-show .slide-inner { position: relative; overflow: hidden; margin: 10px; }
+
+/* need to display leaflet markers ahead of google layer */
+.leaflet-map-pane {z-index: 2 !important;}
+.leaflet-google-layer {z-index: 1 !important;}

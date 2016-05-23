@@ -1,0 +1,253 @@
+<style type="text/css">
+#container {width: 955px; height: auto; position: relative;}
+#mapcontainer {width: 955px; height: 450px; float: left; position: relative;}
+#map-explainer {position: absolute; float:left; right:2px; width:200px; height:429px; background-color:#f3efe9; padding:10px; font-family: Arial, sans-serif; font-size:12px; border: 1px solid #000000; line-height:1.3em;}
+
+/*STYLES*/
+#map-explainer h1 {font-size:18px; margin:0 0 4px 0;}
+#map-explainer h2 {font-size:14px; margin:0;}
+#map-explainer h3 {font-size:11px; margin: 10px 0 0 0;}
+#map-explainer .map-legend {float:left;line-height:20px; width:125px; margin: 10px 0;}
+#map-explainer .map-legend span {height:20px; width:20px; margin-right:5px; display:block; float:left; clear:left; opacity: .75;}
+#map-explainer .highest {background-color: #3C2415;}
+#map-explainer .second-highest {background-color: #8B5D3B;}
+#map-explainer .median {background-color: #D7AF7F;}
+#map-explainer .second-lowest {background-color: #F5E3C6;}
+#map-explainer .lowest {background-color: #FF9933;}
+#map-explainer p {clear:both; margin:5px 0 0 0;}
+#map-explainer #smalltype {font-size:10px; line-height:1.2em;}
+
+/*TAB STYLES*/
+.tabs {height:300px; width:450px; margin:0px; padding:0px; overflow: hidden; scrollbar:false;}
+p.small {font-size: 14px; line-height: 10px;}
+
+
+/*INFO WINDOW STYLES*/
+table,th,tr,td {border-width: 1px; border-style: solid; border-color: gray; border-collapse: collapse; background-color: white;}
+table {font-size: 12px; width: 100%;}
+th {color: #fff; background-color: #aaa; padding: 5px 5px; border-top: 4px solid #555; font-weight: bold}
+th a {color: #fff;}
+td {padding: 3px; text-align: center;}
+</style>
+<link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/base/jquery-ui.css" rel="stylesheet" />	
+<!-- END CSS -->
+
+<!-- BEGIN CONTAINER -->
+<div id="container">
+
+<!-- BEGIN MAP CONTAINER -->
+<div id="mapcontainer">
+
+<!-- BEGIN MAP EXPLAINER -->
+<div id="map-explainer">
+<h1>Xxxxxxxxxxxxxx</h1>
+<p>Xxxxxxxxxxxxxxxxxxxxxxx</p>
+
+<!-- BEGIN MAP LEGEND -->
+<div class="map-legend">
+<span class="highest"></span>Increase of 600 or more<br/>
+<span class="second-highest"></span>Increase of 400 to 599<br/>
+<span class="median"></span>Increase of 100 to 199<br/>
+<span class="second-lowest"></span>Increase of 0 to 99<br/>
+<span class="lowest"></span>Decrease of 1 to 100<br/>
+</div>
+<!-- END MAP LEGEND -->
+
+<!-- BEGIN CREDITS -->
+<div id="smalltype">
+<p>Xxxxxxxxxxxxxxxx</br>
+Xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.</p>
+</div>
+<!-- END CREDITS -->
+
+</div>
+<!-- END MAP EXPLAINER -->
+
+<!-- BEGIN MAP -->
+<div id="map" style="width: 620px; height: 600px; border: 1px solid #000000;"></div>
+<!-- END MAP -->
+
+</div>
+<!-- END MAP CONTAINER -->
+
+</div>
+<!-- END CONTAINER -->
+
+<!-- BEGIN SCRIPTS -->
+<script type="text/javascript" src="https://www.google.com/jsapi?"></script>
+<script type="text/javascript"> 
+google.load('maps', '3.5', {other_params:'sensor=false'});
+google.load('jquery', '1.6.1');
+google.load('visualization', '1.1');
+google.load('jqueryui', '1.8.12');
+</script>
+
+<script type="text/javascript">
+var infowindow;
+var map, layer;
+var legend_width = '205px';
+var tableid = 975492;
+var zoom = 7;
+var latlng = new google.maps.LatLng(44.45731,-89.714355);
+
+//values for legend
+var columns = {
+  'Vote Margin': [
+    {
+      'min': 0,
+      'max': 100,
+      'color': '#E6918E',
+    },
+    {
+      'min': 100,
+      'max': 500,
+      'color': '#E6726F',
+    },
+    {
+      'min': 500,
+      'max': 1000,
+      'color': '#CC433F',
+    },
+    {
+      'min': 1000,
+      'max': 3000,
+      'color': '#851715',
+    }
+  ],
+}
+
+function initialize() {
+
+	map = new google.maps.Map(document.getElementById('map'), {						
+		center: latlng,
+		zoom: zoom,		
+		scrollwheel: false,		
+		disableDragging: true,
+		mapTypeControl: false,
+		navigationControl: true,
+		streetViewControl: false,
+		scaleControl: false,
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
+
+		navigationControlOptions: {
+			style: google.maps.NavigationControlStyle.LARGE,
+			position: google.maps.ControlPosition.RIGHT_TOP}
+});
+
+	layer = new google.maps.FusionTablesLayer(tableid, {suppressInfoWindows: true});
+	layer.setQuery("SELECT geometry FROM  " + tableid);
+	layer.setMap(map);
+
+//click listener to the layer
+//creates a new infowindow
+
+google.maps.event.addListener(layer, 'click', function(e) {
+	if(infowindow) infowindow.close();
+	else infowindow = new google.maps.InfoWindow();
+	
+	infowindow.setContent(
+	'<div class="tabs">' +
+    '<ul>' +
+    '<li><a href="#tab-1"><span>Prosser</span></a></li>' +
+    '<li><a href="#tab-2"><span>Kloppenburg</span></a></li>' +
+    '<li><a href="#tab-3"><span>County Totals</span></a></li>' +
+    '</ul>' +
+
+	//Prosser Tab - FINISHED
+	'<div id="tab-1">' +
+    '<p class="small">' + '<strong>' + e.row['County Name'].value + '</strong>' +
+    '<p class="small">Number of Precincts: ' + e.row['Number of Precincts'].value + '</p>' +
+	'<table>' +
+	'<tbody>' +
+	'<tr>' +
+	'<th><img height="75" src="http://hulshofschmidt.files.wordpress.com/2011/03/david-prosser-thumb.jpg"></th>' +
+	'<th>Votes Cast</th>' +
+	'<th>Percent Of Vote</th>' +
+	'<th>Vote Margin</th>' +
+	'</tr>' +
+	'<tr>' +
+	'<td>Spring Election</td>'+
+	'<td>' + e.row['Spring Election votes cast for David Prosser'].value + '</td>' +
+	'<td>' + e.row['Spring Election Percent of Vote for Prosser'].value + '</td>' +
+	'<td>' + e.row['Spring Election Vote Margin'].value + '</td>' +
+	'</tr>' +
+	'<tr>' +
+	'<td>Certified Recount</td>'+
+	'<td>' + e.row['Votes Cast for David Prosser after Certification'].value + '</td>' +
+	'<td>' + e.row['Certified Percent of Vote for Prosser'].value + '</td>' +
+	'<td>' + e.row['Certified Vote Margin'].value + '</td>' +
+	'</tr>' +
+	'<tr>' +
+	'<td>Change</td>'+
+	'<td>' + e.row['Prosser Votes Gained Between Spring Election and Certified Results'].value + '</td>' +
+	'<td> - </td>' +
+	'<td>' + e.row['Certified Vote Margin'].value + '</td>' +
+	'</tr>' +
+	'</tbody>' +
+	'</table>' +
+	'</div>' +
+
+	//Kloppenburg Tab - FINISHED
+    '<div id="tab-2">' +
+    '<p class="small">' + '<strong>' + e.row['County Name'].value + '</strong>' +
+    '<p class="small">Number of Precincts: ' + e.row['Number of Precincts'].value + '</p>' +
+	'<table>' +
+	'<tbody>' +
+	'<tr>' +
+	'<th><img height="75" src="http://www.lwvdanecounty.org/sites/default/files/JoanneKloppenburg.jpg"></th>' +
+	'<th>Votes Cast</th>' +
+	'<th>Percent Of Vote</th>' +
+	'<th>Vote Margin</th>' +
+	'</tr>' +
+	'<tr>' +
+	'<td>Spring Election</td>'+
+	'<td>' + e.row['Spring Election votes cast for Joanne Kloppenburg'].value + '</td>' +
+	'<td>' + e.row['Spring Election Percent of Vote for Kloppenburg'].value + '</td>' +
+	'<td>' + e.row['Spring Election Vote Margin'].value + '</td>' +
+	'</tr>' +
+	'<tr>' +
+	'<td>Certified Recount</td>'+
+	'<td>' + e.row['Votes cast for Joanne Kloppenburg after Certification'].value + '</td>' +
+	'<td>' + e.row['Certified Percent of Vote for Kloppenburg'].value + '</td>' +
+	'<td>' + e.row['Certified Vote Margin'].value + '</td>' +
+	'</tr>' +
+	'<tr>' +
+	'<td>Change</td>'+
+	'<td>' + e.row['Kloppenburg Votes Gained Between Spring Election and Certified Results'].value + '</td>' +
+	'<td> - </td>' +
+	'<td>' + e.row['Certified Vote Margin'].value + '</td>' +
+	'</tr>' +
+	'</tbody>' +
+	'</table>' +
+    '</div>' +
+
+	//County Tab - FINISHED
+    '<div id="tab-3">' +
+    '<p class="small">' + '<strong>' + e.row['County Name'].value + '</strong>' +
+    '<p class="small">Number of Precincts: ' + e.row['Number of Precincts'].value + '</p>' +
+	'<table>' +
+	'<tbody>' +
+	'<tr>' +
+	'<th>Total Votes Cast in Spring Election</th>' +
+	'<th>Total Votes after Certification</th>' +
+	'<th>Vote Difference Between Spring Election and Certified Results</th>' +
+	'</tr>' +
+	'<tr>' +
+	'<td>' + e.row['Total Votes Cast in Spring Election'].value + '</td>' +
+	'<td>' + e.row['Total Votes after Certification'].value + '</td>' +
+	'<td>' + e.row['Vote Difference Between Spring Election and Certified Results'].value + '</td>' +
+	'</tr>' +
+	'</tbody>' +
+	'</table>' +
+    '</div>' +
+    '</div>');
+    infowindow.setPosition(e.latLng);
+    infowindow.open(map);
+	$(".tabs").tabs();
+  });
+}
+
+//write the map
+setTimeout('initialize()', 500); 
+</script>
+<!-- END SCRIPTS -->

@@ -1,0 +1,313 @@
+<!-- begin css -->
+<link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/base/jquery-ui.css" rel="stylesheet" />
+
+<style type="text/css" media="screen">
+#wrapper {width:610px; float: left; }
+
+.tabs {width:100%; height:auto; margin:5px; padding:0px; scrollbar:false; border: 0px solid #E5EBE5;}
+
+.tabs a span { font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; font-size:12px; font-weight:bold; margin-top:2px; margin-bottom:2px; color:#666; }
+
+#map1, #map2, #map3, #map4 {width: 600px; height:560px;}
+
+#drought_map, #pasture_map, #corn_map, #soy_map {position:absolute; left:10px; top:185px; width:595px; height:405px; z-index:5; }
+
+#drought_text, #pasture_text, #corn_text, #soy_text { position:absolute; left:10px; top:55px; width:590px; height:35px; font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; font-size:22px; font-color:#666; font-weight: bold; z-index:20; }
+
+#keytext, #keytext2, #keytext3, #keytext4 { background-color:#ffffff; font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; font-size:12px; position:absolute; color:#666; z-index:10; width:590px; left:10px; top:80px; }
+
+#keycolors, #keycolors2, #keycolors3, #keycolors4 { width:590px; position:absolute; left:0px; top:30px; }
+
+table, td, th {font-family: "Trebuchet MS", Verdana, sans-serif; color: #666; text-align: center; vertical-align: middle;}
+
+td.amounts { font-size: 11px; font-weight: normal; }
+
+td.colors { border-right-width: 10px; border-left-width: 10px;	 border-right-style: solid; border-left-style: solid; border-right-color: #FFFFFF; border-left-color: #FFFFFF; }
+
+th.headers { font-weight: bold; padding-bottom: 3px; font-size: 14px; text-align: left; padding-top: 5px; border-top-width: 2px; border-top-style: solid; border-top-color: #CCC;}
+
+td.spacer { padding-top: -8px; }
+
+td.degree {font-weight: bold;}
+
+#graphic_credit {margin-top: 10px; margin-left: 10px; font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; font-size:10px; line-height:12px; color:#666; }
+
+.ui-widget-header {background: none; border: 0px;}
+
+.ui-tabs .ui-tabs-panel {padding: 0px; border: 3px solid #E5EBE5; width:610px;}
+
+.ui-widget-content { border: 0px solid #E5EBE5; color:#666;}
+</style>
+<!-- end css -->
+
+<!-- begin scripts -->
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBJj_v-VYk6V7vzOIlIj88DiteiuMfpdN4&sensor=false&region=us"></script>
+
+<script type="text/javascript">
+    var noConflictjQuery = jQuery;
+    var droughtTable = 4815253;
+    var pastureTable = 4834446;
+    var cornTable = 4835114;
+    var soyTable = 4833195;
+    var droughtMap;
+    var pastureMap;
+    var cornMap;
+    var soyMap;
+    var mylatlng = new google.maps.LatLng(38, -99);
+    var zoom = 4;
+
+noConflictjQuery(document).ready(function(){
+    noConflictjQuery(".tabs").tabs();
+    createMap();
+});
+
+function createMap() {
+    var mapOptions = {
+        center: mylatlng,
+        zoom: zoom,
+        scrollwheel: false,
+        mapTypeControl: false,
+        navigationControl: false,
+        zoomControl: true,
+        streetViewControl: false,
+        panControl: false,
+        scaleControl: false,
+        mapTypeId: google.maps.MapTypeId.TERRAIN,
+        navigationControlOptions: {
+            style: google.maps.NavigationControlStyle.SMALL,
+            position: google.maps.ControlPosition.LEFT_BOTTOM
+        }
+    };
+
+    // create main map & layer
+    droughtMap = new google.maps.Map(document.getElementById('drought_map'), mapOptions);
+    droughtLayer = assignLayerToMap(createLayerFromTable(droughtTable), droughtMap);
+
+    //write maps when tabs clicked
+    $('.tabs ul li a').click(function() {
+        pastureMap = new google.maps.Map(document.getElementById('pasture_map'), mapOptions);
+        pastureLayer = assignLayerToMap(createLayerFromTable(pastureTable), pastureMap);
+
+        cornMap = new google.maps.Map(document.getElementById('corn_map'), mapOptions);
+        cornLayer = assignLayerToMap(createLayerFromTable(cornTable), cornMap);
+
+        soyMap = new google.maps.Map(document.getElementById('soy_map'), mapOptions);
+        soyLayer = assignLayerToMap(createLayerFromTable(soyTable), soyMap);
+    });
+
+    // create layer object
+    function createLayerFromTable(table) {
+        var layer;
+        layer = new google.maps.FusionTablesLayer(table, {suppressInfoWindows: false});
+        layer.setQuery("SELECT geometry FROM " + table);
+        return layer;
+    }
+
+    // assign layer object to map
+    function assignLayerToMap(layer, map) {
+        layer.setMap(map);
+        return layer;
+    }
+}
+
+</script>
+<!-- end scripts -->
+
+<!-- begin wrapper -->
+<div id="wrapper">
+
+<!-- begin tab group -->
+<div class="tabs">
+<ul>
+<li><a href="#tab-1"><span>Drought severity</span></a></li>
+<li><a href="#tab-2"><span>Pastureland</span></a></li>
+<li><a href="#tab-3"><span>Corn</span></a></li>
+<li><a href="#tab-4"><span>Soybeans</span></a></li>
+</ul>
+
+<!-- begin drought panel -->
+<div id="tab-1">
+
+<!-- begin drought key -->
+<div id="map1"></div>
+<div id="keytext">This index uses temperature and rainfall in a formula to determine dryness and seasonal drought.<br />
+<div id="keycolors">
+<table width="590" border="0" cellspacing="2" cellpadding="0">
+    <tr>
+        <th colspan="3" bgcolor="#FFFFFF" class="headers" scope="col">&nbsp;DEGREE OF DROUGHT</th>
+        <th bgcolor="#FFFFFF" class="headers" scope="col">&nbsp;</th>
+        <th colspan="3" bgcolor="#FFFFFF" class="headers" scope="col">&nbsp;DEGREE OF MOISTURE</th>
+    </tr>
+    <tr>
+        <td bgcolor="#B22E28" class="colors">&nbsp;</td>
+        <td bgcolor="#C68E4D" class="colors">&nbsp;</td>
+        <td bgcolor="#C7BB5C" class="colors">&nbsp;</td>
+        <td bgcolor="#D4D6CE" class="colors">&nbsp;</td>
+        <td bgcolor="#A2BE96" class="colors">&nbsp;</td>
+        <td bgcolor="#6D9956" class="colors">&nbsp;</td>
+        <td bgcolor="#406E34" class="colors">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="degree">Extreme</span></td>
+        <td class="degree">Severe</span></td>
+        <td class="degree">Moderate</span></td>
+        <td class="degree">Normal</span></td>
+        <td class="degree">Unusual</span></td>
+        <td class="degree">Very</span></td>
+        <td class="degree">Extreme</span></td>
+    </tr>
+    <tr>
+        <td class="amounts">-4.0 or less</span></td>
+        <td class="amounts">-3.0 to -3.9</span></td>
+        <td class="amounts">-2.0 to -2.9</span></td>
+        <td class="amounts">-1.9 to +1.9</span></td>
+        <td class="amounts">+2.0 to +2.9</span></td>
+        <td class="amounts">+3.0 to +3.9</span></td>
+        <td class="amounts">+4.0 or more</span></td>
+    </tr>
+</table>
+</div>
+</div>
+<!-- end drought key -->
+
+<!-- begin drought map -->
+<div id="drought_text">Palmer Drought Severity index</div>
+<div id="drought_map"></div>
+<!-- end drought map -->
+
+</div>
+<!-- end gdrought panel -->
+
+
+
+<!-- begin pasture panel -->
+<div id="tab-2">
+
+<!-- begin pasture key -->
+<div id="map2"></div>
+<div id="keytext2">Explainer goes here describing what is pasureland<br />
+<div id="keycolors2">
+<table width="590" border="0" cellspacing="2" cellpadding="0">
+    <tr>
+        <th colspan="6" bgcolor="#FFFFFF" class="headers" scope="col">&nbsp;PERCENTAGE IN POOR OR VERY POOR CONDITION</th>
+    </tr>
+    <tr>
+        <td bgcolor="#B22E28" width="90px" class="colors">&nbsp;</td>
+        <td bgcolor="#C68E4D" width="90px" class="colors">&nbsp;</td>
+        <td bgcolor="#C7BB5C" width="90px" class="colors">&nbsp;</td>
+        <td bgcolor="#A2BE96" width="90px" class="colors">&nbsp;</td>
+        <td bgcolor="#6D9956" width="90px" class="colors">&nbsp;</td>
+        <td bgcolor="#D4D6CE" width="90px" class="colors">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="degree">80 to 100%</span></td>
+        <td class="degree">60 to 79%</span></td>
+        <td class="degree">40 to 59%</span></td>
+        <td class="degree">20 to 39%</span></td>
+        <td class="degree">0 to 19%</span></td>
+        <td class="degree">No data</span></td>
+    </tr>
+</table>
+</div>
+</div>
+<!-- end pasture key -->
+
+<!-- begin pasture map -->
+<div id="pasture_text">Pastureland condition</div>
+<div id="pasture_map"></div>
+<!-- end pasture map -->
+            
+</div>
+<!-- end pasture maps -->
+
+
+<!-- begin corn panel -->
+<div id="tab-3">
+
+<!-- begin corn key -->
+<div id="map3"></div>
+<div id="keytext3">Explainer goes here describing what is corn land is (grain &/ silage?)<br/>
+<div id="keycolors3">
+<table width="590" border="0" cellspacing="2" cellpadding="0">
+    <tr>
+        <th colspan="6" bgcolor="#FFFFFF" class="headers" scope="col">&nbsp;PERCENTAGE IN POOR OR VERY POOR CONDITION</th>
+    </tr>
+    <tr>
+        <td bgcolor="#B22E28" width="95px" class="colors">&nbsp;</td>
+        <td bgcolor="#C68E4D" width="95px" class="colors">&nbsp;</td>
+        <td bgcolor="#C7BB5C" width="95px" class="colors">&nbsp;</td>
+        <td bgcolor="#A2BE96" width="95px" class="colors">&nbsp;</td>
+        <td bgcolor="#6D9956" width="95px" class="colors">&nbsp;</td>
+        <td bgcolor="#D4D6CE" width="95px" class="colors">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="degree">80 to 100%</span></td>
+        <td class="degree">60 to 79%</span></td>
+        <td class="degree">40 to 59%</span></td>
+        <td class="degree">20 to 39%</span></td>
+        <td class="degree">0 to 19%</span></td>
+        <td class="degree">No data</span></td>
+    </tr>
+</table>
+</div>
+</div>
+<!-- end corn key -->
+
+<!-- begin corn map -->
+<div id="corn_text">Corn crops condition</div>
+<div id="corn_map"></div>
+<!-- end corn map -->
+        
+</div>
+<!-- end corn panel -->
+
+<!-- begin soy panel -->
+<div id="tab-4">
+
+<!-- begin soy key -->
+<div id="map4"></div>
+<div id="keytext4">Explainer goes here describing what is corn land is (grain &/ silage?)<br/>
+<div id="keycolors4">
+<table width="590" border="0" cellspacing="2" cellpadding="0">
+    <tr>
+        <th colspan="6" bgcolor="#FFFFFF" class="headers" scope="col">&nbsp;PERCENTAGE IN POOR OR VERY POOR CONDITION</th>
+    </tr>
+    <tr>
+        <td bgcolor="#B22E28" width="95px" class="colors">&nbsp;</td>
+        <td bgcolor="#C68E4D" width="95px" class="colors">&nbsp;</td>
+        <td bgcolor="#C7BB5C" width="95px" class="colors">&nbsp;</td>
+        <td bgcolor="#A2BE96" width="95px" class="colors">&nbsp;</td>
+        <td bgcolor="#6D9956" width="95px" class="colors">&nbsp;</td>
+        <td bgcolor="#D4D6CE" width="95px" class="colors">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="degree">80 to 100%</span></td>
+        <td class="degree">60 to 79%</span></td>
+        <td class="degree">40 to 59%</span></td>
+        <td class="degree">20 to 39%</span></td>
+        <td class="degree">0 to 19%</span></td>
+        <td class="degree">No data</span></td>
+    </tr>
+</table>
+</div>
+</div>
+
+<!-- end soy key -->
+
+<!-- begin soy map -->
+<div id="soy_text">Soybean condition</div>
+<div id="soy_map"></div>
+<!-- end soy map -->
+        
+</div>
+<!-- end corn panel -->
+
+</div>
+<!-- end tab group -->
+
+<div id="graphic_credit">SOURCES: National Weather Service Climate Prediction Center; United States Department of Agriculture, National Agricultural Statistics Service. Graphics by Laura Sparks and Chris Keller.</div>
+<br />
+</div>
+<!-- end wrapper -->

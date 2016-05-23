@@ -1,0 +1,30 @@
+<iframe width="620px" height="440px" scrolling="no"  src="https://www.google.com/fusiontables/embedviz?viz=MAP&q=select+col5+from+2204867+&h=false&lat=43.08001633012991&lng=-89.40751724453125&z=11&t=1&l=col5"></iframe>
+
+<div id="visualization" style="width: 620px; height: 4000px;"></div>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript" id="script">
+
+google.load('visualization', '1', {'packages':['corechart']});
+
+function drawVisualization() {
+  google.visualization.drawChart({
+    "containerId": "visualization",
+    "dataSourceUrl": "http://www.google.com/fusiontables/gvizdata?tq=",
+    "query": "SELECT Name, Subsidy FROM 2204867 ORDER by Subsidy DESC",
+    "refreshInterval": 5,
+	"chartType": "BarChart",
+	
+    "options": {
+		"colors":['#336600'],
+		"chartArea":{left:240,top:40},
+		"legend": 'none',
+		"fontSize":11,
+		"hAxis.format":{format:',%'},
+		"height": 3800,
+		"cht": 'bhs',
+    }
+  });
+}
+
+google.setOnLoadCallback(drawVisualization);
+</script>
